@@ -14,6 +14,7 @@
            $data["listaUsuarios"] = $this->AdministradorModel->getAll();
           $this->load->view("administradorAjax.php", $data);
        }
+        
 
         public function InsertarUsuarios() {
             
