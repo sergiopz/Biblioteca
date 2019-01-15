@@ -30,7 +30,7 @@
                 echo"Fallo al eliminar Editorial";
                 
             } else {
-                echo"Editorial eliminado con exito";
+                echo"Editorial eliminado con  exito";
                 
              }
 
