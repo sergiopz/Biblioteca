@@ -28,13 +28,13 @@
         <div class="formulario">
             <h2>Iniciar Sesión</h2>
      <?php
-            echo form_open("Usuarios/ComprobarUsario");
+            echo form_open("Usuarios/ComprobarUsuario");
      ?>
 
             
                 Usuario: <input type="text" name="nombre" id="nombre"/><span id="mensaje"></span><br/>
             Contraseña: <input type="text" name="password"/><br/>
-            <input type="hidden" name="do" value="ComprobarUsario"/>
+            <input type="hidden" name="do" value="ComprobarUsuario"/>
             <input type="submit" value="Entrar"/>
         </div>
         
