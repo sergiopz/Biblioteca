@@ -21,7 +21,7 @@
          <script type="text/javascript">
         $(document).ready(function (){
           $("#administracion").click(function() {
-            $("#capaAdmin").load("<?php echo site_url("Administrador/main"); ?>", function() {alert("Hola");});
+            $("#capaAdmin").load("<?php echo site_url("Administrador/main"); ?>", function() { });
           });
           $("#btnNuevoUsuario".click(function() {alert("Boton nuevo usuario");}));
         
@@ -29,7 +29,7 @@
           
     });
   </script>
-  <title>Panaderia</title>
+  <title>Administracion</title>
 </head>
 
 <body>
@@ -40,7 +40,10 @@
                               <a class="nav-link active" id="administracion" href="#">administracion</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#" id="categorias">Categorias</a>
+                              <a class="nav-link" href="#" id="editoriales">Editorial</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#" id="editoriales">Editorial</a>
                             </li>
                             <li class="nav-item">
                               <a class="nav-link" href="#">Link</a>

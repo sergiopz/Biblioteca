@@ -15,7 +15,7 @@
             $this->load->view("EntradaLogin");
         }
 
-        public function ComprobarUsario() {
+        public function ComprobarUsuario() {
             
             $nombre = $this->input->get_post("nombre");
             $pass = $this->input->get_post("password");
