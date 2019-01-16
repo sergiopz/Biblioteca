@@ -24,7 +24,7 @@
             $resultado2 = $this->UsuariosModel->ComprobarTipo1($nombre,$pass);
             $resultado3 = $this->UsuariosModel->ComprobarTipo2($nombre,$pass);
             
-           echo $resultado1.$resultado2.$resultado3;
+           
 
               if ($resultado1 == 1) { // Error: usuario o contraseña no existen
             
