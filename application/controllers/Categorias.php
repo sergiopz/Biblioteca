@@ -11,10 +11,16 @@
             $this->load->model("CategoriaModel");
         }*/
 
-        public function vistaFormInsert(){
+       /* public function vistaFormInsert(){
 
             $this->load->view("formInsert");
 
+        }*/
+
+
+        public function main() {
+            $data["listaCategorias"] = $this->CategoriasModel->getAll();
+           $this->load->view("categoriasAjax.php", $data);
         }
 
         public function InsertarCategoria(){
