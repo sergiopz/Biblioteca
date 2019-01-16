@@ -11,7 +11,7 @@
                 integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
         <!-- Css -->
-        <link rel="stylesheet" href="estilos.css">
+        <!-- Css  <link rel="stylesheet" href="estilos.css">
 
         <!-- Fuentes de google-->
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">

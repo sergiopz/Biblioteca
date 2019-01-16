@@ -1,11 +1,35 @@
 <?php
       
-      echo "<div class='formularioInsercion' style='display:'>
+      echo "<div class='formularioInsercion' id='oculto' style='display:none'>
             <h1>Insertar un Usuarios</h1>";
         
         echo form_open_multipart("Administrador/InsertarUsuarios");
         //echo form_open("peliculas/insertPeliculas");
         //id : <input type='text' name='id'/><br/>
+         ?>
+
+         <script>
+         	 $(document).ready(function (){
+          $("#btnNuevoUsuario").click(function() {
+          	$(document).ready(function() {
+  // Instrucciones a ejecutar al terminar la carga 
+  $("#oculto").css("display", "inline");
+});
+
+           
+          });
+          //$("#btnNuevoUsuario".click(function() {alert("Boton nuevo usuario");}));
+
+        });
+         	
+         </script>
+
+
+
+
+
+
+         <?php
 
         echo "
             <fieldset>
