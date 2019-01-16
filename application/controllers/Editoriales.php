@@ -8,6 +8,16 @@
 
         }
 
+
+        /*Descomentar esta linea cuando se cree editorialAjax 
+
+        public function VistaAjax() {
+            $data["listaEditoriales"] = $this->EditorialesModel->getAll();
+           $this->load->view("editorialAjax.php", $data);
+        }
+        */
+
+
         public function InsertarEditorial(){
             
             $nombre = $this->input->get_post("nombre");

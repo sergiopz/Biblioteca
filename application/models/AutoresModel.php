@@ -1,13 +1,14 @@
 <?php
     class AutoresModel extends CI_Model {
     // Devolver todos los valores de una lista
-        public function getAll() {
-            $r = $this->db->query("SELECT * FROM autores");
-            $autores=array();
-            foreach($r->result()as $autor){
-                $autores[]=$autor;
-            }
-            return $autores;     
+
+    public function getAll() {
+        $r = $this->db->query("SELECT * FROM autores");
+        $autores=array();
+        foreach($r->result()as $autor){
+            $autores[]=$autor;
+        }
+        return $autores;     
     }
 
    // Insertar un autor de la tabla. Devuelve 1 si lo consigue o 0 en caso de error 

@@ -1,13 +1,14 @@
 <?php
     class EditorialesModel extends CI_Model {
     // Devolver todos los valores de una lista
-        public function getAll() {
-            $r = $this->db->query("SELECT * FROM editoriales");
-            $editoriales=array();
-            foreach($r->result()as $editorial){
-                $editoriales[]=$editorial;
-            }
-            return $editoriales;     
+    
+    public function getAll() {
+        $r = $this->db->query("SELECT * FROM editoriales");
+        $editoriales=array();
+        foreach($r->result()as $editorial){
+            $editoriales[]=$editorial;
+        }
+        return $editoriales;     
     }
 
    // Insertar un editorial de la tabla. Devuelve 1 si lo consigue o 0 en caso de error 
