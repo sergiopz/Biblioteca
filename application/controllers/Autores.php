@@ -8,13 +8,11 @@
 
         }
 
-        /*Descomentar esta linea cuando se cree autorAjax.php
-
         public function VistaAjax() {
             $data["listaAutores"] = $this->AutoresModel->getAll();
-           $this->load->view("autorAjax.php", $data);
+           $this->load->view("AutorAjax.php", $data);
         }
-        */
+    
 
         public function InsertarAutor(){
             

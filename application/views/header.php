@@ -30,12 +30,13 @@
             $("#capaAdmin").load("<?php echo site_url("Categorias/main"); ?>", function() {alert("holaa"); });
           });
 
-          /* Descomentar cuando se cree EditorialAjax y AutorAjax
+         
 
           $("#editorial").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Editoriales/VistaAjax"); ?>", function() {alert("Funka1"); });
           });
 
+      /* Descomentar cuando se cree EditorialAjax y AutorAjax
           $("#autor").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Autores/VistaAjax"); ?>", function() {alert("Funka2"); });
           });
