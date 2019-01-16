@@ -1,6 +1,6 @@
 <?php
       
-      echo "<div class='formularioInsercion' style='display:none'>
+      echo "<div class='formularioInsercion' style='display:'>
             <h1>Insertar un Usuarios</h1>";
         
         echo form_open_multipart("Administrador/InsertarUsuarios");
