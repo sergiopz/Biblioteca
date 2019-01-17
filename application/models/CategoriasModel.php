@@ -13,21 +13,15 @@
                 $this->db->query("Insert into categoria(nombre)
                 Values('$nombre')");
                 return $this->db->affected_rows();
-            
             }
 
             public function EliminarCategoria($id){
-
                 $this->db->query("DELETE FROM categoria where id='$id'");
-
                 return $this->db->affected_rows();
-
             }
 
             public function ModificarCategoria($id, $nombre){
-                
                 $this->db->query("UPDATE categoria Set nombre ='$NOMBRE', Where id='$id'");
-                
                 return $this->db->affected_rows();
 
             }

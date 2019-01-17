@@ -17,11 +17,11 @@
 
         }*/
 
-        public function main() {
+        public function VistaAjax() {
             $data["listaCategorias"] = $this->CategoriasModel->getAll();
-           $this->load->view("CategoriaAjax.php", $data);
+            $this->load->view("CategoriaAjax.php", $data);
         }
-
+/*
         public function InsertarCategoria(){
 
                 $nombre = $this->input->get_post("nombre");
@@ -68,5 +68,5 @@
                     }
 
                 
-            }
+            }*/
         }
