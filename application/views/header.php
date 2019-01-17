@@ -41,6 +41,10 @@
             $("#capaAdmin").load("<?php echo site_url("Autores/VistaAjax"); ?>", function() { });
           });
 
+          $("#libro").click(function() {
+            $("#capaAdmin").load("<?php echo site_url("Libros/VistaAjax"); ?>", function() { });
+          });
+
           
         
           
@@ -69,7 +73,7 @@
                               <a class="nav-link" href="#" id="institutos">Institutos</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">Link</a>
+                              <a class="nav-link" href="#" id="libro">Libros</a>
                             </li>
                             <li class="nav-item">
                               <a class="nav-link disabled" href="#">Disabled</a>
