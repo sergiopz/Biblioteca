@@ -6,15 +6,25 @@
         echo form_open_multipart("Administrador/InsertarUsuarios");
         //echo form_open("peliculas/insertPeliculas");
         //id : <input type='text' name='id'/><br/>
-         ?>
+         
 
+?>
          <script>
          	 $(document).ready(function (){
               $("#btnNuevoUsuario1").click(function() {
        
 
                 $('#oculto').toggle();
-                $('#oculto').text(texto) 
+                if ($('#btnNuevoUsuario1').text()=="Ocultar") {
+                  $('#btnNuevoUsuario1').text("Mostrar") ;
+                  //alert("if");
+                  //alert( $('#btnNuevoUsuario1').text("Mostrar"));
+                }else{
+                      $('#btnNuevoUsuario1').text("Ocultar") ;
+                      //alert("else");
+                      //alert( $('#btnNuevoUsuario1').text("Ocultar"));
+                }
+                
 
 
             });
@@ -58,7 +68,7 @@
         ";
             echo "<br></div>";
 
-        echo "<a href='#' id='btnNuevoUsuario1'>Mostrar</a>";
+        echo "<br/> <a href='#' id='btnNuevoUsuario1'>Mostrar</a>";
       
          
          echo " 

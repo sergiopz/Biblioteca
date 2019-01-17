@@ -53,9 +53,8 @@
             if ($resultado == 0) { // Error: usuario o contraseña no existen
                 $this->load->view("VistaAdministrador");
             } else {
-                $this->load->model("AdministradorModel");
-                $data["listaUsuarios"] = $this->AdministradorModel->getAll();
-                   $this->load->view("VistaAdministrador", $data);  
+                   $data["listaUsuarios"] = $this->AdministradorModel->getAll();
+                   $this->load->view("VistaAdministrador", $data);   
             }
         
       }
