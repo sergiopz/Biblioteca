@@ -27,7 +27,7 @@
 
 
            $("#categoria").click(function() {
-            $("#capaAdmin").load("<?php echo site_url("Categorias/VistaAjax"); ?>", function() {alert("holaa"); });
+            $("#capaAdmin").load("<?php echo site_url("Categorias/VistaAjax"); ?>", function() {); });
           });
 
           

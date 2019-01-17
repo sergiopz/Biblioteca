@@ -4,8 +4,6 @@
             <h1>Insertar un Usuarios</h1>";
         
         echo form_open_multipart("Categorias/InsertarCategoria");
-        //echo form_open("peliculas/insertPeliculas");
-        //id : <input type='text' name='id'/><br/>
          ?>
 
        <script>
