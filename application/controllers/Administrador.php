@@ -35,8 +35,8 @@
                         $data["mensaje"] = "Error al insertar la película en la base de datos";
                        // $this->peliculasModel->borrarImagenPelicula($img_name);
                     } else {
-                      $data["listaUsuarios"] = $this->AdministradorModel->getAll();
-                   $this->load->view("VistaAdministrador", $data);  
+                      $data["nombreVista"] = "VistaAdministrador";
+             $this->load->view("plantilla", $data);
                     }
       }
             

@@ -6,9 +6,11 @@
         echo form_open_multipart("Administrador/InsertarUsuarios");
         //echo form_open("peliculas/insertPeliculas");
         //id : <input type='text' name='id'/><br/>
-         
+         ?>
 
-?>
+
+
+
          <script>
          	 $(document).ready(function (){
               $("#btnNuevoUsuario1").click(function() {
@@ -28,6 +30,14 @@
 
 
             });
+
+                $("#borrar").click(function() {
+
+                   $("input").remove();
+
+                  });
+
+
 
          });  
          
@@ -69,6 +79,7 @@
             echo "<br></div>";
 
         echo "<br/> <a href='#' id='btnNuevoUsuario1'>Mostrar</a>";
+        echo "<br/> <a href='#' id='borrar'>borrar</a>";
       
          
          echo " 
@@ -85,7 +96,13 @@
                  ";
 
           echo "<br>";   
-          echo "<br>";   
+          echo " <table id='tabla' border=1>
+        <tr>
+            <td>primera columma</td>
+            <td>segundo columna</td>
+            
+        </tr>
+    </table>";   
             
 
             for ($i = 0; $i < count($listaUsuarios); $i++) {
@@ -93,18 +110,24 @@
 
                 echo form_open("Administrador/ModificarUsuarios");
                 echo "
-                <div class='info'>
-                <input type='text' name='id' value='$usuario->id'>
-                <input type='text' name='nombre' value='$usuario->nombre'>
-                <input type='text' name='apellidos'value='$usuario->apellidos'>
-                <input type='text' name='nick'value='$usuario->nick'>
-                <input type='text' name='contrasena'value='$usuario->contrasena'>
-                <input type='text' name='correo'value='$usuario->correo'>
-                <input type='text' name='telefono'value='$usuario->telefono'>
-                <input type='text' name='tipo'value='$usuario->tipo'>
-                  <input type='text' name='idInstituto'value='$usuario->idInstituto'>
-                    <input type='hidden' name='do' value='ModificarPeliculas' />
-                    <input type='Submit' name='Modificar' value='Modificar'/>
+
+                <table id='tabla' border=1>
+        <tr>
+            <td><input type='text' name='id' value='$usuario->id'></td>
+            <td><input type='text' name='nombre' value='$usuario->nombre'></td>
+            <td> <input type='text' name='apellidos'value='$usuario->apellidos'></td>
+            <td> <input type='text' name='nick'value='$usuario->nick'></td>
+            <td> <input type='text' name='contrasena'value='$usuario->contrasena'></td>
+            <td><input type='text' name='correo'value='$usuario->correo'></td>
+            <td><input type='text' name='telefono'value='$usuario->telefono'></td>
+            <td><input type='text' name='tipo'value='$usuario->tipo'></td>
+            <td><input type='text' name='idInstituto'value='$usuario->idInstituto'></td>
+            
+        </tr>
+
+
+
+                
                      
                 " ;
               
@@ -119,6 +142,7 @@
                   </form>
                   ";
             }
+            echo"</table>";
    
             echo "<div>
                 
