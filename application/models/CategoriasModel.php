@@ -9,9 +9,8 @@
             return $categorias;     
         }
 
-        public function InsertCategoria($id, $nombre) {
-            $this->db->query("Insert into categoria(nombre)
-            Values('$nombre')");
+        public function InsertarCategoria($nombre) {
+            $this->db->query("INSERT INTO categoria(nombre) VALUES ('$nombre')");
             return $this->db->affected_rows();
         }
 
@@ -21,7 +20,7 @@
         }
 
         public function ModificarCategoria($id, $nombre){
-            $this->db->query("UPDATE categoria Set nombre ='$NOMBRE', Where id='$id'");
+            $this->db->query("UPDATE categoria Set nombre ='$nombre' Where id='$id'");
             return $this->db->affected_rows();
         }
 
