@@ -10,28 +10,19 @@
 
          <script>
          	 $(document).ready(function (){
-          $("#btnNuevoUsuario").click(function() {
-          // alert( $("#oculto").attr("style"));
+              $("#btnNuevoUsuario1").click(function() {
+       
 
-          if( $("#oculto").attr("style")=="display:none"){ 
-
-              // Instrucciones a ejecutar al terminar la carga 
-               $("#oculto").css("display", "inline");
+                $('#oculto').toggle();
+                $('#oculto').text(texto) 
 
 
-          }
-           else{
-                   $("#oculto").css("display", "none");
+            });
 
-               }
+         });  
+         
 
-
-           
-          });
-          
-          //$("#btnNuevoUsuario".click(function() {alert("Boton nuevo usuario");}));
-
-        });
+       
          	
          </script>
 
@@ -67,7 +58,8 @@
         ";
             echo "<br></div>";
 
-        echo "<a href='#' id='btnNuevoUsuario'>Nuevo</a>";
+        echo "<a href='#' id='btnNuevoUsuario1'>Mostrar</a>";
+      
          
          echo " 
                 <span>id</span>
