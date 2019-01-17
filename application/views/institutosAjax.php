@@ -1,7 +1,7 @@
 <?php
       
     echo "<div class='formularioInsercion' id='oculto' style='display:none'>
-        <h1>Insertar un Usuarios</h1>";
+        <h1>Insertar un Instituto</h1>";
         
     echo form_open_multipart("Institutos/InsertarInstituto");
 
@@ -32,8 +32,7 @@
             </fieldset>
     ";
 
-    echo"<input type='hidden' name='do' value='InsertPelicula'/>
-            <input  type='submit' name='Enviar' value='Insertar'/>
+    echo"<input  type='submit' name='Enviar' value='Insertar'/>
             </form>
     ";
            
@@ -57,16 +56,17 @@
 
         echo form_open("Institutos/ModificarInstituto");
         echo "<div class='info'>
-            <input type='text' name='nombre' value='$insituto->nombre'>
-            <input type='text' name='apellidos'value='$instituto->localidad'>
-            <input type='text' name='nick'value='$instituto->direccion'>
-            <input type='text' name='contrasena'value='$instituto->cp'>
-            <input type='text' name='correo'value='$instituto->provincia'>
+            <input type='text' name='id' hidden value='$instituto->id'>
+            <input type='text' name='nombre' value='$instituto->nombre'>
+            <input type='text' name='localidad'value='$instituto->localidad'>
+            <input type='text' name='direccion'value='$instituto->direccion'>
+            <input type='text' name='cp'value='$instituto->cp'>
+            <input type='text' name='provincia'value='$instituto->provincia'>
             <input type='Submit' name='Modificar' value='Modificar'/>
                      
          " ;
  
-        echo "<button><a href='".site_url('Institutos/EliminarInstitutos/'.$instituto->id)."'>Eliminar</a></button>
+        echo "<button><a href='".site_url('Institutos/EliminarInstituto/'.$instituto->id)."'>Eliminar</a></button>
             </div>
             </form>
         ";

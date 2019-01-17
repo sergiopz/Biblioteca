@@ -49,7 +49,7 @@
 
               echo form_open("Categorias/ModificarCategoria");
               echo "<div class='info'>
-                     <input type='text' name='id' value='$categoria->id'>
+                     <input type='text' name='id' hidden value='$categoria->id'>
                      <input type='text' name='nombre' value='$categoria->nombre'>
                      <input type='Submit' name='Modificar' value='Modificar'/>
               " ;
