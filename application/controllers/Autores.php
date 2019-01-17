@@ -2,6 +2,7 @@
 //Controlador de Autores
     include_once("seguridad.php");
     class Autores extends seguridad {
+        
         public function __construct() {
             parent::__construct();
             $this->load->model("AutoresModel");
@@ -10,7 +11,7 @@
 
         public function VistaAjax() {
             $data["listaAutores"] = $this->AutoresModel->getAll();
-           $this->load->view("AutorAjax.php", $data);
+            $this->load->view("AutorAjax.php" , $data);
         }
     
 
@@ -44,11 +45,9 @@
         }
 
         public function ModificarAutor(){
-
             $id = $this->input->get_post("id");
-            $nombre = $this->input->get_post("nombre");
-            r=$this->AutoresModel->ModificarAutor($id,$nombre);
-
+            $nombre = $this->input->get_post("nombre"); 
+            $r=$this->AutoresModel->ModificarAutor($id,$nombre);
             if ($r== 0) { 
                 echo"Fallo al modificar autor";
                 
@@ -56,8 +55,8 @@
                 echo"Autor modificado con exito";
                 
              }
-
         }
+
 
        
     }

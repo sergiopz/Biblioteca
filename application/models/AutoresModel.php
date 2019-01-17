@@ -33,7 +33,7 @@
 
     //Modificar un autor de la tabla. Devuelve 1 si lo consigue o 0 en caso de error
     public function ModificarAutor($id,$nombre) {
-             $this->db->query("UPDATE autores SET nombre='$nombre' WHERE id='$id'");
+            $this->db->query("UPDATE autores SET nombre='$nombre' WHERE id='$id'");
             return $this->db->affected_rows();   
                 }
 
