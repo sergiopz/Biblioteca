@@ -41,6 +41,10 @@
             $("#capaAdmin").load("<?php echo site_url("Autores/VistaAjax"); ?>", function() { });
           });
 
+          $("#libro").click(function() {
+            $("#capaAdmin").load("<?php echo site_url("Libros/VistaAjax"); ?>", function() { });
+          });
+
       
 
           
