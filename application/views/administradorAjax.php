@@ -11,13 +11,24 @@
          <script>
          	 $(document).ready(function (){
           $("#btnNuevoUsuario").click(function() {
-          	$(document).ready(function() {
-  // Instrucciones a ejecutar al terminar la carga 
-  $("#oculto").css("display", "inline");
-});
+          // alert( $("#oculto").attr("style"));
+
+          if( $("#oculto").attr("style")=="display:none"){ 
+
+              // Instrucciones a ejecutar al terminar la carga 
+               $("#oculto").css("display", "inline");
+
+
+          }
+           else{
+                   $("#oculto").css("display", "none");
+
+               }
+
 
            
           });
+          
           //$("#btnNuevoUsuario".click(function() {alert("Boton nuevo usuario");}));
 
         });
