@@ -27,7 +27,7 @@
 
 
            $("#categoria").click(function() {
-            $("#capaAdmin").load("<?php echo site_url("Categorias/VistaAjax"); ?>", function() {alert("holaa"); });
+            $("#capaAdmin").load("<?php echo site_url("Categorias/VistaAjax"); ?>", function() { } );
           });
 
           
@@ -39,6 +39,14 @@
         
           $("#autor").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Autores/VistaAjax"); ?>", function() { });
+          });
+
+<<<<<<< HEAD
+
+=======
+          $("#institutos").click(function() {
+            $("#capaAdmin").load("<?php echo site_url("Institutos/VistaAjax"); ?>", function() { });
+>>>>>>> ae571731753a78ea2281f4771cd20384d7281b91
           });
 
           
@@ -69,7 +77,7 @@
                               <a class="nav-link" href="#" id="institutos">Institutos</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">Link</a>
+                              <a class="nav-link" href="#" id="libro">Libros</a>
                             </li>
                             <li class="nav-item">
                               <a class="nav-link disabled" href="#">Disabled</a>
