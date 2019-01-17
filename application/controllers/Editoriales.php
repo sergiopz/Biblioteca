@@ -9,13 +9,13 @@
         }
 
 
-        /*Descomentar esta linea cuando se cree editorialAjax 
+       
 
         public function VistaAjax() {
             $data["listaEditoriales"] = $this->EditorialesModel->getAll();
            $this->load->view("editorialAjax.php", $data);
         }
-        */
+       
 
 
         public function InsertarEditorial(){
@@ -48,11 +48,9 @@
         }
 
         public function ModificarEditorial(){
-
             $id = $this->input->get_post("id");
-            $nombre = $this->input->get_post("nombre");
-            r=$this->EditorialesModel->ModificarEditorial($id,$nombre);
-
+            $nombre = $this->input->get_post("nombre"); 
+            $r=$this->EditorialesModel->ModificarEditorial($id,$nombre);
             if ($r== 0) { 
                 echo"Fallo al modificar Editorial";
                 
@@ -60,7 +58,6 @@
                 echo"Editorial modificado con exito";
                 
              }
-
         }
 
        

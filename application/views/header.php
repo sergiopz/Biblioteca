@@ -30,15 +30,15 @@
             $("#capaAdmin").load("<?php echo site_url("Categorias/main"); ?>", function() {alert("holaa"); });
           });
 
-          /* Descomentar cuando se cree EditorialAjax y AutorAjax
+          
 
           $("#editorial").click(function() {
-            $("#capaAdmin").load("<?php echo site_url("Editoriales/VistaAjax"); ?>", function() {alert("Funka1"); });
+            $("#capaAdmin").load("<?php echo site_url("Editoriales/VistaAjax"); ?>", function() { });
           });
 
-        */
+        
           $("#autor").click(function() {
-            $("#capaAdmin").load("<?php echo site_url("Autores/VistaAjax"); ?>", function() {alert("Funka2"); });
+            $("#capaAdmin").load("<?php echo site_url("Autores/VistaAjax"); ?>", function() { });
           });
 
           
@@ -60,10 +60,10 @@
                               <a class="nav-link" href="#" id="categoria">categoria</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#" id="editoriales">Editorial</a>
+                              <a class="nav-link" href="#" id="editorial">Editorial</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#" id="autores">Autores</a>
+                              <a class="nav-link" href="#" id="autor">Autores</a>
                             </li>
                             <li class="nav-item">
                               <a class="nav-link" href="#" id="institutos">Institutos</a>
