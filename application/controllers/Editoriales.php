@@ -13,7 +13,7 @@
 
         public function VistaAjax() {
             $data["listaEditoriales"] = $this->EditorialesModel->getAll();
-           $this->load->view("editorialAjax.php", $data);
+           $this->load->view("EditorialAjax.php", $data);
         }
        
 

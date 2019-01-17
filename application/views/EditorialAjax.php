@@ -1,5 +1,6 @@
 <?php
-      
+      echo"hola";
+      /*
      echo "<div class='formularioInsercion' style='display:inline'>
             <h1>Insertar una Editorial</h1>";
         
@@ -62,3 +63,4 @@
             <a href='".site_url("Editorial/cerrar_sesion")."'>Cerrar sesión</a>
 
             </div>";
+            */
