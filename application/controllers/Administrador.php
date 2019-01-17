@@ -10,39 +10,46 @@
 
        }
 
-        public function main() {
-            $data["listaUsuarios"] = $this->AdministradorModel->getAll();
-            $this->load->view("administradorAjax.php", $data);
+       public function main() {
+           $data["listaUsuarios"] = $this->AdministradorModel->getAll();
+          $this->load->view("administradorAjax.php", $data);
        }
         
+
         public function InsertarUsuarios() {
             
-            //$id = $this->input->get_post("id");
-            $nombre = $this->input->get_post("nombre");
-            $apellidos = $this->input->get_post("apellidos");
-            $nick = $this->input->get_post("nick");
-            $contrasena = $this->input->get_post("contrasena");
-            $correo = $this->input->get_post("correo");
-            $telefono = $this->input->get_post("telefono");
-            $tipo = $this->input->get_post("tipo");
-            $idInstituto = $this->input->get_post("idInstituto");
 
-            $resultado = $this->AdministradorModel->InsertarUsuarios($nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto );
+                //$id = $this->input->get_post("id");
+                $nombre = $this->input->get_post("nombre");
+                $apellidos = $this->input->get_post("apellidos");
+                $nick = $this->input->get_post("nick");
+                $contrasena = $this->input->get_post("contrasena");
+                $correo = $this->input->get_post("correo");
+                $telefono = $this->input->get_post("telefono");
+                $tipo = $this->input->get_post("tipo");
+                $idInstituto = $this->input->get_post("idInstituto");
 
-            if ($resultado == 0) {
-                $data["mensaje"] = "Error al insertar la película en la base de datos";
-                // $this->peliculasModel->borrarImagenPelicula($img_name);
-            } else {
-                $data["listaUsuarios"] = $this->AdministradorModel->getAll();
-                $this->load->view("VistaAdministrador", $data);  
-            }
-        }
+                
+                    $resultado = $this->AdministradorModel->InsertarUsuarios($nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto );
+                    if ($resultado == 0) {
+                        $data["mensaje"] = "Error al insertar la película en la base de datos";
+                       // $this->peliculasModel->borrarImagenPelicula($img_name);
+                    } else {
+                      $data["listaUsuarios"] = $this->AdministradorModel->getAll();
+                   $this->load->view("VistaAdministrador", $data);  
+                    }
+      }
             
+                
+               
+
+
         public function EliminarUsuarios($id) {
                   
             //$id = $this->input->get_post("id");
             $resultado = $this->AdministradorModel->BorrarUsuarios($id);
-            
+           
+               
             if ($resultado == 0) { // Error: usuario o contraseña no existen
                 $this->load->view("VistaAdministrador");
             } else {
@@ -50,35 +57,43 @@
                 $data["listaUsuarios"] = $this->AdministradorModel->getAll();
                    $this->load->view("VistaAdministrador", $data);  
             }
-        }
+        
+      }
 
-        public function ModificarUsuarios() {
+         public function ModificarUsuarios() {
                   
-            $id = $this->input->get_post("id");
-            $nombre = $this->input->get_post("nombre");
-            $apellidos = $this->input->get_post("apellidos");
-            $nick = $this->input->get_post("nick");
-            $contrasena = $this->input->get_post("contrasena");
-            $correo = $this->input->get_post("correo");
-            $telefono = $this->input->get_post("telefono");
-            $tipo = $this->input->get_post("tipo");
-            $idInstituto = $this->input->get_post("idInstituto");            //$cartel = $this->input->get_post("cartel");
-            $resultado = $this->AdministradorModel->ModificarUsuarios($id,$nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto);
+                $id = $this->input->get_post("id");
+                $nombre = $this->input->get_post("nombre");
+                $apellidos = $this->input->get_post("apellidos");
+                $nick = $this->input->get_post("nick");
+                $contrasena = $this->input->get_post("contrasena");
+                $correo = $this->input->get_post("correo");
+                $telefono = $this->input->get_post("telefono");
+                $tipo = $this->input->get_post("tipo");
+                $idInstituto = $this->input->get_post("idInstituto");            //$cartel = $this->input->get_post("cartel");
+                $resultado = $this->AdministradorModel->ModificarUsuarios($id,$nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto);
            
+               
             if ($resultado == 0) { // Error: usuario o contraseña no existen
 
-                $data["error"]="No se pudo modificar";
-                $data["listaUsuarios"] = $this->AdministradorModel->getAll();
-                $this->load->view("VistaAdministrador", $data);
+                 $data["error"]="No se pudo modificar";
+                 $data["listaUsuarios"] = $this->AdministradorModel->getAll();
+               $this->load->view("VistaAdministrador", $data);
+
+             
+               
 
             } else {
 
-                $data["mensaje"]=" modificado con exito";
+
+                 $data["mensaje"]=" modificado con exito";
 
                 $this->load->model("AdministradorModel");
                 $data["listaUsuarios"] = $this->AdministradorModel->getAll();
                 $this->load->view("VistaAdministrador", $data);
+            }
+        
 
-            } 
+        
     }
   }

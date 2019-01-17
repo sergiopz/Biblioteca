@@ -9,6 +9,7 @@
         }
          public function getAll() {
            
+            
             $r = $this->db->query("SELECT * FROM usuarios"); 
             
             $usuarios = array();
@@ -17,8 +18,12 @@
           
            }
             
+            
             return $usuarios;
         }
+
+
+
 
              function InsertarUsuarios($nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto) {
                 
@@ -36,5 +41,12 @@
                 $this->db->query("UPDATE usuarios SET nombre='$nombre', apellidos='$apellidos', nick='$nick', contrasena='$contrasena', telefono='$telefono', tipo='$tipo', idInstituto='$idInstituto' WHERE id='$id' ");
                 return $this->db->affected_rows();
             }
-      
+
+            
+
+                   
+           
      }
+    
+
+   
