@@ -1,7 +1,7 @@
 <?php
 //Controlador de Editoriales
     include_once("seguridad.php");
-    class Editorialess extends seguridad {
+    class Editoriales extends seguridad {
         public function __construct() {
             parent::__construct();
             $this->load->model("EditorialesModel");
