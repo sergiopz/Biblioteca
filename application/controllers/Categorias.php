@@ -4,11 +4,11 @@
     //incluimos seguridad php y extendemos de la clase seguridad.php en vez de cI_controller.
     class Peliculas extends Seguridad{*/
 
-    class Categoria extends CI_Controller {
+    class Categorias extends CI_Controller {
 
        /* public function __construct() {
             parent::__construct();
-            $this->load->model("CategoriaModel");
+            $this->load->model("CategoriasModel");
         }*/
 
        /* public function vistaFormInsert(){
@@ -20,30 +20,31 @@
         public function VistaAjax() {
             $data["listaCategorias"] = $this->CategoriasModel->getAll();
             $this->load->view("CategoriaAjax.php", $data);
+            
         }
-/*
+
         public function InsertarCategoria(){
 
                 $nombre = $this->input->get_post("nombre");
 
-                $this->load->model("CategoriaModel");
-                $data["catList"] = $this->CategoriaModel->getAll();
-                $this->load->view("MenuCategorias", $data);
+                $this->load->model("CategoriasModel");
+                $data["catList"] = $this->CategoriasModel->getAll();
+                $this->load->view("header", $data);
     
         } 
 
         public function EliminarCategoria($id){
 
-                $this->load->model("CategoriaModel");
-                $resultado = $this->CategoriaModel->EliminarCategoria($id);
+                $this->load->model("CategoriasModel");
+                $resultado = $this->CategoriasModel->EliminarCategoria($id);
     
                 if ($resultado) {
-                    $this->load->model("CategoriaModel");
-                    $data["catList"] = $this->CategoriaModel->getAll();
-                    $this->load->view("MenuCategorias",$data);
+                    $this->load->model("CategoriasModel");
+                    $data["catList"] = $this->CategoriasModel->getAll();
+                    $this->load->view("header",$data);
                 } else {
                     echo "No se pudo eliminar la Categoria.";
-                    $this->load->view("MenuCategorias");
+                    $this->load->view("header");
                 }
     
         }
@@ -53,20 +54,20 @@
                     $id = $this->input->post('id');
                     $titulo = $this->input->post('nombre');
 
-                    $this->load->model("CategoriaModel");
-                    $resultado = $this->CategoriaModel->ModificarCategoria($id, $nombre);
+                    $this->load->model("CategoriasModel");
+                    $resultado = $this->CategoriasModel->ModificarCategoria($id, $nombre);
 
                     if ($resultado) {
                         $data['mensaje'] = "Categoria modificada con éxito";
-                        $this->load->model("CategoriaModel");
-                        $data["catList"] = $this->CategoriaModel->getAll();
+                        $this->load->model("CategoriasModel");
+                        $data["catList"] = $this->CategoriasModel->getAll();
                         $this->load->view("MenuCategorias",$data);
                     } else {
                         $data["error"] = "No se pudo modificar la categoria.";
-                        $data["catList"] = $this->CategoriaModel->getAll();
+                        $data["catList"] = $this->CategoriasModel->getAll();
                         $this->load->view("MenuCategorias",$data);
                     }
 
                 
-            }*/
+            }
         }
