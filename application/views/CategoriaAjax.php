@@ -1,20 +1,32 @@
 <?php
-
-       echo "hola mundo";
-      /*
-       echo "<div class='formularioInsercion' style='display:inline'>
-            <h1>Insertar una Categoria</h1>
-       ";
+      
+      echo "<div class='formularioInsercion' id='oculto' style='display:none'>
+            <h1>Insertar un Usuarios</h1>";
         
-       echo form_open_multipart("Categorias/InsertarCategoria");
+        echo form_open_multipart("Categorias/InsertarCategoria");
+        //echo form_open("peliculas/insertPeliculas");
+        //id : <input type='text' name='id'/><br/>
+         ?>
 
+       <script>
+         	$(document).ready(function (){
+                     $("#btnNuevoUsuario1").click(function() {
+                            $('#oculto').toggle();
+                            $('#oculto').text(texto) 
+                     });
+
+              });  
+         
+       </script>
+
+<?php
 
        echo "<fieldset>
               nombre : <input type='text' name='nombre'/><br/>
        ";
-                
        echo "<br/>
-              </fieldset>";
+              </fieldset>
+       ";
 
        echo"<input  type='submit' name='Enviar' value='Insertar'/>
               </form>
@@ -23,18 +35,19 @@
        echo "<br></div>
        ";
 
-       echo "<a href='#' id='btnNuevoUsuario'>Nuevo</a>
+       echo "<a href='#' id='btnNuevoUsuario1'>Mostrar</a>
        ";
+      
          
        echo "<span>id</span>
-              <span>nombre</span>          
+              <span>nombre</span>
        ";
 
        echo "<br>";   
        echo "<br>";   
             
-       for ($i = 0; $i < count($listaCategoria); $i++) {
-              $categoria = $listaCategoria[$i];
+       for ($i = 0; $i < count($listaCategorias); $i++) {
+              $categoria = $listaCategorias[$i];
 
               echo form_open("Categorias/ModificarCategoria");
               echo "<div class='info'>
@@ -42,15 +55,15 @@
                      <input type='text' name='nombre' value='$categoria->nombre'>
                      <input type='Submit' name='Modificar' value='Modificar'/>
               " ;
-              
+    
               echo "<button><a href='".site_url('Categorias/EliminarCategoria/'.$categoria->id)."'>Eliminar</a></button>
                      </div>
                      </form>
               ";
-
        }
    
        echo "<div>
-              <a href='".site_url("Administrador/cerrar_sesion")."'>Cerrar sesión</a>
+              <a href='".site_url("Usuarios/cerrar_sesion")."'>Cerrar sesión</a>
               </div>
-       ";*/
+       ";
+              

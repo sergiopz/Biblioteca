@@ -3,7 +3,7 @@
      echo "<div class='formularioInsercion' style='display:inline'>
             <h1>Insertar un Autor</h1>";
         
-     echo form_open_multipart("Autor/InsertarAutor");
+     echo form_open_multipart("Autores/InsertarAutor");
 
 
      echo "
@@ -50,7 +50,7 @@
                 
                
 
-                  echo "<button><a href='".site_url('Administrador/EliminarAutor/'.$autor->id)."'>Eliminar</a></button>
+                  echo "<button><a href='".site_url('Autores/EliminarAutor/'.$autor->id)."'>Eliminar</a></button>
                   </div>
 
                   </form>
