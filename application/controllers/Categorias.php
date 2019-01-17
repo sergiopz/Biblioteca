@@ -17,10 +17,9 @@
 
         }*/
 
-
         public function main() {
             $data["listaCategorias"] = $this->CategoriasModel->getAll();
-           $this->load->view("categoriasAjax.php", $data);
+           $this->load->view("CategoriaAjax.php", $data);
         }
 
         public function InsertarCategoria(){
