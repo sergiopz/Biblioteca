@@ -62,21 +62,29 @@ echo"
                             echo "<option  value='$instituto->id' >$instituto->nombre</option> ";
                      }
               }
-          echo "     </select>
-                     <select >";
+          echo "     </select>";
+          /*Fallo al meter el usuario porque sacamos un nombre y espera un id en numero*/
        for ($j = 0; $j < count($listaAdministradores); $j++) {
               $administrador = $listaAdministradores[$j]; 
 
                      if( $libro->idUsuario==$administrador->id ){ 
-                            echo "<option  value='$administrador->id' selected >$administrador->nombre</option> ";                      
-                     }else{
-                            echo "<option  value='$administrador->id' >$administrador->nombre</option> ";
+                            echo "<input type='text' name='idUsuario' value='$administrador->nombre' readonly>";
+                            echo" <input type='hidden' name='idUsuario' value='$administrador->id' />";                      
                      }
               }
 
-          echo"      </select>      
-            
-              <input type='text' name='idEditorial' value='$libro->idEditorial'>
+          echo"      <select name='idEditorial'>";  
+          for ($j = 0; $j < count($listaEditoriales); $j++) {
+              $editorial = $listaEditoriales[$j]; 
+
+                     if( $libro->idEditorial==$editorial->id ){ 
+                            echo "<option  value='$editorial->id' selected >$editorial->nombre</option> ";                      
+                     }else{
+                            echo "<option  value='$editorial->id' >$editorial->nombre</option> ";
+                     }
+              }
+          echo"      </select>
+              
               <input type='hidden' name='do' value='ModificarPeliculas' />
               <input type='Submit' name='Modificar' value='Modificar'/>
                 
