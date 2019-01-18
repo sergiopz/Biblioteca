@@ -63,7 +63,7 @@ echo"
                      }
               }
           echo "     </select>";
-          /*Fallo al meter el usuario porque sacamos un nombre y espera un id en numero*/
+          
        for ($j = 0; $j < count($listaAdministradores); $j++) {
               $administrador = $listaAdministradores[$j]; 
 
