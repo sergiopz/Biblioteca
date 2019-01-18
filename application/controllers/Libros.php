@@ -8,8 +8,7 @@
             $this->load->model("LibrosModel");
             $this->load->model("InstitutosModel");
             $this->load->model("EditorialesModel");
-            /*Descomentar cuando se cree la funcion para recibir los usuarios de la tabla
-            $this->load->model("UsuariosModel");*/
+            $this->load->model("AdministradorModel");
             
 
         }
@@ -17,10 +16,8 @@
         public function VistaAjax() {
             $data["listaLibros"] = $this->LibrosModel->getAll();
             $data["listaInstitutos"] = $this->InstitutosModel->getAll();
-            $data["listaEditoriales"] = $this->EditorialesModel->getAll();
-            
-            /*Descomentar cuando se cree la funcion para recibir todos los usuarios de la tabla
-            $data["listaUsuarios"] = $this->UsuariosModel->getAll();*/
+            $data["listaEditoriales"] = $this->EditorialesModel->getAll();           
+            $data["listaAdministradores"] = $this->AdministradorModel->getAll();
             $this->load->view("LibroAjax.php" , $data);
         }
     

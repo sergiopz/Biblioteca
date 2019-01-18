@@ -55,16 +55,21 @@ echo"
                      <select name='idInstituto'>";
            for ($j = 0; $j < count($listaInstitutos); $j++) {
               $instituto = $listaInstitutos[$j]; 
-              
+
                      if( $libro->idInstituto==$instituto->id ){ 
                             echo "<option  value='$instituto->id' selected >$instituto->nombre</option> ";                      
                      }else{
                             echo "<option  value='$instituto->id' >$instituto->nombre</option> ";
                      }
               }
-          echo "     </select>
-              <input type='text' name='idUsuario' value='$libro->idUsuario'>
-              <input type='text' name='idEditorial' value='$libro->idEditorial'>
+
+       for ($j = 0; $j < count($listaAdministradores); $j++) {
+              $administrador = $listaAdministradores[$j]; 
+                     if( $libro->idUsuario==$administrador->id ){ 
+                            echo " <input type='text' name='idEditorial' value='$administrador->nombre'>";                      
+                     }
+              }
+          echo"<input type='text' name='idEditorial' value='$libro->idEditorial'>
               <input type='hidden' name='do' value='ModificarPeliculas' />
               <input type='Submit' name='Modificar' value='Modificar'/>
                 
