@@ -31,9 +31,13 @@
 
             });
 
-                $("#borrar").click(function() {
+                  //var variable=$usuario->id;
 
-                   $("input").remove();
+                $("#18").click(function() {
+
+                  //alert(variable);
+
+                   $(".18").remove();
 
                   });
 
@@ -104,7 +108,7 @@
                 echo "
 
                 <table id='tabla' border=1>
-        <tr>
+        <tr class='$usuario->id'>
             <td><input type='text' name='id' value='$usuario->id'></td>
             <td><input type='text' name='nombre' value='$usuario->nombre'></td>
             <td> <input type='text' name='apellidos'value='$usuario->apellidos'></td>
@@ -114,21 +118,63 @@
             <td><input type='text' name='telefono'value='$usuario->telefono'></td>
             <td><input type='text' name='tipo'value='$usuario->tipo'></td>
             <td><input type='text' name='idInstituto'value='$usuario->idInstituto'></td>
+            <td><button class='borrarUsuario' id='$usuario->id'></button></td>
+           
             
         </tr>
+
 
 
 
                 
                      
                 " ;
+
+                 echo"<input type='Submit' name='Modificar' value='modificar'/> ";
               
                 
                  //echo "<img src='".base_url($peliculas->cartel)."' width='100px'>";
-                
-               
 
-                  echo "<button><a href='".site_url('Administrador/EliminarUsuarios/'.$usuario->id)."'>Eliminar</a></button>
+                //echo "<button id='$usuario->id'>Borrar info</button>";
+                ?>
+
+
+
+            <script>
+
+              
+
+                $(".borrarUsuario").click(function() {
+
+
+                  //alert("hola");
+
+                 var idUsuario=$(this).attr("id");
+
+                 //alert(idUsuario);
+
+
+                  $("."+idUsuario).remove();
+
+
+                 
+
+                   
+
+
+                 // });
+                      });
+
+           </script>
+
+
+
+
+                    <?php
+                
+               //<button><a href='".site_url('Administrador/EliminarUsuarios/'.$usuario->id)."'>Eliminar</a></button>
+
+                  echo "
                   </div>
 
                   </form>

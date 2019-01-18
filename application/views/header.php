@@ -41,12 +41,10 @@
             $("#capaAdmin").load("<?php echo site_url("Autores/VistaAjax"); ?>", function() { });
           });
 
-<<<<<<< HEAD
 
-=======
           $("#institutos").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Institutos/VistaAjax"); ?>", function() { });
->>>>>>> ae571731753a78ea2281f4771cd20384d7281b91
+
           });
 
           
