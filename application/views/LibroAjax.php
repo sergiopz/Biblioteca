@@ -68,7 +68,7 @@ echo"
               $administrador = $listaAdministradores[$j]; 
 
                      if( $libro->idUsuario==$administrador->id ){ 
-                            echo "<input type='text' name='idUsuario' value='$administrador->nombre' readonly>";
+                            echo "<input type='text'  value='$administrador->nombre' readonly>";
                             echo" <input type='hidden' name='idUsuario' value='$administrador->id' />";                      
                      }
               }
