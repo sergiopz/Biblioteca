@@ -1,12 +1,76 @@
-<?php
-      
-      echo "<div class='formularioInsercion' id='oculto' style='display:none'>
-            <h1>Insertar un Usuarios</h1>";
-        
-        echo form_open_multipart("Administrador/InsertarUsuarios");
-        //echo form_open("peliculas/insertPeliculas");
-        //id : <input type='text' name='id'/><br/>
-         ?>
+<div class='formularioInsercion' id='oculto' style='display:'>
+<fieldset>
+  <form id="frmajax" method="get">
+    <label>Nombre</label>
+    <p></p>
+    <input type="text" name="nombre" id="nombre">
+    <p></p>
+    <label>apellido</label>
+    <p></p>
+    <input type="text" name="apellido" id="apellido">
+    <p></p>
+    <label>nick</label>
+    <p></p>
+    <input type="text" name="nick" id="nick">
+    <p></p>
+    <label>contrasena</label>
+    <p></p>
+    <input type="text" name="contrasena" id="contrasena">
+    <p></p>
+     <label>correo</label>
+    <p></p>
+    <input type="text" name="correo" id="correo">
+    <p></p>
+     <label>telefono</label>
+    <p></p>
+    <input type="text" name="telefono" id="telefono">
+    <p></p>
+     <label>tipo</label>
+    <p></p>
+    <input type="text" name="tipo" id="tipo">
+    <p></p>
+     <label>Idinstituto</label>
+    <p></p>
+    <input type="text" name="idInstituto" id="idInstituto">
+    <p></p>
+     <p></p>
+    <input type="text" name="codigoConfirmacion " id="codigoConfirmacion ">
+    <p></p>
+    <button id="btnguardar">Guardar datos</button>
+  </form>
+</fieldset>
+</div>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#btnguardar').click(function(){
+      var datos=$('#frmajax').serialize();
+      var cadena="<?php echo site_url("Administrador/InsertarUsuarios/"); ?>"+datos;
+      alert(cadena);
+
+
+  
+ var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", cadena , true);
+        xhttp.send(null);
+    
+
+     
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -47,33 +111,15 @@
          
          </script>
 
+
+
+
          <?php
 
-        echo "
-            <fieldset>
-                
-                nombre : <input type='text' name='nombre'/><br/>
-                apellidos: <input type='text'name='apellidos'/><br/>
-                nick: <input type='text' name='nick'/><br/>
-                contrasena: <input type='text' name='contrasena'/><br/> 
-                corrreo: <input type='text' name='correo'/><br/>
-                telefono: <input type='text' name='telefono'/><br/>
-                tipo: <input type='text' name='tipo'/><br/>
-                idInstituto: <input type='text' name='Idinstituto'/><br/>";
-              
-            echo "<br/>
-                </fieldset>
-            ";
-
+        
        
 
-        echo"       
-                <input type='hidden' name='do' value='InsertPelicula'/>
-                <input  type='submit' name='Enviar' value='Insertar'/>
-                </form>
-        ";
-            echo "<br></div>";
-
+       
         echo "<br/> <a href='#' id='btnNuevoUsuario1'>Mostrar</a>";
         echo "<br/> <a href='#' id='borrar'>borrar</a>";
       
@@ -104,7 +150,7 @@
             for ($i = 0; $i < count($listaUsuarios); $i++) {
                 $usuario = $listaUsuarios[$i];
 
-                echo form_open("Administrador/ModificarUsuarios");
+               
                 echo "
 
                 <table id='tabla' border=1>
@@ -118,7 +164,9 @@
             <td><input type='text' name='telefono'value='$usuario->telefono'></td>
             <td><input type='text' name='tipo'value='$usuario->tipo'></td>
             <td><input type='text' name='idInstituto'value='$usuario->idInstituto'></td>
-            <td><button class='borrarUsuario' id='$usuario->id'></button></td>
+            <td><button class='borrarUsuario' value='$usuario->id'>id='$usuario->id'</button></td>
+            <td><button class='modificarUsuario'  value='$usuario->id'>id='$usuario->id'</button></td>
+            <td><input type='Submit' name='Modificar' value='modificar'/></td>
            
             
         </tr>
@@ -130,7 +178,7 @@
                      
                 " ;
 
-                 echo"<input type='Submit' name='Modificar' value='modificar'/> ";
+                // echo"<input type='Submit' name='Modificar' value='modificar'/> ";
               
                 
                  //echo "<img src='".base_url($peliculas->cartel)."' width='100px'>";
@@ -149,7 +197,7 @@
 
                   //alert("hola");
 
-                 var idUsuario=$(this).attr("id");
+                 var idUsuario=$(this).attr("value");
 
                  //alert(idUsuario);
 
@@ -157,13 +205,49 @@
                   $("."+idUsuario).remove();
 
 
-                 
 
-                   
+                  cadena="<?php echo site_url("Administrador/EliminarUsuarios"); ?>/"+idUsuario;
+                  //alert(cadena);
+
+                  $.ajax({
+                  url: cadena
+                   });
 
 
-                 // });
-                      });
+                 });
+
+
+                 $(".modificarUsuario").click(function() {
+
+
+                  //alert("hola");
+
+                 var idUsuario=$(this).attr("value");
+
+                 //alert(idUsuario);
+
+
+                  //$("."+idUsuario).remove();
+
+
+
+                  cadena="<?php echo site_url("Administrador/EliminarUsuarios"); ?>/"+idUsuario;
+                  //alert(cadena);
+
+                  $.ajax({
+                  url: cadena
+                   });
+
+
+                 });
+
+            
+
+
+
+
+
+                  
 
            </script>
 
