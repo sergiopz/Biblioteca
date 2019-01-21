@@ -20,7 +20,7 @@
             $data["listaAdministradores"] = $this->AdministradorModel->getAll();
             $data["listaLibros"] = $this->LibrosModel->getAll();
             $data["listaAutoresLibros"] = $this->LibrosModel->getAutoresLibros();
-            $data["listaLibrosCategorias"] = $this->LibrosModel->getCategoriasLibros();
+            $data["listaLibrosCategorias"] = $this->LibrosModel->getLibrosCategorias();
             $this->load->view("LibroAjax.php" , $data);
         }
     
