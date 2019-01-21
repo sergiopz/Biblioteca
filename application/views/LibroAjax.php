@@ -68,16 +68,14 @@
        echo   "</select>
                <select multiple>";
 
+       $AutoresDentro= array();
+       $AutoresDentro=site_url('Libros/comprobarAutores/'.$libro->id);
        for ($j = 0; $j < count($listaAutores); $j++) {
                      $autor = $listaAutores[$j];
-       
-              for ($k = 0; $k < count($listaAutoresLibros); $k++) {
-                     $autorlibro = $listaAutoresLibros[$k];
-                     if( ($autorlibro->idAutor==$autor->id)&&($autorlibro->idLibro==$libro->id)){ 
-       echo          "<option  value='idAutor' selected >$autor->nombre</option> ";                     
-                     }
+       echo          "<option  value='idAutor' selected >$autor->nombre</option> ";  
                      
-              }
+                     
+              
        }
        
       
@@ -115,4 +113,6 @@
                      }
               }
 
-       }*/
+       }
+          //usar search array array_search(valor a buscar,array en el que quieres buscar)
+    //Devuelve true o falsa*/

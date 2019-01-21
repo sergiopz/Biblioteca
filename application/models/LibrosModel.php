@@ -64,8 +64,7 @@
         $this->db->query("DELETE FROM autoreslibros WHERE idLibro= '$idLibro' ");
         return $this->db->affected_rows();   
         }
-
-
+    
     /*Funciones de la tabla libros-categorias 
     Devolver todos los valores de la tabla libroscategoria*/
     public function getLibrosCategorias() {
@@ -90,5 +89,16 @@
         $this->db->query("DELETE FROM librocategoria WHERE idLibro= '$idLibro' ");
         return $this->db->affected_rows();   
         }
+
+
+    /*PRUEBAS */
+    public function consultar($id){
+        $r = $this->db->query("SELECT * FROM autoreslibros WHERE idLibro='$id' ");
+        $autores=array();
+        foreach($r->result()as $autores){
+            $autor[]=$autores;
+        }
+        return $autor;   
+    }
 
 }

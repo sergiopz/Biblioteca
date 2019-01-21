@@ -11,6 +11,8 @@
         return $autores;     
         }
 
+       
+
    // Insertar un autor de la tabla. Devuelve 1 si lo consigue o 0 en caso de error 
     public function InsertarAutor($nombre) {
         $r = $this->db->query("select max(id) as id from autores");
@@ -34,5 +36,6 @@
         $this->db->query("UPDATE autores SET nombre='$nombre' WHERE id='$id'");
         return $this->db->affected_rows();   
         }
+        
 
 }

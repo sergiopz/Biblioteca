@@ -25,6 +25,8 @@
             $data["listaAutoresLibros"] = $this->LibrosModel->getAutoresLibros();
             $data["listaLibrosCategorias"] = $this->LibrosModel->getLibrosCategorias();
             $data["listaAutores"] = $this->AutoresModel->getAll();
+            
+   
             $this->load->view("LibroAjax.php" , $data);
         }
     
@@ -79,6 +81,10 @@
             } else {
                 echo"Libro modificado con exito";    
             }
+        }
+
+        public function comprobarAutores($id){
+            $r=$this->LibrosModel->consultar($id);
         }
   
     }
