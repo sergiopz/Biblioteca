@@ -9,41 +9,36 @@
 
         }
 
+    //Funcion que carga la vista de autores y sus datos
         public function VistaAjax() {
             $data["listaAutores"] = $this->AutoresModel->getAll();
             $this->load->view("AutorAjax.php" , $data);
         }
     
-
-        public function InsertarAutor(){
-            
+    //Funcion que inserta un autor
+        public function InsertarAutor(){            
             $nombre = $this->input->get_post("nombre");
-
             $r=$this->AutoresModel->InsertarAutor($nombre);
-
             if ($r== 0) { 
                 echo"Fallo al insertar autor";
                 
             } else {
-                echo"Autor insertado con exito";
-                
-             }
+                echo"Autor insertado con exito";                
+            }
         }
 
-
+    //Funcion que elimina un autor
         public function EliminarAutor($id){
             $r=$this->AutoresModel->EliminarAutor($id);
             if ($r== 0) { 
                 echo"Fallo al eliminar autor";
                 
             } else {
-                echo"Autor eliminado con exito";
-                
+                echo"Autor eliminado con exito";  
              }
-
-
         }
 
+    //Funcion que modifica un autor
         public function ModificarAutor(){
             $id = $this->input->get_post("id");
             $nombre = $this->input->get_post("nombre"); 
@@ -53,10 +48,7 @@
                 
             } else {
                 echo"Autor modificado con exito";
-                
-             }
+            }
         }
 
-
-       
     }

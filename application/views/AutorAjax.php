@@ -1,6 +1,5 @@
 <?php
-      
-       echo   "<div class='formularioInsercion' style='display:inline'>
+       echo  "<div class='formularioInsercion' style='display:inline'>
               <h1>Insertar un Autor</h1>";
 
        /*Aqui comienza el formulario de insercion */

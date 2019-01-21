@@ -13,7 +13,7 @@
 
         }
 
-        /*Funcion que carga la vista con los valores de las tablas*/ 
+        /*Funcion que carga la vista de libros y sus datos*/ 
         public function VistaAjax() {
             $data["listaLibros"] = $this->LibrosModel->getAll();
             $data["listaInstitutos"] = $this->InstitutosModel->getAll();
@@ -22,10 +22,8 @@
             $this->load->view("LibroAjax.php" , $data);
         }
     
-        /*Funcion que inserta un librr */
-        
-        public function InsertarLibro(){
-            
+        /*Funcion que inserta un libro */    
+        public function InsertarLibro(){        
             $isbn = $this->input->get_post("isbn");
             $titulo= $this->input->get_post("titulo");
             $descripcion = $this->input->get_post("descripcion");
@@ -41,27 +39,22 @@
                 echo"Fallo al insertar libro";
                 
             } else {
-                echo"Libro insertado con exito";
-                
-             }
+                echo"Libro insertado con exito";  
+            }
         }
 
         /*Funcion que elimina un libro */
-
         public function EliminarLibro($id){
             $r=$this->LibrosModel->EliminarLibro($id);
             if ($r== 0) { 
                 echo"Fallo al eliminar libro";
                 
             } else {
-                echo"Libro eliminado con exito";
-                
-             }
-
-
+                echo"Libro eliminado con exito";  
+            }
         }
-        /*Funcion que Modifica un libro */
 
+        /*Funcion que Modifica un libro */
         public function ModificarLibro(){
             $id = $this->input->get_post("id");
             $isbn = $this->input->get_post("isbn");
@@ -73,17 +66,13 @@
             $idUsuario = $this->input->get_post("idUsuario");
             $idEditorial = $this->input->get_post("idEditorial");
 
-            $r=$this->LibrosModel->ModificarLibro($id,$isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial);
-            
+            $r=$this->LibrosModel->ModificarLibro($id,$isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial);  
             if ($r== 0) { 
                 echo"Fallo al modificar libro";
                 
             } else {
-                echo"Libro modificado con exito";
-                
-             }
+                echo"Libro modificado con exito";    
+            }
         }
-
-
-       
+  
     }

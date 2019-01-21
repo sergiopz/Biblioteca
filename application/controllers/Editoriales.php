@@ -2,6 +2,7 @@
 //Controlador de Editoriales
     include_once("seguridad.php");
     class Editoriales extends seguridad {
+
         public function __construct() {
             parent::__construct();
             $this->load->model("EditorialesModel");
@@ -10,43 +11,37 @@
 
 
        
-
+    //Funcion que carga la vista de editoriales y sus datos
         public function VistaAjax() {
             $data["listaEditoriales"] = $this->EditorialesModel->getAll();
-           $this->load->view("EditorialAjax.php", $data);
+            $this->load->view("EditorialAjax.php", $data);
         }
        
 
-
-        public function InsertarEditorial(){
-            
+    //Funcion que inserta una editorial
+        public function InsertarEditorial(){       
             $nombre = $this->input->get_post("nombre");
-
             $r=$this->EditorialesModel->InsertarEditorial($nombre);
-
             if ($r== 0) { 
                 echo"Fallo al insertar Editorial";
                 
             } else {
-                echo"Editorial insertado con exito";
-                
-             }
+                echo"Editorial insertado con exito";    
+            }
         }
 
-
+    //Funcion que elimina una editorial
         public function EliminarEditorial($id){
             $r=$this->EditorialesModel->EliminarEditorial($id);
             if ($r== 0) { 
                 echo"Fallo al eliminar Editorial";
                 
             } else {
-                echo"Editorial eliminado con  exito";
-                
-             }
-
-
+                echo"Editorial eliminado con  exito";  
+            }
         }
 
+    //Funcion que modifica una editorial
         public function ModificarEditorial(){
             $id = $this->input->get_post("id");
             $nombre = $this->input->get_post("nombre"); 
@@ -56,9 +51,7 @@
                 
             } else {
                 echo"Editorial modificado con exito";
-                
-             }
+            }
         }
-
-       
+ 
     }

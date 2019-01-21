@@ -12,13 +12,13 @@
         }
 
    // Insertar un autor de la tabla. Devuelve 1 si lo consigue o 0 en caso de error 
-   public function InsertarAutor($nombre) {
+    public function InsertarAutor($nombre) {
         $r = $this->db->query("select max(id) as id from autores");
         $row =$r->result()[0];
         $idM=$row->id+1;
 
         $r = $this->db->query("INSERT INTO autores(id,nombre) VALUES ('$idM','$nombre')");
-    return $r;
+        return $r;
         }
 
 
