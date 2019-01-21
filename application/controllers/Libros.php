@@ -9,6 +9,7 @@
             $this->load->model("InstitutosModel");
             $this->load->model("EditorialesModel");
             $this->load->model("AdministradorModel");
+            $this->load->model("AutoresModel");
             
 
         }
@@ -21,6 +22,7 @@
             $data["listaLibros"] = $this->LibrosModel->getAll();
             $data["listaAutoresLibros"] = $this->LibrosModel->getAutoresLibros();
             $data["listaLibrosCategorias"] = $this->LibrosModel->getLibrosCategorias();
+            $data["listaAutores"] = $this->AutoresModel->getAll();
             $this->load->view("LibroAjax.php" , $data);
         }
     
