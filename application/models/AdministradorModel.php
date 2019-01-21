@@ -25,10 +25,10 @@
 
 
 
-             function InsertarUsuarios($nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto) {
+             function InsertarUsuarios($nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto,$codigoConfirmacion) {
                 
-                $this->db->query("INSERT INTO usuarios(nombre,apellidos,nick,contrasena,correo,telefono,tipo,idInstituto )
-                VALUES ('$nombre','$apellidos','$nick','$contrasena','$correo','$telefono', '$tipo','$idInstituto')");
+                $this->db->query("INSERT INTO usuarios(nombre,apellidos,nick,contrasena,correo,telefono,tipo,idInstituto ,codigoConfirmacion)
+                VALUES ('$nombre','$apellidos','$nick','$contrasena','$correo','$telefono', '$tipo','$idInstituto','$codigoConfirmacion')");
                 return $this->db->affected_rows();
             
         }

@@ -28,9 +28,10 @@
                 $telefono = $this->input->get_post("telefono");
                 $tipo = $this->input->get_post("tipo");
                 $idInstituto = $this->input->get_post("idInstituto");
+                 $codigoConfirmacion = $this->input->get_post("codigoConfirmacion");
 
                 
-                    $resultado = $this->AdministradorModel->InsertarUsuarios($nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto );
+                    $resultado = $this->AdministradorModel->InsertarUsuarios($nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto,$codigoConfirmacion );
                     if ($resultado == 0) {
                         $data["mensaje"] = "Error al insertar la película en la base de datos";
                        // $this->peliculasModel->borrarImagenPelicula($img_name);
