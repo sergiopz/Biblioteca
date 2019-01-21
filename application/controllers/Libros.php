@@ -10,6 +10,7 @@
             $this->load->model("EditorialesModel");
             $this->load->model("AdministradorModel");
             $this->load->model("AutoresModel");
+            $this->load->model("CategoriasModel");
             
 
         }
@@ -20,6 +21,7 @@
             $data["listaEditoriales"] = $this->EditorialesModel->getAll();           
             $data["listaAdministradores"] = $this->AdministradorModel->getAll();
             $data["listaLibros"] = $this->LibrosModel->getAll();
+            $data["listaCategorias"] = $this->CategoriasModel->getAll();
             $data["listaAutoresLibros"] = $this->LibrosModel->getAutoresLibros();
             $data["listaLibrosCategorias"] = $this->LibrosModel->getLibrosCategorias();
             $data["listaAutores"] = $this->AutoresModel->getAll();

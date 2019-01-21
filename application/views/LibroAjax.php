@@ -68,18 +68,30 @@
        echo   "</select>
                <select multiple>";
 
-       for ($j = 0; $j < count($listaAutoresLibros); $j++) {
-                     $autorlibro = $listaAutoresLibros[$j];
-                for ($k = 0; $k < count($listaAutores); $k++) {
-                     $autor = $listaAutores[$k];
-                      if( ($autorlibro->idAutor==$autor->id)&&($autorlibro->idLibro==$libro->id)){ 
+       for ($j = 0; $j < count($listaAutores); $j++) {
+                     $autor = $listaAutores[$j];
+       
+              for ($k = 0; $k < count($listaAutoresLibros); $k++) {
+                     $autorlibro = $listaAutoresLibros[$k];
+                     if( ($autorlibro->idAutor==$autor->id)&&($autorlibro->idLibro==$libro->id)){ 
        echo          "<option  value='idAutor' selected >$autor->nombre</option> ";                     
                      }
+                     
               }
-
        }
        
       
+       echo   "</select>
+               <select multiple>";
+       for ($j = 0; $j < count($listaLibrosCategorias); $j++) {
+                     $librocategoria = $listaLibrosCategorias[$j];
+              for ($k = 0; $k < count($listaCategorias); $k++) {
+                     $categoria = $listaCategorias[$k];
+                     
+              }
+
+       }
+
        echo   "</select>
                      <input type='hidden' name='do' value='ModificarPeliculas' />
                      <input type='Submit' name='Modificar' value='Modificar'/>" ;
@@ -94,10 +106,13 @@
               <a href='".site_url("Libro/cerrar_sesion")."'>Cerrar sesión</a>
               </div>";
               /* Esto funciona
-               for ($j = 0; $j < count($listaAutoresLibros); $j++) {
-              $autorlibro = $listaAutoresLibros[$j]; 
-              if( $libro->id==$autorlibro->idLibro ){ 
-       echo          "<option  value='$autorlibro->idAutor' selected >$autorlibro->idAutor</option> ";                     
+              for ($j = 0; $j < count($listaAutoresLibros); $j++) {
+                     $autorlibro = $listaAutoresLibros[$j];
+              for ($k = 0; $k < count($listaAutores); $k++) {
+                     $autor = $listaAutores[$k];
+                     if( ($autorlibro->idAutor==$autor->id)&&($autorlibro->idLibro==$libro->id)){ 
+       echo          "<option  value='idAutor'  >$autor->nombre</option> ";                     
+                     }
               }
-       }
-              */
+
+       }*/
