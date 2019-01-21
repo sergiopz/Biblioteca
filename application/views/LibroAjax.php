@@ -95,32 +95,7 @@ echo"
 
              </form>
              ";
-       }
-       /*
-
-       echo "<input type='text' name='nombre' value='$instituto->nombre'>" ;
-              echo "<select><option value='a'selected>n</option></select> ";
-       <option value='".$rol['id_rol']."'selected>".$rol['rol_descripcion']."</option> en MVC
-       <option value='".$rol['id_rol']."'>".$rol['rol_descripcion']."</option> en MVC
-       
-       */ 
-       
-       /*
-       for ($i = 0; $i < count($listaInstitutos); $i++) {
-              $instituto = $listaInstitutos[$i];
-   
-              
-              echo "
-              <div class='info'>
-              <input type='text' name='nombre' value='$instituto->nombre'>" ;
-   
-                echo "
-                </div>
-   
-                </form>
-                ";
-          }*/
-         
+       } 
 
        echo "<div>
            

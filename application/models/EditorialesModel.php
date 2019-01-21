@@ -1,7 +1,7 @@
 <?php
     class EditorialesModel extends CI_Model {
-    // Devolver todos los valores de una lista
-    
+        
+    // Devolver todos los valores de la tabla editorial   
     public function getAll() {
         $r = $this->db->query("SELECT * FROM editorial");
         $editoriales=array();

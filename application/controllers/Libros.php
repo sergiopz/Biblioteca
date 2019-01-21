@@ -13,6 +13,7 @@
 
         }
 
+        /*Funcion que carga la vista con los valores de las tablas*/ 
         public function VistaAjax() {
             $data["listaLibros"] = $this->LibrosModel->getAll();
             $data["listaInstitutos"] = $this->InstitutosModel->getAll();
@@ -21,7 +22,8 @@
             $this->load->view("LibroAjax.php" , $data);
         }
     
-
+        /*Funcion que inserta un librr */
+        
         public function InsertarLibro(){
             
             $isbn = $this->input->get_post("isbn");
@@ -44,6 +46,7 @@
              }
         }
 
+        /*Funcion que elimina un libro */
 
         public function EliminarLibro($id){
             $r=$this->LibrosModel->EliminarLibro($id);
@@ -57,6 +60,7 @@
 
 
         }
+        /*Funcion que Modifica un libro */
 
         public function ModificarLibro(){
             $id = $this->input->get_post("id");

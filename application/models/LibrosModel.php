@@ -1,7 +1,7 @@
 <?php
     class LibrosModel extends CI_Model {
-    // Devolver todos los valores de una lista
-
+    
+    // Devolver todos los valores de la tabla libros
     public function getAll() {
         $r = $this->db->query("SELECT * FROM libros");
         $libros=array();
