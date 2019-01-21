@@ -15,10 +15,12 @@
 
         /*Funcion que carga la vista de libros y sus datos*/ 
         public function VistaAjax() {
-            $data["listaLibros"] = $this->LibrosModel->getAll();
             $data["listaInstitutos"] = $this->InstitutosModel->getAll();
             $data["listaEditoriales"] = $this->EditorialesModel->getAll();           
             $data["listaAdministradores"] = $this->AdministradorModel->getAll();
+            $data["listaLibros"] = $this->LibrosModel->getAll();
+            $data["listaAutoresLibros"] = $this->LibrosModel->getAutoresLibros();
+            $data["listaLibrosCategorias"] = $this->LibrosModel->getCategoriasLibros();
             $this->load->view("LibroAjax.php" , $data);
         }
     
