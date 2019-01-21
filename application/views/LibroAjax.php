@@ -68,11 +68,11 @@
        echo   "</select>
                <select multiple>";
 
-       $AutoresDentro= array();
-       $AutoresDentro=site_url('Libros/comprobarAutores/'.$libro->id);
-       for ($j = 0; $j < count($listaAutores); $j++) {
-                     $autor = $listaAutores[$j];
-       echo          "<option  value='idAutor' selected >$autor->nombre</option> ";  
+      // $dentro= array();
+       //$dentro=site_url('Libros/comprobarAutores/'.$libro->id);
+       for ($j = 0; $j < count(dentro); $j++) {
+                     $d = $dentro[$j];
+       echo          "<option  value='idAutor' selected >$idLibro->id</option> ";  
                      
                      
               
