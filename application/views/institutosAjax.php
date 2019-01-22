@@ -1,5 +1,29 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
+<!--<script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryInstitutos.js"></script>-->
+<script>
+  $("document").ready(function(){
 
+$(".borrarInstituto").click(function() {
+
+   var idInstituto=$(this).attr("value");
+
+    $("."+idInstituto).remove();
+
+    cadena = "<?php echo site_url('Institutos/EliminarInstituto'); ?>/"+idInstituto;
+
+    alert(cadena);
+
+    $.ajax({
+    url: cadena
+     });
+
+
+   });
+
+
+
+});
+</script>
         <table class="highlight responsive-table #536dfe indigo accent-2 ">
           <thead>
             <tr class="#536dfe indigo accent-2">
@@ -17,28 +41,36 @@
               for ($i = 0; $i < count($listaInstitutos); $i++) {
                 $instituto = $listaInstitutos[$i];
 
-                echo form_open("Institutos/ModificarInstituto");
-                echo "<div class='info'>
-                <input type='text' name='id' hidden value='$instituto->id'>
-                <tr>
-                <td><input type='text' name='nombre' value='$instituto->nombre'></td>
-                <td><input type='text' name='localidad'value='$instituto->localidad'></td>
-                <td><input type='text' name='direccion'value='$instituto->direccion'></td>
-                <td><input type='text' name='cp'value='$instituto->cp'></td>
-                <td><input type='text' name='provincia'value='$instituto->provincia'></td>
-                <td><input type='Submit' name='Modificar' class='btn btn-floating #e65100 orange darken-4'><i class='material-icons' title='Modificar'>create</i></input></td>
-                <!--<td><input type='Submit' name='Modificar' value='Modificar'/></td>-->
+                  echo form_open("Institutos/ModificarInstituto");
+                  echo "<div class='info'>
+                  <form id='pf'>
+                  <tr class='$instituto->id'>
+                  <input type='text' name='id' hidden value='$instituto->id'>
+                  <td><input type='text' name='nombre' value='$instituto->nombre'></td>
+                  <td><input type='text' name='localidad'value='$instituto->localidad'></td>
+                  <td><input type='text' name='direccion'value='$instituto->direccion'></td>
+                  <td><input type='text' name='cp'value='$instituto->cp'></td>
+                  <td><input type='text' name='provincia'value='$instituto->provincia'></td>
+                  <td><input id='prueba' type='Submit' name='Modificar' value='Modificar'></td>
                      
-              " ;
+                " ;
             
-                echo "<td><a class='btn btn-floating #d32f2f red darken-2 botonD' href='".site_url('Institutos/EliminarInstituto/'.$instituto->id)."'><i class='material-icons' title='Eliminar'>delete</i></a><td>
+                echo "<td><a value='$instituto->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
                   </div>
                   </form>
                   </tr>
                 ";
               }
-
         ?>
+            <script>
+              $("document").ready(function(){
+                $("#prueba").click(function(){
+                  var datos=$("#pf").serialize();
+                  alert(datos);
+                });
+              });
+
+              </script>
        <!-- 
             <tr class="">
               <td><input type="text" name="nombre"></td>
