@@ -1,3 +1,190 @@
+<script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
+<!--<script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryInstitutos.js"></script>-->
+<script>
+  $("document").ready(function(){
+
+$(".borrarInstituto").click(function() {
+
+   var idInstituto=$(this).attr("value");
+
+    $("."+idInstituto).remove();
+
+    cadena = "<?php echo site_url('Institutos/EliminarInstituto'); ?>/"+idInstituto;
+
+    alert(cadena);
+
+    $.ajax({
+    url: cadena
+     });
+
+
+   });
+
+
+
+});
+</script>
+        <table class="highlight responsive-table #536dfe indigo accent-2 ">
+          <thead>
+            <tr class="#536dfe indigo accent-2">
+              <th>id</th>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+                  <th>Nick</th>
+                  <th>contrasena</th>
+                  <th>correo</th>
+                  <th>telefono</th>
+                  <th>tipo</th>
+                  <th>Idinstituto</th>
+                  
+              
+              
+              
+              <th><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <?php
+             for ($i = 0; $i < count($listaUsuarios); $i++) {
+                $usuario = $listaUsuarios[$i];
+              echo form_open("Editoriales/ModificarUsuarios");
+       echo "<div class='info'>
+       
+
+
+       <tr class='$usuario->id'>
+            <td><input type='text' name='id' value='$usuario->id'></td>
+            <td><input type='text' name='nombre' value='$usuario->nombre'></td>
+            <td> <input type='text' name='apellidos'value='$usuario->apellidos'></td>
+            <td> <input type='text' name='nick'value='$usuario->nick'></td>
+            <td> <input type='text' name='contrasena'value='$usuario->contrasena'></td>
+            <td><input type='text' name='correo'value='$usuario->correo'></td>
+            <td><input type='text' name='telefono'value='$usuario->telefono'></td>
+            <td><input type='text' name='tipo'value='$usuario->tipo'></td>
+            <td><input type='text' name='idInstituto'value='$usuario->idInstituto'></td>
+            <td><input type='hidden' name='do' value='ModificarPeliculas' /></td>
+                      <td><input type='Submit' name='Modificar' value='Modificar'/></td>";
+
+
+
+
+
+
+
+
+
+          
+            
+                echo "<td><a value='$usuario->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
+                  </div>
+                  </form>
+                  </tr>
+                ";
+              }
+        ?>
+            <script>
+              $("document").ready(function(){
+                $("#prueba").click(function(){
+                  var datos=$("#pf").serialize();
+                  alert(datos);
+                });
+              });
+
+              </script>
+       <!-- 
+            <tr class="">
+              <td><input type="text" name="nombre"></td>
+              <td><input type="text" name="localidad"></td>
+              <td><input type="text" name="direccion"></td>
+              <td><input type="text" name="cp"></td>
+              <td><input type="text" name="provincia"></td>
+              <td><a class="btn btn-floating #d32f2f red darken-2 botonD"><i class="material-icons" title="Eliminar">delete</i></a></td>
+              <td><a class="btn btn-floating #e65100 orange darken-4"><i class="material-icons" title="Modificar">create</i></a></li></td>
+            </tr>-->
+           
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+
+        <!--Contenido de la ventana modal de insercion-->
+
+
+        <div id="insert" class="modal" style="overflow-y: scroll">
+         <?php    echo form_open_multipart("Administrador/InsertarUsuarios");?>
+        
+          <h5 class="modal-close">&#10005;</h5>
+          <div class="modal-content center">
+            <h4>Insert</h4>
+        
+         
+              
+              <div class="input-field">
+                <i class="material-icons prefix" style="color:royalblue">person</i>
+               
+                <input type='text' name='nombre' id='nombre'>
+                <label for="nombre">Nombre</label>
+              </div>
+              <div class="input-field">
+                <i class="material-icons prefix" style="color:royalblue">person</i>
+                <input type='text' name='apellido' id='apellido'>
+                <label for="nombre">Apellido</label>
+              </div>
+              <div class="input-field">
+                <i class="material-icons prefix" style="color:royalblue">person</i>
+                <input type='text' name='nick' id='nick'>
+                <label for="nombre">Nick</label>
+              </div>
+              <div class="input-field">
+                <i class="material-icons prefix" style="color:royalblue">person</i>
+                <input type='text' name='contrasena' id='contrasena'>
+                <label for="nombre">Contrasena</label>
+              </div>
+              <div class="input-field">
+                <i class="material-icons prefix" style="color:royalblue">person</i>
+                <input type='text' name='correo' id='correo'>
+                <label for="nombre">Correo</label>
+              </div>
+              <div class="input-field">
+                <i class="material-icons prefix" style="color:royalblue">person</i>
+                 <input type='text' name='telefono' id='telefono'>
+                <label for="nombre">Telefono</label>
+              </div>
+              <div class="input-field">
+                <i class="material-icons prefix" style="color:royalblue">person</i>
+               <input type='text' name='tipo' id='tipo'>
+                <label for="nombre">Tipo</label>
+              </div>
+              <div class="input-field">
+                <i class="material-icons prefix" style="color:royalblue">person</i>
+                 <input type='text' name='idInstituto' id='idInstituto'>
+                <label for="nombre">IdInstituto</label>
+              </div>
+              <div class="input-field">
+                <i class="material-icons prefix" style="color:royalblue">person</i>
+                <input type='text' name='codigoConfirmacion' id='codigoConfirmacion'>
+                <label for="nombre">codigoConfirmacion</label>
+              </div>
+
+        
+          
+                <div>  <input  type='submit' name='Enviar' value='Insertar'/></div>
+              <br>
+              <br>
+
+            </form>
+          </div>
+        </div>
+
+
+
+<?php
+
+/*
+  
  <?php
 
  echo form_open_multipart("Administrador/InsertarUsuarios");
@@ -92,7 +279,7 @@
 
 
          <script>
-         	 $(document).ready(function (){
+           $(document).ready(function (){
               $("#btnNuevoUsuario1").click(function() {
        
 
@@ -308,3 +495,5 @@
 
             </div>";
               
+
+*/
