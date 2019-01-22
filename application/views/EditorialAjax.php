@@ -9,9 +9,7 @@ $(".borrarInstituto").click(function() {
 
     $("."+idInstituto).remove();
 
-    cadena = "<?php echo site_url('Institutos/EliminarInstituto'); ?>/"+idInstituto;
-
-    alert(cadena);
+    cadena = "<?php echo site_url('Editoriales/EliminarEditorial'); ?>/"+idInstituto;
 
     $.ajax({
     url: cadena
@@ -27,10 +25,7 @@ $(".borrarInstituto").click(function() {
         <table class="highlight responsive-table #536dfe indigo accent-2 ">
           <thead>
             <tr class="#536dfe indigo accent-2">
-              <th>id</th>
-              <th>Nombre</th>
-              
-              
+              <th class="#000000 black-text">Nombre</th>
               <th><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
             </tr>
           </thead>
@@ -40,15 +35,12 @@ $(".borrarInstituto").click(function() {
               for ($i = 0; $i < count($listaEditoriales); $i++) {
               $editorial = $listaEditoriales[$i];
               echo form_open("Editoriales/ModificarEditorial");
-       echo "<div class='info'>
-       <tr class='$editorial->id'>
-                      <td><input type='text' name='id' value='$editorial->id'></td>
-                      <td><input type='text' name='nombre' value='$editorial->nombre'></td>
-                      <td><input type='hidden' name='do' value='ModificarPeliculas' /></td>
-                      <td><input type='Submit' name='Modificar' value='Modificar'/></td>" ;
+              echo "<div class='info'>
+              <tr class='$editorial->id'>
+              <input hidden type='text' name='id' value='$editorial->id'>
+              <td><input class='#ffffff white-text' type='text' name='nombre' value='$editorial->nombre'></td>
+              <td><input type='Submit' name='Modificar' value='Modificar'/></td>" ;
 
-          
-            
                 echo "<td><a value='$editorial->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
                   </div>
                   </form>
@@ -91,19 +83,15 @@ $(".borrarInstituto").click(function() {
         
           <h5 class="modal-close">&#10005;</h5>
           <div class="modal-content center">
-            <h4>Insert</h4>
+            <h4 class="flow-text #00e676 green-text text-accent-3">Insertar Registro</h4>
         
-         
-              
               <div class="input-field">
                 <i class="material-icons prefix" style="color:royalblue">person</i>
                 <input type="text" id="nombre">
-                <label for="nombre">Nombre</label>
+                <label for="nombre" name="nombre" style="color:royalblue">Nombre</label>
               </div>
 
-        
-          
-                <div>  <input  type='submit' name='Enviar' value='Insertar'/></div>
+              <div><input style="background-color:royalblue" type="submit" value="Insertar" class="btn btn-large"></div>
               <br>
               <br>
 
