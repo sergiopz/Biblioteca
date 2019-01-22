@@ -1,25 +1,116 @@
-<?php
-      
-    echo "<div class='formularioInsercion' id='oculto' style='display:none'>
-        <h1>Insertar un Instituto</h1>";
+<script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
+
+        <table class="highlight responsive-table #536dfe indigo accent-2 ">
+          <thead>
+            <tr class="#536dfe indigo accent-2">
+              <th>Nombre</th>
+              <th>Localidad</th>
+              <th>Direccion</th>
+              <th>CP</th>
+              <th>Provincia</th>
+              <th><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <?php
+              for ($i = 0; $i < count($listaInstitutos); $i++) {
+                $instituto = $listaInstitutos[$i];
+
+                echo form_open("Institutos/ModificarInstituto");
+                echo "<div class='info'>
+                <input type='text' name='id' hidden value='$instituto->id'>
+                <tr>
+                <td><input type='text' name='nombre' value='$instituto->nombre'></td>
+                <td><input type='text' name='localidad'value='$instituto->localidad'></td>
+                <td><input type='text' name='direccion'value='$instituto->direccion'></td>
+                <td><input type='text' name='cp'value='$instituto->cp'></td>
+                <td><input type='text' name='provincia'value='$instituto->provincia'></td>
+                <td><input type='Submit' name='Modificar' class='btn btn-floating #e65100 orange darken-4'><i class='material-icons' title='Modificar'>create</i></input></td>
+                <!--<td><input type='Submit' name='Modificar' value='Modificar'/></td>-->
+                     
+              " ;
+            
+                echo "<td><a class='btn btn-floating #d32f2f red darken-2 botonD' href='".site_url('Institutos/EliminarInstituto/'.$instituto->id)."'><i class='material-icons' title='Eliminar'>delete</i></a><td>
+                  </div>
+                  </form>
+                  </tr>
+                ";
+              }
+
+        ?>
+       <!-- 
+            <tr class="">
+              <td><input type="text" name="nombre"></td>
+              <td><input type="text" name="localidad"></td>
+              <td><input type="text" name="direccion"></td>
+              <td><input type="text" name="cp"></td>
+              <td><input type="text" name="provincia"></td>
+              <td><a class="btn btn-floating #d32f2f red darken-2 botonD"><i class="material-icons" title="Eliminar">delete</i></a></td>
+              <td><a class="btn btn-floating #e65100 orange darken-4"><i class="material-icons" title="Modificar">create</i></a></li></td>
+            </tr>-->
+           
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+
+        <!--Contenido de la ventana modal de insercion-->
+
+
+        <div id="insert" class="modal" style="overflow-y: scroll">
+        <?php echo form_open_multipart("Institutos/InsertarInstituto");?>
+          <h5 class="modal-close">&#10005;</h5>
+          <div class="modal-content center">
+            <h4>Insert</h4>
         
-    echo form_open_multipart("Institutos/InsertarInstituto");
+            <form action="#">
+              
+              <div class="input-field">
+                <i class="material-icons prefix" style="color:royalblue">person</i>
+                <input type="text" id="nombre">
+                <label for="nombre">Nombre</label>
+              </div>
 
-?>
+        
+              <div class="input-field">
+                <i class="material-icons prefix" style="color:royalblue">lock</i>
+                <input type="text" id="localidad">
+                <label for="localidad">Localidad</label>
+              </div>
 
-<script>
-    $(document).ready(function (){
-        $("#btnNuevoUsuario1").click(function() {
-            $('#oculto').toggle();
-            $('#oculto').text(texto) 
-        });
+              <div class="input-field">
+                <i class="material-icons prefix" style="color:royalblue">lock</i>
+                <input type="text" id="direccion">
+                <label for="direccion">Direccion</label>
+              </div>
+              
+              <div class="input-field">
+                <i class="material-icons prefix" style="color:royalblue">lock</i>
+                <input type="text" id="cp">
+                <label for="cp">Codigo Postal</label>
+              </div>
 
-    });  
-           	
-</script>
+              <div class="input-field">
+                <i class="material-icons prefix" style="color:royalblue">lock</i>
+                <input type="text" id="provincia">
+                <label for="provincia">Provincia</label>
+              </div>
+                <div><input type="submit" value="Insertar" class="btn btn-large"></div>
+              <br>
+              <br>
+
+            </form>
+          </div>
+        </div>
+
+
 
 <?php
 
+/*
     echo "<fieldset>
                 
             nombre : <input type='text' name='nombre'/><br/>
@@ -77,3 +168,4 @@
             </div>
     ";
               
+*/
