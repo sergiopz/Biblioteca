@@ -68,15 +68,36 @@
        echo   "</select>
                <select multiple>";
 
+               for ($j = 0; $j < count($listaAutoresLibros); $j++) {
+                     $autorlibro = $listaAutoresLibros[$j];
+              for ($k = 0; $k < count($listaAutores); $k++) {
+                     $autor = $listaAutores[$k];
+                     if( ($autorlibro->idAutor==$autor->id)&&($autorlibro->idLibro==$libro->id)){ 
+       echo          "<option  value='idAutor'  selected>$autor->nombre</option> ";                     
+                     }
+              }
+
+       }
+
       // $dentro= array();
        //$dentro=site_url('Libros/comprobarAutores/'.$libro->id);
-       for ($j = 0; $j < count(dentro); $j++) {
-                     $d = $dentro[$j];
-       echo          "<option  value='idAutor' selected >$idLibro->id</option> ";  
-                     
-                     
+       
+      /* for ($j = 0; $j < count($listaAutores); $j++) {
+              $autor = $listaAutores[$j];
+              if()
+       echo          "<option  value='idAutor'selected>$autor->nombre</option> "; */ 
+//     echo          "<option  value='idAutor'  >$autor->nombre</option> ";  
               
-       }
+       
+       
+       /*for ($j = 0; $j < count($listaAutoresLibros); $j++) {
+              $autorlibro = $listaAutoresLibros[1-1];
+              echo          "<option  value='idAutor'>$autorlibro->idAutor</option> ";
+
+              }*/
+       
+
+       
        
       
        echo   "</select>
@@ -100,6 +121,7 @@
              </form>";
        } 
 
+       
        echo  "<div>
               <a href='".site_url("Libro/cerrar_sesion")."'>Cerrar sesión</a>
               </div>";

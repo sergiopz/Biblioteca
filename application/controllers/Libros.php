@@ -21,12 +21,12 @@
             $data["listaEditoriales"] = $this->EditorialesModel->getAll();           
             $data["listaAdministradores"] = $this->AdministradorModel->getAll();
             $data["listaLibros"] = $this->LibrosModel->getAll();
+            
             $data["listaCategorias"] = $this->CategoriasModel->getAll();
             $data["listaAutoresLibros"] = $this->LibrosModel->getAutoresLibros();
             $data["listaLibrosCategorias"] = $this->LibrosModel->getLibrosCategorias();
             $data["listaAutores"] = $this->AutoresModel->getAll();
-            
-   
+      
             $this->load->view("LibroAjax.php" , $data);
         }
     
@@ -83,8 +83,19 @@
             }
         }
 
-        public function comprobarAutores($id){
-            $r=$this->LibrosModel->consultar($id);
+        public function prueba($idAutor,$idLibro){
+            $prueba["lista"]=$this->LibrosModel->consultar($id); 
+            if(array_search($idAutor, $in)==true){
+                return $r=true;
+            }else{
+                return $r=false;
+            }
         }
+
+        public function contar(){
+           
+        }
+
+        
   
     }
