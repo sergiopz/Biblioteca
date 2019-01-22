@@ -10,28 +10,20 @@ $(".borrarInstituto").click(function() {
     $("."+idInstituto).remove();
 
     cadena = "<?php echo site_url('Institutos/EliminarInstituto'); ?>/"+idInstituto;
-
-    alert(cadena);
-
     $.ajax({
     url: cadena
      });
-
-
    });
-
-
-
 });
 </script>
         <table class="highlight responsive-table #536dfe indigo accent-2 ">
           <thead>
             <tr class="#536dfe indigo accent-2">
-              <th>Nombre</th>
-              <th>Localidad</th>
-              <th>Direccion</th>
-              <th>CP</th>
-              <th>Provincia</th>
+              <th class="#000000 black-text">Nombre</th>
+              <th class="#000000 black-text">Provincia</th>
+              <th class="#000000 black-text">Localidad</th>
+              <th class="#000000 black-text">Direccion</th>
+              <th class="#000000 black-text">Codigo Postal</th>
               <th><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
             </tr>
           </thead>
@@ -46,11 +38,11 @@ $(".borrarInstituto").click(function() {
                   <form id='pf'>
                   <tr class='$instituto->id'>
                   <input type='text' name='id' hidden value='$instituto->id'>
-                  <td><input type='text' name='nombre' value='$instituto->nombre'></td>
-                  <td><input type='text' name='localidad'value='$instituto->localidad'></td>
-                  <td><input type='text' name='direccion'value='$instituto->direccion'></td>
-                  <td><input type='text' name='cp'value='$instituto->cp'></td>
-                  <td><input type='text' name='provincia'value='$instituto->provincia'></td>
+                  <td><input class='#ffffff white-text' type='text' name='nombre' value='$instituto->nombre'></td>
+                  <td><input class='#ffffff white-text' type='text' name='provincia'value='$instituto->provincia'></td>
+                  <td><input class='#ffffff white-text' type='text' name='localidad'value='$instituto->localidad'></td>
+                  <td><input class='#ffffff white-text' type='text' name='direccion'value='$instituto->direccion'></td>
+                  <td><input class='#ffffff white-text' type='text' name='cp'value='$instituto->cp'></td>
                   <td><input id='prueba' type='Submit' name='Modificar' value='Modificar'></td>
                      
                 " ;
@@ -96,41 +88,41 @@ $(".borrarInstituto").click(function() {
         <?php echo form_open_multipart("Institutos/InsertarInstituto");?>
           <h5 class="modal-close">&#10005;</h5>
           <div class="modal-content center">
-            <h4>Insert</h4>
+            <h4 class="flow-text #00e676 green-text text-accent-3">Insertar Registro</h4>
         
             <form action="#">
               
               <div class="input-field">
                 <i class="material-icons prefix" style="color:royalblue">person</i>
-                <input type="text" id="nombre">
-                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre">
+                <label style="color:royalblue" for="nombre">Nombre</label>
               </div>
 
         
               <div class="input-field">
-                <i class="material-icons prefix" style="color:royalblue">lock</i>
-                <input type="text" id="localidad">
-                <label for="localidad">Localidad</label>
+                <i class="material-icons prefix" style="color:royalblue">location_city</i>
+                <input type="text" id="localidad" name="localidad">
+                <label style="color:royalblue" for="localidad">Localidad</label>
               </div>
 
               <div class="input-field">
-                <i class="material-icons prefix" style="color:royalblue">lock</i>
-                <input type="text" id="direccion">
-                <label for="direccion">Direccion</label>
+                <i class="material-icons prefix" style="color:royalblue">home</i>
+                <input type="text" id="direccion" name="direccion">
+                <label style="color:royalblue" for="direccion">Direccion</label>
               </div>
               
               <div class="input-field">
-                <i class="material-icons prefix" style="color:royalblue">lock</i>
-                <input type="text" id="cp">
-                <label for="cp">Codigo Postal</label>
+                <i class="material-icons prefix" style="color:royalblue">place</i>
+                <input type="text" id="cp" name="cp">
+                <label style="color:royalblue" for="cp">Codigo Postal</label>
               </div>
 
               <div class="input-field">
-                <i class="material-icons prefix" style="color:royalblue">lock</i>
-                <input type="text" id="provincia">
-                <label for="provincia">Provincia</label>
+                <i class="material-icons prefix" style="color:royalblue">map</i>
+                <input type="text" id="provincia" name="provincia">
+                <label style="color:royalblue" for="provincia">Provincia</label >
               </div>
-                <div><input type="submit" value="Insertar" class="btn btn-large"></div>
+                <div><input style="background-color:royalblue" type="submit" value="Insertar" class="btn btn-large"></div>
               <br>
               <br>
 
