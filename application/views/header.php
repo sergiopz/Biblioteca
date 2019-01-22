@@ -58,8 +58,8 @@
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down libro">Libros</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down categoria">Categorias</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down editorial">Editorial</a></li>
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down autoreslibros">AutoresLibros</a></li>
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down libroscategorias">LibrosCategorias</a></li>
+        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down autoreslibros">AutoresLib</a></li>
+        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down libroscategorias">LibrosCat</a></li>
       </ul>
       <ul class=" hide-on-med-and-up show-on-medium-and-down">
         <li><a class="dropdown-trigger waves-effect waves-light btn #8c9eff indigo accent-1" data-target="dropdown1">Administracion</a></li>
