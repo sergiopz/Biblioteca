@@ -70,8 +70,10 @@
                 $correo = $this->input->get_post("correo");
                 $telefono = $this->input->get_post("telefono");
                 $tipo = $this->input->get_post("tipo");
-                $idInstituto = $this->input->get_post("idInstituto");            //$cartel = $this->input->get_post("cartel");
-                $resultado = $this->AdministradorModel->ModificarUsuarios($id,$nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto);
+                $idInstituto = $this->input->get_post("idInstituto");
+                $codigoConfirmacion = $this->input->get_post("codigoConfirmacion");
+                            //$cartel = $this->input->get_post("cartel");
+                $resultado = $this->AdministradorModel->ModificarUsuarios($id,$nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto,$codigoConfirmacion);
            
                
             if ($resultado == 0) { // Error: usuario o contraseña no existen

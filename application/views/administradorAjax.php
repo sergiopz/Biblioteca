@@ -1,60 +1,76 @@
+ <?php
+
+ echo form_open_multipart("Administrador/InsertarUsuarios");
+
+ echo"
 <div class='formularioInsercion' id='oculto' style='display:'>
 <fieldset>
-  <form id="frmajax" method="get">
+  <form id='frmajax' method='get'>
     <label>Nombre</label>
     <p></p>
-    <input type="text" name="nombre" id="nombre">
+    <input type='text' name='nombre' id='nombre'>
     <p></p>
     <label>apellido</label>
     <p></p>
-    <input type="text" name="apellido" id="apellido">
+    <input type='text' name='apellido' id='apellido'>
     <p></p>
     <label>nick</label>
     <p></p>
-    <input type="text" name="nick" id="nick">
+    <input type='text' name='nick' id='nick'>
     <p></p>
     <label>contrasena</label>
     <p></p>
-    <input type="text" name="contrasena" id="contrasena">
+    <input type='text' name='contrasena' id='contrasena'>
     <p></p>
      <label>correo</label>
     <p></p>
-    <input type="text" name="correo" id="correo">
+    <input type='text' name='correo' id='correo'>
     <p></p>
      <label>telefono</label>
     <p></p>
-    <input type="text" name="telefono" id="telefono">
+    <input type='text' name='telefono' id='telefono'>
     <p></p>
      <label>tipo</label>
     <p></p>
-    <input type="text" name="tipo" id="tipo">
+    <input type='text' name='tipo' id='tipo'>
     <p></p>
      <label>Idinstituto</label>
     <p></p>
-    <input type="text" name="idInstituto" id="idInstituto">
+    <input type='text' name='idInstituto' id='idInstituto'>
     <p></p>
      <p></p>
-    <input type="text" name="codigoConfirmacion " id="codigoConfirmacion ">
+    <input type='text' name='codigoConfirmacion' id='codigoConfirmacion'>
     <p></p>
-    <button id="btnguardar">Guardar datos</button>
+    <input  type='submit' name='Enviar' value='Insertar'/>
+    <button id='btnguardar'>Guardar datos</button>
   </form>
 </fieldset>
-</div>
+</div>";
+
+?>
 
 
 <script type="text/javascript">
   $(document).ready(function(){
     $('#btnguardar').click(function(){
       var datos=$('#frmajax').serialize();
-      var cadena="<?php echo site_url("Administrador/InsertarUsuarios/"); ?>"+datos;
+      var cadena="<?php echo site_url("Administrador/InsertarUsuarios/"); ?>";
       alert(cadena);
 
 
   
- var xhttp = new XMLHttpRequest();
-        xhttp.open("GET", cadena , true);
-        xhttp.send(null);
-    
+ //var xhttp = new XMLHttpRequest();
+   //     xhttp.open("GET", cadena , true);
+     //   xhttp.send(null);
+    $.ajax({
+                  type:"POST",
+                  url: cadena,
+                  data:datos
+                   });
+
+
+                 
+
 
      
     });
@@ -153,6 +169,11 @@
                
                 echo "
 
+
+                <form id='fr' method='get'>
+
+
+
                 <table id='tabla' border=1>
         <tr class='$usuario->id'>
             <td><input type='text' name='id' value='$usuario->id'></td>
@@ -165,12 +186,13 @@
             <td><input type='text' name='tipo'value='$usuario->tipo'></td>
             <td><input type='text' name='idInstituto'value='$usuario->idInstituto'></td>
             <td><button class='borrarUsuario' value='$usuario->id'>id='$usuario->id'</button></td>
-            <td><button class='modificarUsuario'  value='$usuario->id'>id='$usuario->id'</button></td>
-            <td><input type='Submit' name='Modificar' value='modificar'/></td>
+            <td></td><button id='guardar'>Guardar datos</button></td>
+
+
            
             
         </tr>
-
+             </form>
 
 
 
@@ -185,6 +207,20 @@
 
                 //echo "<button id='$usuario->id'>Borrar info</button>";
                 ?>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#guardar').click(function(){
+      var datos=$('#fr').serialize();
+      alert(datos);
+     
+                 
+
+
+     
+    });
+  });
+</script>
 
 
 
@@ -207,7 +243,7 @@
 
 
                   cadena="<?php echo site_url("Administrador/EliminarUsuarios"); ?>/"+idUsuario;
-                  //alert(cadena);
+                  alert(cadena);
 
                   $.ajax({
                   url: cadena
