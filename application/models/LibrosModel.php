@@ -101,14 +101,13 @@
         return $autor;   
     }
     
-    public function contar(){
-       $consulta =$this->db->query(" SELECT count(*) as numero FROM libros ");
-        $resultado= $consulta->row();
-        return $resultado;
-       
+    public function numeroLibros(){
+        $query=$this->db->get("libros");
+        $numero_filas=$query->num_rows();
+        return $numero_filas;
     }
 
-    public function cuentaAutores(){
+    public function cuentaAutores($id){
         $autores=array();
         $r = $this->db->query("SELECT idLibro FROM autoreslibros WHERE idAutor='$id' ");
 

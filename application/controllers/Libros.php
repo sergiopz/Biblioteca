@@ -93,7 +93,9 @@
         }
 
         public function contar(){
-           
+            $filas=$this->LibrosModel->numeroLibros();
+            for ($i = 0; $i < $filas; $i) {
+            }
         }
 
         
