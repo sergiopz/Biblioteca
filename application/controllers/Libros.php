@@ -83,21 +83,5 @@
             }
         }
 
-        public function prueba($idAutor,$idLibro){
-            $prueba["lista"]=$this->LibrosModel->consultar($id); 
-            if(array_search($idAutor, $in)==true){
-                return $r=true;
-            }else{
-                return $r=false;
-            }
-        }
-
-        public function contar(){
-            $filas=$this->LibrosModel->numeroLibros();
-            for ($i = 0; $i < $filas; $i) {
-            }
-        }
-
-        
   
     }
