@@ -21,7 +21,6 @@
             $data["listaEditoriales"] = $this->EditorialesModel->getAll();           
             $data["listaAdministradores"] = $this->AdministradorModel->getAll();
             $data["listaLibros"] = $this->LibrosModel->getAll();
-            
             $data["listaCategorias"] = $this->CategoriasModel->getAll();
             $data["listaAutoresLibros"] = $this->LibrosModel->getAutoresLibros();
             $data["listaLibrosCategorias"] = $this->LibrosModel->getLibrosCategorias();
@@ -40,6 +39,8 @@
             $idInstituto= $this->input->get_post("idInstituto");
             $idUsuario = $this->input->get_post("idUsuario");
             $idEditorial = $this->input->get_post("idEditorial");
+            $idAutor = $this->input->get_post("idAutor");
+            $idCategoria= $this->input->get_post("idCategoria");
 
             $r=$this->LibrosModel->InsertarLibro($isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial);
 
