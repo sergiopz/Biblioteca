@@ -7,6 +7,7 @@
             parent::__construct();
             $this->load->model("AdministradorModel");
             $this->load->model("UsuariosModel");
+                 $this->load->model("EditorialesModel");
         }
 
         //cargamos vista
@@ -49,8 +50,8 @@
             //sesion de control 
                //$this->load->view("mainMenu", $data); 
              //$data["listaUsuarios"] = $this->AdministradorModel->getAll();
-             $data["nombreVista"] = "VistaAdministrador";
-             $this->load->view("plantilla", $data);
+            $data["listaEditoriales"] = $this->EditorialesModel->getAll();
+            $this->load->view("EditorialAjax.php", $data);
 
      }
      
