@@ -68,37 +68,21 @@
        echo   "</select>
                <select multiple>";
 
-               for ($j = 0; $j < count($listaAutoresLibros); $j++) {
-                     $autorlibro = $listaAutoresLibros[$j];
-              for ($k = 0; $k < count($listaAutores); $k++) {
-                     $autor = $listaAutores[$k];
-                     if( ($autorlibro->idAutor==$autor->id)&&($autorlibro->idLibro==$libro->id)){ 
-       echo          "<option  value='idAutor'  selected>$autor->nombre</option> ";                     
+
+       for ($j = $cont=0; $j < count($listaAutores); $j++) {
+              $autor = $listaAutores[$j];
+              for ($k = 0; $k < count($listaAutoresLibros); $k++) {
+                      $autorlibro = $listaAutoresLibros[$k];
+                            if(($autorlibro->idAutor==$autor->id)&&($autorlibro->idLibro==$libro->id)){
+       echo          "<option  value='$autorlibro->idAutor' selected >$autor->nombre</option> "; 
+  
+                            $k=count($listaAutoresLibros); 
+                     }else if ($autorlibro->idLibro>$libro->id||($autorlibro->idAutor!=$autor->id)&&($k==count($listaAutoresLibros)-1)  ) {
+       echo          "<option  value='$autorlibro->idAutor'  >$autor->nombre</option> ";
+                            $k=count($listaAutoresLibros);
                      }
               }
-
        }
-
-      // $dentro= array();
-       //$dentro=site_url('Libros/comprobarAutores/'.$libro->id);
-       
-      /* for ($j = 0; $j < count($listaAutores); $j++) {
-              $autor = $listaAutores[$j];
-              if()
-       echo          "<option  value='idAutor'selected>$autor->nombre</option> "; */ 
-//     echo          "<option  value='idAutor'  >$autor->nombre</option> ";  
-              
-       
-       
-       /*for ($j = 0; $j < count($listaAutoresLibros); $j++) {
-              $autorlibro = $listaAutoresLibros[1-1];
-              echo          "<option  value='idAutor'>$autorlibro->idAutor</option> ";
-
-              }*/
-       
-
-       
-       
       
        echo   "</select>
                <select multiple>";
@@ -125,16 +109,4 @@
        echo  "<div>
               <a href='".site_url("Libro/cerrar_sesion")."'>Cerrar sesión</a>
               </div>";
-              /* Esto funciona
-              for ($j = 0; $j < count($listaAutoresLibros); $j++) {
-                     $autorlibro = $listaAutoresLibros[$j];
-              for ($k = 0; $k < count($listaAutores); $k++) {
-                     $autor = $listaAutores[$k];
-                     if( ($autorlibro->idAutor==$autor->id)&&($autorlibro->idLibro==$libro->id)){ 
-       echo          "<option  value='idAutor'  >$autor->nombre</option> ";                     
-                     }
-              }
-
-       }
-          //usar search array array_search(valor a buscar,array en el que quieres buscar)
-    //Devuelve true o falsa*/
+             

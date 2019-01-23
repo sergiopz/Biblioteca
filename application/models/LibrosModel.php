@@ -90,28 +90,4 @@
         return $this->db->affected_rows();   
         }
 
-
-    /*PRUEBAS */
-    public function consultar($id){
-        $r = $this->db->query("SELECT idLibro FROM autoreslibros WHERE idAutor='$id' ");
-        $autores=array();
-        foreach($r->result()as $autores){
-            $autor[]=$autores;
-        }
-        return $autor;   
-    }
-    
-    public function contar(){
-       $consulta =$this->db->query(" SELECT count(*) as numero FROM libros ");
-        $resultado= $consulta->row();
-        return $resultado;
-       
-    }
-
-    public function cuentaAutores(){
-        $autores=array();
-        $r = $this->db->query("SELECT idLibro FROM autoreslibros WHERE idAutor='$id' ");
-
-    }
-
 }
