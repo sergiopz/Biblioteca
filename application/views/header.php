@@ -16,29 +16,65 @@
 
           $(".administracion").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Administrador/main"); ?>", function() { });
+            $(".administracion").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
+            $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".libro").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
           });
           //$("#btnNuevoUsuario".click(function() {alert("Boton nuevo usuario");}));
            $(".categoria").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Categorias/VistaAjax"); ?>", function() { });
+            $(".categoria").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
+            $(".administracion").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".libro").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
           });
 
           $(".editorial").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Editoriales/VistaAjax"); ?>", function() { });
+            $(".editorial").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
+            $(".administracion").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".libro").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
           });
 
         
           $(".autor").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Autores/VistaAjax"); ?>", function() { });
+            $(".autor").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
+            $(".administracion").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".libro").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
           });
 
 
           $(".institutos").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Institutos/VistaAjax"); ?>", function() { });
+            $(".institutos").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
+            $(".administracion").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".libro").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
 
           });
 
           $(".libro").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Libros/VistaAjax"); ?>", function() { });
+            $(".libro").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
+            $(".administracion").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
           });
   
       });
