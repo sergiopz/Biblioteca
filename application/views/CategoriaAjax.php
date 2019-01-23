@@ -38,7 +38,7 @@ $(".borrarInstituto").click(function() {
               $categoria = $listaCategorias[$i];
 
               echo form_open("Categorias/ModificarCategoria");
-              echo "<div class='info'>
+              echo "<div class='info '>
                 <tr class='$categoria->id'>
                       <input hidden class='#ffffff white-text' type='text' name='id' value='$categoria->id'>
                       <td><input class='#ffffff white-text' type='text' name='nombre' value='$categoria->nombre'></td>
