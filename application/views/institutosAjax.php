@@ -98,6 +98,12 @@ $(".borrarInstituto").click(function() {
                 <label style="color:royalblue" for="nombre">Nombre</label>
               </div>
 
+              <div class="input-field">
+                <i class="material-icons prefix" style="color:royalblue">map</i>
+                <input type="text" id="provincia" name="provincia">
+                <label style="color:royalblue" for="provincia">Provincia</label >
+              </div>
+
         
               <div class="input-field">
                 <i class="material-icons prefix" style="color:royalblue">location_city</i>
@@ -117,11 +123,7 @@ $(".borrarInstituto").click(function() {
                 <label style="color:royalblue" for="cp">Codigo Postal</label>
               </div>
 
-              <div class="input-field">
-                <i class="material-icons prefix" style="color:royalblue">map</i>
-                <input type="text" id="provincia" name="provincia">
-                <label style="color:royalblue" for="provincia">Provincia</label >
-              </div>
+
                 <div><input style="background-color:royalblue" type="submit" value="Insertar" class="btn btn-large"></div>
               <br>
               <br>
