@@ -33,36 +33,27 @@ $(".borrarInstituto").click(function() {
               for ($i = 0; $i < count($listaInstitutos); $i++) {
                 $instituto = $listaInstitutos[$i];
 
+                
                   echo form_open("Institutos/ModificarInstituto");
                   echo "<div class='info'>
-                  <form id='pf'>
                   <tr class='$instituto->id'>
                   <input type='text' name='id' hidden value='$instituto->id'>
                   <td><input class='#ffffff white-text' type='text' name='nombre' value='$instituto->nombre'></td>
-                  <td><input class='#ffffff white-text' type='text' name='provincia'value='$instituto->provincia'></td>
-                  <td><input class='#ffffff white-text' type='text' name='localidad'value='$instituto->localidad'></td>
-                  <td><input class='#ffffff white-text' type='text' name='direccion'value='$instituto->direccion'></td>
-                  <td><input class='#ffffff white-text' type='text' name='cp'value='$instituto->cp'></td>
-                  <td><input id='prueba' type='Submit' name='Modificar' value='Modificar'></td>
-                     
+                  <td><input  class='#ffffff white-text' type='text' name='provincia'value='$instituto->provincia'></td>
+                  <td><input  class='#ffffff white-text' type='text' name='localidad'value='$instituto->localidad'></td>
+                  <td><input  class='#ffffff white-text' type='text' name='direccion'value='$instituto->direccion'></td>
+                  <td><input  class='#ffffff white-text' type='text' name='cp'value='$instituto->cp'></td>
+                  <td><input  type='submit' name='Modificar' value='Modificar'></td>
+
                 " ;
             
-                echo "<td><a value='$instituto->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
+                  echo "<td><a value='$instituto->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
                   </div>
                   </form>
                   </tr>
                 ";
               }
         ?>
-            <script>
-              $("document").ready(function(){
-                $("#prueba").click(function(){
-                  var datos=$("#pf").serialize();
-                  alert(datos);
-                });
-              });
-
-              </script>
        <!-- 
             <tr class="">
               <td><input type="text" name="nombre"></td>
@@ -77,10 +68,9 @@ $(".borrarInstituto").click(function() {
           </tbody>
         </table>
 
+
+        </div>
       </div>
-
-    </div>
-
         <!--Contenido de la ventana modal de insercion-->
 
 
@@ -89,9 +79,7 @@ $(".borrarInstituto").click(function() {
           <h5 class="modal-close">&#10005;</h5>
           <div class="modal-content center">
             <h4 class="flow-text #00e676 green-text text-accent-3">Insertar Registro</h4>
-        
-            <form action="#">
-              
+                  
               <div class="input-field">
                 <i class="material-icons prefix" style="color:royalblue">person</i>
                 <input type="text" id="nombre" name="nombre">

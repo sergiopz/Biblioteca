@@ -97,19 +97,20 @@
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down autoreslibros">AutoresLib</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down libroscategorias">LibrosCat</a></li>
       </ul>
+      
       <ul class=" hide-on-med-and-up show-on-medium-and-down">
         <li><a class="dropdown-trigger waves-effect waves-light btn #8c9eff indigo accent-1" data-target="dropdown1">Administracion</a></li>
       </ul>
 
       <ul id='dropdown1' class='dropdown-content #8c9eff indigo accent-1'>
-        <li><a class=" btn #8c9eff indigo accent-1 administracion" style="color:white" >Usuarios</a></li>
-        <li><a class=" btn #8c9eff indigo accent-1 institutos" style="color:white">Institutos</a></li>
-        <li><a class=" btn #8c9eff indigo accent-1 autores" style="color:white">Autores</a></li>
-        <li><a class=" btn #8c9eff indigo accent-1 libros" style="color:white">Libros</a></li>
-        <li><a class=" btn #8c9eff indigo accent-1 categorias" style="color:white">Categorias</a></li>
-        <li><a class=" btn #8c9eff indigo accent-1 editorial" style="color:white">Editorial</a></li>
-        <li><a class=" btn #8c9eff indigo accent-1 autoreslibros" style="color:white">AutoresLib</a></li>
-        <li><a class=" btn #8c9eff indigo accent-1 libroscategorias" style="color:white">LibrosCat</a></li>
+        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 administracion" style="color:white" >Usuarios</a></li>
+        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 institutos" style="color:white">Institutos</a></li>
+        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 autor" style="color:white">Autores</a></li>
+        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 libro" style="color:white">Libros</a></li>
+        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 categoria" style="color:white">Categorias</a></li>
+        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 editorial" style="color:white">Editorial</a></li>
+        <li><a class="waves-effect waves-lightwaves-effect waves-light btn #8c9eff indigo accent-1 autoreslibros" style="color:white">AutoresLib</a></li>
+        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 libroscategorias" style="color:white">LibrosCat</a></li>
       </ul>
     </div>
   </nav>
