@@ -74,21 +74,15 @@
               for ($k = 0; $k < count($listaAutoresLibros); $k++) {
                       $autorlibro = $listaAutoresLibros[$k];
                             if(($autorlibro->idAutor==$autor->id)&&($autorlibro->idLibro==$libro->id)){
-       echo          "<option  value='$autor->id' selected >$autor->nombre</option> ";  
+       echo          "<option  value='$autorlibro->idAutor' selected >$autor->nombre</option> "; 
+  
                             $k=count($listaAutoresLibros); 
                      }else if ($autorlibro->idLibro>$libro->id||($autorlibro->idAutor!=$autor->id)&&($k==count($listaAutoresLibros)-1)  ) {
-       echo          "<option  value='$autor->id'  >$autor->nombre</option> ";
+       echo          "<option  value='$autorlibro->idAutor'  >$autor->nombre</option> ";
                             $k=count($listaAutoresLibros);
                      }
               }
        }
-      
-
-      
-       
-
-       
-       
       
        echo   "</select>
                <select multiple>";
