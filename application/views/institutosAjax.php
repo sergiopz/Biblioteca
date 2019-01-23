@@ -1,9 +1,9 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
-<!--<script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryInstitutos.js"></script>-->
+
 <script>
   $("document").ready(function(){
 
-$(".borrarInstituto").click(function() {
+  $(".borrarInstituto").click(function() {
 
    var idInstituto=$(this).attr("value");
 
@@ -16,6 +16,7 @@ $(".borrarInstituto").click(function() {
    });
 });
 </script>
+
         <table class="highlight responsive-table #536dfe indigo accent-2 ">
           <thead>
             <tr class="#536dfe indigo accent-2">
@@ -69,7 +70,7 @@ $(".borrarInstituto").click(function() {
         </table>
 
 
-        </div>
+      </div>
       </div>
         <!--Contenido de la ventana modal de insercion-->
 
