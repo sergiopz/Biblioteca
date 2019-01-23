@@ -1,5 +1,4 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
-<!--<script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryInstitutos.js"></script>-->
 <script>
   $("document").ready(function(){
 
@@ -22,6 +21,7 @@ $(".borrarInstituto").click(function() {
 
 });
 </script>
+
         <table class="highlight responsive-table #536dfe indigo accent-2 ">
           <thead>
             <tr class="#536dfe indigo accent-2">
@@ -93,6 +93,15 @@ $(".borrarInstituto").click(function() {
                 <input type="text" id="nombre" name="nombre">
                 <label for="nombre" style="color:royalblue">Nombre</label>
               </div>
+              <div class="input-field col s12">
+                <select multiple>
+                  <option value="" disabled selected>Choose your option</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+                <label>Materialize Multiple Select</label>
+              </div>
 
               <div><input style="background-color:royalblue" type="submit" value="Insertar" class="btn btn-large"></div>
               <br>
@@ -101,8 +110,6 @@ $(".borrarInstituto").click(function() {
             </form>
           </div>
         </div>
-
-
 
 <?php
 

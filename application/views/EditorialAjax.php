@@ -87,8 +87,8 @@ $(".borrarInstituto").click(function() {
         
               <div class="input-field">
                 <i class="material-icons prefix" style="color:royalblue">person</i>
-                <input type="text" id="nombre">
-                <label for="nombre" name="nombre" style="color:royalblue">Nombre</label>
+                <input type="text" name="nombre" id="nombre">
+                <label for="nombre"  style="color:royalblue">Nombre</label>
               </div>
 
               <div><input style="background-color:royalblue" type="submit" value="Insertar" class="btn btn-large"></div>
