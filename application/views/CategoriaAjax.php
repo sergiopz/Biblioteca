@@ -2,21 +2,24 @@
 <script>
   $("document").ready(function(){
 
-    $(".borrarInstituto").click(function() {
+$(".borrarInstituto").click(function() {
 
-      var idInstituto=$(this).attr("value");
+   var idInstituto=$(this).attr("value");
 
-      $("."+idInstituto).remove();
+    $("."+idInstituto).remove();
 
-      cadena = "<?php echo site_url('Categorias/EliminarCategoria'); ?>/"+idInstituto;
+    cadena = "<?php echo site_url('Categorias/EliminarCategoria'); ?>/"+idInstituto;
 
-      $.ajax({
-        url: cadena
-      });
+    $.ajax({
+    url: cadena
+     });
 
-    });
-  });
 
+   });
+
+
+
+});
 </script>
 
         <table class="highlight responsive-table #536dfe indigo accent-2 ">
@@ -48,6 +51,15 @@
                 ";
               }
         ?>
+            <script>
+              $("document").ready(function(){
+                $("#prueba").click(function(){
+                  var datos=$("#pf").serialize();
+                  alert(datos);
+                });
+              });
+
+              </script>
        <!-- 
             <tr class="">
               <td><input type="text" name="nombre"></td>
@@ -81,6 +93,16 @@
                 <input type="text" id="nombre" name="nombre">
                 <label for="nombre" style="color:royalblue">Nombre</label>
               </div>
+              <div class="input-field col s12">
+                <select multiple>
+                  <option value="" disabled selected>Choose your option</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+                <label>Materialize Multiple Select</label>
+              </div>
+
               <div><input style="background-color:royalblue" type="submit" value="Insertar" class="btn btn-large"></div>
               <br>
               <br>

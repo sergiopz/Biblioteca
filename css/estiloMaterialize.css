@@ -32,9 +32,3 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
   -webkit-box-shadow: 0 1px 0 0 #616161;
   box-shadow: 0 1px 0 0 #616161;
 }
-
-.optionColor{
-  border-bottom: 1px solid #616161;
-  -webkit-box-shadow: 0 1px 0 0 #616161;
-  box-shadow: 0 1px 0 0 #616161;
-}
