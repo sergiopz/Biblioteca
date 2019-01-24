@@ -49,9 +49,9 @@
             //crearLogin(); esta en seguridad , al entrar le creamos una 
             //sesion de control 
                //$this->load->view("mainMenu", $data); 
-               //$data["nombreVista"] = "VistaAdministrador";
-                 $data["listaEditoriales"] = $this->EditorialesModel->getAll();
-             $this->load->view("pruebaAjax", $data);
+             //$data["listaUsuarios"] = $this->AdministradorModel->getAll();
+            $data["listaEditoriales"] = $this->EditorialesModel->getAll();
+            $this->load->view("EditorialAjax.php", $data);
 
      }
      
