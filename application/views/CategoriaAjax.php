@@ -21,6 +21,7 @@ $(".borrarInstituto").click(function() {
 
 });
 </script>
+         <?php echo form_open("Categorias/ModificarCategoria");  ?>
 
         <table class="highlight responsive-table #536dfe indigo accent-2 ">
           <thead>
@@ -37,45 +38,25 @@ $(".borrarInstituto").click(function() {
             for ($i = 0; $i < count($listaCategorias); $i++) {
               $categoria = $listaCategorias[$i];
 
-              echo form_open("Categorias/ModificarCategoria");
+             
               echo "<div class='info '>
-                <tr class='$categoria->id'>
-                      <input hidden class='#ffffff white-text' type='text' name='id' value='$categoria->id'>
+                    <input hidden class='#ffffff white-text' type='text' name='id' value='$categoria->id'>
+                    <tr class='$categoria->id'>
                       <td><input class='#ffffff white-text' type='text' name='nombre' value='$categoria->nombre'></td>
-                      <td><input  type='Submit' name='Modificar' value='Modificar'/></td>" ;
+                      <td><input  type='Submit' name='Modificar' value='Modificar'/></td>
+                      <td><a value='$categoria->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
+                    </tr>
 
-              echo "<td><a value='$categoria->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
-                  </div>
-                  </form>
-                  </tr>
-                ";
+                    </div>
+                  
+                  ";
+                
               }
         ?>
-            <script>
-              $("document").ready(function(){
-                $("#prueba").click(function(){
-                  var datos=$("#pf").serialize();
-                  alert(datos);
-                });
-              });
 
-              </script>
-       <!-- 
-            <tr class="">
-              <td><input type="text" name="nombre"></td>
-              <td><input type="text" name="localidad"></td>
-              <td><input type="text" name="direccion"></td>
-              <td><input type="text" name="cp"></td>
-              <td><input type="text" name="provincia"></td>
-              <td><a class="btn btn-floating #d32f2f red darken-2 botonD"><i class="material-icons" title="Eliminar">delete</i></a></td>
-              <td><a class="btn btn-floating #e65100 orange darken-4"><i class="material-icons" title="Modificar">create</i></a></li></td>
-            </tr>-->
-           
           </tbody>
         </table>
-
-      </div>
-
+      </form>
     </div>
 
         <!--Contenido de la ventana modal de insercion-->

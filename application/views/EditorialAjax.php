@@ -32,8 +32,7 @@ $(".borrarInstituto").click(function() {
               <th><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
             </tr>
           </thead>
-          <tbody>
-                 </tbody>
+
         </table>
       
             
@@ -43,21 +42,24 @@ $(".borrarInstituto").click(function() {
        
              
               echo form_open("Editoriales/ModificarEditorial");
-                    echo" <table>";
-              echo "<div class='info'>
+              echo" <table class='highlight responsive-table #536dfe indigo accent-2'>
+                <div class='info'>
               
-             
-              <tr class='$editorial->id'>
-              <input hidden type='text' name='id' value='$editorial->id'>
-              <td><input class='#ffffff white-text' type='text' name='nombre' value='$editorial->nombre'></td>
-                 </form>
-              <td><input type='Submit' name='Modificar' value='Modificar'/></td>" ;
+                <tbody>
+                <tr class='$editorial->id'>
+                <input hidden type='text' name='id' value='$editorial->id'>
+                <td><input class='#ffffff white-text' type='text' name='nombre' value='$editorial->nombre'></td>
+                <td><input type='Submit' name='Modificar' value='Modificar'/></td>
 
-                echo "<td><a value='$editorial->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
+                 
+                 
+                <td><a value='$editorial->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
                   </div>
                
                   </tr>
+                  </tbody>
                    </table>
+                   </form>
                 ";
               }
         ?>
