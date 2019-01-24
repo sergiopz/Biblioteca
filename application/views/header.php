@@ -22,8 +22,7 @@
             $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".libro").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-          });
-          //$("#btnNuevoUsuario".click(function() {alert("Boton nuevo usuario");}));
+          }););
            $(".categoria").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Categorias/VistaAjax"); ?>", function() { });
             $(".categoria").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
@@ -94,8 +93,6 @@
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down libro">Libros</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down categoria">Categorias</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down editorial">Editorial</a></li>
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down autoreslibros">AutoresLib</a></li>
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down libroscategorias">LibrosCat</a></li>
       </ul>
       
       <ul class=" hide-on-med-and-up show-on-medium-and-down">
@@ -109,8 +106,6 @@
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 libro" style="color:white">Libros</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 categoria" style="color:white">Categorias</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 editorial" style="color:white">Editorial</a></li>
-        <li><a class="waves-effect waves-lightwaves-effect waves-light btn #8c9eff indigo accent-1 autoreslibros" style="color:white">AutoresLib</a></li>
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 libroscategorias" style="color:white">LibrosCat</a></li>
       </ul>
     </div>
   </nav>

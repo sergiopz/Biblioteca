@@ -53,6 +53,14 @@ $(".borrarInstituto").click(function() {
                 <td><input class='#ffffff white-text' type='text' name='correo'value='$usuario->correo'></td>
                 <td><input class='#ffffff white-text' type='text' name='telefono'value='$usuario->telefono'></td>
                 <td><input class='#ffffff white-text' type='text' name='tipo'value='$usuario->tipo'></td>
+
+                <td>
+                <select  >
+                  <option  value='' disabled selected> Choose your option</option>
+                  <option value='1'  >Option 1</option>
+                </select>
+              </td>
+
                 <td><input class='#ffffff white-text' type='text' name='idInstituto'value='$usuario->idInstituto'></td>
                       <td><input type='Submit' name='Modificar' value='Modificar'/></td>";
 
@@ -151,13 +159,9 @@ $(".borrarInstituto").click(function() {
               <br>
               <br>
 
-
             </form>
           </div>
         </div>
-
-
-
 <?php
 
 /*
