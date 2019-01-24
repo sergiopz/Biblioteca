@@ -51,7 +51,7 @@
                //$this->load->view("mainMenu", $data); 
              //$data["listaUsuarios"] = $this->AdministradorModel->getAll();
             $data["listaEditoriales"] = $this->EditorialesModel->getAll();
-            $this->load->view("EditorialAjax.php", $data);
+            $this->load->view("pruebaAjax.php", $data);
 
      }
      
