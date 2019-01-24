@@ -11,21 +11,43 @@
                             Descripcion : <input type='text' name='descripcion'/><br/>
                             Fecha : <input type='text' name='fecha'/><br/>
                             Paginas : <input type='text' name='paginas'/><br/>
-                            idInstituto : <input type='text' name='idInstituto'/><br/>
+                            idInstituto : 
+                            <select name='idInstituto'>";
+                            for ($j = 0; $j < count($listaInstitutos); $j++) {
+                            $instituto = $listaInstitutos[$j]; 
+                                   if( $libro->idInstituto==$instituto->id ){ 
+                            echo          "<option  value='$instituto->id' selected >$instituto->nombre</option> ";                      
+                                   }else{
+                            echo          "<option  value='$instituto->id' >$instituto->nombre</option> ";
+                                   }
+                             }
+       echo"                </select><br/>
                             idUsuario : <input type='text' name='idUsuario'/><br/>
-                            idEditorial : <input type='text' name='idEditorial'/><br/>
-                            Autores : <select multiple name='idAutor'>";
-                                          for ($j = $cont=0; $j < count($listaAutores); $j++) {
-                                           $autor = $listaAutores[$j];
-       echo                               "<option >$autor->nombre</option> ";
-                            }                      
+                            idEditorial : 
+                                   <select name='idEditorial'>"; 
+                                   for ($j = 0; $j < count($listaEditoriales); $j++) {
+                                   $editorial = $listaEditoriales[$j]; 
+                                          if( $libro->idEditorial==$editorial->id ){ 
+       echo                               "<option  value='$editorial->id' selected >$editorial->nombre</option> ";                      
+                                          }else{
+       echo                               "<option  value='$editorial->id' >$editorial->nombre</option> ";
+                                          }
+                                   }
        echo"                       </select><br/>
-                            Categorias: <select multiple name='idCategoria'>";
-                                          for ($j = $cont=0; $j < count($listaCategorias); $j++) {
-                                          $categoria = $listaCategorias[$j];
-       echo                               "<option >$categoria->nombre</option> ";
-                            }                                                         
-       echo"                      </select><br/>
+                            Autores : 
+                                   <select multiple name='idAutor[]'>";
+                                   for ($j = $cont=0; $j < count($listaAutores); $j++) {
+                                   $autor = $listaAutores[$j];
+       echo                               "<option value='$autor->id' >$autor->nombre</option> ";
+                                   }                      
+       echo"                       </select><br/>
+                            Categorias: 
+                                   <select multiple name='idCategoria[]'>";
+                                   for ($j = $cont=0; $j < count($listaCategorias); $j++) {
+                                   $categoria = $listaCategorias[$j];
+       echo                               "<option value='$categoria->id'>$categoria->nombre</option> ";
+                                   }                                                         
+       echo"                       </select><br/>
                      </fieldset>
                             <input  type='submit' name='Enviar' value='Insertar'/>
               </form><br>
@@ -40,7 +62,7 @@
 
        echo form_open("Libros/ModificarLibro");
        echo   "<div class='info'>
-                     <input type='text' name='id' value='$libro->id'>
+                     <input type='text' name='id' value='$libro->id' readonly>
                      <input type='text' name='isbn' value='$libro->isbn'>
                      <input type='text' name='titulo' value='$libro->titulo'>
                      <input type='text' name='descripcion' value='$libro->descripcion'>
@@ -78,7 +100,7 @@
        }
 
        echo   "</select>
-               <select multiple>";
+               <select multiple name='idAutor[]'>";
 
 
        for ($j = $cont=0; $j < count($listaAutores); $j++) {
@@ -96,7 +118,7 @@
        }
       
        echo   "</select>
-               <select multiple>";
+               <select multiple name='idCategoria[]'>";
        for ($j = 0; $j < count($listaCategorias); $j++) {
                      $categoria = $listaCategorias[$j];
               for ($k = 0; $k < count($listaLibrosCategorias); $k++) {

@@ -2,6 +2,7 @@
     class LibrosModel extends CI_Model {
     
     /*Funciones de tabla libros
+
      Devolver todos los valores de la tabla libros*/
     public function getAll() {
         $r = $this->db->query("SELECT * FROM libros");
@@ -10,6 +11,13 @@
             $libros[]=$libro;
         }
         return $libros;     
+    }
+
+    //Funcion que selecciona el maximo id y le suma 1 
+    public function getMax(){
+        $r = $this->db->query("SELECT MAX(id+1)as id  FROM libros ");
+        $a= $r->result_array();
+        return $a[0]['id'];
     }
 
    // Insertar un libro de la tabla. Devuelve 1 si lo consigue o 0 en caso de error 
@@ -41,6 +49,7 @@
         }
 
     /*Funciones de tabla autores-libros 
+
      Devuelve todos los valores de la tabla autoreslibros*/
     public function getAutoresLibros() {
         $r = $this->db->query("SELECT * FROM autoreslibros");
@@ -55,7 +64,7 @@
     public function InsertarAutorLibro($idAutor,$idLibro) {
       
         $r = $this->db->query("INSERT INTO autoreslibros(idAutor,idLibro) 
-                            VALUES ('$idAutor','$idLibro')");
+                                VALUES ('$idAutor','$idLibro')");
         return $r;
         }
 
@@ -66,6 +75,7 @@
         }
     
     /*Funciones de la tabla libros-categorias 
+    
     Devolver todos los valores de la tabla libroscategoria*/
     public function getLibrosCategorias() {
         $r = $this->db->query("SELECT * FROM librocategoria");
@@ -77,10 +87,12 @@
     }
 
     //Funcion de insertar en la tabla librocategoria
-    public function InsertarLibroCategoria($idLibro,$idCategoria) {
+    public function InsertarLibroCategoria($idCategoria,$idLibro) {
       
         $r = $this->db->query("INSERT INTO librocategoria(idLibro,idCategoria) 
                             VALUES ('$idLibro','$idCategoria')");
+      
+                            
         return $r;
         }
         
