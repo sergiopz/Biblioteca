@@ -22,42 +22,29 @@ $(".borrarInstituto").click(function() {
 
 });
 </script>
-<table class="highlight responsive-table #536dfe indigo accent-2 ">
+        <table class="highlight responsive-table #536dfe indigo accent-2 ">
           <thead>
             <tr class="#536dfe indigo accent-2">
-
-              <th class="#000000 black-text" >Nombre</th>
-              
-              
+              <th class="#000000 black-text">Nombre</th>
               <th><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
             </tr>
           </thead>
           <tbody>
-                 </tbody>
-        </table>
-      
             
             <?php
               for ($i = 0; $i < count($listaEditoriales); $i++) {
               $editorial = $listaEditoriales[$i];
-       
-             
               echo form_open("Editoriales/ModificarEditorial");
-                    echo" <table>";
               echo "<div class='info'>
-              
-             
               <tr class='$editorial->id'>
               <input hidden type='text' name='id' value='$editorial->id'>
               <td><input class='#ffffff white-text' type='text' name='nombre' value='$editorial->nombre'></td>
-                 </form>
               <td><input type='Submit' name='Modificar' value='Modificar'/></td>" ;
 
                 echo "<td><a value='$editorial->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
                   </div>
-               
+                  </form>
                   </tr>
-                   </table>
                 ";
               }
         ?>
@@ -80,7 +67,9 @@ $(".borrarInstituto").click(function() {
               <td><a class="btn btn-floating #d32f2f red darken-2 botonD"><i class="material-icons" title="Eliminar">delete</i></a></td>
               <td><a class="btn btn-floating #e65100 orange darken-4"><i class="material-icons" title="Modificar">create</i></a></li></td>
             </tr>-->
-  
+           
+          </tbody>
+        </table>
 
       </div>
 

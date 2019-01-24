@@ -33,9 +33,6 @@ $(".borrarInstituto").click(function() {
             </tr>
           </thead>
           <tbody>
-
-                 </tbody>
-        </table>
             
             <?php
               for ($i = 0; $i < count($listaAutores); $i++) {
