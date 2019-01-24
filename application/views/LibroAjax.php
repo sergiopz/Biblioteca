@@ -86,10 +86,10 @@
               for ($k = 0; $k < count($listaAutoresLibros); $k++) {
                       $autorlibro = $listaAutoresLibros[$k];
                             if(($autorlibro->idAutor==$autor->id)&&($autorlibro->idLibro==$libro->id)){
-       echo          "<option  value='$autorlibro->idAutor' selected >$autor->nombre</option> "; 
+       echo          "<option  value='$autor->id' selected >$autor->nombre</option> "; 
                             $k=count($listaAutoresLibros); 
                      }else if ($autorlibro->idLibro>$libro->id||($autorlibro->idAutor!=$autor->id)&&($k==count($listaAutoresLibros)-1)  ) {
-       echo          "<option  value='$autorlibro->idAutor'  >$autor->nombre</option> ";
+       echo          "<option  value='$autor->id'  >$autor->nombre</option> ";
                             $k=count($listaAutoresLibros);
                      }
               }
@@ -102,10 +102,10 @@
               for ($k = 0; $k < count($listaLibrosCategorias); $k++) {
                      $librocategoria = $listaLibrosCategorias[$k];
                             if(($librocategoria->idCategoria==$categoria->id)&&($librocategoria->idLibro==$libro->id)){
-       echo          "<option  value='$librocategoria->idCategoria' selected >$categoria->nombre</option> "; 
+       echo          "<option  value='$categoria->id' selected >$categoria->nombre</option> "; 
                             $k=count($listaLibrosCategorias);
                             }else if($librocategoria->idLibro>$libro->id||($librocategoria->idCategoria!=$categoria->id)&&($k==count($listaLibrosCategorias)-1)) {
-       echo          "<option  value='$librocategoria->idCategoria'>$categoria->nombre</option> ";
+       echo          "<option  value='$categoria->id'>$categoria->nombre</option> ";
                             $k=count($listaLibrosCategorias);
                      }
               }
