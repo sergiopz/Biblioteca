@@ -17,11 +17,6 @@
     <title>Administracion</title>
 </head>
 <body class="#424242 grey darken-3">
-
-
-
-
-
 <div class="row"></div>
     <div class="row container">
       <div class="col s12 m12 #536dfe indigo accent-2 z-depth-1 " id="capaAdmin">
@@ -95,14 +90,7 @@
       </div>
 
     </div>
-
         <!--Contenido de la ventana modal de insercion-->
- 
-
-
-
-  
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
