@@ -27,7 +27,8 @@
                        
                     } else {
                       $data["listaCategorias"] = $this->CategoriasModel->getAll();
-                   $this->load->view("header", $data);  
+                      $data["nombreVista"] = "VistaAdministrador";
+                    $this->load->view("plantilla", $data);  
                     }
       }
     
