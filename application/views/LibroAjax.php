@@ -100,7 +100,7 @@
        }
 
        echo   "</select>
-               <select multiple name='idAutor[]'>";
+               <select required multiple name='idAutor[]'>";
 
 
        for ($j = $cont=0; $j < count($listaAutores); $j++) {
@@ -110,7 +110,7 @@
                             if(($autorlibro->idAutor==$autor->id)&&($autorlibro->idLibro==$libro->id)){
        echo          "<option  value='$autor->id' selected >$autor->nombre</option> "; 
                             $k=count($listaAutoresLibros); 
-                     }else if ($autorlibro->idLibro>$libro->id||($autorlibro->idAutor!=$autor->id)&&($k==count($listaAutoresLibros)-1)  ) {
+                     }else if ($autorlibro->idLibro>$libro->id||(($autorlibro->idAutor!=$autor->id)&&($k==count($listaAutoresLibros)-1))  ) {
        echo          "<option  value='$autor->id'  >$autor->nombre</option> ";
                             $k=count($listaAutoresLibros);
                      }
@@ -118,7 +118,7 @@
        }
       
        echo   "</select>
-               <select multiple name='idCategoria[]'>";
+               <select required multiple name='idCategoria[]'>";
        for ($j = 0; $j < count($listaCategorias); $j++) {
                      $categoria = $listaCategorias[$j];
               for ($k = 0; $k < count($listaLibrosCategorias); $k++) {
