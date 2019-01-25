@@ -62,7 +62,7 @@
 
        echo form_open("Libros/ModificarLibro");
        echo   "<div class='info'>
-                     <input type='text' name='id' value='$libro->id' readonly>
+                     <input type='hidden' name='id' value='$libro->id' readonly>
                      <input type='text' name='isbn' value='$libro->isbn'>
                      <input type='text' name='titulo' value='$libro->titulo'>
                      <input type='text' name='descripcion' value='$libro->descripcion'>
