@@ -83,7 +83,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Administracion</title>
 </head>
-<body class="#424242 grey darken-3">
+<body class="gradiente">
 
   <nav>
     <div class="nav-wrapper #616161 grey darken-2">

@@ -16,7 +16,8 @@ a.btn{
 }
 
 .gradiente{
-  background-color: linear-gradient(to right, rgb(231, 46, 46) , rgb(40, 5, 167));
+  background: linear-gradient(to top, #b92b27, #1565c0);
+  background: -webkit-linear-gradient(to top, #b92b27, #1565c0);
 }
 
 input[type="submit"]{

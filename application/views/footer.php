@@ -1,6 +1,6 @@
     <!--Pie de pagina-->
 
-    <footer class = "page-footer #616161 grey darken-1 z-depth-1">
+    <footer class = "page-footer #616161 grey darken-2 z-depth-1">
             <div class = "row">
                <div class = "col s12 m6 l6">
                   <h5 class = "pie">Panel de Administración</h5>
