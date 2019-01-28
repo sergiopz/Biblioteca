@@ -63,7 +63,7 @@
 
             $resultado = $this->InstitutosModel->ModificarInstituto($id, $nombre, $localidad, $direccion, $cp, $provincia);
 
-            if ($resultado) {
+            if ($resultado==0) {
                 $data['mensaje'] = "Instituto modificado con éxito";
                 $this->load->model("InstitutosModel");
                 $data["listaInstitutos"] = $this->InstitutosModel->getAll();
