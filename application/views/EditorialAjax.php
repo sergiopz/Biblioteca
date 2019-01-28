@@ -1,5 +1,4 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
-<!--<script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryInstitutos.js"></script>-->
 <script>
   $("document").ready(function(){
 
@@ -15,31 +14,17 @@ $(".borrarInstituto").click(function() {
     url: cadena
      });
 
-
    });
-
-
 
 });
 </script>
 <table class="highlight responsive-table #536dfe indigo accent-2 ">
-          <thead>
+          <thead class="cabecera">
             <tr class="#536dfe indigo accent-2">
-
               <th class="#000000 black-text" >Nombre</th>
-              
-              
               <th><a href="#insert" id="mover" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
             </tr>
           </thead>
-
-          <style>
-            #mover{
-              float: right;
-        
-              margin-right: 20%;
-            }
-          </style>
 
         </table>
       
@@ -57,11 +42,8 @@ $(".borrarInstituto").click(function() {
                 <tr class='$editorial->id'>
                 <input hidden type='text' name='id' value='$editorial->id'>
                 <td><input class='#ffffff white-text' type='text' name='nombre' value='$editorial->nombre'></td>
-                <td><input type='Submit' name='Modificar' value='Modificar'/></td>
-
-                 
-                 
-                <td><a value='$editorial->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
+                <td><button class='btn waves-effect waves-light' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button</td>
+                <td><a value='$editorial->id' class='btn waves-effect waves-light #d32f2f red darken-2 borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
                   </div>
                
                   </tr>

@@ -43,10 +43,9 @@ $(".borrarInstituto").click(function() {
                 <tr class='$autor->id'>
                       <input hidden type='text' name='id' value='$autor->id'>
                       <td><input class='#ffffff white-text' type='text' name='nombre' value='$autor->nombre'></td>
-                      <td><input  type='Submit' name='Modificar' value='Modificar'/></td>" ;
-
-                echo "<td><a value='$autor->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
-                  </div>
+                      <td><input  type='Submit' name='Modificar' value='Modificar'/></td>
+                      <td><a value='$autor->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
+                    </div>
                   </form>
                   </tr>
                 ";
