@@ -14,11 +14,6 @@ $(".borrarInstituto").click(function() {
     url: cadena
      });
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 4f04f9ec756c9c3a37ddeaa5ee406913cdeea3b6
    });
 
 });
