@@ -16,6 +16,7 @@ $(".borrarInstituto").click(function() {
      });
 
 
+
    });
 
 
