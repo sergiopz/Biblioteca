@@ -29,9 +29,17 @@ $(".borrarInstituto").click(function() {
               <th class="#000000 black-text" >Nombre</th>
               
               
-              <th><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
+              <th><a href="#insert" id="mover" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
             </tr>
           </thead>
+
+          <style>
+            #mover{
+              float: right;
+        
+              margin-right: 20%;
+            }
+          </style>
 
         </table>
       

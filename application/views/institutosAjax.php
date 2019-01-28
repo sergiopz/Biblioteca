@@ -29,6 +29,9 @@
             </tr>
           </thead>
           <tbody>
+             </tbody>
+        </table>
+
             
             <?php
               for ($i = 0; $i < count($listaInstitutos); $i++) {
@@ -66,9 +69,7 @@
               <td><a class="btn btn-floating #e65100 orange darken-4"><i class="material-icons" title="Modificar">create</i></a></li></td>
             </tr>-->
            
-          </tbody>
-        </table>
-
+         
 
       </div>
       </div>
