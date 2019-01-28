@@ -1,3 +1,4 @@
+<script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
 <?php     
        echo  "<div class='formularioInsercion' style='display:inline'>
               <h1>Insertar un Libro</h1>";
