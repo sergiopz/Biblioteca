@@ -58,10 +58,14 @@
             
 
             if ($r== 0) { 
-                echo"Fallo al insertar libro";
+                echo"Fallo al insertar libro"; $data["nombreVista"] = "VistaAdministrador";
+                           $data["tabla"] = "libro";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $this->load->view("plantilla", $data);
                 
             } else {
-                echo"Libro insertado con exito";  
+                $data["nombreVista"] = "VistaAdministrador";
+                           $data["tabla"] = "libro";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $this->load->view("plantilla", $data);
             }
         }
 
@@ -110,10 +114,14 @@
             
 
             if ($r== 0) { 
-                echo"Fallo al modificar libro";
+                 $data["nombreVista"] = "VistaAdministrador";
+                           $data["tabla"] = "libro";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $this->load->view("plantilla", $data);
                 
             } else {
-                echo"Libro modificado con exito";    
+                 $data["nombreVista"] = "VistaAdministrador";
+                           $data["tabla"] = "libro";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $this->load->view("plantilla", $data); 
             }
         }
 

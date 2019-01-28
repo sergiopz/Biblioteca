@@ -23,7 +23,9 @@
                 echo"Fallo al insertar autor";
                 
             } else {
-                echo"Autor insertado con exito";                
+                 $data["nombreVista"] = "VistaAdministrador";
+                           $data["tabla"] = "autor";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $this->load->view("plantilla", $data);           
             }
         }
 
@@ -47,7 +49,9 @@
                 echo"Fallo al modificar autor";
                 
             } else {
-                echo"Autor modificado con exito";
+                $data["nombreVista"] = "VistaAdministrador";
+                           $data["tabla"] = "autor";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $this->load->view("plantilla", $data);
             }
         }
 
