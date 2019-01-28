@@ -26,9 +26,9 @@
                     $data["mensaje"] = "Error al insertar la categoria en la base de datos";
                        
                     } else {
-                      $data["listaCategorias"] = $this->CategoriasModel->getAll();
                       $data["nombreVista"] = "VistaAdministrador";
-                    $this->load->view("plantilla", $data);  
+                           $data["tabla"] = "categoria";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $this->load->view("plantilla", $data);
                     }
       }
     
@@ -58,9 +58,9 @@
                     $data["listaCategorias"] = $this->CategoriasModel->getAll();
                     $this->load->view("header",$data);
                 } else {
-                    $data["error"] = "No se pudo modificar la categoria.";
-                    $data["listaCategorias"] = $this->CategoriasModel->getAll();
-                    $this->load->view("header",$data);
+                   $data["nombreVista"] = "VistaAdministrador";
+                           $data["tabla"] = "categoria";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $this->load->view("plantilla", $data);
                 }
             }
         }

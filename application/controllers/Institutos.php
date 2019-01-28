@@ -31,8 +31,9 @@
             if ($resultado == 0) {
                     $data["mensaje"] = "Error al insertar el instituto en la base de datos";   
             } else {
-                $data["listaInstitutos"] = $this->InstitutosModel->getAll();
-                $this->load->view("header", $data);  
+               $data["nombreVista"] = "VistaAdministrador";
+                           $data["tabla"] = "institutos";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $this->load->view("plantilla", $data);
             }
         } 
     
@@ -68,9 +69,9 @@
                 $data["listaInstitutos"] = $this->InstitutosModel->getAll();
                 $this->load->view("header",$data);
             } else {
-                $data["error"] = "No se pudo modificar el instituto.";
-                $data["listaInstitutos"] = $this->InstitutosModel->getAll();
-                $this->load->view("header",$data);
+                $data["nombreVista"] = "VistaAdministrador";
+                           $data["tabla"] = "institutos";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $this->load->view("plantilla", $data);
             }
   
         }

@@ -26,7 +26,9 @@
                 echo"Fallo al insertar Editorial";
                 
             } else {
-                echo"Editorial insertado con exito";    
+                $data["nombreVista"] = "VistaAdministrador";
+                           $data["tabla"] = "editorial";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $this->load->view("plantilla", $data);
             }
         }
 
@@ -50,7 +52,9 @@
                 echo"Fallo al modificar Editorial";
                 
             } else {
-                echo"Editorial modificado con exito";
+                $data["nombreVista"] = "VistaAdministrador";
+                           $data["tabla"] = "editorial";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $this->load->view("plantilla", $data);
             }
         }
  

@@ -7,6 +7,16 @@
     </div>  
 </div>
 
+<script>
+	$(document).ready(function (){
+
+	<?php
+		if (isset($tabla)) 
+			echo "$('.$tabla').click();";
+	?>
+});
+</script>
+
         
                   
 

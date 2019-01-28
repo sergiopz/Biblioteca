@@ -37,8 +37,8 @@
                        // $this->peliculasModel->borrarImagenPelicula($img_name);
                     } else {
                            $data["nombreVista"] = "VistaAdministrador";
-                     $this->load->view("plantilla", $data);
-                     $this->main();
+                           $data["tabla"] = "administracion";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $this->load->view("plantilla", $data);
                     }
       }
             
@@ -89,11 +89,9 @@
             } else {
 
 
-                 $data["mensaje"]=" modificado con exito";
-
-                $this->load->model("AdministradorModel");
-                $data["listaUsuarios"] = $this->AdministradorModel->getAll();
-                $this->load->view("VistaAdministrador", $data);
+                 $data["nombreVista"] = "VistaAdministrador";
+                           $data["tabla"] = "administracion";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $this->load->view("plantilla", $data);
             }
         
 
