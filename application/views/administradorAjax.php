@@ -54,7 +54,7 @@ $(".borrarInstituto").click(function() {
        var tipousuario=$("."+iddiv+ " input[name='tipo']").val();
        
        var idInstitutousuario=$("."+iddiv+ " option:selected").val();
-       alert(idInstitutousuario);
+       
       
         
 

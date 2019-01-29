@@ -67,7 +67,7 @@
 
           });
 
-          $(".libro").click(function() {
+/*          $(".libro").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Libros/VistaAjax"); ?>", function() { });
             $(".libro").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
             $(".administracion").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
@@ -76,7 +76,7 @@
             $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
           });
-  
+ */ 
       });
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,7 +91,7 @@
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down administracion" >Usuarios</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down institutos">Institutos</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down autor">Autores</a></li>
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down libro">Libros</a></li>
+        <li><a href="<?php echo site_url('Libros/VistaAjax');?>" class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down libro">Libros</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down categoria">Categorias</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down editorial">Editorial</a></li>
         

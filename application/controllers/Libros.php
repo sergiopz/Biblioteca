@@ -27,8 +27,8 @@
             $data["listaAutores"] = $this->AutoresModel->getAll();
             
 
-      
-            $this->load->view("LibroAjax.php" , $data);
+            data["nombreVista"] = "LibroAjax";
+            $this->load->view("plantilla" , $data);
         }
     
         /*Funcion que inserta un libro */    
