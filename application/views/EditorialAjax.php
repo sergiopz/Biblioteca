@@ -18,7 +18,42 @@ $(".borrarInstituto").click(function() {
 
 });
 </script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.clasemodificar').click(function(){
 
+       var iddiv=$(this).attr("value");
+       alert(iddiv);
+
+
+       
+       
+       var nombre=$("."+iddiv+ " input[name='nombre']").val();
+       alert(nombre);
+      
+
+
+       
+       var datos="id="+iddiv+"&nombre="+nombre;
+       alert(datos);
+      var cadena="<?php echo site_url("Editoriales/ModificarEditorial/"); ?>";
+      alert(cadena);
+
+
+  
+ //var xhttp = new XMLHttpRequest();
+   //     xhttp.open("GET", cadena , true);
+     //   xhttp.send(null);
+    $.ajax({
+                  type:"POST",
+                  url: cadena,
+                  data:datos
+                   });
+
+     
+    });
+  });
+</script>
   <table class="highlight responsive-table #536dfe indigo accent-2 ">
     <thead>
       <tr class="#536dfe indigo accent-2">
@@ -32,19 +67,19 @@ $(".borrarInstituto").click(function() {
               $editorial = $listaEditoriales[$i];
        
     
-          echo form_open("Editoriales/ModificarEditorial");
-            echo" 
+          
+                echo "<div class='info'>
                 <tr class='$editorial->id'>
-                  <input hidden type='text' name='id' value='$editorial->id'>
-                  <td><input class='#ffffff white-text' type='text' name='nombre' value='$editorial->nombre'></td>
-                  <td><button class='btn waves-effect waves-light z-depth-0' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>
-                  <td><a value='$editorial->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
-                </tr>
-          </form>
-            
-            ";
+                      <input hidden type='text' name='id' value='$editorial->id'>
+                      <td><input class='#ffffff white-text' type='text' name='nombre' value='$editorial->nombre'></td>
+                       <td><button class='btn waves-effect waves-light z-depth-0 clasemodificar' value='$editorial->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
+          echo "<td><a value='$editorial->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
+                  
+                  
+                  </tr>
+                  </div>
+                ";
               }
-      
         ?>
 
             </tbody>
