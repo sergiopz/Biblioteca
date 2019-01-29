@@ -18,50 +18,37 @@ $(".borrarInstituto").click(function() {
 
 });
 </script>
-<table class="highlight responsive-table #536dfe indigo accent-2 ">
-          <thead class="cabecera">
-            <tr class="#536dfe indigo accent-2">
-              <th class="#000000 black-text" >Nombre</th>
-              <th><a href="#insert" id="mover" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
-            </tr>
-          </thead>
 
-        </table>
-      
-            
+  <table class="highlight responsive-table #536dfe indigo accent-2 ">
+    <thead>
+      <tr class="#536dfe indigo accent-2">
+        <th class="#000000 black-text">Nombre</th>
+        <th class="#000000 black-text"><a href="#insert" id="mover" class="btn btn-large pulse #00e676 green accent-3 modal-trigger "><i class="material-icons" title="Insertar">add_box</i></a></th>
+      </tr>
+    </thead>
+    <tbody>
             <?php
               for ($i = 0; $i < count($listaEditoriales); $i++) {
               $editorial = $listaEditoriales[$i];
        
-             
-              echo form_open("Editoriales/ModificarEditorial");
-              echo" <table class='highlight responsive-table #536dfe indigo accent-2'>
-                <div class='info'>
-              
-                <tbody>
+    
+          echo form_open("Editoriales/ModificarEditorial");
+            echo" 
                 <tr class='$editorial->id'>
-                <input hidden type='text' name='id' value='$editorial->id'>
-                <td><input class='#ffffff white-text' type='text' name='nombre' value='$editorial->nombre'></td>
-                <td><button class='btn waves-effect waves-light' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button</td>
-                <td><a value='$editorial->id' class='btn waves-effect waves-light #d32f2f red darken-2 borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
-                  </div>
-               
-                  </tr>
-                  </tbody>
-                   </table>
-                   </form>
-                ";
+                  <input hidden type='text' name='id' value='$editorial->id'>
+                  <td><input class='#ffffff white-text' type='text' name='nombre' value='$editorial->nombre'></td>
+                  <td><button class='btn waves-effect waves-light z-depth-0' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>
+                  <td><a value='$editorial->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
+                </tr>
+          </form>
+            
+            ";
               }
+      
         ?>
-            <script>
-              $("document").ready(function(){
-                $("#prueba").click(function(){
-                  var datos=$("#pf").serialize();
-                  alert(datos);
-                });
-              });
 
-              </script>
+            </tbody>
+          </table>
        <!-- 
             <tr class="">
               <td><input type="text" name="nombre"></td>
