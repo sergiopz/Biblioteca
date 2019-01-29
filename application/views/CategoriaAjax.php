@@ -36,6 +36,7 @@ $(".borrarcategoria").click(function() {
       <div class="col s1"><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></div>
       <div class="col s1">12</div>
     </div>
+
      
 <table class="highlight responsive-table #536dfe indigo accent-2 ">
           <thead class="cabecera">
@@ -66,8 +67,8 @@ $(".borrarcategoria").click(function() {
                 <tr class='$categoria->id'>
                 <input hidden type='text' name='id' value='$categoria->id'>
                 <td><input class='#ffffff white-text' type='text' name='nombre' value='$categoria->nombre'></td>
-                <td><button class='btn waves-effect waves-light' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button</td>
-                <td><a value='$categoria->id' class='btn waves-effect waves-light #d32f2f red darken-2 borrarcategoria' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
+                <td><button class='btn waves-effect waves-light' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>
+                <td><button value='$categoria->id' class='btn waves-effect waves-light #d32f2f red darken-2 borrarcategoria' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></button><td>
                   </div>
                
                   </tr>
@@ -82,19 +83,12 @@ $(".borrarcategoria").click(function() {
 
         .borrarcategoria{
 
-          width:40px;
+       
 
         }
 
 
-        #bo{
-
-          margin-bottom: 250px;
-          padding-bottom: 100px;
-          margin-right: 100px;
-
-        }
-
+        
 
        
 
