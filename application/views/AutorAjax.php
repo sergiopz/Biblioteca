@@ -22,6 +22,42 @@ $(".borrarInstituto").click(function() {
 
 });
 </script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.clasemodificar').click(function(){
+
+       var iddiv=$(this).attr("value");
+       alert(iddiv);
+
+
+       
+       
+       var nombre=$("."+iddiv+ " input[name='nombre']").val();
+       alert(nombre);
+      
+
+
+       
+       var datos="id="+iddiv+"&nombre="+nombre;
+       alert(datos);
+      var cadena="<?php echo site_url("Autores/ModificarAutor/"); ?>";
+      alert(cadena);
+
+
+  
+ //var xhttp = new XMLHttpRequest();
+   //     xhttp.open("GET", cadena , true);
+     //   xhttp.send(null);
+    $.ajax({
+                  type:"POST",
+                  url: cadena,
+                  data:datos
+                   });
+
+     
+    });
+  });
+</script>
         <table class="highlight responsive-table #536dfe indigo accent-2 ">
           <thead>
             <tr class="#536dfe indigo accent-2">
@@ -43,8 +79,8 @@ $(".borrarInstituto").click(function() {
                 <tr class='$autor->id'>
                       <input hidden type='text' name='id' value='$autor->id'>
                       <td><input class='#ffffff white-text' type='text' name='nombre' value='$autor->nombre'></td>
-                       <td><button class='btn waves-effect waves-light z-depth-0 clasemodificar' value='$autores->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
-          echo "<td><a value='$autores->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
+                       <td><button class='btn waves-effect waves-light z-depth-0 clasemodificar' value='$autor->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
+          echo "<td><a value='$autor->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
                   
                   
                   </tr>
@@ -52,15 +88,7 @@ $(".borrarInstituto").click(function() {
                 ";
               }
         ?>
-            <script>
-              $("document").ready(function(){
-                $("#prueba").click(function(){
-                  var datos=$("#pf").serialize();
-                  alert(datos);
-                });
-              });
-
-              </script>
+           
        <!-- 
             <tr class="">
               <td><input type="text" name="nombre"></td>
