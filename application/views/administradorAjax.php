@@ -22,6 +22,70 @@ $(".borrarInstituto").click(function() {
 
 });
 </script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.clasemodificar').click(function(){
+
+     
+
+
+
+       var iddiv=$(this).attr("value");
+  
+
+
+       
+       
+       var nombreusuario=$("."+iddiv+ " input[name='nombre']").val();
+       
+
+       var apellidousuario=$("."+iddiv+ " input[name='apellidos']").val();
+       
+
+       var nickusuario=$("."+iddiv+ " input[name='nick']").val();
+     
+       var contrasenausuario=$("."+iddiv+ " input[name='contrasena']").val();
+       
+       var correousuario=$("."+iddiv+ " input[name='correo']").val();
+    
+       var telefonousuario=$("."+iddiv+ " input[name='telefono']").val();
+      
+       var tipousuario=$("."+iddiv+ " input[name='tipo']").val();
+       
+       var idInstitutousuario=$("."+iddiv+ " input[name='idInstituto']").val();
+        
+
+
+      var datos="id="+iddiv+"&nombre="+nombreusuario+"&apellidos="+apellidousuario+"&nick="+nickusuario+"&contrasena="+contrasenausuario+"&correo="+correousuario+"&telefono="+telefonousuario+"&tipo="+tipousuario+"&idInstituto="+idInstitutousuario+"&codigoConfirmacion= ";
+       
+
+
+      var cadena="<?php echo site_url("Administrador/ModificarUsuarios/"); ?>";
+ 
+
+
+  
+ //var xhttp = new XMLHttpRequest();
+   //     xhttp.open("GET", cadena , true);
+     //   xhttp.send(null);
+    $.ajax({
+                  type:"POST",
+                  url: cadena,
+                  data:datos
+                   });
+
+     
+
+
+
+                 
+
+
+     
+    });
+  });
+</script>
         <table class="highlight responsive-table #536dfe indigo accent-2 ">
           <thead>
             <tr class="#536dfe indigo accent-2">
@@ -41,7 +105,7 @@ $(".borrarInstituto").click(function() {
             <?php
              for ($i = 0; $i < count($listaUsuarios); $i++) {
                 $usuario = $listaUsuarios[$i];
-                echo form_open("Editoriales/ModificarUsuarios");
+               
                 echo "<div class='info'>
 
               <tr class='$usuario->id'>
@@ -54,10 +118,10 @@ $(".borrarInstituto").click(function() {
                 <td><input class='#ffffff white-text' type='text' name='telefono'value='$usuario->telefono'></td>
                 <td><input class='#ffffff white-text' type='text' name='tipo'value='$usuario->tipo'></td>
                 <td><input class='#ffffff white-text' type='text' name='idInstituto'value='$usuario->idInstituto'></td>
-                <td><button class='btn waves-effect waves-light z-depth-0' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
+                <td><button class='btn waves-effect waves-light z-depth-0 clasemodificar' value='$usuario->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
           echo "<td><a value='$usuario->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
                   </div>
-                  </form>
+                  
                   </tr>
                 ";
               }
