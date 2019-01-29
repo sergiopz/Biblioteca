@@ -21,45 +21,6 @@ $(".borrarcategoria").click(function() {
 
 });
 </script>
-
-<table class="highlight responsive-table #536dfe indigo accent-2 ">
-          <thead class="cabecera">
-            <tr class="#536dfe indigo accent-2">
-              <th class="#000000 black-text" >Nombre</th>
-              <th><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
-            </tr>
-          </thead>
-
-        
-               
-    <?php
-              
-
-               for ($i = 0; $i < count($listaCategorias); $i++) {
-              $categoria = $listaCategorias[$i];
-       
-             
-              
-              
-
-              echo"
-                <tbody>
-                <tr  class='$categoria->id'>
-                <input hidden type='text' name='id' value='$categoria->id'>
-                <td><input class='#ffffff white-text' type='text' name='nombre' value='$categoria->nombre'></td>
-                <td><button class='clasemodificar' value='$categoria->id'></button></td>
-                
-                  </tr>
-                  
-                   
-                  
-                ";
-              }
-        ?>
-        </tbody>
-        </table>
-
-
 <script type="text/javascript">
   $(document).ready(function(){
     $('.clasemodificar').click(function(){
@@ -92,18 +53,55 @@ $(".borrarcategoria").click(function() {
                   data:datos
                    });
 
-
-
-                 
-
-
      
     });
   });
 </script>
+
+        <table class="highlight responsive-table #536dfe indigo accent-2 ">
+          <thead>
+            <tr class="#536dfe indigo accent-2">
+                  <th class="#000000 black-text">Nombre</th>
+                  <th><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
+            </tr>
+          </thead>
+          <tbody>
+        
+               
+    <?php
+              
+
+               for ($i = 0; $i < count($listaCategorias); $i++) {
+              $categoria = $listaCategorias[$i];
        
-      
+             
+              
+              
+          echo "<div class='info'>
+                <tr  class='$categoria->id'>
+                <input hidden type='text' name='id' value='$categoria->id'>
+                <td><input class='#ffffff white-text' type='text' name='nombre' value='$categoria->nombre'></td>
+               <td><button class='btn waves-effect waves-light z-depth-0 clasemodificar' value='$categoria->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
+          echo "<td><a value='$categoria->id' class='btn-flat waves-effect waves-light #d32f2f red darken-2 white-text borrarcategoria' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
+                  </div>
+                  
+                  </tr>
+                ";
+              }
+                
+                  
+                  
+                   
+                  
+                              
+        ?>
+        </tbody>
+        </table>
+
+      </div>
+
     </div>
+
 
         <!--Contenido de la ventana modal de insercion-->
 
@@ -120,15 +118,7 @@ $(".borrarcategoria").click(function() {
                 <input type="text" id="nombre" name="nombre">
                 <label for="nombre" style="color:royalblue">Nombre</label>
               </div>
-              <div class="input-field col s12">
-                <select multiple>
-                  <option value="" disabled selected>Choose your option</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
-                </select>
-                <label>Materialize Multiple Select</label>
-              </div>
+              
 
               <div><input style="background-color:royalblue" type="submit" value="Insertar" class="btn btn-large"></div>
               <br>
