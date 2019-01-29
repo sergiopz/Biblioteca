@@ -38,16 +38,17 @@ $(".borrarInstituto").click(function() {
               for ($i = 0; $i < count($listaAutores); $i++) {
                 $autor = $listaAutores[$i];
 
-                echo form_open("Autores/ModificarAutor");
+                
                 echo "<div class='info'>
                 <tr class='$autor->id'>
                       <input hidden type='text' name='id' value='$autor->id'>
                       <td><input class='#ffffff white-text' type='text' name='nombre' value='$autor->nombre'></td>
-                      <td><input  type='Submit' name='Modificar' value='Modificar'/></td>
-                      <td><a value='$autor->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
-                    </div>
-                  </form>
+                       <td><button class='btn waves-effect waves-light z-depth-0 clasemodificar' value='$autores->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
+          echo "<td><a value='$autores->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
+                  
+                  
                   </tr>
+                  </div>
                 ";
               }
         ?>

@@ -114,9 +114,10 @@
 
                   <td><button class='btn waves-effect waves-light z-depth-0 clasemodificar' value='$instituto->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
           echo "<td><a value='$instituto->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
-                  </div>
+                 
                   
                   </tr>
+                   </div>
                 ";
               }
             
