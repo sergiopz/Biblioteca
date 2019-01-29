@@ -16,6 +16,67 @@
    });
 });
 </script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.clasemodificar').click(function(){
+
+     
+
+
+
+       var iddiv=$(this).attr("value");
+  
+
+
+       
+       
+       var nombre=$("."+iddiv+ " input[name='nombre']").val();
+       
+
+       var provincia=$("."+iddiv+ " input[name='provincia']").val();
+       
+
+       var localidad=$("."+iddiv+ " input[name='localidad']").val();
+     
+       var direccion=$("."+iddiv+ " input[name='direccion']").val();
+       
+       var cp=$("."+iddiv+ " input[name='cp']").val();
+    
+       
+       
+      
+        
+
+
+      var datos="id="+iddiv+"&nombre="+nombreusuario+"&provincia="+provincia+"&localicadad="+localidad+"&direccion="+direccion+"&cp="+cp;
+       
+
+
+      var cadena="<?php echo site_url("Institutos/ModificarInstituto/"); ?>";
+ 
+
+
+  
+ //var xhttp = new XMLHttpRequest();
+   //     xhttp.open("GET", cadena , true);
+     //   xhttp.send(null);
+    $.ajax({
+                  type:"POST",
+                  url: cadena,
+                  data:datos
+                   });
+
+     
+
+
+
+                 
+
+
+     
+    });
+  });
+</script>
 
         <table class="highlight responsive-table #536dfe indigo accent-2 ">
           <thead>
@@ -30,7 +91,7 @@
           </thead>
           <tbody>
              </tbody>
-        </table>
+      
 
             
             <?php
@@ -38,7 +99,7 @@
                 $instituto = $listaInstitutos[$i];
 
                 
-                  echo form_open("Institutos/ModificarInstituto");
+               
                   echo "<div class='info'>
                   <tr class='$instituto->id'>
                   <input type='text' name='id' hidden value='$instituto->id'>
@@ -47,47 +108,27 @@
                   <td><input  class='#ffffff white-text' type='text' name='localidad'value='$instituto->localidad'></td>
                   <td><input  class='#ffffff white-text' type='text' name='direccion'value='$instituto->direccion'></td>
                   <td><input  class='#ffffff white-text' type='text' name='cp'value='$instituto->cp'></td>
-                  <td><button>aqui</button></td>
+                 
 
-                " ;
-            
-                  echo "<td><a value='$instituto->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
+                
+
+                  <td><button class='btn waves-effect waves-light z-depth-0 clasemodificar' value='$instituto->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
+          echo "<td><a value='$instituto->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
                   </div>
-                  </form>
+                  
                   </tr>
                 ";
               }
+            
+                  
+           
         ?>
-
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('#btnguardar').click(function(){
-      var datos=$('#frmajax').serialize();
-      var cadena="<?php echo site_url("Administrador/InsertarUsuarios/"); ?>";
-      alert(cadena);
-
-
-  
- //var xhttp = new XMLHttpRequest();
-   //     xhttp.open("GET", cadena , true);
-     //   xhttp.send(null);
-    $.ajax({
-                  type:"POST",
-                  url: cadena,
-                  data:datos
-                   });
-
-
-                 
-
-
-     
-    });
-  });
+          </tbody>
+        </table>
 
       </div>
-      </div>
+
+    </div>
         <!--Contenido de la ventana modal de insercion-->
 
 
