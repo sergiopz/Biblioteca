@@ -2,7 +2,7 @@
 <script>
   $("document").ready(function(){
 
-$(".borrarInstituto").click(function() {
+$(".borrarcategoria").click(function() {
 
    var idInstituto=$(this).attr("value");
 
@@ -21,42 +21,90 @@ $(".borrarInstituto").click(function() {
 
 });
 </script>
-         <?php echo form_open("Categorias/ModificarCategoria");  ?>
 
-        <table class="highlight responsive-table #536dfe indigo accent-2 ">
-          <thead>
+    <div class="row">
+      <div class="col s1">1</div>
+      <div class="col s1">2</div>
+      <div class="col s1">3</div>
+      <div class="col s1">4</div>
+      <div class="col s1">5</div>
+      <div class="col s1">6</div>
+      <div class="col s1">7</div>
+      <div class="col s1">8</div>
+      <div class="col s1">9</div>
+      <div class="col s1">10</div>
+      <div class="col s1"><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></div>
+      <div class="col s1">12</div>
+    </div>
+     
+<table class="highlight responsive-table #536dfe indigo accent-2 ">
+          <thead class="cabecera">
             <tr class="#536dfe indigo accent-2">
-              <th class="#000000 black-text">Nombre</th>
+              <th class="#000000 black-text" >Nombre</th>
               
-              
-              <th><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
             </tr>
           </thead>
-          <tbody>
-            
-            <?php
-            for ($i = 0; $i < count($listaCategorias); $i++) {
+
+        </table>
+               
+           
+
+                <?php
+              
+
+               for ($i = 0; $i < count($listaCategorias); $i++) {
               $categoria = $listaCategorias[$i];
-
+       
              
-              echo "<div class='info '>
-                    <input hidden class='#ffffff white-text' type='text' name='id' value='$categoria->id'>
-                    <tr class='$categoria->id'>
-                      <td><input class='#ffffff white-text' type='text' name='nombre' value='$categoria->nombre'></td>
-                      <td><input  type='Submit' name='Modificar' value='Modificar'/></td>
-                      <td><a value='$categoria->id' class='btn btn-floating #d32f2f red darken-2 borrarInstituto' ><i class='material-icons' title='Eliminar'>delete</i></a><td>
-                    </tr>
+              
+               echo form_open("Categorias/ModificarCategoria");
 
-                    </div>
-                  
-                  ";
-                
+              echo" <table class='highlight responsive-table #536dfe indigo accent-2'>
+                <div class='info'>
+              
+                <tbody>
+                <tr class='$categoria->id'>
+                <input hidden type='text' name='id' value='$categoria->id'>
+                <td><input class='#ffffff white-text' type='text' name='nombre' value='$categoria->nombre'></td>
+                <td><button class='btn waves-effect waves-light' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button</td>
+                <td><a value='$categoria->id' class='btn waves-effect waves-light #d32f2f red darken-2 borrarcategoria' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
+                  </div>
+               
+                  </tr>
+                  </tbody>
+                   </table>
+                   </form>
+                ";
               }
         ?>
 
-          </tbody>
-        </table>
-      </form>
+        <style>
+
+        .borrarcategoria{
+
+          width:40px;
+
+        }
+
+
+        #bo{
+
+          margin-bottom: 250px;
+          padding-bottom: 100px;
+          margin-right: 100px;
+
+        }
+
+
+       
+
+
+          
+        </style>
+        
+
+       
+      
     </div>
 
         <!--Contenido de la ventana modal de insercion-->

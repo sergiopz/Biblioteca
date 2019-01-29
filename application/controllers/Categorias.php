@@ -53,10 +53,10 @@
                 $nombre = $this->input->post('nombre');
                 $resultado = $this->CategoriasModel->ModificarCategoria($id, $nombre);
 
-                if ($resultado) {
-                    $data['mensaje'] = "Categoria modificada con éxito";
-                    $data["listaCategorias"] = $this->CategoriasModel->getAll();
-                    $this->load->view("header",$data);
+                if ($resultado==0) {
+                   $data["nombreVista"] = "VistaAdministrador";
+                           $data["tabla"] = "categoria";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $this->load->view("plantilla", $data);
                 } else {
                    $data["nombreVista"] = "VistaAdministrador";
                            $data["tabla"] = "categoria";   // La tabla que queremos que se muestre automáticamente en la vista principal
