@@ -47,7 +47,7 @@
                   <td><input  class='#ffffff white-text' type='text' name='localidad'value='$instituto->localidad'></td>
                   <td><input  class='#ffffff white-text' type='text' name='direccion'value='$instituto->direccion'></td>
                   <td><input  class='#ffffff white-text' type='text' name='cp'value='$instituto->cp'></td>
-                  <td><input  type='submit' name='Modificar' value='Modificar'></td>
+                  <td><button>aqui</button></td>
 
                 " ;
             
@@ -58,18 +58,33 @@
                 ";
               }
         ?>
-       <!-- 
-            <tr class="">
-              <td><input type="text" name="nombre"></td>
-              <td><input type="text" name="localidad"></td>
-              <td><input type="text" name="direccion"></td>
-              <td><input type="text" name="cp"></td>
-              <td><input type="text" name="provincia"></td>
-              <td><a class="btn btn-floating #d32f2f red darken-2 botonD"><i class="material-icons" title="Eliminar">delete</i></a></td>
-              <td><a class="btn btn-floating #e65100 orange darken-4"><i class="material-icons" title="Modificar">create</i></a></li></td>
-            </tr>-->
-           
-         
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#btnguardar').click(function(){
+      var datos=$('#frmajax').serialize();
+      var cadena="<?php echo site_url("Administrador/InsertarUsuarios/"); ?>";
+      alert(cadena);
+
+
+  
+ //var xhttp = new XMLHttpRequest();
+   //     xhttp.open("GET", cadena , true);
+     //   xhttp.send(null);
+    $.ajax({
+                  type:"POST",
+                  url: cadena,
+                  data:datos
+                   });
+
+
+                 
+
+
+     
+    });
+  });
 
       </div>
       </div>

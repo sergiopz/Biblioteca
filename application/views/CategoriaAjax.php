@@ -22,35 +22,17 @@ $(".borrarcategoria").click(function() {
 });
 </script>
 
-    <div class="row">
-      <div class="col s1">1</div>
-      <div class="col s1">2</div>
-      <div class="col s1">3</div>
-      <div class="col s1">4</div>
-      <div class="col s1">5</div>
-      <div class="col s1">6</div>
-      <div class="col s1">7</div>
-      <div class="col s1">8</div>
-      <div class="col s1">9</div>
-      <div class="col s1">10</div>
-      <div class="col s1"><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></div>
-      <div class="col s1">12</div>
-    </div>
-
-     
 <table class="highlight responsive-table #536dfe indigo accent-2 ">
           <thead class="cabecera">
             <tr class="#536dfe indigo accent-2">
               <th class="#000000 black-text" >Nombre</th>
-              
+              <th><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
             </tr>
           </thead>
 
-        </table>
+        
                
-           
-
-                <?php
+    <?php
               
 
                for ($i = 0; $i < count($listaCategorias); $i++) {
@@ -58,45 +40,67 @@ $(".borrarcategoria").click(function() {
        
              
               
-               echo form_open("Categorias/ModificarCategoria");
-
-              echo" <table class='highlight responsive-table #536dfe indigo accent-2'>
-                <div class='info'>
               
+
+              echo"
                 <tbody>
-                <tr class='$categoria->id'>
+                <tr  class='$categoria->id'>
                 <input hidden type='text' name='id' value='$categoria->id'>
                 <td><input class='#ffffff white-text' type='text' name='nombre' value='$categoria->nombre'></td>
-                <td><button class='btn waves-effect waves-light' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>
-                <td><button value='$categoria->id' class='btn waves-effect waves-light #d32f2f red darken-2 borrarcategoria' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></button><td>
-                  </div>
-               
+                <td><button class='clasemodificar' value='$categoria->id'></button></td>
+                
                   </tr>
-                  </tbody>
-                   </table>
-                   </form>
+                  
+                   
+                  
                 ";
               }
         ?>
+        </tbody>
+        </table>
 
-        <style>
 
-        .borrarcategoria{
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.clasemodificar').click(function(){
+
+       var iddiv=$(this).attr("value");
+       alert(iddiv);
+
 
        
+       
+       var nombrecategoria=$("."+iddiv+ " input[name='nombre']").val();
+       alert(nombrecategoria);
+      
 
-        }
-
-
-        
 
        
+       var datos="id="+iddiv+"&nombre="+nombrecategoria;
+       alert(datos);
+      var cadena="<?php echo site_url("Categorias/ModificarCategoria/"); ?>";
+      alert(cadena);
 
 
-          
-        </style>
-        
+  
+ //var xhttp = new XMLHttpRequest();
+   //     xhttp.open("GET", cadena , true);
+     //   xhttp.send(null);
+    $.ajax({
+                  type:"POST",
+                  url: cadena,
+                  data:datos
+                   });
 
+
+
+                 
+
+
+     
+    });
+  });
+</script>
        
       
     </div>
