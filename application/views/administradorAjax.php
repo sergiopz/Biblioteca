@@ -53,7 +53,9 @@ $(".borrarInstituto").click(function() {
       
        var tipousuario=$("."+iddiv+ " input[name='tipo']").val();
        
-       var idInstitutousuario=$("."+iddiv+ " input[name='idInstituto']").val();
+       var idInstitutousuario=$("."+iddiv+ " option:selected").val();
+       alert(idInstitutousuario);
+      
         
 
 
@@ -117,7 +119,18 @@ $(".borrarInstituto").click(function() {
                 <td><input class='#ffffff white-text' type='text' name='correo'value='$usuario->correo'></td>
                 <td><input class='#ffffff white-text' type='text' name='telefono'value='$usuario->telefono'></td>
                 <td><input class='#ffffff white-text' type='text' name='tipo'value='$usuario->tipo'></td>
-                <td><input class='#ffffff white-text' type='text' name='idInstituto'value='$usuario->idInstituto'></td>
+                <td><select name='idInstituto'>";
+                for ($j = 0; $j < count($listaInstitutos); $j++) {
+                  $instituto = $listaInstitutos[$j];
+                  if( $usuario->idInstituto==$instituto->id ){ 
+      echo      "<option  value='$instituto->id' selected>$instituto->nombre</option> ";
+
+                           }else{
+      echo      "<option  value='$instituto->id' >$instituto->nombre</option> ";
+                           }
+                }
+      echo"    </select>
+                </td>
                 <td><button class='btn waves-effect waves-light z-depth-0 clasemodificar' value='$usuario->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
           echo "<td><a value='$usuario->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
                   </div>
@@ -193,7 +206,19 @@ $(".borrarInstituto").click(function() {
               </div>
               <div class="input-field">
                 <i class="material-icons prefix" style="color:royalblue">add_box</i>
-                 <input type='text' name='idInstituto' id='idInstituto'>
+                 
+                 <select name="idInstituto" id="idInstituto">
+                <?php
+                for ($j = 0; $j < count($listaInstitutos); $j++) {
+                  $instituto = $listaInstitutos[$j];
+                  if( $usuario->id==$instituto->id ){ 
+      echo      "<option  value='$instituto->id' selected >$instituto->nombre</option> ";                      
+                           }else{
+      echo      "<option  value='$instituto->id' >$instituto->nombre</option> ";
+                           }
+                }
+                ?>
+                </select>
                 <label style="color:royalblue" for="Id Instituto">IdInstituto</label>
               </div>
               <div class="input-field">

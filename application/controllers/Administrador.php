@@ -7,11 +7,13 @@
         public function __construct() {
             parent::__construct();
            $this->load->model("AdministradorModel");
+           $this->load->model("InstitutosModel");
 
        }
 
        public function main() {
            $data["listaUsuarios"] = $this->AdministradorModel->getAll();
+           $data["listaInstitutos"] = $this->InstitutosModel->getAll();
           $this->load->view("administradorAjax.php", $data);
        }
         
