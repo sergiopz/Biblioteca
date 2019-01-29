@@ -7,7 +7,7 @@
             parent::__construct();
             $this->load->model("AdministradorModel");
             $this->load->model("UsuariosModel");
-            $this->load->model("EditorialesModel");
+                 $this->load->model("EditorialesModel");
         }
 
         //cargamos vista
