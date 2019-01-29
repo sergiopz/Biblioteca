@@ -2,109 +2,83 @@
 <script>
   $("document").ready(function(){
 
-$(".borrarcategoria").click(function() {
+       $(".borrarcategoria").click(function() {
 
-   var idInstituto=$(this).attr("value");
+              var idInstituto=$(this).attr("value");
 
-    $("."+idInstituto).remove();
+              $("."+idInstituto).remove();
 
-    cadena = "<?php echo site_url('Categorias/EliminarCategoria'); ?>/"+idInstituto;
+              cadena = "<?php echo site_url('Categorias/EliminarCategoria'); ?>/"+idInstituto;
 
-    $.ajax({
-    url: cadena
-     });
+              $.ajax({
+                     url: cadena
+              });
 
-
-   });
-
-
+       });
 
 });
+
 </script>
+
 <script type="text/javascript">
   $(document).ready(function(){
     $('.clasemodificar').click(function(){
 
        var iddiv=$(this).attr("value");
-       alert(iddiv);
 
-
-       
-       
        var nombrecategoria=$("."+iddiv+ " input[name='nombre']").val();
-       alert(nombrecategoria);
-      
 
-
-       
        var datos="id="+iddiv+"&nombre="+nombrecategoria;
-       alert(datos);
-      var cadena="<?php echo site_url("Categorias/ModificarCategoria/"); ?>";
-      alert(cadena);
 
+       var cadena="<?php echo site_url("Categorias/ModificarCategoria/"); ?>";
 
-  
- //var xhttp = new XMLHttpRequest();
-   //     xhttp.open("GET", cadena , true);
-     //   xhttp.send(null);
-    $.ajax({
-                  type:"POST",
-                  url: cadena,
-                  data:datos
-                   });
+       $.ajax({
+              type:"POST",
+              url: cadena,
+              data:datos
+       });
 
-     
     });
   });
 </script>
 
-        <table class="highlight responsive-table #536dfe indigo accent-2 ">
-          <thead>
-            <tr class="#536dfe indigo accent-2">
-                  <th class="#000000 black-text">Nombre</th>
-                  <th><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
-            </tr>
-          </thead>
-          <tbody>
-        
-               
-    <?php
+       <table class="highlight responsive-table #536dfe indigo accent-2 ">
+              <thead>
+                     <tr class="#536dfe indigo accent-2">
+                            <th class="#000000 black-text">Nombre</th>
+                            <th></th>
+                            <th><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
+                     </tr>
+              </thead>
+              <tbody>
+                  
+       <?php
               
-
-               for ($i = 0; $i < count($listaCategorias); $i++) {
+       for ($i = 0; $i < count($listaCategorias); $i++) {
               $categoria = $listaCategorias[$i];
-       
-             
-              
-              
-          echo "<div class='info'>
-                <tr  class='$categoria->id'>
-                <input hidden type='text' name='id' value='$categoria->id'>
-                <td><input class='#ffffff white-text' type='text' name='nombre' value='$categoria->nombre'></td>
-               <td><button class='btn waves-effect waves-light z-depth-0 clasemodificar' value='$categoria->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
-          echo "<td><a value='$categoria->id' class='btn-flat waves-effect waves-light #d32f2f red darken-2 white-text borrarcategoria' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
-                  </div>
-                  
-                  </tr>
-                ";
-              }
-                
-                  
-                  
-                   
-                  
-                              
+        
+       echo "<div class='info'>
+                     <tr  class='$categoria->id'>
+                            <input hidden type='text' name='id' value='$categoria->id'>
+                            <td><input class='#ffffff white-text' type='text' name='nombre' value='$categoria->nombre'></td>
+                            <td>   
+                                   <button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$categoria->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button>
+                                   <a value='$categoria->id' class='btn-flat waves-effect waves-light #d32f2f red darken-2 white-text borrarcategoria' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a>
+                            </td>
+                     </tr>
+              </div>
+       ";
+       }
+                                      
         ?>
-        </tbody>
+              </tbody>
         </table>
 
       </div>
 
     </div>
 
-
         <!--Contenido de la ventana modal de insercion-->
-
 
         <div id="insert" class="modal" style="overflow-y: scroll">
          <?php    echo form_open_multipart("Categorias/InsertarCategoria");?>
@@ -128,76 +102,3 @@ $(".borrarcategoria").click(function() {
           </div>
         </div>
 
-<?php
-
-/*
-  
-<?php
-      
-      echo "<div class='formularioInsercion' id='oculto' style='display:none'>
-            <h1>Insertar un Usuarios</h1>";
-        
-        echo form_open_multipart("Categorias/InsertarCategoria");
-         ?>
-
-       <script>
-          $(document).ready(function (){
-                     $("#btnNuevoUsuario1").click(function() {
-                            $('#oculto').toggle();
-                            $('#oculto').text(texto) 
-                     });
-
-              });  
-         
-       </script>
-
-<?php
-
-       echo "<fieldset>
-              nombre : <input type='text' name='nombre'/><br/>
-       ";
-       echo "<br/>
-              </fieldset>
-       ";
-
-       echo"<input  type='submit' name='Enviar' value='Insertar'/>
-              </form>
-       ";
-
-       echo "<br></div>
-       ";
-
-       echo "<a href='#' id='btnNuevoUsuario1'>Mostrar</a>
-       ";
-      
-         
-       echo "<span>id</span>
-              <span>nombre</span>
-       ";
-
-       echo "<br>";   
-       echo "<br>";   
-            
-       for ($i = 0; $i < count($listaCategorias); $i++) {
-              $categoria = $listaCategorias[$i];
-
-              echo form_open("Categorias/ModificarCategoria");
-              echo "<div class='info'>
-                     <input type='text' name='id' hidden value='$categoria->id'>
-                     <input type='text' name='nombre' value='$categoria->nombre'>
-                     <input type='Submit' name='Modificar' value='Modificar'/>
-              " ;
-    
-              echo "<button><a href='".site_url('Categorias/EliminarCategoria/'.$categoria->id)."'>Eliminar</a></button>
-                     </div>
-                     </form>
-              ";
-       }
-   
-       echo "<div>
-              <a href='".site_url("Usuarios/cerrar_sesion")."'>Cerrar sesión</a>
-              </div>
-       ";
-              
-
-*/
