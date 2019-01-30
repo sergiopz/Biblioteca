@@ -178,6 +178,21 @@
              </form>";
        } 
        ?>
+           <style>
+      
+
+      td{
+  width: 100px;
+  height: 100px;
+ 
+  -webkit-transition: width 3s; /* For Safari 3.1 to 6.0 */
+  transition: width 0s;
+}
+
+td:hover {
+  width: 300px;
+}
+    </style>
 
               </tbody>
        </table>
