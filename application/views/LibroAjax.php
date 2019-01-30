@@ -6,7 +6,7 @@
           });
 </script>
 <div class="row"></div>
-    <div class="row container">
+    <div class="row">
       <div class="col s12 m12 #536dfe indigo accent-2 z-depth-1 " id="capaAdmin">
       <!-- Hasta aqui los divs de VistaAdministrador-->
 <?php     
@@ -185,6 +185,55 @@
        
 
        <!--Aqui cierra la Vista Administrador-->
+       <div id="insert" class="modal" style="overflow-y: scroll">
+              <?php    echo form_open_multipart("Libros/InsertarLibros");?>
+                     <h5 class="modal-close">&#10005;</h5>
+                     <div class="modal-content center">
+                     <h4 class="flow-text #00e676 green-text text-accent-3">Insertar Registro</h4>
+                            <div class="input-field">
+                                   <i class="material-icons prefix" style="color:royalblue">add_box</i>
+                                   <input type='text' name='isbn' id='isbn'>
+                                   <label style="color:royalblue" for="isbn">isbn</label>
+                            </div>
+                            <div class="input-field">
+                                   <i class="material-icons prefix" style="color:royalblue">add_box</i>
+                                   <input type='text' name='titulo' id='titulo'>
+                                   <label style="color:royalblue" for="titulo">Titulo</label>
+                            </div>
+                            <div class="input-field">
+                                   <i class="material-icons prefix" style="color:royalblue">description</i>
+                                   <input type='text' name='descripcion' id='descripcion'>
+                                   <label style="color:royalblue" for="descripcion">Descripcion</label>
+                            </div>
+                            <div class="input-field">
+                                   <i class="material-icons prefix" style="color:royalblue">date_range</i>
+                                   <input type='text' name='fecha' id='fecha'>
+                                   <label style="color:royalblue" for="fecha">Fecha</label>
+                            </div>
+                            <div class="input-field">
+                                   <i class="material-icons prefix" style="color:royalblue">add_box</i>
+                                   <input type='text' name='paginas' id='paginas'>
+                                   <label style="color:royalblue" for="paginas">Paginas</label>
+                            </div>
+                            <div class="input-field">
+                                   <i class="material-icons prefix" style="color:royalblue">add_box</i>         
+                                   <select name="idInstituto" id="idInstituto">
+                                   <?php
+                                   for ($j = 0; $j < count($listaInstitutos); $j++) {
+                                          $instituto = $listaInstitutos[$j];
+                                          if( $usuario->id==$instituto->id ){ 
+                                          echo      "<option  value='$instituto->id' selected >$instituto->nombre</option> ";                      
+                                          }else{
+                                          echo      "<option  value='$instituto->id' >$instituto->nombre</option> ";
+                                          }
+                                   }
+                                   ?>
+                                   </select>
+                                   <label style="color:royalblue" for="Id Instituto">IdInstituto</label>
+                            </div>
+                     </div>
+              </form>
+       </div>
 
       </div>  
   </div>
