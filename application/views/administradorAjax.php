@@ -96,6 +96,7 @@ $(".borrarInstituto").click(function() {
                 }
                 echo"</select></td>
                 <td><a href='#$usuario->id' class='btn btn-large pulse #00e676 green accent-3 modal-trigger'><i class='material-icons' title='Insertar'>add_box</i></a></td>
+                
                 <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$usuario->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
                 echo"<td><a value='$usuario->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
                 </tr>
@@ -104,7 +105,7 @@ $(".borrarInstituto").click(function() {
 
 
           echo"<div id='$usuario->id' class='modal' style='overflow-y: scroll'>
-            form_open_multipart('Administrador/InsertarUsuarios');
+           
         
           <h5 class='modal-close'>&#10005;</h5>
           <div class='modal-content center'>
@@ -118,59 +119,47 @@ $(".borrarInstituto").click(function() {
               </div>
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>person</i>
-                <input type='text' name='apellido' id='apellido' value='$usuario->apellidos'>
+                <input type='text' name='apellido' id='apellido'  readonly value='$usuario->apellidos'>
                
               </div>
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>face</i>
-                <input type='text' name='nick' id='nick' value='$usuario->nick'>
+                <input type='text' name='nick' id='nick'  readonly value='$usuario->nick'>
              
               </div>
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>lock</i>
-                <input type='text' name='contrasena' id='contrasena' value='$usuario->contrasena'>
+                <input type='text' name='contrasena' id='contrasena'  readonly value='$usuario->contrasena'>
              
               </div>
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>mail</i>
-                <input type='text' name='correo' id='correo' value='$usuario->correo'>
+                <input type='text' name='correo' id='correo' readonly value='$usuario->correo'>
            
               </div>
                <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>phone</i>
-                 <input type='text' name='telefono' id='telefono' value='$usuario->telefono'>
+                 <input type='text' name='telefono' id='telefono'  readonly value='$usuario->telefono'>
                
               </div>
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>add_box</i>
-               <input type='text' name='tipo' id='tipo' value='$usuario->tipo'>
+               <input type='text' name='tipo' id='tipo'  readonly value='$usuario->tipo'>
 
               </div>
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>add_box</i>
+                 <input type='text' name='tipo'   readonly value='$usuario->tipo'>
                  
-                 <select name='idInstituto' id='idInstituto'>";
-               
-                for ($j = 0; $j < count($listaInstitutos); $j++) {
-                  $instituto = $listaInstitutos[$j];
-                  if( $usuario->id==$instituto->id ){ 
-      echo      "<option  value='$instituto->id' selected >$instituto->nombre</option> ";                      
-                           }else{
-      echo      "<option  value='$instituto->id' >$instituto->nombre</option> ";
-                           }
-                }
-                
-       echo"
-                </select>
-                <label style='color:royalblue' for='Id Instituto'>IdInstituto</label>
+                 
               </div>
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>add_box</i>
-                <input type='text' name='codigoConfirmacion' id='codigoConfirmacion'>
-                <label style='color:royalblue' for='Codigo de Confirmacion'>codigoConfirmacion</label>
+                <input type='text' name='codigoConfirmacion'  readonly id='codigoConfirmacion'>
+                
               </div>
 
-              <div><input style='background-color:royalblue' type='submit' value='Insertar' class='btn btn-large'></div>
+              
               <br>
               <br>
 
