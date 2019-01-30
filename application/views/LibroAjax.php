@@ -1,4 +1,11 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
+<script> $("document").ready(function() {
+            $(".libro").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
+          });
+</script>
+<div class="row"></div>
+    <div class="row container">
+      <div class="col s12 m12 #536dfe indigo accent-2 z-depth-1 " id="capaAdmin">
 <?php     
        echo  "<div class='formularioInsercion' style='display:inline'>
               <h1>Insertar un Libro</h1>";
@@ -153,4 +160,9 @@
        echo  "<div>
               <a href='".site_url("Libro/cerrar_sesion")."'>Cerrar sesión</a>
               </div>";
+       ?>
+       </div>
+      
+      </div>  
+  </div>
              
