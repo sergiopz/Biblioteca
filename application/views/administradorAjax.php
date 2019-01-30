@@ -54,7 +54,28 @@ $(".borrarInstituto").click(function() {
 
     });
   });
+ 
+
+ $('input').focus(function(){
+
+    $(this).css({'width':' 250px'});
+
+     
+
+ $(this).blur(function(){
+     $(this).css({'width':'100%'});
+  });
+   
+   });
+
 </script>
+
+<style>
+
+input{width: 150px
+}
+  
+</style>
 
 <table class="highlight responsive-table #536dfe indigo accent-2 ">
   <thead>
@@ -96,7 +117,7 @@ $(".borrarInstituto").click(function() {
                 }
                 echo"</select></td>
                 <td><a href='#$usuario->id' class='btn btn-large pulse #00e676 green accent-3 modal-trigger'><i class='material-icons' title='Insertar'>add_box</i></a></td>
-                
+
                 <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$usuario->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
                 echo"<td><a value='$usuario->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
                 </tr>
