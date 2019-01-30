@@ -8,6 +8,7 @@
 <div class="row"></div>
     <div class="row container">
       <div class="col s12 m12 #536dfe indigo accent-2 z-depth-1 " id="capaAdmin">
+      <!-- Hasta aqui los divs de VistaAdministrador-->
 <?php     
        echo  "<div class='formularioInsercion' style='display:inline'>
               <h1>Insertar un Libro</h1>";
@@ -181,8 +182,10 @@
 
               </tbody>
        </table>
-       </div>
-      
+       
+
+       <!--Aqui cierra la Vista Administrador-->
+
       </div>  
   </div>
              
