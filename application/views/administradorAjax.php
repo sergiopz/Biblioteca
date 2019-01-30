@@ -56,7 +56,7 @@ $(".borrarInstituto").click(function() {
   });
  
 
- $('input').focus(function(){
+ $('td input').focus(function(){
 
     $(this).css({'width':' 250px'});
 
@@ -130,7 +130,7 @@ input{width: 150px
         
           <h5 class='modal-close'>&#10005;</h5>
           <div class='modal-content center'>
-            <h4 class='flow-text #00e676 green-text text-accent-3'>Insertar Registro</h4>
+            <h4 class='flow-text #00e676 green-text text-accent-3'>Informacion usuarios</h4>
         
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>person</i>
