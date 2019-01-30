@@ -60,7 +60,7 @@
        echo "<div class='info'>
                      <tr  class='$categoria->id'>
                             <input hidden type='text' name='id' value='$categoria->id'>
-                            <td><input class='#ffffff white-text' type='text' name='nombre' value='$categoria->nombre'></td>
+                            <td><input style='width:60%' class='#ffffff white-text' type='text' name='nombre' value='$categoria->nombre'></td>
                             <td>   
                                    <button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$categoria->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button>
                                    <a value='$categoria->id' class='btn-flat waves-effect waves-light #d32f2f red darken-2 white-text borrarcategoria' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a>
