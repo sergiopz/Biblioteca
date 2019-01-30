@@ -1,5 +1,5 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
-<!--<script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryInstitutos.js"></script>-->
+<link rel="stylesheet" href="<?php echo base_url('css/estiloMaterialize.css');?>">
 <script>
   $("document").ready(function(){
 
@@ -60,11 +60,10 @@ $(".borrarInstituto").click(function() {
           echo "<div class='info'>
             <tr class='$autor->id'>
               <input hidden type='text' name='id' value='$autor->id'>
-              <td><input class='#ffffff white-text' type='text' name='nombre' value='$autor->nombre'></td>
+              <td  style='width:60%'><input class='#ffffff white-text' type='text' name='nombre' value='$autor->nombre'></td>
               <td>
-                <button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$autor->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button>
-                <a value='$autor->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a>
-              </td>
+                <button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$autor->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>
+                <td><a value='$autor->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>
 
             </tr>
           </div>
