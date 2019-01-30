@@ -27,7 +27,7 @@
             $data["listaAutores"] = $this->AutoresModel->getAll();
             
 
-            data["nombreVista"] = "LibroAjax";
+            $data["nombreVista"] = "LibroAjax";
             $this->load->view("plantilla" , $data);
         }
     
