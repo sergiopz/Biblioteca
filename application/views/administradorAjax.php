@@ -116,10 +116,11 @@ input{width: 150px
                   }
                 }
                 echo"</select></td>
-                <td><a href='#$usuario->id' class='btn btn-large pulse #00e676 green accent-3 modal-trigger'><i class='material-icons' title='Insertar'>add_box</i></a></td>
 
-                <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$usuario->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
-                echo"<td><a value='$usuario->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
+                <td><button href='#$usuario->id' class='btn waves-effect waves-light #9fa8da indigo lighten-3 z-depth-0 modal-trigger'><i class='material-icons' title='Insertar'>info</i></button></td>
+                <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$usuario->id' type='submit' name='action'><i class='material-icons '>create</i></button></td>
+                <td><a value='$usuario->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' ><i class='material-icons ' title='Eliminar'>delete</i></a></td>
+
                 </tr>
             </div>
           ";
@@ -130,57 +131,67 @@ input{width: 150px
         
           <h5 class='modal-close'>&#10005;</h5>
           <div class='modal-content center'>
-            <h4 class='flow-text #00e676 green-text text-accent-3'>Informacion usuarios</h4>
+            <h4 class='flow-text #00e676 green-text text-accent-3'>Modificar Usuarios</h4>
         
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>person</i>
                
-                <input type='text' name='nombre' id='nombre' readonly value='$usuario->nombre'>
-                
+                <input type='text' name='nombre' id='nombre'  value='$usuario->nombre'>
+                <label class='active' style='color:royalblue' for='nombre'>Nombre</label>
               </div>
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>person</i>
-                <input type='text' name='apellido' id='apellido'  readonly value='$usuario->apellidos'>
-               
+                <input type='text' name='apellido' id='apellido'   value='$usuario->apellidos'>
+                <label class='active' style='color:royalblue' for='apellido'>Apellidos</label>
               </div>
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>face</i>
-                <input type='text' name='nick' id='nick'  readonly value='$usuario->nick'>
-             
+                <input type='text' name='nick' id='nick' value='$usuario->nick'>
+                <label class='active' style='color:royalblue' for='nick'>Nick</label>
               </div>
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>lock</i>
-                <input type='text' name='contrasena' id='contrasena'  readonly value='$usuario->contrasena'>
-             
+                <input type='text' name='contrasena' id='contrasena' value='$usuario->contrasena'>
+                <label class='active' style='color:royalblue' for='contrasena'>Contraseña</label>
               </div>
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>mail</i>
-                <input type='text' name='correo' id='correo' readonly value='$usuario->correo'>
-           
+                <input type='text' name='correo' id='correo' value='$usuario->correo'>
+                <label class='active' style='color:royalblue' for='correo'>E-Mail</label>
               </div>
                <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>phone</i>
-                 <input type='text' name='telefono' id='telefono'  readonly value='$usuario->telefono'>
-               
+                  <i class='material-icons prefix' style='color:royalblue'>phone</i>
+                  <input type='text' name='telefono' id='telefono' value='$usuario->telefono'>
+                  <label class='active' style='color:royalblue' for='telefono'>Teléfono</label>
               </div>
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>add_box</i>
-               <input type='text' name='tipo' id='tipo'  readonly value='$usuario->tipo'>
+                <input type='text' name='tipo' id='tipo' value='$usuario->tipo'>
+                <label class='active' style='color:royalblue' for='tipo'>Tipo de Usuario</label>
+              </div>
+              <div class='input-field'>
+                <i class='material-icons prefix' style='color:royalblue'>add_box</i>
+                <input type='text' name='codigoConfirmacion' id='codigoConfirmacion'>
+                <label class='active' style='color:royalblue' for='codigoConfirmacion'>Código de confirmación</label>
+              </div>
+              <div class='input-field'>
+                <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
+                <select name='idInstituto' class=''>";
+                  for ($j = 0; $j < count($listaInstitutos); $j++) {
+                    $instituto = $listaInstitutos[$j];
+                    if( $usuario->idInstituto==$instituto->id ){ 
+                      echo"<option  value='$instituto->id' selected>$instituto->nombre</option> ";
+                    }else{
+                      echo"<option  value='$instituto->id' >$instituto->nombre</option> ";
+                    }
+                  }
+                echo"</select>
+              </div>
 
-              </div>
-              <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>add_box</i>
-                 <input type='text' name='tipo'   readonly value='$usuario->tipo'>
-                 
-                 
-              </div>
-              <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>add_box</i>
-                <input type='text' name='codigoConfirmacion'  readonly id='codigoConfirmacion'>
-                
-              </div>
+              <!--<div><input style='background-color:royalblue' type='submit' value='Modificar' class='btn btn-large'></div>-->
 
-              
+              <button class='btn btn-large #e65100 orange darken-4 z-depth-0 clasemodificar' value='$usuario->id' type='submit' name='action'><i class='material-icons '>create</i></button>
+
               <br>
               <br>
 
@@ -247,14 +258,14 @@ input{width: 150px
                 <label style="color:royalblue" for="tipo">Tipo</label>
               </div>
               <div class="input-field">
-                <i class="material-icons prefix" style="color:royalblue">add_box</i>
+                <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
                  
                  <select name="idInstituto" id="idInstituto">
                 <?php
                 for ($j = 0; $j < count($listaInstitutos); $j++) {
                   $instituto = $listaInstitutos[$j];
                   if( $usuario->id==$instituto->id ){ 
-      echo      "<option  value='$instituto->id' selected >$instituto->nombre</option> ";                      
+      echo      "<option value='$instituto->id' selected >$instituto->nombre</option> ";                      
                            }else{
       echo      "<option  value='$instituto->id' >$instituto->nombre</option> ";
                            }
