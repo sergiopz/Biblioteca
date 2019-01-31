@@ -9,68 +9,7 @@
     <div class="row">
       <div class="col s12 m12 #536dfe indigo accent-2 z-depth-1 " id="capaAdmin">
       <!-- Hasta aqui los divs de VistaAdministrador-->
-<?php     
-       echo  "<div class='formularioInsercion' style='display:inline'>
-              <h1>Insertar un Libro</h1>";
-       
-       
 
-       echo form_open_multipart("Libros/InsertarLibro");
-       
-
-       echo "        <fieldset>
-                            Isbn : <input type='text' name='isbn'/><br/>
-                            Titulo : <input type='text' name='titulo'/><br/>
-                            Descripcion : <input type='text' name='descripcion'/><br/>
-                            Fecha : <input type='text' name='fecha'/><br/>
-                            Paginas : <input type='text' name='paginas'/><br/>
-                            idInstituto : 
-                            <select name='idInstituto'>";
-                            for ($j = 0; $j < count($listaInstitutos); $j++) {
-                            $instituto = $listaInstitutos[$j]; 
-                                   if( $libro->idInstituto==$instituto->id ){ 
-                            echo          "<option  value='$instituto->id' selected >$instituto->nombre</option> ";                      
-                                   }else{
-                            echo          "<option  value='$instituto->id' >$instituto->nombre</option> ";
-                                   }
-                             }
-       echo"                </select><br/>
-                            idUsuario : <input type='text' name='idUsuario'/><br/>
-                            idEditorial : 
-                                   <select name='idEditorial'>"; 
-                                   for ($j = 0; $j < count($listaEditoriales); $j++) {
-                                   $editorial = $listaEditoriales[$j]; 
-                                          if( $libro->idEditorial==$editorial->id ){ 
-       echo                               "<option  value='$editorial->id' selected >$editorial->nombre</option> ";                      
-                                          }else{
-       echo                               "<option  value='$editorial->id' >$editorial->nombre</option> ";
-                                          }
-                                   }
-       echo"                       </select><br/>
-                            Autores : 
-                                   <select multiple name='idAutor[]'>";
-                                   for ($j = $cont=0; $j < count($listaAutores); $j++) {
-                                   $autor = $listaAutores[$j];
-       echo                               "<option value='$autor->id' >$autor->nombre</option> ";
-                                   }                      
-       echo"                       </select><br/>
-                            Categorias: 
-                                   <select multiple name='idCategoria[]'>";
-                                   for ($j = $cont=0; $j < count($listaCategorias); $j++) {
-                                   $categoria = $listaCategorias[$j];
-       echo                               "<option value='$categoria->id'>$categoria->nombre</option> ";
-                                   }                                                         
-       echo"                       </select><br/>
-                     </fieldset>
-                            <input  type='submit' name='Enviar' value='Insertar'/>
-              </form><br>
-              </div>
-              <a href='#' id='btnNuevoUsuario'>Nuevo</a>
-              <span>id</span>
-              <span>nombre</span>  <br><br>";   
-       
-       //Aqui comienza la creacion de las tablas
-       ?>
        <table class="highlight responsive-table #536dfe indigo accent-2 ">
               <thead>
                      <tr class="#536dfe indigo accent-2">
@@ -171,38 +110,27 @@
        
        
       
-       echo   "</select></td>
-                     <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$libro->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>
-                     <td><a value='$libro->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>      
-             </div>
+       echo"</select></td>
+       <td><a href='#$libro->id' class='btn btn-large pulse #00e676 green accent-3 modal-trigger'><i class='material-icons' title='Insertar'>add_box</i></a></td>
+
+       <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$libro->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
+       echo"<td><a value='$libro->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>
+       </tr>
+   </div>
+ 
 
              </form>";
        } 
        ?>
-           <style>
-      
-
-      td{
-  width: 100px;
-  height: 100px;
- 
-  -webkit-transition: width 3s; /* For Safari 3.1 to 6.0 */
-  transition: width 0s;
-}
-
-td:hover {
-  width: 300px;
-}
-    </style>
 
               </tbody>
        </table>
-       
+       </div>
+       </div>
 
-       <!--Aqui cierra la Vista Administrador-->
        <div id="insert" class="modal" style="overflow-y: scroll">
-              <?php    echo form_open_multipart("Libros/InsertarLibros");?>
-                     <h5 class="modal-close">&#10005;</h5>
+              <?php    echo form_open_multipart("Administrador/InsertarUsuarios");?>
+              <h5 class="modal-close">&#10005;</h5>
                      <div class="modal-content center">
                      <h4 class="flow-text #00e676 green-text text-accent-3">Insertar Registro</h4>
                             <div class="input-field">
@@ -216,12 +144,12 @@ td:hover {
                                    <label style="color:royalblue" for="titulo">Titulo</label>
                             </div>
                             <div class="input-field">
-                                   <i class="material-icons prefix" style="color:royalblue">description</i>
+                                   <i class="material-icons prefix" style="color:royalblue">add_box</i>
                                    <input type='text' name='descripcion' id='descripcion'>
                                    <label style="color:royalblue" for="descripcion">Descripcion</label>
-                            </div>
+                            </div>                        
                             <div class="input-field">
-                                   <i class="material-icons prefix" style="color:royalblue">date_range</i>
+                                   <i class="material-icons prefix" style="color:royalblue">add_box</i>
                                    <input type='text' name='fecha' id='fecha'>
                                    <label style="color:royalblue" for="fecha">Fecha</label>
                             </div>
@@ -231,25 +159,33 @@ td:hover {
                                    <label style="color:royalblue" for="paginas">Paginas</label>
                             </div>
                             <div class="input-field">
-                                   <i class="material-icons prefix" style="color:royalblue">add_box</i>         
-                                   <select name="idInstituto" id="idInstituto">
-                                   <?php
-                                   for ($j = 0; $j < count($listaInstitutos); $j++) {
-                                          $instituto = $listaInstitutos[$j];
-                                          if( $usuario->id==$instituto->id ){ 
+                                   <i class="material-icons prefix" style="color:royalblue">add_box</i>
+                                          <select name="idInstituto" id="idInstituto">
+                                          <?php
+                                          for ($j = 0; $j < count($listaInstitutos); $j++) {
+                                           $instituto = $listaInstitutos[$j];
+                                                 if( $usuario->id==$instituto->id ){ 
                                           echo      "<option  value='$instituto->id' selected >$instituto->nombre</option> ";                      
-                                          }else{
+                                                  }else{
                                           echo      "<option  value='$instituto->id' >$instituto->nombre</option> ";
-                                          }
-                                   }
-                                   ?>
-                                   </select>
-                                   <label style="color:royalblue" for="Id Instituto">IdInstituto</label>
+                                                 }
+                                          }?>
+                                          </select>
+                                          <label style="color:royalblue" for="Id Instituto">IdInstituto</label>
                             </div>
+                            
                      </div>
+
               </form>
        </div>
+       
 
+       
+       
+       
+
+
+       <!--Esto cierra Vista Administrador-->
       </div>  
   </div>
              
