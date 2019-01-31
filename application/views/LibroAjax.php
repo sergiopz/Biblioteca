@@ -6,8 +6,13 @@ $("document").ready(function() {
     $(".libro").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
 });
 </script>
+<style>
+.barraScroll{
+       overflow-y: scroll;
+}
+</style>
 <div class="row"></div>
-<div class="row">
+<div class="row container">
     <div class="col s12 m12 #536dfe indigo accent-2 z-depth-1 " id="capaAdmin">
         <!-- Hasta aqui los divs de VistaAdministrador-->
 
@@ -128,13 +133,13 @@ $("document").ready(function() {
             </tbody>
         </table>
 
-        <div id="insert" class="modal" style="overflow-y:scroll">
-            <?php    echo form_open_multipart("Administrador/InsertarUsuarios");?>
+        <div id="insert" class="modal barraScroll">
+            <?php    echo form_open_multipart("Libros/InsertarLibro");?>
             <h5 class="modal-close">&#10005;</h5>
             <div class="modal-content center">
                 <h4 class="flow-text #00e676 green-text text-accent-3">Insertar Registro</h4>
                 <div class="input-field">
-                    <i class="material-icons prefix" style="color:royalblue">add_box</i>
+                    <i class="material-icons prefix" style="color:royalblue">person</i>
                     <input type='text' name='isbn' id='isbn'>
                     <label style="color:royalblue" for="isbn">isbn</label>
                 </div>
@@ -159,7 +164,7 @@ $("document").ready(function() {
                     <label style="color:royalblue" for="paginas">Paginas</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix" style="color:royalblue">add_box</i>
+                    <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
                     <select name="idInstituto" id="idInstituto">
                         <?php
                                           for ($j = 0; $j < count($listaInstitutos); $j++) {
@@ -171,8 +176,72 @@ $("document").ready(function() {
                                                   }
                                           }?>
                     </select>
-                    <label style="color:royalblue" for="IdInstituto">IdInstituto</label>
+                    <label style="color:royalblue" for="idInstituto">IdInstituto</label>
                 </div>
+                <div class="input-field">
+                    <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
+                    <select name="idUsuario" id="idUsuario">
+                        <?php
+                                          for ($j = 0; $j < count($listaAdministradores); $j++) {
+                                           $administrador = $listaAdministradores[$j];
+                                                 if($j==0){
+                                          echo      "<option  value='$administrador->id' selected >$administrador->nombre</option> ";                      
+                                                  }else{
+                                          echo      "<option  value='$administrador->id'>$administrador->nombre</option> ";                  
+                                                  }
+                                          }?>
+                    </select>
+                    <label style="color:royalblue" for="idUsuario">Usuario</label>
+                </div>
+                <div class="input-field">
+                    <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
+                    <select name="idEditorial" id="idEditoria">
+                        <?php
+                                          for ($j = 0; $j < count($listaEditoriales); $j++) {
+                                           $editorial = $listaEditoriales[$j];
+                                                 if($j==0){
+                                          echo      "<option  value='$editorial->id' selected >$editorial->nombre</option> ";                      
+                                                  }else{
+                                          echo      "<option  value='$editorial->id'>$editorial->nombre</option> ";                  
+                                                  }
+                                          }?>
+                    </select>
+                    <label style="color:royalblue" for="idEditorial">Editorial</label>
+                </div>
+                <div class="input-field">
+                    <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
+                    <select multiple name="idAutor[]" id="idAutor">
+                        <?php
+                                          for ($j = 0; $j < count($listaAutores); $j++) {
+                                           $autor = $listaAutores[$j];
+                                                 if($j==0){
+                                          echo      "<option  value='$autor->id' selected >$autor->nombre</option> ";                      
+                                                  }else{
+                                          echo      "<option  value='$autor->id'>$autor->nombre</option> ";                  
+                                                  }
+                                          }?>
+                    </select>
+                    <label style="color:royalblue" for="idAutor">Autor</label>
+                </div>
+                <div class="input-field">
+                    <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
+                    <select multiple name="idCategoria[]" id="idCategoria">
+                        <?php
+                                          for ($j = 0; $j < count($listaCategorias); $j++) {
+                                           $categoria = $listaCategorias[$j];
+                                                 if($j==0){
+                                          echo      "<option  value='$categoria->id' selected >$categoria->nombre</option> ";                      
+                                                  }else{
+                                          echo      "<option  value='$categoria->id'>$categoria->nombre</option> ";                  
+                                                  }
+                                          }?>
+                    </select>
+                    <label style="color:royalblue" for="idCategoria">Categoria</label>
+                </div>
+                
+                <div><input style="background-color:royalblue" type="submit" value="Insertar" class="btn btn-large"></div>
+                <br>
+                <br>
             </div>
 
             </form>
