@@ -231,12 +231,12 @@ td:hover {
                                    <label style="color:royalblue" for="paginas">Paginas</label>
                             </div>
                             <div class="input-field">
-                                   <i class="material-icons prefix" style="color:royalblue">add_box</i>         
+                                   <i class="material-icons prefix" style="color:royalblue">location_city</i>         
                                    <select name="idInstituto" id="idInstituto">
                                    <?php
                                    for ($j = 0; $j < count($listaInstitutos); $j++) {
                                           $instituto = $listaInstitutos[$j];
-                                          if( $usuario->id==$instituto->id ){ 
+                                          if($libro->idInstituto==$instituto->id ){ 
                                           echo      "<option  value='$instituto->id' selected >$instituto->nombre</option> ";                      
                                           }else{
                                           echo      "<option  value='$instituto->id' >$instituto->nombre</option> ";
@@ -244,9 +244,52 @@ td:hover {
                                    }
                                    ?>
                                    </select>
-                                   <label style="color:royalblue" for="Id Instituto">IdInstituto</label>
+                                   <label style="color:royalblue" for="IdInstituto">Instituto</label>
                             </div>
+                            <div class="input-field">
+                                   <i class="material-icons prefix" style="color:royalblue">person</i>
+                                   <input type='text' name='idUsuario' id='idUsuario'>
+                                   <label style="color:royalblue" for="idUsuario">Usuario</label>
+                            </div>
+                            <div class="input-field">
+                                   <i class="material-icons prefix" style="color:royalblue">add_box</i>         
+                                   <select name="idEditorial" id="idEditorial">
+                                   <?php
+                                   for ($j = 0; $j < count($listaEditoriales); $j++) {
+                                          $editorial = $listaEditoriales[$j]; 
+                                                 if( $libro->idEditorial==$editorial->id ){ 
+              echo                               "<option  value='$editorial->id' selected >$editorial->nombre</option> ";                      
+                                                 }else{
+              echo                               "<option  value='$editorial->id' >$editorial->nombre</option> ";
+                                                 }
+                                          }
+                                   ?>
+                                   </select>
+                                   <label style="color:royalblue" for="idEditorial">Editorial</label>
+                            </div>
+                            <div class="input-field">
+                                   <select multiple>
+                                          <option value="" disabled selected>Choose your option</option>
+                                          <option value="1">Option 1</option>
+                                          <option value="2">Option 2</option>
+                                          <option value="3">Option 3</option>
+                                   </select>
+                                   <label>Autores</label>
+                             </div>
+                             <div class="input-field">
+                                   <select multiple>
+                                          <option value="" disabled selected>Choose your option</option>
+                                          <option value="1">Option 1</option>
+                                          <option value="2">Option 2</option>
+                                          <option value="3">Option 3</option>
+                                   </select>
+                                   <label>Categorias</label>
+                             </div>
+                            
                      </div>
+                     <div><input style="background-color:royalblue" type="submit" value="Insertar" class="btn btn-large"></div>
+                     <br>
+                     <br>
               </form>
        </div>
 
