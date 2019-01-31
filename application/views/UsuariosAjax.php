@@ -2,13 +2,14 @@
 <script>
   $("document").ready(function(){
 
-$(".borrarInstituto").click(function() {
+$(".claseBorrar").click(function() {
+ 
 
-   var idInstituto=$(this).attr("value");
+    var idUsuario=$(this).attr("value");
 
-    $("."+idInstituto).remove();
+    $("."+idUsuario).remove();
 
-    cadena = "<?php echo site_url('Administrador/EliminarUsuarios'); ?>/"+idInstituto;
+    cadena = "<?php echo site_url('Usuarios/EliminarUsuarios'); ?>/"+idUsuario;
 
     $.ajax({
     url: cadena
@@ -17,36 +18,31 @@ $(".borrarInstituto").click(function() {
 
    });
 
-});
-</script>
 
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.clasemodificar').click(function(){
+
+  //Cuando pulsamos el boton de borrar recogemos su valor que es el id del usuario y los guardamos en una variable y los enviamos el id por ruta con ajax para borrarlo en la base de datos , a la misma vez con remove borramos el div de la vista.
+
+
+  $('.claseModificar').click(function(){
 
       var iddiv=$(this).attr("value");
   
       var nombreusuario=$("."+iddiv+ " input[name='nombre']").val();
-       
       var apellidousuario=$("."+iddiv+ " input[name='apellidos']").val();
-       
       var nickusuario=$("."+iddiv+ " input[name='nick']").val();
-     
-      var contrasenausuario=$("."+iddiv+ " input[name='contrasena']").val();
-       
+      var contrasenausuario=$("."+iddiv+ " input[name='contrasena']").val(); 
       var correousuario=$("."+iddiv+ " input[name='correo']").val();
-    
       var telefonousuario=$("."+iddiv+ " input[name='telefono']").val();
-      
       var tipousuario=$("."+iddiv+ " input[name='tipo']").val();
-       
-      var idInstitutousuario=$("."+iddiv+ " option:selected").val();
-       
+      var idInstitutousuario=$("."+iddiv+ " option:selected").val(); 
+      
+    
       var datos="id="+iddiv+"&nombre="+nombreusuario+"&apellidos="+apellidousuario+"&nick="+nickusuario+"&contrasena="+contrasenausuario+"&correo="+correousuario+"&telefono="+telefonousuario+"&tipo="+tipousuario+"&idInstituto="+idInstitutousuario+"&codigoConfirmacion= ";
 
-      var cadena="<?php echo site_url("Administrador/ModificarUsuarios/"); ?>";
+       var cadena="<?php echo site_url("Usuarios/ModificarUsuarios/"); ?>";
 
-      $.ajax({
+       
+        $.ajax({
         type:"POST",
         url: cadena,
         data:datos
@@ -54,28 +50,20 @@ $(".borrarInstituto").click(function() {
 
     });
   });
+
+  //para modificar cogemos todos los campos uno a uno y los guardamos en variables , para enviar todos los datos al controlador por ajax.
  
-
- $('td input').focus(function(){
-
-    $(this).css({'width':' 250px'});
-
+       
+</script>      
      
 
- $(this).blur(function(){
-     $(this).css({'width':'100%'});
-  });
-   
-   });
+    
 
-</script>
+ 
 
-<style>
 
-input{width: 150px
-}
-  
-</style>
+
+
 
 <table class="highlight responsive-table #536dfe indigo accent-2 ">
   <thead>
@@ -118,8 +106,8 @@ input{width: 150px
                 echo"</select></td>
 
                 <td><button href='#$usuario->id' class='btn waves-effect waves-light #9fa8da indigo lighten-3 z-depth-0 modal-trigger'><i class='material-icons' title='Insertar'>info</i></button></td>
-                <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$usuario->id' type='submit' name='action'><i class='material-icons '>create</i></button></td>
-                <td><a value='$usuario->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' ><i class='material-icons ' title='Eliminar'>delete</i></a></td>
+                <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 claseModificar' value='$usuario->id' type='submit' name='action'><i class='material-icons '>create</i></button></td>
+                <td><a value='$usuario->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text claseBorrar' ><i class='material-icons ' title='Eliminar'>delete</i></a></td>
 
                 </tr>
             </div>
@@ -215,7 +203,7 @@ input{width: 150px
         <!--Contenido de la ventana modal de insercion-->
 
         <div id="insert" class="modal" style="overflow-y: scroll">
-         <?php    echo form_open_multipart("Administrador/InsertarUsuarios");?>
+         <?php    echo form_open_multipart("Usuarios/InsertarUsuarios");?>
         
           <h5 class="modal-close">&#10005;</h5>
           <div class="modal-content center">

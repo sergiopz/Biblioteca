@@ -1,102 +1,64 @@
 <?php
-  //incluimos peliculas
-  include_once('Seguridad.php');
-  //extendemos de seguridad
+//Incluimos la vista de seguridad
+    include_once('Seguridad.php');
+    //extendemos todas las funciones de seguridad
     class Administrador extends Seguridad {
-
         public function __construct() {
             parent::__construct();
-           $this->load->model("AdministradorModel");
-           $this->load->model("InstitutosModel");
+  
+            $this->load->model("UsuariosModel");
+                 $this->load->model("EditorialesModel");
+        }
 
-       }
+        //cargamos vista
 
-       public function main() {
-           $data["listaUsuarios"] = $this->AdministradorModel->getAll();
-           $data["listaInstitutos"] = $this->InstitutosModel->getAll();
-          $this->load->view("administradorAjax.php", $data);
-       }
-        
+        public function Index() {
+            $this->load->view("EntradaLogin");
+        }
 
-        public function InsertarUsuarios() {
+        public function ComprobarUsuario() {
             
-
-                //$id = $this->input->get_post("id");
-                $nombre = $this->input->get_post("nombre");
-                $apellidos = $this->input->get_post("apellidos");
-                $nick = $this->input->get_post("nick");
-                $contrasena = $this->input->get_post("contrasena");
-                $correo = $this->input->get_post("correo");
-                $telefono = $this->input->get_post("telefono");
-                $tipo = $this->input->get_post("tipo");
-                $idInstituto = $this->input->get_post("idInstituto");
-                 $codigoConfirmacion = $this->input->get_post("codigoConfirmacion");
-
-                
-                    $resultado = $this->AdministradorModel->InsertarUsuarios($nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto,$codigoConfirmacion );
-                    if ($resultado == 0) {
-                        $data["mensaje"] = "Error al insertar la película en la base de datos";
-                       // $this->peliculasModel->borrarImagenPelicula($img_name);
-                    } else {
-                           $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "administracion";   // La tabla que queremos que se muestre automáticamente en la vista principal
-                           $this->load->view("plantilla", $data);
-                    }
-      }
+            $nombre = $this->input->get_post("nombre");
+            $pass = $this->input->get_post("password");
             
-                
-               
-
-
-        public function EliminarUsuarios($id) {
-                  
-            //$id = $this->input->get_post("id");
-            $resultado = $this->AdministradorModel->BorrarUsuarios($id);
+            $resultado1 = $this->UsuariosModel->ComprobarTipo0($nombre,$pass);
+            $resultado2 = $this->UsuariosModel->ComprobarTipo1($nombre,$pass);
+            $resultado3 = $this->UsuariosModel->ComprobarTipo2($nombre,$pass);
+            
            
-               
-            if ($resultado == 0) { // Error: usuario o contraseña no existen
-                $this->load->view("VistaAdministrador");
-            } else {
-                   $data["listaUsuarios"] = $this->AdministradorModel->getAll();
-                   $this->load->view("VistaAdministrador", $data);   
-            }
-        
-      }
 
-         public function ModificarUsuarios() {
-                  
-                $id = $this->input->get_post("id");
-                $nombre = $this->input->get_post("nombre");
-                $apellidos = $this->input->get_post("apellidos");
-                $nick = $this->input->get_post("nick");
-                $contrasena = $this->input->get_post("contrasena");
-                $correo = $this->input->get_post("correo");
-                $telefono = $this->input->get_post("telefono");
-                $tipo = $this->input->get_post("tipo");
-                $idInstituto = $this->input->get_post("idInstituto");
-                $codigoConfirmacion = $this->input->get_post("codigoConfirmacion");
-                            //$cartel = $this->input->get_post("cartel");
-                $resultado = $this->AdministradorModel->ModificarUsuarios($id,$nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto,$codigoConfirmacion);
-           
-               
-            if ($resultado == 0) { // Error: usuario o contraseña no existen
+              if ($resultado1 == 1) { // Error: usuario o contraseña no existen
+            
+             $data["listaUsuarios"] = $this->UsuariosModel->getAll();
+             $data["nombreVista"] = "VistaAdministrador";
+             $this->load->view("plantilla", $data);
+                 
+                //echo "Error de logueo";
 
-                 $data["error"]="No se pudo modificar";
-                 $data["listaUsuarios"] = $this->AdministradorModel->getAll();
-               $this->load->view("VistaAdministrador", $data);
 
-             
+            }elseif ($resultado2 == 1) { // Error: usuario o contraseña no existen
+               echo "bibliotecario";
                
 
-            } else {
 
+            }elseif ($resultado3 == 1) { // Error: usuario o contraseña no existen
+               echo "usuario";
+               
 
+            }else {    // Login OK
+            //crearLogin(); esta en seguridad , al entrar le creamos una 
+            //sesion de control 
+               //$this->load->view("mainMenu", $data); 
+             //$data["listaUsuarios"] = $this->AdministradorModel->getAll();
+            //$data["listaEditoriales"] = $this->EditorialesModel->getAll();
+            //$this->load->view("EditorialAjax.php", $data);
                  $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "administracion";   // La tabla que queremos que se muestre automáticamente en la vista principal
-                           $this->load->view("plantilla", $data);
-            }
-        
+             $this->load->view("plantilla", $data);
 
-        
-    }
-  }
+     }
+     
+ 
+}
+
+}
+
