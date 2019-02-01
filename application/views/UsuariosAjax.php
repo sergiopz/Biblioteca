@@ -34,7 +34,19 @@ $(".claseBorrar").click(function() {
       var correousuario=$("."+iddiv+ " input[name='correo']").val();
       var telefonousuario=$("."+iddiv+ " input[name='telefono']").val();
       var tipousuario=$("."+iddiv+ " input[name='tipo']").val();
-      var idInstitutousuario=$("."+iddiv+ " option:selected").val(); 
+      var idInstitutousuario=$("."+iddiv+ " option:selected").val();
+
+
+      $("."+iddiv+ " input[name='nombre']").attr("value",nombreusuario);
+      $("."+iddiv+ " input[name='apellidos']").attr("value",apellidousuario);
+      $("."+iddiv+ " input[name='nick']").attr("value",nickusuario);
+      $("."+iddiv+ " input[name='contrasena']").attr("value",contrasenausuario); 
+      $("."+iddiv+ " input[name='correo']").attr("value",correousuario);
+      $("."+iddiv+ " input[name='telefono']").attr("value",telefonousuario);
+      $("."+iddiv+ " input[name='tipo']").attr("value", tipousuario);
+      $("."+iddiv+ " option:selected").attr("value",idInstitutousuario);
+
+
       
     
       var datos="id="+iddiv+"&nombre="+nombreusuario+"&apellidos="+apellidousuario+"&nick="+nickusuario+"&contrasena="+contrasenausuario+"&correo="+correousuario+"&telefono="+telefonousuario+"&tipo="+tipousuario+"&idInstituto="+idInstitutousuario+"&codigoConfirmacion= ";
@@ -105,7 +117,7 @@ $(".claseBorrar").click(function() {
                 }
                 echo"</select></td>
 
-                <td><button href='#$usuario->id' class='btn waves-effect waves-light #9fa8da indigo lighten-3 z-depth-0 modal-trigger'><i class='material-icons' title='Insertar'>info</i></button></td>
+                <td><button href='#lupa' class='btn waves-effect waves-light #9fa8da indigo lighten-3 z-depth-0 modal-trigger'><i class='material-icons' title='Insertar'>info</i></button></td>
                 <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 claseModificar' value='$usuario->id' type='submit' name='action'><i class='material-icons '>create</i></button></td>
                 <td><a value='$usuario->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text claseBorrar' ><i class='material-icons ' title='Eliminar'>delete</i></a></td>
 
@@ -114,7 +126,7 @@ $(".claseBorrar").click(function() {
           ";
 
 
-          echo"<div id='$usuario->id' class='modal' style='overflow-y: scroll'>
+          echo"<div id='lupa' class='modal $usuario->id' style='overflow-y: scroll;max-height: 450px;'>
            
         
           <h5 class='modal-close'>&#10005;</h5>
@@ -129,7 +141,7 @@ $(".claseBorrar").click(function() {
               </div>
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>person</i>
-                <input type='text' name='apellido' id='apellido'   value='$usuario->apellidos'>
+                <input type='text' name='apellidos' id='apellido'   value='$usuario->apellidos'>
                 <label class='active' style='color:royalblue' for='apellido'>Apellidos</label>
               </div>
               <div class='input-field'>
@@ -178,8 +190,7 @@ $(".claseBorrar").click(function() {
 
               <!--<div><input style='background-color:royalblue' type='submit' value='Modificar' class='btn btn-large'></div>-->
 
-              <button class='btn btn-large #e65100 orange darken-4 z-depth-0 clasemodificar' value='$usuario->id' type='submit' name='action'><i class='material-icons '>create</i></button>
-
+              <button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 claseModificar' value='$usuario->id' type='submit' name='action'><i class='material-icons '>create</i></button>
               <br>
               <br>
 
@@ -202,7 +213,7 @@ $(".claseBorrar").click(function() {
 
         <!--Contenido de la ventana modal de insercion-->
 
-        <div id="insert" class="modal" style="overflow-y: scroll">
+        <div id="insert" class="modal" style="overflow-y: scroll;max-height: 400px;">
          <?php    echo form_open_multipart("Usuarios/InsertarUsuarios");?>
         
           <h5 class="modal-close">&#10005;</h5>
