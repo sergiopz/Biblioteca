@@ -3,7 +3,23 @@
 <link rel="stylesheet" href="<?php echo base_url('css/estiloMaterialize.css');?>">
 <script>
 $("document").ready(function() {
-    $(".libro").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
+    
+    $(".claseBorrar").click(function() {
+ 
+
+ var id=$(this).attr("value");
+
+ $("."+id).remove();
+
+ cadena = "<?php echo site_url('Libros/EliminarLibro'); ?>/"+id;
+
+ $.ajax({
+ url: cadena
+  });
+
+
+});
+
 });
 </script>
 <style>
@@ -14,7 +30,7 @@ $("document").ready(function() {
 <div class="row"></div>
 <div class="row container">
     <div class="col s12 m12 #536dfe indigo accent-2 z-depth-1 " id="capaAdmin">
-        <!-- Hasta aqui los divs de VistaAdministrador-->
+        <!-- Hasta aqui los divs de Vistausuario-->
 
         <table class="highlight responsive-table #536dfe indigo accent-2 ">
             <thead>
@@ -38,7 +54,7 @@ $("document").ready(function() {
        for ($i = 0; $i < count($listaLibros); $i++) {
               $libro = $listaLibros[$i];
 
-       echo form_open("Libros/ModificarLibro");
+       echo form_open_multipart("Libros/ModificarLibro");
        echo   "<div class='info'>
               <tr class='$libro->id'>
                      <input type='hidden' name='id' value='$libro->id' readonly>
@@ -59,11 +75,11 @@ $("document").ready(function() {
 
        echo  "</select></td>";
           
-       for ($j = 0; $j < count($listaAdministradores); $j++) {
-              $administrador = $listaAdministradores[$j]; 
-              if( $libro->idUsuario==$administrador->id ){ 
-       echo          "<td><input class='#ffffff white-text' type='text'  value='$administrador->nombre' readonly></td>";
-       echo          "<input class='#ffffff white-text' type='hidden' name='idUsuario' value='$administrador->id' />";                      
+       for ($j = 0; $j < count($listaUsuarios); $j++) {
+              $usuario = $listaUsuarios[$j]; 
+              if( $libro->idUsuario==$usuario->id ){ 
+       echo          "<td><input class='#ffffff white-text' type='text'  value='$usuario->nombre' readonly></td>";
+       echo          "<input class='#ffffff white-text' type='hidden' name='idUsuario' value='$usuario->id' />";                      
               }
        }
 
@@ -121,7 +137,7 @@ $("document").ready(function() {
        <td><a href='#$libro->id' class='btn btn-large pulse #00e676 green accent-3 modal-trigger'><i class='material-icons' title='Insertar'>add_box</i></a></td>
 
        <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$libro->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
-       echo"<td><a value='$libro->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>
+       echo"<td><a value='$libro->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text claseBorrar' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>
        </tr>
    </div>
  
@@ -182,12 +198,12 @@ $("document").ready(function() {
                     <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
                     <select name="idUsuario" id="idUsuario">
                         <?php
-                                          for ($j = 0; $j < count($listaAdministradores); $j++) {
-                                           $administrador = $listaAdministradores[$j];
+                                          for ($j = 0; $j < count($listaUsuarios); $j++) {
+                                           $usuario = $listaUsuarios[$j];
                                                  if($j==0){
-                                          echo      "<option  value='$administrador->id' selected >$administrador->nombre</option> ";                      
+                                          echo      "<option  value='$usuario->id' selected >$usuario->nombre</option> ";                      
                                                   }else{
-                                          echo      "<option  value='$administrador->id'>$administrador->nombre</option> ";                  
+                                          echo      "<option  value='$usuario->id'>$usuario->nombre</option> ";                  
                                                   }
                                           }?>
                     </select>
@@ -247,6 +263,6 @@ $("document").ready(function() {
             </form>
         </div>
 
-        <!--Esto cierra Vista Administrador-->
+        <!--Esto cierra Vista usuario-->
     </div>
 </div>
