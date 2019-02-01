@@ -63,7 +63,7 @@ $("document").ready(function() {
                      <td><input class='#ffffff white-text' type='text' name='descripcion' value='$libro->descripcion'></td>
                      <td><input class='#ffffff white-text' type='text' name='fecha' value='$libro->fecha'></td>
                      <td><input class='#ffffff white-text' type='text' name='paginas' value='$libro->paginas'></td>
-                     <td><select name='idInstituto'>";
+                     <td><select name='idInstituto' class='browser-default'>";
        for ($j = 0; $j < count($listaInstitutos); $j++) {
               $instituto = $listaInstitutos[$j]; 
               if( $libro->idInstituto==$instituto->id ){ 
@@ -83,7 +83,7 @@ $("document").ready(function() {
               }
        }
 
-       echo   "<td><select name='idEditorial'>";  
+       echo   "<td><select name='idEditorial' class='browser-default'>";  
 
        for ($j = 0; $j < count($listaEditoriales); $j++) {
               $editorial = $listaEditoriales[$j]; 
@@ -95,7 +95,7 @@ $("document").ready(function() {
        }
 
        echo   "</select></td>
-               <td><select required multiple name='idAutor[]'>";
+               <td><select required multiple name='idAutor[]' class='browser-default'>";
 
 
        for ($j = $cont=0; $j < count($listaAutores); $j++) {
@@ -113,7 +113,7 @@ $("document").ready(function() {
        }
       
        echo   "</select></td>
-               <td><select required multiple name='idCategoria[]'>";
+               <td><select required multiple name='idCategoria[]' class='browser-default'>";
        for ($j = 0; $j < count($listaCategorias); $j++) {
                      $categoria = $listaCategorias[$j];
               for ($k = 0; $k < count($listaLibrosCategorias); $k++) {
@@ -127,12 +127,6 @@ $("document").ready(function() {
                      }
               }
        }
-
-   
-       
-       
-       
-      
        echo"</select></td>
        <td><a href='#$libro->id' class='btn btn-large pulse #00e676 green accent-3 modal-trigger'><i class='material-icons' title='Insertar'>add_box</i></a></td>
 
@@ -211,7 +205,7 @@ $("document").ready(function() {
                 </div>
                 <div class="input-field">
                     <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
-                    <select name="idEditorial" id="idEditoria">
+                    <select name="idEditorial" id="idEditorial">
                         <?php
                                           for ($j = 0; $j < count($listaEditoriales); $j++) {
                                            $editorial = $listaEditoriales[$j];

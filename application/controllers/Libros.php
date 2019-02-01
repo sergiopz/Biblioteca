@@ -98,6 +98,7 @@
             $idUsuario = $this->input->get_post("idUsuario");
             $idEditorial = $this->input->get_post("idEditorial");
             $idAutor = $this->input->get_post('idAutor');
+            var_dump($_POST);
             $idCategoria = $this->input->get_post('idCategoria');
 
             $r=$this->LibrosModel->ModificarLibro($id,$isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial);
