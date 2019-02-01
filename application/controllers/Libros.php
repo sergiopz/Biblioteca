@@ -8,7 +8,7 @@
             $this->load->model("LibrosModel");
             $this->load->model("InstitutosModel");
             $this->load->model("EditorialesModel");
-            $this->load->model("AdministradorModel");
+            $this->load->model("UsuariosModel");
             $this->load->model("AutoresModel");
             $this->load->model("CategoriasModel");
             
@@ -19,7 +19,7 @@
         public function VistaAjax() {
             $data["listaInstitutos"] = $this->InstitutosModel->getAll();
             $data["listaEditoriales"] = $this->EditorialesModel->getAll();           
-            $data["listaAdministradores"] = $this->AdministradorModel->getAll();
+            $data["listaUsuarios"] = $this->UsuariosModel->getAll();
             $data["listaLibros"] = $this->LibrosModel->getAll();
             $data["listaCategorias"] = $this->CategoriasModel->getAll();
             $data["listaAutoresLibros"] = $this->LibrosModel->getAutoresLibros();
@@ -97,8 +97,8 @@
             $idInstituto= $this->input->get_post("idInstituto");
             $idUsuario = $this->input->get_post("idUsuario");
             $idEditorial = $this->input->get_post("idEditorial");
-            $idAutor = $this->input->post('idAutor');
-            $idCategoria = $this->input->post('idCategoria');
+            $idAutor = $this->input->get_post('idAutor');
+            $idCategoria = $this->input->get_post('idCategoria');
 
             $r=$this->LibrosModel->ModificarLibro($id,$isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial);
             $r1=$this->LibrosModel->EliminarAutorLibro($id);
