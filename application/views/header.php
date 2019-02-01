@@ -14,9 +14,9 @@
     <script type="text/javascript">
         $(document).ready(function (){
 
-          $(".Usuarios").click(function() {
+          $(".usuarios").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Usuarios/VistaAjax"); ?>", function() { });
-            $(".Usuarios").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
+            $(".usuarios").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
             $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
@@ -27,7 +27,7 @@
            $(".categoria").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Categorias/VistaAjax"); ?>", function() { });
             $(".categoria").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
-            $(".Usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
@@ -37,7 +37,7 @@
           $(".editorial").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Editoriales/VistaAjax"); ?>", function() { });
             $(".editorial").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
-            $(".Usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
@@ -48,7 +48,7 @@
           $(".autor").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Autores/VistaAjax"); ?>", function() { });
             $(".autor").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
-            $(".Usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
@@ -59,7 +59,7 @@
           $(".institutos").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Institutos/VistaAjax"); ?>", function() { });
             $(".institutos").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
-            $(".Usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
@@ -88,7 +88,7 @@
   <nav>
     <div class="nav-wrapper #616161 grey darken-2">
       <ul class="center">
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down Usuarios" >Usuarios</a></li>
+        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down usuarios" >Usuarios</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down institutos">Institutos</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down autor">Autores</a></li>
         <li><a href="<?php echo site_url('Libros/VistaAjax');?>" class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down libro">Libros</a></li>
@@ -102,7 +102,7 @@
       </ul>
 
       <ul id='dropdown1' class='dropdown-content #8c9eff indigo accent-1'>
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 Usuarios" style="color:white" >Usuarios</a></li>
+        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 usuarios" style="color:white" >Usuarios</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 institutos" style="color:white">Institutos</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 autor" style="color:white">Autores</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 libro" style="color:white">Libros</a></li>
