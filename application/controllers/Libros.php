@@ -32,8 +32,11 @@
         }
     
         /*Funcion que inserta un libro */    
-        public function InsertarLibro(){  
+        public function InsertarLibro(){ 
             $id=$this->LibrosModel->getMax();
+            if($id==0){
+                $id=1;
+            }
             $isbn = $this->input->get_post("isbn");
             $titulo= $this->input->get_post("titulo");
             $descripcion = $this->input->get_post("descripcion");
