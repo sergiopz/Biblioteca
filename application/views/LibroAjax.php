@@ -23,7 +23,7 @@ $("document").ready(function() {
 });
 </script>
 <style>
-.barraScroll{
+.barraScroll,#lupa{
        overflow-y: scroll;
 }
 </style>
@@ -128,15 +128,128 @@ $("document").ready(function() {
               }
        }
        echo"</select></td>
-       <td><a href='#$libro->id' class='btn btn-large pulse #00e676 green accent-3 modal-trigger'><i class='material-icons' title='Insertar'>add_box</i></a></td>
-
+       <td><button href='#lupa' class='btn waves-effect waves-light #9fa8da indigo lighten-3 z-depth-0 modal-trigger'><i class='material-icons' title='Detalles'>info</i></button></td>
        <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$libro->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
        echo"<td><a value='$libro->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text claseBorrar' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>
        </tr>
-   </div>
- 
 
+   </div>
              </form>";
+    //Aqui comienza la modal de modificar
+    
+    echo"<div id='lupa' class='modal $libro->id' style='overflow-y: scroll;max-height: 450px;'>
+            <h5 class='modal-close'>&#10005;</h5>
+            <div class='modal-content center'>
+                <h4 class='flow-text #00e676 green-text text-accent-3'>Modificar libros</h4>
+                <div class='input-field'>
+                    <i class='material-icons prefix' style='color:royalblue'>person</i>               
+                    <input type='text' name='isbn' id='isbn'  value='$libro->isbn'>
+                    <label class='active' style='color:royalblue' for='isbn'>Isbn</label>
+                </div>
+                <div class='input-field'>
+                    <i class='material-icons prefix' style='color:royalblue'>person</i>               
+                    <input type='text' name='titulo' id='titulo'  value='$libro->titulo'>
+                    <label class='active' style='color:royalblue' for='titulo'>Titulo</label>
+                </div>
+                <div class='input-field'>
+                    <i class='material-icons prefix' style='color:royalblue'>person</i>               
+                    <input type='text' name='descripcion' id='descripcion'  value='$libro->descripcion'>
+                    <label class='active' style='color:royalblue' for='descripcion'>Descripcion</label>
+                </div>
+                <div class='input-field'>
+                    <i class='material-icons prefix' style='color:royalblue'>person</i>               
+                    <input type='text' name='fecha' id='fecha'  value='$libro->fecha'>
+                    <label class='active' style='color:royalblue' for='fecha'>Fecha</label>
+                </div>
+                <div class='input-field'>
+                    <i class='material-icons prefix' style='color:royalblue'>person</i>               
+                    <input type='text' name='paginas' id='paginas'  value='$libro->paginas'>
+                    <label class='active' style='color:royalblue' for='paginas'>Paginas</label>
+                </div>
+                <div class='input-field'>
+                <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
+                <select name='idInstituto' >";
+                  for ($j = 0; $j < count($listaInstitutos); $j++) {
+                    $instituto = $listaInstitutos[$j];
+                    if( $usuario->idInstituto==$instituto->id ){ 
+                      echo"<option  value='$instituto->id' selected>$instituto->nombre</option> ";
+                    }else{
+                      echo"<option  value='$instituto->id' >$instituto->nombre</option> ";
+                    }
+                  }
+                echo"</select>
+                </div>
+                <div class='input-field'>
+                    <i class='material-icons prefix' style='color:royalblue'>person</i>";
+                    for ($j = 0; $j < count($listaUsuarios); $j++) {
+                        $usuario = $listaUsuarios[$j]; 
+                        if( $libro->idUsuario==$usuario->id ){ 
+                 echo          "<input type='text' name='usuario' id='usuario'  value='$usuario->nombre'>";
+                 echo          "<input type='hidden' name='idUsuario' id='idUsuario'  value='$usuario->id'>";
+                 echo          "<label class='active' style='color:royalblue' for='paginas'>Paginas</label>";                      
+                        }
+                 }
+        echo"   </div>
+                <div class='input-field'>
+                    <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
+                    <select name='idEditorial' >";
+                        for ($j = 0; $j < count($listaEditoriales); $j++) {
+                        $editorial = $listaEditoriales[$j];
+                            if( $libro->idEditorial==$editorial->id ){ 
+                        echo"<option  value='$editorial->id' selected>$editorial->nombre</option> ";
+                            }else{
+                        echo"<option  value='$editorial->id' >$editorial->nombre</option> ";
+                            }
+                        }
+        echo"       </select>
+                </div>
+                <div>
+                    <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
+                    <select multiple name='idAutor[]'>";
+                    for ($j = $cont=0; $j < count($listaAutores); $j++) {
+                        $autor = $listaAutores[$j];
+                        for ($k = 0; $k < count($listaAutoresLibros); $k++) {
+                                $autorlibro = $listaAutoresLibros[$k];
+                                      if(($autorlibro->idAutor==$autor->id)&&($autorlibro->idLibro==$libro->id)){
+                 echo          "<option  value='$autor->id' selected >$autor->nombre</option> "; 
+                                      $k=count($listaAutoresLibros); 
+                               }else if ($k==count($listaAutoresLibros)-1)  {
+                 echo          "<option  value='$autor->id'  >$autor->nombre</option> ";
+                                      $k=count($listaAutoresLibros);
+                               }
+                        }
+                 }
+
+        echo"       </select>
+                </div>
+                <div>
+                    <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
+                    <select multiple name='idCategoria[]'>";
+                    for ($j = 0; $j < count($listaCategorias); $j++) {
+                        $categoria = $listaCategorias[$j];
+                 for ($k = 0; $k < count($listaLibrosCategorias); $k++) {
+                        $librocategoria = $listaLibrosCategorias[$k];
+                               if(($librocategoria->idCategoria==$categoria->id)&&($librocategoria->idLibro==$libro->id)){
+          echo          "<option  value='$categoria->id' selected >$categoria->nombre</option> "; 
+                               $k=count($listaLibrosCategorias);
+                               }else if($k==count($listaLibrosCategorias)-1) {
+          echo          "<option  value='$categoria->id'>$categoria->nombre</option> ";
+                               $k=count($listaLibrosCategorias);
+                        }
+                 }
+          }
+
+        echo"       </select>
+                </div>
+                <button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 claseModificar' value='$usuario->id' type='submit' name='action'><i class='material-icons '>create</i></button>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>";
+
+
        } 
        ?>
 
