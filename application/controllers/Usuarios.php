@@ -39,7 +39,7 @@
                        // $this->peliculasModel->borrarImagenPelicula($img_name);
                     } else {
                            $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "Usuarios";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $data["tabla"] = "usuarios";   // La tabla que queremos que se muestre automáticamente en la vista principal
                            $this->load->view("plantilla", $data);
                     }
       }

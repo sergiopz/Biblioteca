@@ -45,38 +45,58 @@
     });
   });
 </script>
-  <table class="highlight responsive-table #536dfe indigo accent-2 ">
+<script>
+  $(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+</script>
+
+<table id="table_id" class="display">
     <thead>
-      <tr class="#536dfe indigo accent-2">
-        <th class="#000000 black-text">Nombre</th>
-        <th class="#000000 black-text">Provincia</th>
-        <th class="#000000 black-text">Localidad</th>
-        <th class="#000000 black-text">Dirección</th>
-        <th class="#000000 black-text">Codigo Postal</th>
-        <th><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
-      </tr>
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+            <th>Column 4</th>
+              <th>Column 5</th>
+               <th>Column 6</th>
+               <th>Column 7</th>
+
+        </tr>
     </thead>
     <tbody>
-  <?php
+      <?php
   for ($i = 0; $i < count($listaInstitutos); $i++) {
         $instituto = $listaInstitutos[$i];
-      echo "<div class='info'>
-              <tr class='$instituto->id'>
-                <input type='text' name='id' hidden value='$instituto->id'>
-                <td><input class='#ffffff white-text' type='text' name='nombre' value='$instituto->nombre'></td>
-                <td><input  class='#ffffff white-text' type='text' name='provincia'value='$instituto->provincia'></td>
-                <td><input  class='#ffffff white-text' type='text' name='localidad'value='$instituto->localidad'></td>
-                <td><input  class='#ffffff white-text' type='text' name='direccion'value='$instituto->direccion'></td>
-                <td><input  class='#ffffff white-text' type='text' name='cp'value='$instituto->cp'></td>
-                <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$instituto->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
-          echo "<td><a value='$instituto->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a><td>  
-              </tr>
-            </div>
-          ";
-    }  
-  ?>
-        </tbody>
-      </table>
+
+        echo"<tr  class='$instituto->id'>
+            <td><input class='#ffffff ' type='text' name='nombre' value='$instituto->nombre'></td>
+            <td><input  class='#ffffff ' type='text' name='provincia'value='$instituto->provincia'></td>
+
+            <td><input  class='#ffffff ' type='text' name='localidad'value='$instituto->localidad'></td>
+           <td><input  class='#ffffff' type='text' name='direccion'value='$instituto->direccion'></td>
+                  <td><input  class='#ffffff' type='text' name='direccion'value='$instituto->direccion'></td>
+           
+
+
+
+           <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$instituto->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>
+          
+           <td><button class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' value='$instituto->id' type='submit' name='action'>Eliminar<i class='material-icons right' title='Eliminar'>delete</i></button></td>
+            
+            
+        
+
+        </tr>
+        
+     
+   
+       ";
+      }
+      ?>
+    </tbody>
+</table>
+ 
     </div>
   </div>
 
