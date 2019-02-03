@@ -55,13 +55,14 @@
 <table id="table_id" class="display">
     <thead>
         <tr>
-            <th>Nombre</th>
-            <th>Provincia</th>
-            <th>Localidad</th>
-            <th>Dirección/th>
-            <th>Código postal</th>
-            <th>Modificar</th>
-            <th>Eliminar</th>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+            <th>Column 4</th>
+              <th>Column 5</th>
+               <th>Column 6</th>
+               <th>Column 7</th>
+
         </tr>
     </thead>
     <tbody>
@@ -75,7 +76,7 @@
 
             <td><input  class='#ffffff ' type='text' name='localidad'value='$instituto->localidad'></td>
            <td><input  class='#ffffff' type='text' name='direccion'value='$instituto->direccion'></td>
-                  <td><input  class='#ffffff' type='text' name='direccion'value='$instituto->cp'></td>
+                  <td><input  class='#ffffff' type='text' name='direccion'value='$instituto->direccion'></td>
            
 
 
