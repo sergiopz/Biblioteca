@@ -76,7 +76,7 @@
 
             <td><input  class='#ffffff ' type='text' name='localidad'value='$instituto->localidad'></td>
            <td><input  class='#ffffff' type='text' name='direccion'value='$instituto->direccion'></td>
-                  <td><input  class='#ffffff' type='text' name='direccion'value='$instituto->direccion'></td>
+                  <td><input  class='#ffffff ' type='text' name='cp'value='$instituto->cp'></td>
            
 
 
