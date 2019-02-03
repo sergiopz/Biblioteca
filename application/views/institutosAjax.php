@@ -48,7 +48,8 @@
 <script>
   $(document).ready( function () {
     $('#table_id').DataTable();
-} );
+
+});
 </script>
 
 <table id="table_id" class="display">
