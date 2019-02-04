@@ -4,7 +4,7 @@ th, td{
 .pie{
   color:white;
 }
-body{
+*{
   font-family: 'Hind', sans-serif;
 }
 a.btn{
@@ -51,4 +51,8 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
  .tamañoVModal{
   overflow-y: scroll;
   max-height: 500px;
+ }
+
+ .elementoOculto{
+   display:none;
  }
