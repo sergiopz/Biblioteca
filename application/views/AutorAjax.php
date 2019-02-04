@@ -43,12 +43,20 @@ $(".borrarInstituto").click(function() {
     });
   });
 </script>
+<style>
+  .flotante {
+    display:scroll;
+    position:fixed;
+    top:-50.5%;
+    right:5%;
+  }
+</style>
+  <a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i class="material-icons" title="Insertar">add_box</i></a>
+
   <table class="highlight responsive-table #536dfe indigo accent-2 ">
     <thead>
       <tr class="#536dfe indigo accent-2">
         <th class="#000000 black-text" >Nombre</th>
-        <th></th>
-        <th><a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger"><i class="material-icons" title="Insertar">add_box</i></a></th>
       </tr>
     </thead>
     <tbody>
