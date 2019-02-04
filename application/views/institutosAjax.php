@@ -102,7 +102,7 @@
 
         <!--Contenido de la ventana modal de insercion-->
         
-        <div id="insert" class="modal" style="overflow-y: scroll">
+        <div id="insert" class="modal" style="overflow-y: scroll;max-height:500px;">
         <?php echo form_open_multipart("Institutos/InsertarInstituto");?>
           <h5 class="modal-close">&#10005;</h5>
           <div class="modal-content center">
