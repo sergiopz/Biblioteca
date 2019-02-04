@@ -60,11 +60,11 @@
 <table id="table_id" class="display" style="background-color:#536dfe;">
     <thead >
         <tr>
-            <th>Nombre</th>
-            <th>Provincia</th>
-            <th>Localidad</th>
-            <th>Dirección</th>
-            <th>Código postal</th>
+            <th class="black-text">Nombre</th>
+            <th class="black-text">Provincia</th>
+            <th class="black-text">Localidad</th>
+            <th class="black-text">Dirección</th>
+            <th class="black-text">Código postal</th>
             <th>Modificar</th>
             <th>Eliminar</th>
         </tr>
