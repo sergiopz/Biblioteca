@@ -58,14 +58,13 @@
 <table id="table_id" class="display">
     <thead>
         <tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
-            <th>Column 3</th>
-            <th>Column 4</th>
-              <th>Column 5</th>
-               <th>Column 6</th>
-               <th>Column 7</th>
-
+            <th>Nombre</th>
+            <th>Provincia</th>
+            <th>Localidad</th>
+            <th>Dirección</th>
+            <th>Código postal</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
         </tr>
     </thead>
     <tbody>
