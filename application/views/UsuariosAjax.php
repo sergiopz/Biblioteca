@@ -118,7 +118,7 @@ $(".claseBorrar").click(function() {
 
 
 
-             <td><button href='#lupa$usuario->id'  class='btn waves-effect waves-light #9fa8da indigo lighten-3 z-depth-0 modal-trigger anchuraBoton'>Modificar<i class='material-icons right' title='Modificar'>Modificar</i></button></td>
+             <td class='anchuraBoton3'><button href='#lupa$usuario->id'  class='btn waves-effect waves-light #9fa8da indigo lighten-3 z-depth-0 modal-trigger anchuraBoton'>Modificar<i class='material-icons right' title='Modificar'>Modificar</i></button></td>
           
 
            <td class='anchuraBoton3'><button class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text anchuraBoton2 claseBorrar ' value='$usuario->id' type='submit' name='action'>Eliminar<i class='material-icons right' title='Eliminar'>delete</i></button></td>

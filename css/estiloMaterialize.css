@@ -51,7 +51,14 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
 
 }
  .anchuraBoton3{
-  width:60%;
+  margin-right:40px; 
+  width:55%;
 
 }
- 
+
+.flotante{
+  display: scroll;
+  position: fixed;
+  top:-50.5%;
+  right: 5%;
+ }
