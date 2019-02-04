@@ -90,9 +90,18 @@ $(".claseBorrar").click(function() {
               <td class='colorFila'><p class='#ffffff black-text' name='nombre'>$usuario->nombre</p></td>
               <td class='colorFila'><p class='#ffffff black-text' name='apellidos'>$usuario->apellidos</p></td>
               <td class='colorFila'><p class='#ffffff black-text' name='nick'>$usuario->nick</p></td>
-              <td class='colorFila'><p class='#ffffff black-text' name='tipo'>$usuario->tipo</p></td>
-              <td class='colorFila'><select class='#ffffff name='idInstituto'>
-              <td class='colorFila'><button href='#lupa$usuario->id'  class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 modal-trigger'>Modificar</button></td>
+              <td class='colorFila'><p class='#ffffff black-text' name='tipo'>$usuario->tipo</p></td>";
+              for ($j = 0; $j < count($listaInstitutos); $j++) {
+                $instituto = $listaInstitutos[$j];
+                if( $usuario->idInstituto==$instituto->id ){ 
+        echo"<td class='colorFila'><p class='#ffffff black-text' name='idInstituto'>$instituto->nombre</p></td>";
+             $j=count($listaInstitutos);
+                }else if($j==count($listaInstitutos)-1){
+        echo"<td class='colorFila'><p class='#ffffff black-text' name='idInstituto'></p></td>";
+              $j=count($listaInstitutos);
+                }
+              }
+        echo" <td class='colorFila'><button href='#lupa$usuario->id'  class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 modal-trigger'>Modificar</button></td>
               <td class='colorFila'><button class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text anchuraBoton2 claseBorrar ' value='$usuario->id' type='submit' name='action'>Eliminar<i class='material-icons right' title='Eliminar'>delete</i></button></td>
             
         </tr>";
@@ -169,7 +178,7 @@ $(".claseBorrar").click(function() {
             </form>
           </div>
         </div>
-        
+        <span>
      
    
        ";
@@ -205,8 +214,8 @@ $(".claseBorrar").click(function() {
               </div>
               <div class="input-field">
                 <i class="material-icons prefix" style="color:royalblue">person</i>
-                <input type='text' name='apellido' id='apellido'>
-                <label style="color:royalblue" for="apellido">Apellido</label>
+                <input type='text' name='apellidos' id='apellidos'>
+                <label style="color:royalblue" for="apellidos">Apellido</label>
               </div>
               <div class="input-field">
                 <i class="material-icons prefix" style="color:royalblue">face</i>
