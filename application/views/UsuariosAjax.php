@@ -117,7 +117,7 @@ $(".claseBorrar").click(function() {
                 }
                 echo"</select></td>
 
-                <td><button href='#lupa' class='btn waves-effect waves-light #9fa8da indigo lighten-3 z-depth-0 modal-trigger'><i class='material-icons' title='Insertar'>info</i></button></td>
+                <td><button href='#lupa$usuario->id' class='btn waves-effect waves-light #9fa8da indigo lighten-3 z-depth-0 modal-trigger'><i class='material-icons' title='Insertar'>info</i></button></td>
                 <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 claseModificar' value='$usuario->id' type='submit' name='action'><i class='material-icons '>create</i></button></td>
                 <td><a value='$usuario->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text claseBorrar' ><i class='material-icons ' title='Eliminar'>delete</i></a></td>
 
@@ -126,7 +126,7 @@ $(".claseBorrar").click(function() {
           ";
 
 
-          echo"<div id='lupa' class='modal $usuario->id' style='overflow-y: scroll;max-height: 450px;'>
+          echo"<div id='lupa$usuario->id' class='modal $usuario->id' style='overflow-y: scroll;max-height: 450px;'>
            
         
           <h5 class='modal-close'>&#10005;</h5>
