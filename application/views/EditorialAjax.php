@@ -41,23 +41,25 @@
     });
   });
 </script>
-<style>
-.flotante {
-  display:scroll;
-  position:fixed;
-  top:-50.5%;
-  right:5%;
-}
 
-
-</style>
+<script>
+  $(document).ready( function () {
+    $('#Dtabla').DataTable({
+      "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+        }
+    });
+    $(".colorFila").css("background","#536dfe");
+} );
+</script>
   <a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i class="material-icons" title="Insertar">add_box</i></a>
-  <table class="highlight responsive-table #536dfe indigo accent-2 ">
+  <table id="Dtabla" class="highlight responsive-table #536dfe indigo accent-2 ">
   
     <thead>
       <tr class="#536dfe indigo accent-2">
         <th class="#000000 black-text">Nombre</th>
-        
+        <th>Modificar</th>
+        <th>Eliminar</th>
       </tr>
     </thead>
     <tbody>
@@ -68,9 +70,9 @@
           echo "<div class='info'>
                 <tr class='$editorial->id'>
                   <input hidden type='text' name='id' value='$editorial->id'>
-                  <td style='width:60%'><input class='#ffffff white-text' type='text' name='nombre' value='$editorial->nombre'></td>
-                  <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$editorial->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>
-                  <td><a value='$editorial->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>
+                  <td class='colorFila'style='width:60%'><p hidden>$editorial->nombre</p><input class='#ffffff white-text' type='text' name='nombre' value='$editorial->nombre'></td>
+                  <td class='colorFila'><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$editorial->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>
+                  <td class='colorFila'><a value='$editorial->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>
                 </tr>
                 </div>
               ";

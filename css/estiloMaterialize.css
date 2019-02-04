@@ -40,3 +40,9 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
 .anchuraInput{
   width:65%;
 }
+.flotante {
+  display:scroll;
+  position:fixed;
+  top:-50.5%;
+  right:5%;
+}
