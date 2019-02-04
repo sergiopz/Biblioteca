@@ -40,3 +40,18 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
 .anchuraInput{
   width:65%;
 }
+ 
+ .anchuraBoton{
+  width:50%;
+
+}
+
+ .anchuraBoton2{
+  width:60%;
+
+}
+ .anchuraBoton3{
+  width:60%;
+
+}
+ 
