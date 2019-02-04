@@ -169,7 +169,7 @@ $(".claseBorrar").click(function() {
             </form>
           </div>
         </div>
-        
+        <span>
      
    
        ";
