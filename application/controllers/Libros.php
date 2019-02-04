@@ -100,6 +100,7 @@
             //var_dump($_POST);
             $idCategoria = $this->input->get_post('idCategoria');
 
+            //Recibe un libro y luego borra los registros de tablas ajenas e inserta las nuevas
             $r=$this->LibrosModel->ModificarLibro($id,$isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial);
             $r1=$this->LibrosModel->EliminarAutorLibro($id);
             for ($i = $cont=0; $i < count($idAutor); $i++) {
