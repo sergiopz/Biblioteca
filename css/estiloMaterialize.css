@@ -40,6 +40,7 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
 .anchuraInput{
   width:65%;
 }
+<<<<<<< HEAD
  
  .anchuraBoton{
   width:50%;
@@ -62,3 +63,11 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
   top:-50.5%;
   right: 5%;
  }
+=======
+.flotante {
+  display:scroll;
+  position:fixed;
+  top:-50.5%;
+  right:5%;
+}
+>>>>>>> 8cfa345312abb1bff902f6da86f836c4f31645c0

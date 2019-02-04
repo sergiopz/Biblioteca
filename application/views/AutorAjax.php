@@ -1,5 +1,5 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
-<link rel="stylesheet" href="<?php echo base_url('css/estiloMaterialize.css');?>">
+
 <script>
   $("document").ready(function(){
 
@@ -17,8 +17,6 @@ $(".borrarInstituto").click(function() {
 
 
    });
-
-
 
 });
 </script>
@@ -43,20 +41,25 @@ $(".borrarInstituto").click(function() {
     });
   });
 </script>
-<style>
-  .flotante {
-    display:scroll;
-    position:fixed;
-    top:-50.5%;
-    right:5%;
-  }
-</style>
+<script>
+  $(document).ready( function () {
+    $('#Dtabla').DataTable({
+      "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+        }
+    });
+    $(".colorFila").css("background","#536dfe");
+} );
+</script>
+
   <a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i class="material-icons" title="Insertar">add_box</i></a>
 
-  <table class="highlight responsive-table #536dfe indigo accent-2 ">
+  <table id="Dtabla" class="highlight responsive-table #536dfe indigo accent-2 ">
     <thead>
       <tr class="#536dfe indigo accent-2">
         <th class="#000000 black-text" >Nombre</th>
+        <th>Modificar</th>
+        <th>Eliminar</th>
       </tr>
     </thead>
     <tbody>
@@ -68,11 +71,9 @@ $(".borrarInstituto").click(function() {
           echo "<div class='info'>
             <tr class='$autor->id'>
               <input hidden type='text' name='id' value='$autor->id'>
-              <td  style='width:60%'><input class='#ffffff white-text' type='text' name='nombre' value='$autor->nombre'></td>
-              <td>
-                <button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$autor->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>
-                <td><a value='$autor->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>
-
+              <td class='colorFila' style='width:60%'><p hidden>$autor->nombre</p><input class='#ffffff white-text' type='text' name='nombre' value='$autor->nombre'></td>
+              <td class='colorFila'><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$autor->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>
+              <td class='colorFila'><a value='$autor->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>
             </tr>
           </div>
         ";
