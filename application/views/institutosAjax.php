@@ -59,6 +59,7 @@
 } );
 </script>
 
+
 <table id="table_id" class="display">
     <thead>
         <tr>
