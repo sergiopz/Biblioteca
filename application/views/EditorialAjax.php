@@ -2,21 +2,22 @@
 <script>
   $("document").ready(function(){
 
-$(".borrarInstituto").click(function() {
+    $(".borrarInstituto").click(function() {
 
-   var idInstituto=$(this).attr("value");
+      var idInstituto=$(this).attr("value");
 
-    $("."+idInstituto).remove();
+      $("."+idInstituto).remove();
 
-    cadena = "<?php echo site_url('Editoriales/EliminarEditorial'); ?>/"+idInstituto;
+      cadena = "<?php echo site_url('Editoriales/EliminarEditorial'); ?>/"+idInstituto;
 
-    $.ajax({
-    url: cadena
-     });
+      $.ajax({
+        url: cadena
+      });
 
-   });
+    });
 
-});
+  });
+
 </script>
 <script type="text/javascript">
   $(document).ready(function(){
@@ -40,13 +41,23 @@ $(".borrarInstituto").click(function() {
     });
   });
 </script>
+<style>
+.flotante {
+  display:scroll;
+  position:fixed;
+  top:-50.5%;
+  right:5%;
+}
 
+
+</style>
+  <a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i class="material-icons" title="Insertar">add_box</i></a>
   <table class="highlight responsive-table #536dfe indigo accent-2 ">
+  
     <thead>
       <tr class="#536dfe indigo accent-2">
         <th class="#000000 black-text">Nombre</th>
-        <th></th>
-        <th class="#000000 black-text"><a href="#insert" id="mover" class="btn btn-large pulse #00e676 green accent-3 modal-trigger "><i class="material-icons" title="Insertar">add_box</i></a></th>
+        
       </tr>
     </thead>
     <tbody>
