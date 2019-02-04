@@ -52,16 +52,21 @@
             "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
         }
     });
-
-
-
-
+    $(".colorFila").css("background","#536dfe");
 } );
 </script>
+<style>
+  .flotante {
+    display:scroll;
+    position:fixed;
+    top:-50.5%;
+    right:5%;
+  }
+</style>
 
-
-<table id="table_id" class="display">
-    <thead>
+<a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i class="material-icons" title="Insertar">add_box</i></a>
+<table id="table_id" class="display" style="background-color:#536dfe;">
+    <thead >
         <tr>
             <th>Nombre</th>
             <th>Provincia</th>
@@ -72,32 +77,20 @@
             <th>Eliminar</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody >
       <?php
   for ($i = 0; $i < count($listaInstitutos); $i++) {
         $instituto = $listaInstitutos[$i];
 
-        echo"<tr  class='$instituto->id'>
-            <td><p hidden>$instituto->nombre</p><input class='#ffffff ' type='text' name='nombre' value='$instituto->nombre'></td>
-            <td><p hidden>$instituto->provincia</p><input  class='#ffffff ' type='text' name='provincia'value='$instituto->provincia'></td>
-            <td><p hidden>$instituto->localidad</p><input  class='#ffffff ' type='text' name='localidad'value='$instituto->localidad'></td>
-            <td><p hidden>$instituto->direccion</p><input  class='#ffffff' type='text' name='direccion'value='$instituto->direccion'></td>
-            <td><p hidden>$instituto->cp</p><input  class='#ffffff' type='text' name='direccion'value='$instituto->cp'></td>
-           
-
-
-
-           <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$instituto->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>
-          
-           <td><button class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' value='$instituto->id' type='submit' name='action'>Eliminar<i class='material-icons right' title='Eliminar'>delete</i></button></td>
-            
-            
-        
-
+        echo"<tr  class='$instituto->id '>
+            <td class='colorFila'><p hidden>$instituto->nombre</p><input class='#ffffff ' type='text' name='nombre' value='$instituto->nombre'></td>
+            <td class='colorFila'><p hidden>$instituto->provincia</p><input  class='#ffffff ' type='text' name='provincia'value='$instituto->provincia'></td>
+            <td class='colorFila'><p hidden>$instituto->localidad</p><input  class='#ffffff ' type='text' name='localidad'value='$instituto->localidad'></td>
+            <td class='colorFila'><p hidden>$instituto->direccion</p><input  class='#ffffff' type='text' name='direccion'value='$instituto->direccion'></td>
+            <td class='colorFila'><p hidden>$instituto->cp</p><input  class='#ffffff' type='text' name='direccion'value='$instituto->cp'></td>
+            <td class='colorFila'><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$instituto->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>
+            <td class='colorFila'><button class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' value='$instituto->id' type='submit' name='action'>Eliminar<i class='material-icons right' title='Eliminar'>delete</i></button></td>
         </tr>
-        
-     
-   
        ";
       }
       ?>
@@ -109,7 +102,7 @@
 
         <!--Contenido de la ventana modal de insercion-->
         
-        <div id="insert" class="modal" style="overflow-y: scroll">
+        <div id="insert" class="modal" style="overflow-y: scroll;max-height:500px;">
         <?php echo form_open_multipart("Institutos/InsertarInstituto");?>
           <h5 class="modal-close">&#10005;</h5>
           <div class="modal-content center">
