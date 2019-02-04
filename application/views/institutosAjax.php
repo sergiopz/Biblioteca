@@ -47,7 +47,11 @@
 </script>
 <script>
   $(document).ready( function () {
-    $('#table_id').DataTable();
+    $('#table_id').DataTable({
+      "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+        }
+    });
 
 
 
@@ -74,11 +78,10 @@
 
         echo"<tr  class='$instituto->id'>
             <td><p hidden>$instituto->nombre</p><input class='#ffffff ' type='text' name='nombre' value='$instituto->nombre'></td>
-            <td><input  class='#ffffff ' type='text' name='provincia'value='$instituto->provincia'></td>
-
-            <td><input  class='#ffffff ' type='text' name='localidad'value='$instituto->localidad'></td>
-           <td><input  class='#ffffff' type='text' name='direccion'value='$instituto->direccion'></td>
-                  <td><input  class='#ffffff' type='text' name='direccion'value='$instituto->direccion'></td>
+            <td><p hidden>$instituto->provincia</p><input  class='#ffffff ' type='text' name='provincia'value='$instituto->provincia'></td>
+            <td><p hidden>$instituto->localidad</p><input  class='#ffffff ' type='text' name='localidad'value='$instituto->localidad'></td>
+            <td><p hidden>$instituto->direccion</p><input  class='#ffffff' type='text' name='direccion'value='$instituto->direccion'></td>
+            <td><p hidden>$instituto->cp</p><input  class='#ffffff' type='text' name='direccion'value='$instituto->cp'></td>
            
 
 
