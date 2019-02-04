@@ -49,7 +49,10 @@
   $(document).ready( function () {
     $('#table_id').DataTable();
 
-});
+
+
+
+} );
 </script>
 
 <table id="table_id" class="display">
@@ -71,12 +74,12 @@
         $instituto = $listaInstitutos[$i];
 
         echo"<tr  class='$instituto->id'>
-            <td><input class='#ffffff ' type='text' name='nombre' value='$instituto->nombre'></td>
+            <td><p hidden>$instituto->nombre</p><input class='#ffffff ' type='text' name='nombre' value='$instituto->nombre'></td>
             <td><input  class='#ffffff ' type='text' name='provincia'value='$instituto->provincia'></td>
 
             <td><input  class='#ffffff ' type='text' name='localidad'value='$instituto->localidad'></td>
            <td><input  class='#ffffff' type='text' name='direccion'value='$instituto->direccion'></td>
-                  <td><input  class='#ffffff ' type='text' name='cp'value='$instituto->cp'></td>
+                  <td><input  class='#ffffff' type='text' name='direccion'value='$instituto->direccion'></td>
            
 
 
