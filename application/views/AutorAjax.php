@@ -87,7 +87,7 @@ $(".borrarInstituto").click(function() {
 
         <!--Contenido de la ventana modal de insercion-->
 
-        <div id="insert" class="modal" style="overflow-y: scroll">
+        <div id="insert" class="modal tamañoVModal">
          <?php    echo form_open_multipart("Autores/InsertarAutor");?>
         
           <h5 class="modal-close">&#10005;</h5>

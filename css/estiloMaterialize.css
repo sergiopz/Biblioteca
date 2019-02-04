@@ -41,24 +41,14 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
   width:65%;
 }
 
- .anchuraBoton{
-  width:50%;
-
-}
-
- .anchuraBoton2{
-  width:60%;
-
-}
- .anchuraBoton3{
-  margin-right:40px; 
-  width:55%;
-
-}
-
 .flotante{
   display: scroll;
   position: fixed;
   top:-50.5%;
   right: 5%;
+ }
+
+ .tamañoVModal{
+  overflow-y: scroll;
+  max-height: 500px;
  }
