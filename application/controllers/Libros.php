@@ -61,14 +61,10 @@
             
 
             if ($r== 0) { 
-                echo"Fallo al insertar libro"; $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "libro";   // La tabla que queremos que se muestre automáticamente en la vista principal
-                           $this->load->view("plantilla", $data);
+                $this->VistaAjax();
                 
             } else {
-                $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "libro";   // La tabla que queremos que se muestre automáticamente en la vista principal
-                           $this->load->view("plantilla", $data);
+                $this->VistaAjax();
             }
         }
 
@@ -101,7 +97,7 @@
             $idUsuario = $this->input->get_post("idUsuario");
             $idEditorial = $this->input->get_post("idEditorial");
             $idAutor = $this->input->get_post('idAutor');
-            var_dump($_POST);
+            //var_dump($_POST);
             $idCategoria = $this->input->get_post('idCategoria');
 
             $r=$this->LibrosModel->ModificarLibro($id,$isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial);
@@ -118,14 +114,10 @@
             
 
             if ($r== 0) { 
-                 $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "libro";   // La tabla que queremos que se muestre automáticamente en la vista principal
-                           $this->load->view("plantilla", $data);
+                $this->VistaAjax();
                 
             } else {
-                 $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "libro";   // La tabla que queremos que se muestre automáticamente en la vista principal
-                           $this->load->view("plantilla", $data); 
+                $this->VistaAjax();
             }
         }
 

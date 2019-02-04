@@ -1,7 +1,6 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
-<link rel="stylesheet" href="<?php echo base_url('css/estiloMaterialize.css');?>">
-<script>
+<link rel="stylesheet" href="<?php echo base_url('css/estiloMaterialize.css');?>"><script>
 $("document").ready(function() {
     
     $(".claseBorrar").click(function() {
@@ -23,7 +22,7 @@ $("document").ready(function() {
 });
 </script>
 <style>
-.barraScroll,#lupa{
+.modal{
        overflow-y: scroll;
 }
 </style>
@@ -54,7 +53,7 @@ $("document").ready(function() {
        for ($i = 0; $i < count($listaLibros); $i++) {
               $libro = $listaLibros[$i];
 
-       echo form_open_multipart("Libros/ModificarLibro");
+       
        echo   "<div class='info'>
               <tr class='$libro->id'>
                      <input type='hidden' name='id' value='$libro->id' readonly>
@@ -63,7 +62,7 @@ $("document").ready(function() {
                      <td><input class='#ffffff white-text' type='text' name='descripcion' value='$libro->descripcion'></td>
                      <td><input class='#ffffff white-text' type='text' name='fecha' value='$libro->fecha'></td>
                      <td><input class='#ffffff white-text' type='text' name='paginas' value='$libro->paginas'></td>
-                     <td><select name='idInstituto' class='browser-default'>";
+                     <td><select name='idInstituto' >";
        for ($j = 0; $j < count($listaInstitutos); $j++) {
               $instituto = $listaInstitutos[$j]; 
               if( $libro->idInstituto==$instituto->id ){ 
@@ -83,7 +82,7 @@ $("document").ready(function() {
               }
        }
 
-       echo   "<td><select name='idEditorial' class='browser-default'>";  
+       echo   "<td><select name='idEditorial' >";  
 
        for ($j = 0; $j < count($listaEditoriales); $j++) {
               $editorial = $listaEditoriales[$j]; 
@@ -95,7 +94,7 @@ $("document").ready(function() {
        }
 
        echo   "</select></td>
-               <td><select required multiple name='idAutor[]' class='browser-default'>";
+               <td><select required multiple name='idAutor[]' >";
 
 
        for ($j = $cont=0; $j < count($listaAutores); $j++) {
@@ -113,7 +112,7 @@ $("document").ready(function() {
        }
       
        echo   "</select></td>
-               <td><select required multiple name='idCategoria[]' class='browser-default'>";
+               <td><select required multiple name='idCategoria[]' >";
        for ($j = 0; $j < count($listaCategorias); $j++) {
                      $categoria = $listaCategorias[$j];
               for ($k = 0; $k < count($listaLibrosCategorias); $k++) {
@@ -128,21 +127,22 @@ $("document").ready(function() {
               }
        }
        echo"</select></td>
-       <td><button href='#lupa' class='btn waves-effect waves-light #9fa8da indigo lighten-3 z-depth-0 modal-trigger'><i class='material-icons' title='Detalles'>info</i></button></td>
+       <td><button href='#lupa$libro->id' class='btn waves-effect waves-light #9fa8da indigo lighten-3 z-depth-0 modal-trigger'><i class='material-icons' title='Detalles'>info</i></button></td>
        <td><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$libro->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
        echo"<td><a value='$libro->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text claseBorrar' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>
        </tr>
 
-   </div>
-             </form>";
+   </div>";
     //Aqui comienza la modal de modificar
     
-    echo"<div id='lupa' class='modal $libro->id' style='overflow-y: scroll;max-height: 450px;'>
-            <h5 class='modal-close'>&#10005;</h5>
+    echo"<div id='lupa$libro->id' class='modal'>";
+    echo form_open_multipart("Libros/ModificarLibro");
+    echo"   <h5 class='modal-close'>&#10005;</h5>
             <div class='modal-content center'>
                 <h4 class='flow-text #00e676 green-text text-accent-3'>Modificar libros</h4>
                 <div class='input-field'>
-                    <i class='material-icons prefix' style='color:royalblue'>person</i>               
+                    <i class='material-icons prefix' style='color:royalblue'>person</i>
+                    <input type='hidden' name='id' value='$libro->id' readonly>
                     <input type='text' name='isbn' id='isbn'  value='$libro->isbn'>
                     <label class='active' style='color:royalblue' for='isbn'>Isbn</label>
                 </div>
@@ -168,7 +168,7 @@ $("document").ready(function() {
                 </div>
                 <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                <select name='idInstituto' >";
+                <select name='idInstituto' class='browser-default' >";
                   for ($j = 0; $j < count($listaInstitutos); $j++) {
                     $instituto = $listaInstitutos[$j];
                     if( $usuario->idInstituto==$instituto->id ){ 
@@ -192,7 +192,7 @@ $("document").ready(function() {
         echo"   </div>
                 <div class='input-field'>
                     <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                    <select name='idEditorial' >";
+                    <select name='idEditorial'class='browser-default' >";
                         for ($j = 0; $j < count($listaEditoriales); $j++) {
                         $editorial = $listaEditoriales[$j];
                             if( $libro->idEditorial==$editorial->id ){ 
@@ -205,7 +205,7 @@ $("document").ready(function() {
                 </div>
                 <div>
                     <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                    <select multiple name='idAutor[]'>";
+                    <select multiple name='idAutor[]' class='browser-default'>";
                     for ($j = $cont=0; $j < count($listaAutores); $j++) {
                         $autor = $listaAutores[$j];
                         for ($k = 0; $k < count($listaAutoresLibros); $k++) {
@@ -224,7 +224,7 @@ $("document").ready(function() {
                 </div>
                 <div>
                     <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                    <select multiple name='idCategoria[]'>";
+                    <select multiple name='idCategoria[]' class='browser-default'>";
                     for ($j = 0; $j < count($listaCategorias); $j++) {
                         $categoria = $listaCategorias[$j];
                  for ($k = 0; $k < count($listaLibrosCategorias); $k++) {
@@ -247,6 +247,7 @@ $("document").ready(function() {
                 <br>
                 <br>
             </div>
+            </form>
         </div>";
 
 
@@ -257,7 +258,7 @@ $("document").ready(function() {
         </table>
 
         <div id="insert" class="modal barraScroll">
-            <?php    echo form_open_multipart("Libros/InsertarLibro");?>
+            <?php  echo form_open_multipart("Libros/InsertarLibro");?>
             <h5 class="modal-close">&#10005;</h5>
             <div class="modal-content center">
                 <h4 class="flow-text #00e676 green-text text-accent-3">Insertar Registro</h4>
@@ -368,6 +369,7 @@ $("document").ready(function() {
             </div>
 
             </form>
+            
         </div>
 
         <!--Esto cierra Vista usuario-->
