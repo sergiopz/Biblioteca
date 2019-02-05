@@ -63,7 +63,7 @@ class UsuariosModel extends CI_Model{
             }
 
              function ModificarUsuarios($id,$nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto,$codigoConfirmacion) {
-                $this->db->query("UPDATE usuarios SET nombre='$nombre', apellidos='$apellidos', nick='$nick', contrasena='$contrasena', telefono='$telefono', tipo='$tipo', idInstituto='$idInstituto' , codigoConfirmacion='$codigoConfirmacion'  WHERE id='$id' ");
+                $this->db->query("UPDATE usuarios SET nombre='$nombre', apellidos='$apellidos', nick='$nick', contrasena='$contrasena',correo='$correo', telefono='$telefono', tipo='$tipo', idInstituto='$idInstituto' , codigoConfirmacion='$codigoConfirmacion'  WHERE id='$id' ");
                 return $this->db->affected_rows();
             }
 
