@@ -2,7 +2,21 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
 <link rel="stylesheet" href="<?php echo base_url('css/estiloMaterialize.css');?>"><script>
 $("document").ready(function() {
-    
+
+    //Color en el header
+
+   
+    $(".libro").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
+    $(".administracion").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+    $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+    $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+    $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+    $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+          
+
+
+
+    //Borrar registros
     $(".claseBorrar").click(function() {
  
 
@@ -28,7 +42,7 @@ $("document").ready(function() {
             "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
         }
     });
-    $(".colorFila").css("background","#536dfe");
+    
 
 } );
 </script>
@@ -263,7 +277,7 @@ $("document").ready(function() {
             </tbody>
         </table>
 
-        <div id="insert" class="modal barraScroll">
+        <div id="insert" class="modal tamañoVModal">
             <?php  echo form_open_multipart("Libros/InsertarLibro");?>
             <h5 class="modal-close">&#10005;</h5>
             <div class="modal-content center">
