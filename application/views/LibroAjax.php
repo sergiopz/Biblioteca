@@ -35,6 +35,7 @@ $("document").ready(function() {
 
 });
 </script>
+<!--Funcion para el dataTable-->
 <script>
   $(document).ready( function () {
     $('#Dtabla').DataTable({
