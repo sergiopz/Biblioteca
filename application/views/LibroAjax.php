@@ -35,7 +35,6 @@ $("document").ready(function() {
 
 });
 </script>
-<!--Funcion para el dataTable-->
 <script>
   $(document).ready( function () {
     $('#Dtabla').DataTable({
@@ -91,7 +90,7 @@ $("document").ready(function() {
               if( $libro->idInstituto==$instituto->id ){ 
        echo          "<option  value='$instituto->id' selected >$instituto->nombre</option>";                      
               }else{
-       echo          "<option  value='$instituto->id' >$instituto->nombre</option>";
+       echo          "<option  value='$instituto->id' disabled >$instituto->nombre</option>";
               }
        }
 
@@ -112,7 +111,7 @@ $("document").ready(function() {
               if( $libro->idEditorial==$editorial->id ){ 
        echo          "<option  value='$editorial->id' selected >$editorial->nombre</option> ";                      
               }else{
-       echo          "<option  value='$editorial->id' >$editorial->nombre</option> ";
+       echo          "<option  value='$editorial->id' disabled>$editorial->nombre</option> ";
               }
        }
 
@@ -128,7 +127,7 @@ $("document").ready(function() {
        echo          "<option  value='$autor->id' selected >$autor->nombre</option> "; 
                             $k=count($listaAutoresLibros); 
                      }else if ($k==count($listaAutoresLibros)-1)  {
-       echo          "<option  value='$autor->id'  >$autor->nombre</option> ";
+       echo          "<option  value='$autor->id'  disabled >$autor->nombre</option> ";
                             $k=count($listaAutoresLibros);
                      }
               }
@@ -144,7 +143,7 @@ $("document").ready(function() {
        echo          "<option  value='$categoria->id' selected >$categoria->nombre</option> "; 
                             $k=count($listaLibrosCategorias);
                             }else if($k==count($listaLibrosCategorias)-1) {
-       echo          "<option  value='$categoria->id'>$categoria->nombre</option> ";
+       echo          "<option  value='$categoria->id' disabled >$categoria->nombre</option> ";
                             $k=count($listaLibrosCategorias);
                      }
               }

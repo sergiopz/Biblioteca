@@ -52,8 +52,11 @@ class UsuariosModel extends CI_Model{
 
              function InsertarUsuarios($nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto,$codigoConfirmacion) {
                 
-                $this->db->query("INSERT INTO usuarios(nombre,apellidos,nick,contrasena,correo,telefono,tipo,idInstituto ,codigoConfirmacion)
-                VALUES ('$nombre','$apellidos','$nick','$contrasena','$correo','$telefono', '$tipo','$idInstituto','$codigoConfirmacion')");
+                $r = $this->db->query("select max(id) as id from usuarios");
+                $row =$r->result()[0];
+                $idM=$row->id+1;
+                $this->db->query("INSERT INTO usuarios(id,nombre,apellidos,nick,contrasena,correo,telefono,tipo,idInstituto ,codigoConfirmacion)
+                VALUES ('$idM','$nombre','$apellidos','$nick','$contrasena','$correo','$telefono', '$tipo','$idInstituto','$codigoConfirmacion')");
                 return $this->db->affected_rows();
             
         }
