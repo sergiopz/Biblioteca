@@ -60,5 +60,5 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
    background-color:#616161;
  }
  .sorting_1{
-   background-color:red;
+   background-color:#78909C;
  }

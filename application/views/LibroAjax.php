@@ -208,7 +208,7 @@ $("document").ready(function() {
                         if( $libro->idUsuario==$usuario->id ){ 
                  echo          "<input type='text' name='usuario' id='usuario'  value='$usuario->nombre'>";
                  echo          "<input type='hidden' name='idUsuario' id='idUsuario'  value='$usuario->id'>";
-                 echo          "<label class='active' style='color:royalblue' for='paginas'>Paginas</label>";                      
+                 echo          "<label class='active' style='color:royalblue' for='usuario'>Usuario</label>";                      
                         }
                  }
         echo"   </div>
