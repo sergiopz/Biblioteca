@@ -32,12 +32,13 @@ $(".claseBorrar").click(function() {
       var telefonousuario=$("."+iddiv+ " input[name='telefono']").val();
       var tipousuario=$("."+iddiv+ " input[name='tipo']").val();
       var idInstitutousuario=$("."+iddiv+ " option:selected").val();
+      var valorInstitutousuario=$("."+iddiv+ " option:selected").text();
 
       $("."+iddiv+ " p[name='nombre']").text(nombreusuario);
       $("."+iddiv+ " p[name='apellidos']").text(apellidousuario);
       $("."+iddiv+ " p[name='nick']").text(nickusuario);
       $("."+iddiv+ " p[name='tipo']").text( tipousuario);
-      $("."+iddiv+ " option:selected").attr("value",idInstitutousuario);
+      $("."+iddiv+ " p[name='idInstituto']").text(valorInstitutousuario);
       var datos="id="+iddiv+"&nombre="+nombreusuario+"&apellidos="+apellidousuario+"&nick="+nickusuario+"&contrasena="+contrasenausuario+"&correo="+correousuario+"&telefono="+telefonousuario+"&tipo="+tipousuario+"&idInstituto="+idInstitutousuario+"&codigoConfirmacion= ";
       var cadena="<?php echo site_url("Usuarios/ModificarUsuarios/"); ?>";
 
