@@ -172,12 +172,9 @@ $(".claseBorrar").click(function() {
               <button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 claseModificar' value='$usuario->id' type='submit' name='action'><i class='material-icons '>create</i></button>
               <br>
               <br>
-
-
-            </form>
           </div>
         </div>
-        <span>
+     
      
    
        ";
