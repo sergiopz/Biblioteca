@@ -66,7 +66,7 @@ $(".claseBorrar").click(function() {
 } );
 </script>
   <a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i class="material-icons" title="Insertar">add_box</i></a>
-    <table id="table_id" class="display">
+    <table id="table_id" class="">
     <thead>
         <tr>
             <th class="#000000 black-text">Nombre</th>
@@ -74,7 +74,7 @@ $(".claseBorrar").click(function() {
             <th class="#000000 black-text">Nick</th>
             <th class="#000000 black-text">Tipo</th>
             <th class="#000000 black-text">Instituto</th>
-            <th class="anchuraTD">Modificar</th>
+            <th>Modificar</th>
             <th>Eliminar</th>
         </tr>
         

@@ -56,7 +56,7 @@
 </script>
 
 <a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i class="material-icons" title="Insertar">add_box</i></a>
-<table id="table_id" class="display" style="background-color:#536dfe;">
+<table id="table_id" class="" >
     <thead >
         <tr>
             <th class="black-text">Nombre</th>
