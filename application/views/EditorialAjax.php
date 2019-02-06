@@ -52,6 +52,8 @@
     $(".colorFila").css("background","#536dfe");
 } );
 </script>
+<button><?php echo anchor("prueba", "Insertar Película", ""); ?></button>
+
   <a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i class="material-icons" title="Insertar">add_box</i></a>
   <table id="Dtabla" class="highlight responsive-table #536dfe indigo accent-2 ">
   

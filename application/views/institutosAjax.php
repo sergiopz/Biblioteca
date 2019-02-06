@@ -9,6 +9,11 @@
 
       $("."+idInstituto).remove();
 
+
+
+
+
+
       cadena = "<?php echo site_url('Institutos/EliminarInstituto'); ?>/"+idInstituto;
 
       $.ajax({
@@ -16,7 +21,17 @@
      });
 
    });
+ 
+
+
+  
+    
+
 });
+
+ 
+    
+
 </script>
 <script type="text/javascript">
   $(document).ready(function(){
@@ -54,6 +69,10 @@
     });
     $(".colorFila").css("background","#536dfe");
 } );
+
+  
+ 
+
 </script>
 
 <a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i class="material-icons" title="Insertar">add_box</i></a>
