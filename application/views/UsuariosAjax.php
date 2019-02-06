@@ -32,12 +32,13 @@ $(".claseBorrar").click(function() {
       var telefonousuario=$("."+iddiv+ " input[name='telefono']").val();
       var tipousuario=$("."+iddiv+ " input[name='tipo']").val();
       var idInstitutousuario=$("."+iddiv+ " option:selected").val();
+      var valorInstitutousuario=$("."+iddiv+ " option:selected").text();
 
       $("."+iddiv+ " p[name='nombre']").text(nombreusuario);
       $("."+iddiv+ " p[name='apellidos']").text(apellidousuario);
       $("."+iddiv+ " p[name='nick']").text(nickusuario);
       $("."+iddiv+ " p[name='tipo']").text( tipousuario);
-      $("."+iddiv+ " option:selected").attr("value",idInstitutousuario);
+      $("."+iddiv+ " p[name='idInstituto']").text(valorInstitutousuario);
       var datos="id="+iddiv+"&nombre="+nombreusuario+"&apellidos="+apellidousuario+"&nick="+nickusuario+"&contrasena="+contrasenausuario+"&correo="+correousuario+"&telefono="+telefonousuario+"&tipo="+tipousuario+"&idInstituto="+idInstitutousuario+"&codigoConfirmacion= ";
       var cadena="<?php echo site_url("Usuarios/ModificarUsuarios/"); ?>";
 
@@ -62,12 +63,11 @@ $(".claseBorrar").click(function() {
             "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
         }
     });
-    $(".colorFila").css("background","#536dfe");
 
 } );
 </script>
   <a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i class="material-icons" title="Insertar">add_box</i></a>
-    <table id="table_id" class="display">
+    <table id="table_id" class="">
     <thead>
         <tr>
             <th class="#000000 black-text">Nombre</th>
@@ -75,7 +75,7 @@ $(".claseBorrar").click(function() {
             <th class="#000000 black-text">Nick</th>
             <th class="#000000 black-text">Tipo</th>
             <th class="#000000 black-text">Instituto</th>
-            <th class="anchuraTD">Modificar</th>
+            <th>Modificar</th>
             <th>Eliminar</th>
         </tr>
         
@@ -175,10 +175,10 @@ $(".claseBorrar").click(function() {
               <br>
 
 
-            </form>
+          
           </div>
         </div>
-        <span>
+     
      
    
        ";

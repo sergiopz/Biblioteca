@@ -67,7 +67,6 @@
             "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
         }
     });
-    $(".colorFila").css("background","#536dfe");
 } );
 
   
@@ -76,7 +75,7 @@
 </script>
 
 <a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i class="material-icons" title="Insertar">add_box</i></a>
-<table id="table_id" class="display" style="background-color:#536dfe;">
+<table id="table_id" class="" >
     <thead >
         <tr>
             <th class="black-text">Nombre</th>
@@ -93,7 +92,7 @@
   for ($i = 0; $i < count($listaInstitutos); $i++) {
         $instituto = $listaInstitutos[$i];
 
-        echo"<tr  class='$instituto->id '>
+        echo"<tr  class='$instituto->id colorFila '>
             <td class='colorFila'><p hidden>$instituto->nombre</p><input class='#ffffff ' type='text' name='nombre' value='$instituto->nombre'></td>
             <td class='colorFila'><p hidden>$instituto->provincia</p><input  class='#ffffff ' type='text' name='provincia'value='$instituto->provincia'></td>
             <td class='colorFila'><p hidden>$instituto->localidad</p><input  class='#ffffff ' type='text' name='localidad'value='$instituto->localidad'></td>

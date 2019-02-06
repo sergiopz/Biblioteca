@@ -56,3 +56,9 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
  .elementoOculto{
    display:none;
  }
+ .colorFila{
+   background-color:#747474;
+ }
+ .sorting_1{
+   background-color:#90909C;
+ }

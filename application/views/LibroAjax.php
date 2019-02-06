@@ -2,7 +2,21 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
 <link rel="stylesheet" href="<?php echo base_url('css/estiloMaterialize.css');?>"><script>
 $("document").ready(function() {
-    
+
+    //Color en el header
+
+   
+    $(".libro").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
+    $(".administracion").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+    $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+    $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+    $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+    $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+          
+
+
+
+    //Borrar registros
     $(".claseBorrar").click(function() {
  
 
@@ -28,7 +42,7 @@ $("document").ready(function() {
             "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
         }
     });
-    $(".colorFila").css("background","#536dfe");
+    
 
 } );
 </script>
@@ -76,7 +90,7 @@ $("document").ready(function() {
               if( $libro->idInstituto==$instituto->id ){ 
        echo          "<option  value='$instituto->id' selected >$instituto->nombre</option>";                      
               }else{
-       echo          "<option  value='$instituto->id' >$instituto->nombre</option>";
+       echo          "<option  value='$instituto->id' disabled >$instituto->nombre</option>";
               }
        }
 
@@ -97,7 +111,7 @@ $("document").ready(function() {
               if( $libro->idEditorial==$editorial->id ){ 
        echo          "<option  value='$editorial->id' selected >$editorial->nombre</option> ";                      
               }else{
-       echo          "<option  value='$editorial->id' >$editorial->nombre</option> ";
+       echo          "<option  value='$editorial->id' disabled>$editorial->nombre</option> ";
               }
        }
 
@@ -113,7 +127,7 @@ $("document").ready(function() {
        echo          "<option  value='$autor->id' selected >$autor->nombre</option> "; 
                             $k=count($listaAutoresLibros); 
                      }else if ($k==count($listaAutoresLibros)-1)  {
-       echo          "<option  value='$autor->id'  >$autor->nombre</option> ";
+       echo          "<option  value='$autor->id'  disabled >$autor->nombre</option> ";
                             $k=count($listaAutoresLibros);
                      }
               }
@@ -129,7 +143,7 @@ $("document").ready(function() {
        echo          "<option  value='$categoria->id' selected >$categoria->nombre</option> "; 
                             $k=count($listaLibrosCategorias);
                             }else if($k==count($listaLibrosCategorias)-1) {
-       echo          "<option  value='$categoria->id'>$categoria->nombre</option> ";
+       echo          "<option  value='$categoria->id' disabled >$categoria->nombre</option> ";
                             $k=count($listaLibrosCategorias);
                      }
               }
@@ -194,7 +208,7 @@ $("document").ready(function() {
                         if( $libro->idUsuario==$usuario->id ){ 
                  echo          "<input type='text' name='usuario' id='usuario'  value='$usuario->nombre'>";
                  echo          "<input type='hidden' name='idUsuario' id='idUsuario'  value='$usuario->id'>";
-                 echo          "<label class='active' style='color:royalblue' for='paginas'>Paginas</label>";                      
+                 echo          "<label class='active' style='color:royalblue' for='usuario'>Usuario</label>";                      
                         }
                  }
         echo"   </div>
@@ -263,7 +277,7 @@ $("document").ready(function() {
             </tbody>
         </table>
 
-        <div id="insert" class="modal barraScroll">
+        <div id="insert" class="modal tamañoVModal">
             <?php  echo form_open_multipart("Libros/InsertarLibro");?>
             <h5 class="modal-close">&#10005;</h5>
             <div class="modal-content center">
