@@ -8,7 +8,7 @@
  * @author Manuel Gonzalez 2018
  * @author Francisco Alejandro Lopez 2018
  */
-class prueba extends CI_Controller {
+class Prueba extends CI_Controller {
 
 
 		public function index() {
@@ -23,29 +23,20 @@ class prueba extends CI_Controller {
 		$this->load->view('upload_multiple');
 	}
 
- 
-	public function showSubida($id_libro)
-	{
-		$datos["tabla"] = $this->bibliotecaModel->get_info();
-		$datos["vista"]="biblioteca/upload_multiple";
-		$datos["id_libro"]=$id_libro;
-        $datos["permiso"]=$this->UsuarioModel->comprueba_permisos($datos["vista"]);
-		$this->load->view('admin_template', $datos);
-	}
 
 /**
 	 * Funcion de subida de imagenes libros al servidor
 	 *
 	 */
 
-	public function upload(){
+	public function Upload(){
 	    $id_libro="1";
 		$output = '';
 		if($_FILES["files"]["name"] != '')
 		{
 			print_r($_FILES);
 			$config["upload_path"] = './assets/'.$id_libro;
-			$config["allowed_types"] = 'gif|jpg|png';
+			$config["allowed_types"] = 'gif|jpg|pdf';
 			$this->load->library('upload', $config);
 			$this->upload->initialize($config);
 			$_FILES["files"]["name"] = $_FILES["files"]["name"];

@@ -68,7 +68,7 @@
                alert("hasta aqui");
             var name = files[count].name;
             var extension = name.split('.').pop().toLowerCase();
-            if(jQuery.inArray(extension, ['jpg','jpeg']) == -1){
+            if(jQuery.inArray(extension, ['odt','pdf']) == -1){
                     alert("hasta aqui2");
                 error += "Archivo con extensión no válida ( solo jpg) " + count + " Image File"
             }else{
@@ -88,7 +88,7 @@
     function enviar_fichero_por_ajax(form_data, name) {
         alert(form_data);
             $.ajax({
-                url:"<?php echo site_url("prueba/upload"); ?>", 
+                url:"<?php echo site_url("Prueba/Upload"); ?>", 
                 method:"POST",
                 data:form_data,
                 contentType:false,
