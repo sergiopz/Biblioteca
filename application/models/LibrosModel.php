@@ -102,4 +102,15 @@
         return $this->db->affected_rows();   
         }
 
+
+
+        public function renomdir($id,$pag_ant,$num_pag){
+            for($i=$num_pag-1;$i>$pag_ant;$i--){
+                $oldDir="assets/libros/$id/".$i.".jpg";
+                $newDir="assets/libros/$id/".($i+1).".jpg";
+                $confirm=rename($oldDir,$newDir);
+            }
+            return $confirm;
+        }
+
 }
