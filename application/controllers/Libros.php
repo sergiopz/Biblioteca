@@ -135,8 +135,6 @@
 
 public function showintadmin($id){
 
-    echo $id;
-
     
         $datos["id"]=$id;
    
@@ -160,7 +158,7 @@ public function showintadmin($id){
         {
             print_r($_FILES);
             $config["upload_path"] = './assets/libros/'.$id;
-            $config["allowed_types"] = 'gif|jpg|png';
+            $config["allowed_types"] = 'jpeg|jpg|png';
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
             $_FILES["files"]["name"] = $_FILES["files"]["name"];
