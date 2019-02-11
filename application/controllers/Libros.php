@@ -136,8 +136,9 @@
 public function showintadmin(){
 
       $id = $this->input->get_post("id");
+        $datos["id"]=$id;
 
-        $this->load->view('upload_multiple');
+        $this->load->view('upload_multiple',$datos);
     }
 
 
@@ -146,14 +147,14 @@ public function showintadmin(){
      *
      */
 
-    public function Upload(id){
+    public function Upload($id){
         $id = $this->input->get_post("id");
         $output = '';
         if($_FILES["files"]["name"] != '')
         {
             print_r($_FILES);
             $config["upload_path"] = './assets/'.$id_libro;
-            $config["allowed_types"] = 'gif|jpg|pdf';
+            $config["allowed_types"] = 'gif|jpg|png';
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
             $_FILES["files"]["name"] = $_FILES["files"]["name"];
