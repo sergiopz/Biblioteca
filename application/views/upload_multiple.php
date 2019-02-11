@@ -86,10 +86,9 @@
     });
 
     function enviar_fichero_por_ajax(form_data, name) {
-        alert(form_data);
-        alert($id);
+    
             $.ajax({
-                url:"<?php echo site_url("Prueba/Upload/$id"); ?>", 
+                url:"<?php echo site_url("Libros/Upload/$id"); ?>", 
                 method:"POST",
                 data:form_data,
                 contentType:false,

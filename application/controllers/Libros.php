@@ -133,10 +133,15 @@
 
 
 
-public function showintadmin(){
+public function showintadmin($id){
 
-      $id = $this->input->get_post("id");
+    echo $id;
+
+    
         $datos["id"]=$id;
+   
+
+
 
         $this->load->view('upload_multiple',$datos);
     }
@@ -148,12 +153,13 @@ public function showintadmin(){
      */
 
     public function Upload($id){
-        $id = $this->input->get_post("id");
+        echo "tramo final";
+       
         $output = '';
         if($_FILES["files"]["name"] != '')
         {
             print_r($_FILES);
-            $config["upload_path"] = './assets/'.$id_libro;
+            $config["upload_path"] = './assets/libros/'.$id;
             $config["allowed_types"] = 'gif|jpg|png';
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
