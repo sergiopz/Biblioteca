@@ -67,6 +67,7 @@ $("document").ready(function() {
                     <th class="#000000 black-text">Categoria</th>
                     <th>Modificar</th>
                     <th>Eliminar</th>
+                    <th>paginas</th>
                    
                 </tr>
             </thead>
@@ -151,7 +152,13 @@ $("document").ready(function() {
        echo"</select></td>
        <td class='colorFila'><button href='#lupa$libro->id' class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 modal-trigger'>Modificar</button></td>
        <td class='colorFila'><a value='$libro->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text claseBorrar' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>
+       <td class='colorFila'><button>";
+
+        echo anchor("libros/showintadmin/$libro->id", "Insertar Película", ""); 
+
+       echo"</button></td>
        </tr>
+
 
    </div>";
 

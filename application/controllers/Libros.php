@@ -64,9 +64,17 @@
                 $this->VistaAjax();
                 
             } else {
+                $this->carpeta($id);
                 $this->VistaAjax();
             }
         }
+
+
+        public function carpeta($id){
+            $ruta = "assets/libros/$id";
+            mkdir($ruta);
+        }
+
 
         /*Funcion que elimina un libro */
         public function EliminarLibro($id){
@@ -121,5 +129,58 @@
                 $this->VistaAjax();
             }
         }
+
+
+
+
+public function showintadmin(){
+
+      $id = $this->input->get_post("id");
+
+        $this->load->view('upload_multiple');
+    }
+
+
+/**
+     * Funcion de subida de imagenes libros al servidor
+     *
+     */
+
+    public function Upload(id){
+        $id = $this->input->get_post("id");
+        $output = '';
+        if($_FILES["files"]["name"] != '')
+        {
+            print_r($_FILES);
+            $config["upload_path"] = './assets/'.$id_libro;
+            $config["allowed_types"] = 'gif|jpg|pdf';
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
+            $_FILES["files"]["name"] = $_FILES["files"]["name"];
+            $_FILES["files"]["type"] = $_FILES["files"]["type"];
+            $_FILES["files"]["tmp_name"] = $_FILES["files"]["tmp_name"];
+            $_FILES["files"]["error"] = $_FILES["files"]["error"];
+            $_FILES["files"]["size"] = $_FILES["files"]["size"];
+            if($this->upload->do_upload('files'))
+            {
+                $data = $this->upload->data();
+                $output .= '1';
+            }
+            else
+            {
+                $output .= '0';
+            }
+            echo $output;   
+        }
+        else { $output .= '0'; }
+        echo $output;
+    }
+
+
+
+
+
+
+
 
 }
