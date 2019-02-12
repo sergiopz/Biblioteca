@@ -143,7 +143,7 @@
       
         
         $('#enviar_f').click(function(){
-            $(".animacion").removeAttr("hidden");
+       
         var files = $('#files')[0].files;
         var error = '';
         for(var count = 0; count<files.length; count++){ 
@@ -160,8 +160,10 @@
                 //enviando = 1;
                
                 $('#uploaded_images').append("Subiendo imagen " + name + "...<br>");
-                enviar_fichero_por_ajax(form_data, name);
+                enviar_fichero_por_ajax(form_data, name,count,files);
                 sleep(1000);
+
+                 $(".animacion").removeAttr("hidden");
 
             }
             
@@ -169,8 +171,12 @@
 
     });
 
-    function enviar_fichero_por_ajax(form_data, name) {
+    function enviar_fichero_por_ajax(form_data, name,count,files) {
+
+            
     
+
+
             $.ajax({
                 url:"<?php echo site_url("Libros/Upload/$id"); ?>", 
                 method:"POST",
@@ -193,9 +199,22 @@
                     //enviando = 0;
                 })
 
+
+
+               
+               if(count==(files.length-1)){
+                
+                alert("entro");
+                alert((count==(files.length-1)));
+
+                 $(".animacion").attr("hidden",true);
+               }
+
+
+
      
          }
-         $(".animacion").attr("hidden",true);
+        
     });
   
     function sleep(milliseconds) {
