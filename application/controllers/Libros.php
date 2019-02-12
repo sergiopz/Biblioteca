@@ -15,6 +15,19 @@
 
         }
 
+
+        public function index() {
+
+
+
+            echo "hasta aqui";
+            
+            
+
+          
+            $this->load->view("VistaLibro");
+        }
+
         /*Funcion que carga la vista de libros y sus datos*/ 
         public function VistaAjax() {
             $data["listaInstitutos"] = $this->InstitutosModel->getAll();
