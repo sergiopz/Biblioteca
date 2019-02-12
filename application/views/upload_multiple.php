@@ -106,9 +106,8 @@
             <br /><br /><br />
             <h3 >Subida múltiple de imagenes para un libro</h3><br />
             
-
             <form action="#">
-                <div class="file-field input-field">
+                <div class="file-field input-field botonFile">
                     <div class="btn">
                         <span>File</span>
                         <input type="file" id="files" multiple>
@@ -119,17 +118,25 @@
                 </div>
             </form>
 
-            <div id="enviar">
-                <button id="enviar_f"class=" btn #26a69a teal lighten-1 white-text z-depth-1"><i class='material-icons' title='Subir archivos'>cloud_upload</i></button>
+            <div id="enviarDiv" class="desactivarBoton">
+                <button id="enviar_f" class=" btn #26a69a teal lighten-1 white-text z-depth-1 disabled"><i class='material-icons' title='Subir archivos'>cloud_upload</i></button>
             </div>
+
             <div class="row">
-                <div class="col m5 offset-3"></div>
-            <div class="col m3 animacion" id="preloader_3" hidden ></div>
-      </div>
+            <div class="col m5 offset-3"></div>
+            <div class="col m12" id="mensajeEspera" hidden><h5 >Espere a la subida de todas las imagenes antes de salir.</h5></div>
+            <div class="col m7 offset-5 animacionExito" hidden>
+              <svg id="successAnimation" class="animated black-text" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+                <path id="successAnimationResult" fill="#D8D8D8" d="M35,60 C21.1928813,60 10,48.8071187 10,35 C10,21.1928813 21.1928813,10 35,10 C48.8071187,10 60,21.1928813 60,35 C60,48.8071187 48.8071187,60 35,60 Z M23.6332378,33.2260427 L22.3667622,34.7739573 L34.1433655,44.40936 L47.776114,27.6305926 L46.223886,26.3694074 L33.8566345,41.59064 L23.6332378,33.2260427 Z"/>
+                <circle id="successAnimationCircle" cx="35" cy="35" r="24" stroke="#979797" stroke-width="2" stroke-linecap="round" fill="transparent"/>
+                <polyline id="successAnimationCheck" stroke="#979797" stroke-width="2" points="23 34 34 43 47 27" fill="transparent"/>
+              </svg>
+            </div>
+            </div>
+
 
             <div id="uploaded_images"></div>
             <div class="row"></div>
-           
         </div>
     </body>
 </html>
@@ -141,43 +148,43 @@
 
     $(document).ready(function(){
       
+      $(".botonFile").click(function(){
+        $("#enviar_f").removeClass("disabled");
+        $("#enviarDiv").removeClass("desactivarBoton");
+      });
+
+
+      $("#enviarDiv").click(function(){
+        $("#mensajeEspera").removeAttr("hidden");
+      });
+
+
+      $('#enviar_f').click(function(){ 
         
-        $('#enviar_f').click(function(){ 
-        $(".animacion").removeAttr("hidden");
-       
         var files = $('#files')[0].files;
         var error = '';
         for(var count = 0; count<files.length; count++){ 
-
             var name = files[count].name;
             var extension = name.split('.').pop().toLowerCase();
             if(jQuery.inArray(extension, ['jpg','png','jpeg']) == -1){
-                    alert("Error en la subida");
-                error += "Archivo con extensión no válida ( solo jpg) " + count + " Image File";
+              $('#uploaded_images').append("<label class='text-success'> Se ha producido un error en la subida de tus ficheros. Archivo con extensión no válida ( solo jpg o png) </label>" );
             }else{
-                //while (enviando == 1) {}
+      
                 var form_data = new FormData();
                 form_data.append("files", files[count]);
-                //enviando = 1;
-               
+
                 $('#uploaded_images').append("Subiendo imagen " + name + "...<br>");
                 enviar_fichero_por_ajax(form_data, name,count,files);
                 sleep(1000);
 
               
-
             }
             
         }
-
+        
     });
 
     function enviar_fichero_por_ajax(form_data, name,count,files) {
-
-            
-    
-
-
             $.ajax({
                 url:"<?php echo site_url("Libros/Upload/$id"); ?>", 
                 method:"POST",
@@ -185,34 +192,28 @@
                 contentType:false,
                 cache:false,
                 processData:false,
-                beforeSend:function(){
-                    
-                    $('#uploaded_images').html("<label class='text-success'>Subiendo archivo " + name + "...</label>");    
+                beforeSend:function(obj){
+
+                   // $('#uploaded_images').append("<label class='text-success'>Subiendo archivo " + name + "...</label>");  
+
                 },
                 error : function(){
                     alert("ERROR");
-                  $('#uploaded_images').html("<label class='text-success'> Se ha producido un error en la subida de tus ficheros </label>");
+                  $('#uploaded_images').append("<label class='text-success'> Se ha producido un error en la subida de tus ficheros </label>");
                 }
                }).done(function( data ) {
-                    $('#uploaded_images').html(data);
+                   // $('#uploaded_images').append(data);
                     $('#files').val('');
                     
-                    //enviando = 0;
                 })
 
-
-
-               
                if(count==(files.length-1)){
                 
-                
+                $("#mensajeEspera").attr("hidden");
+                $(".animacionExito").removeAttr("hidden");
 
-                 $(".animacion").attr("hidden",true);
                }
 
-
-
-     
          }
         
     });
