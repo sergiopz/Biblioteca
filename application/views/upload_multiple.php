@@ -142,7 +142,8 @@
     $(document).ready(function(){
       
         
-        $('#enviar_f').click(function(){
+        $('#enviar_f').click(function(){ 
+        $(".animacion").removeAttr("hidden");
        
         var files = $('#files')[0].files;
         var error = '';
@@ -163,7 +164,7 @@
                 enviar_fichero_por_ajax(form_data, name,count,files);
                 sleep(1000);
 
-                 $(".animacion").removeAttr("hidden");
+              
 
             }
             
@@ -204,8 +205,7 @@
                
                if(count==(files.length-1)){
                 
-                alert("entro");
-                alert((count==(files.length-1)));
+                
 
                  $(".animacion").attr("hidden",true);
                }
