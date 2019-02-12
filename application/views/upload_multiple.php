@@ -81,22 +81,9 @@
   <nav>
     <div class="nav-wrapper #616161 grey darken-2">
       <ul class="center">
-        <li><a href="<?php echo site_url('Libros/VistaAjax');?>" class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down libro">Volver</a></li>
+        <li><a href="<?php echo site_url('Libros/VistaAjax');?>" class="waves-effect waves-light btn #8c9eff indigo accent-1 libro">Volver</a></li>
       </ul>
       
-      <ul class=" hide-on-med-and-up show-on-medium-and-down">
-        <li><a class="dropdown-trigger waves-effect waves-light btn #8c9eff indigo accent-1" data-target="dropdown1">Administracion</a></li>
-      </ul>
-
-      <ul id='dropdown1' class='dropdown-content #8c9eff indigo accent-1'>
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 usuarios" style="color:white" >Usuarios</a></li>
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 institutos" style="color:white">Institutos</a></li>
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 autor" style="color:white">Autores</a></li>
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 libro" style="color:white">Libros</a></li>
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 categoria" style="color:white">Categorias</a></li>
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 editorial" style="color:white">Editorial</a></li>
-       
-      </ul>
     </div>
   </nav>
 
@@ -148,6 +135,7 @@
 
     $(document).ready(function(){
       
+    
       $(".botonFile").click(function(){
         $("#enviar_f").removeClass("disabled");
         $("#enviarDiv").removeClass("desactivarBoton");
