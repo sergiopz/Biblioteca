@@ -106,11 +106,7 @@
             </form>
 
             <div id="enviarDiv" >
-<<<<<<< HEAD
-                <button id="enviar_f" class=" btn #26a69a teal lighten-1 white-text z-depth-1 "><i class='material-icons' title='Subir archivos'>cloud_upload</i></button>
-=======
                 <button id="enviar_f" class=" btn #26a69a teal lighten-1 white-text z-depth-1"><i class='material-icons' title='Subir archivos'>cloud_upload</i></button>
->>>>>>> 5e181ae744dc9109f2b1c290fb26f19b46444fc8
             </div>
 
             <div class="row">
@@ -142,28 +138,14 @@
 
     $(document).ready(function(){
       
-<<<<<<< HEAD
-    /*
-=======
->>>>>>> 5e181ae744dc9109f2b1c290fb26f19b46444fc8
       $(".botonFile").click(function(){
         $("#enviar_f").removeClass("disabled");
       });
 
 
-<<<<<<< HEAD
-      $("#enviarDiv").click(function(){
-        $("#mensajeEspera").removeAttr("hidden");
-      });
-*/
-
-      $('#enviar_f').click(function(){ 
-        $("#mensajeEspera").removeAttr("hidden");
-=======
 
       $('#enviar_f').click(function(){ 
        
->>>>>>> 5e181ae744dc9109f2b1c290fb26f19b46444fc8
         var files = $('#files')[0].files;
         var error = '';
         var count=0;
@@ -214,12 +196,6 @@
                   subirUnicoArchivo(form_data, name, files);
                 }
                 
-<<<<<<< HEAD
-
-                $("#mensajeEspera").attr("hidden",true);
-                $(".animacionExito").removeAttr("hidden");
-               
-=======
                });
                
                
@@ -227,7 +203,6 @@
           $("#mensajeEspera").attr("hidden",true);
           $(".animacionExito").removeAttr("hidden");
           $( ".barraProgreso" ).remove();
->>>>>>> 5e181ae744dc9109f2b1c290fb26f19b46444fc8
 
         }
 
