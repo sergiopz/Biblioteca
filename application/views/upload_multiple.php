@@ -95,7 +95,7 @@
             
             <form action="#">
                 <div class="file-field input-field ">
-                    <div class="btn #3d5afe indigo accent-3">
+                    <div class="btn #3d5afe indigo accent-3 botonFile">
                         <span>File</span>
                         <input type="file"  id="files" multiple>
                     </div>
@@ -106,7 +106,7 @@
             </form>
 
             <div id="enviarDiv" >
-                <button id="enviar_f" class=" btn #3d5afe indigo accent-3 white-text z-depth-1 botonesSubida"><i class='material-icons' title='Subir archivos'>cloud_upload</i></button>
+                <button id="enviar_f" class=" btn #3d5afe indigo accent-3 white-text z-depth-1 botonesSubida disabled"><i class='material-icons' title='Subir archivos'>cloud_upload</i></button>
             </div>
 
             <div class="row">
@@ -141,8 +141,6 @@
       $(".botonFile").click(function(){
         $("#enviar_f").removeClass("disabled");
       });
-
-
 
       $('#enviar_f').click(function(){ 
        
@@ -197,13 +195,12 @@
                 }
                 
                });
-               
+              
                
         } else {
           $("#mensajeEspera").attr("hidden",true);
           $(".animacionExito").removeAttr("hidden");
           $( ".barraProgreso" ).remove();
-
         }
 
          }
