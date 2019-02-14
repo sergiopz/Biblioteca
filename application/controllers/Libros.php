@@ -180,10 +180,13 @@ public function showintadmin($id){
                     // Éxito
                     $img_name=$resultado_subida["mensaje"];
                     //var_dump($img_name);
-                    
 
+
+
+                    
+                $total_imagenes = count(glob('assets/libros/'.$id.'/{*.jpg,*.gif,*.png}',GLOB_BRACE));
                 $oldDir= "assets/libros/".$id."/".$img_name;
-                $newDir="assets/libros/".$id."/75.jpg";
+                $newDir="assets/libros/".$id."/".$total_imagenes.".jpg";
                 $confirm=rename($oldDir,$newDir);
         
                   

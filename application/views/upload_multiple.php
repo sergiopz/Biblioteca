@@ -105,8 +105,8 @@
                 </div>
             </form>
 
-            <div id="enviarDiv" >
-                <button id="enviar_f" class=" btn #26a69a teal lighten-1 white-text z-depth-1 "><i class='material-icons' title='Subir archivos'>cloud_upload</i></button>
+            <div id="enviarDiv" class="desactivarBoton">
+                <button id="enviar_f" class=" btn #26a69a teal lighten-1 white-text z-depth-1 disabled"><i class='material-icons' title='Subir archivos'>cloud_upload</i></button>
             </div>
 
             <div class="row">
@@ -135,7 +135,7 @@
 
     $(document).ready(function(){
       
-    /*
+    
       $(".botonFile").click(function(){
         $("#enviar_f").removeClass("disabled");
         $("#enviarDiv").removeClass("desactivarBoton");
@@ -145,10 +145,10 @@
       $("#enviarDiv").click(function(){
         $("#mensajeEspera").removeAttr("hidden");
       });
-*/
+
 
       $('#enviar_f').click(function(){ 
-        $("#mensajeEspera").removeAttr("hidden");
+        
         var files = $('#files')[0].files;
         var error = '';
         for(var count = 0; count<files.length; count++){ 
@@ -197,10 +197,8 @@
 
                if(count==(files.length-1)){
                 
-
-                $("#mensajeEspera").attr("hidden",true);
+                $("#mensajeEspera").attr("hidden");
                 $(".animacionExito").removeAttr("hidden");
-               
 
                }
 
