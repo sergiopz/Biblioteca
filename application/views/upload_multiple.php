@@ -106,12 +106,15 @@
             </form>
 
             <div id="enviarDiv" >
-                <button id="enviar_f" class=" btn #26a69a teal lighten-1 white-text z-depth-1 "><i class='material-icons' title='Subir archivos'>cloud_upload</i></button>
+                <button id="enviar_f" class=" btn #26a69a teal lighten-1 white-text z-depth-1"><i class='material-icons' title='Subir archivos'>cloud_upload</i></button>
             </div>
 
             <div class="row">
             <div class="col m5 offset-3"></div>
             <div class="col m12" id="mensajeEspera" hidden><h5 >Espere a la subida de todas las imagenes antes de salir.</h5></div>
+            <div class="barraProgreso">
+
+            </div>
             <div class="col m7 offset-5 animacionExito" hidden>
               <svg id="successAnimation" class="animated black-text" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
                 <path id="successAnimationResult" fill="#D8D8D8" d="M35,60 C21.1928813,60 10,48.8071187 10,35 C10,21.1928813 21.1928813,10 35,10 C48.8071187,10 60,21.1928813 60,35 C60,48.8071187 48.8071187,60 35,60 Z M23.6332378,33.2260427 L22.3667622,34.7739573 L34.1433655,44.40936 L47.776114,27.6305926 L46.223886,26.3694074 L33.8566345,41.59064 L23.6332378,33.2260427 Z"/>
@@ -135,87 +138,78 @@
 
     $(document).ready(function(){
       
-    /*
       $(".botonFile").click(function(){
         $("#enviar_f").removeClass("disabled");
-        $("#enviarDiv").removeClass("desactivarBoton");
       });
 
 
-      $("#enviarDiv").click(function(){
-        $("#mensajeEspera").removeAttr("hidden");
-      });
-*/
 
       $('#enviar_f').click(function(){ 
-        $("#mensajeEspera").removeAttr("hidden");
+       
         var files = $('#files')[0].files;
         var error = '';
-        for(var count = 0; count<files.length; count++){ 
+        var count=0;
+        var form_data = new Array();
+        for(count; count<files.length; count++){ 
             var name = files[count].name;
             var extension = name.split('.').pop().toLowerCase();
             if(jQuery.inArray(extension, ['jpg','png','jpeg']) == -1){
               $('#uploaded_images').append("<label class='text-success'> Se ha producido un error en la subida de tus ficheros. Archivo con extensión no válida ( solo jpg o png) </label>" );
             }else{
-      
-                var form_data = new FormData();
-                form_data.append("files", files[count]);
-
-                $('#uploaded_images').append("Subiendo imagen " + name + "...<br>");
-                enviar_fichero_por_ajax(form_data, name,count,files);
-                sleep(1000);
-
-              
+                var formulario = new FormData();
+                formulario.append("files", files[count]);
+                var posicion = form_data.push(formulario);
+               
+             //   $('#uploaded_images').append("Subiendo imagen " + name + "...<br>");
+                
             }
             
         }
+        $('.barraProgreso').append(" <div class='progress'><div class='indeterminate #4a148c purple darken-4' ></div></div>");
+        subirUnicoArchivo(form_data, name,files);
         
     });
 
-    function enviar_fichero_por_ajax(form_data, name,count,files) {
+
+    var contador=0;
+
+    function subirUnicoArchivo(form_data, name, files) {
+      
+        if (contador<files.length){
+
+            //Informacion sobre las imagenes que subimos
+            console.log(form_data[contador].get("files"));
             $.ajax({
                 url:"<?php echo site_url("Libros/Upload/$id"); ?>", 
                 method:"POST",
-                data:form_data,
+                data:form_data[contador],
                 contentType:false,
                 cache:false,
                 processData:false,
-                beforeSend:function(obj){
-
-                   // $('#uploaded_images').append("<label class='text-success'>Subiendo archivo " + name + "...</label>");  
-
-                },
                 error : function(){
                     alert("ERROR");
                   $('#uploaded_images').append("<label class='text-success'> Se ha producido un error en la subida de tus ficheros </label>");
+                },
+                success:function(){
+                  $("#mensajeEspera").removeAttr("hidden");
+                  contador++;
+                  subirUnicoArchivo(form_data, name, files);
                 }
-               }).done(function( data ) {
-                   // $('#uploaded_images').append(data);
-                    $('#files').val('');
-                    
-                })
-
-               if(count==(files.length-1)){
                 
-
-                $("#mensajeEspera").attr("hidden",true);
-                $(".animacionExito").removeAttr("hidden");
+               });
                
+               
+        } else {
+          $("#mensajeEspera").attr("hidden",true);
+          $(".animacionExito").removeAttr("hidden");
+          $( ".barraProgreso" ).remove();
 
-               }
+        }
 
          }
         
     });
   
-    function sleep(milliseconds) {
-      var start = new Date().getTime();
-      for (var i = 0; i < 1e7; i++) {
-        if ((new Date().getTime() - start) > milliseconds){
-          break;
-        }
-      }
-    }
 </script>
     <footer class = "page-footer #616161 grey darken-2 z-depth-1">
             <div class = "row">

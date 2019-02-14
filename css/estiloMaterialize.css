@@ -191,3 +191,6 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
     #successAnimation.animated #successAnimationResult {
       animation: 0.3s linear 0.9s both fadeIn;
     }
+    .barraProgreso{
+      margin-top: 5%;
+    }
