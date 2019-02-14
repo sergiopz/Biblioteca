@@ -113,4 +113,42 @@
             return $confirm;
         }
 
+
+         function subirImagenPelicula($id) {
+                $config['upload_path']          = './assets/libros/'.$id;
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['max_size']             = 10000;
+                $config['max_width']            = 10000;
+                $config['max_height']           = 10000;
+                $config['width']                = 500;
+               
+
+                $this->load->library('upload', $config);
+               //$this->image_lib->initialize($config);
+                //$this->image_lib->resize();
+                //$this->image_lib->clear();
+
+
+                if (!$this->upload->resize()) {
+                    echo $this->upload->display_errors();
+                }
+
+                if ( ! $this->upload->do_upload('files'))
+                {   // La subida ha fallado: devolvemos el mensaje de error
+                    $resultado["codigo"] = 0; //Código de error
+                    $resultado["mensaje"] = $this->upload->display_errors();
+                }
+                else {
+                    // La subida ha sido un éxito. Devolvemos el nombre del fichero subido
+                    $resultado["codigo"] = 1; //Código de éxito
+                    $resultado["mensaje"] = $this->upload->data("file_name");
+                }
+                return $resultado;
+                       
+            }
+
+                   
+           
+     
+
 }

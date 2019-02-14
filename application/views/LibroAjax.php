@@ -194,11 +194,6 @@ $("document").ready(function() {
                     <label class='active' style='color:royalblue' for='fecha'>Fecha</label>
                 </div>
                 <div class='input-field'>
-                    <i class='material-icons prefix' style='color:royalblue'>pages</i>               
-                    <input type='text' name='paginas' id='paginas'  value='$libro->paginas'>
-                    <label class='active' style='color:royalblue' for='paginas'>Paginas</label>
-                </div>
-                <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
                 <select name='idInstituto' class='browser-default' >";
                   for ($j = 0; $j < count($listaInstitutos); $j++) {

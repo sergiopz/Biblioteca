@@ -18,6 +18,12 @@
 
         public function index() {
 
+                $oldDir="assets/libros/8/1.jpg";
+                $newDir="assets/libros//69.jpg";
+                $confirm=rename($oldDir,$newDir);
+        
+    
+
 
 
             echo "hasta aqui";
@@ -163,36 +169,40 @@ public function showintadmin($id){
      *
      */
 
-    public function Upload($id){
-        echo "tramo final";
-       
-        $output = '';
-        if($_FILES["files"]["name"] != '')
-        {
-            print_r($_FILES);
-            $config["upload_path"] = './assets/libros/'.$id;
-            $config["allowed_types"] = 'jpeg|jpg|png';
-            $this->load->library('upload', $config);
-            $this->upload->initialize($config);
-            $_FILES["files"]["name"] = $_FILES["files"]["name"];
-            $_FILES["files"]["type"] = $_FILES["files"]["type"];
-            $_FILES["files"]["tmp_name"] = $_FILES["files"]["tmp_name"];
-            $_FILES["files"]["error"] = $_FILES["files"]["error"];
-            $_FILES["files"]["size"] = $_FILES["files"]["size"];
-            if($this->upload->do_upload('files'))
-            {
-                $data = $this->upload->data();
-                $output .= '1';
-            }
-            else
-            {
-                $output .= '0';
-            }
-            echo $output;   
-        }
-        else { $output .= '0'; }
-        echo $output;
-    }
+   
+           public function Upload($id){
+
+            
+
+              
+                $resultado_subida = $this->LibrosModel->subirImagenPelicula($id);
+                if ($resultado_subida["codigo"] == 1) {
+                    // Éxito
+                    $img_name=$resultado_subida["mensaje"];
+                    //var_dump($img_name);
+                    
+
+                $oldDir= "assets/libros/".$id."/".$img_name;
+                $newDir="assets/libros/".$id."/75.jpg";
+                $confirm=rename($oldDir,$newDir);
+        
+                  
+
+                } else {
+                    // Fallo
+                    $data["mensaje"] = "Error al subir la imagen de la película";
+ 
+
+                }
+                
+               
+         
+     }
+
+
+
+
+
 
 
 
