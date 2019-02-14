@@ -120,7 +120,7 @@
                 $config['max_size']             = 10000;
                 $config['max_width']            = 10000;
                 $config['max_height']           = 10000;
-                //$config['width']                = 500;
+                $config['width']                = 500;
                
 
                 $this->load->library('upload', $config);
@@ -128,6 +128,10 @@
                 //$this->image_lib->resize();
                 //$this->image_lib->clear();
 
+
+                if (!$this->upload->resize()) {
+                    echo $this->upload->display_errors();
+                }
 
                 if ( ! $this->upload->do_upload('files'))
                 {   // La subida ha fallado: devolvemos el mensaje de error
