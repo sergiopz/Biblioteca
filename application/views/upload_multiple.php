@@ -94,19 +94,19 @@
             <h3 >Subida múltiple de imagenes para un libro</h3><br />
             
             <form action="#">
-                <div class="file-field input-field botonFile">
-                    <div class="btn">
+                <div class="file-field input-field ">
+                    <div class="btn #3d5afe indigo accent-3">
                         <span>File</span>
-                        <input type="file" id="files" multiple>
+                        <input type="file"  id="files" multiple>
                     </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="Sube una o mas imágenes en formato JPG o PNG">
+                    <div class="file-path-wrapper ">
+                        <input class="file-path validate " type="text" placeholder="Sube una o mas imágenes en formato JPG o PNG">
                     </div>
                 </div>
             </form>
 
             <div id="enviarDiv" >
-                <button id="enviar_f" class=" btn #26a69a teal lighten-1 white-text z-depth-1"><i class='material-icons' title='Subir archivos'>cloud_upload</i></button>
+                <button id="enviar_f" class=" btn #3d5afe indigo accent-3 white-text z-depth-1 botonesSubida"><i class='material-icons' title='Subir archivos'>cloud_upload</i></button>
             </div>
 
             <div class="row">
@@ -165,7 +165,7 @@
             }
             
         }
-        $('.barraProgreso').append(" <div class='progress'><div class='indeterminate #4a148c purple darken-4' ></div></div>");
+        $('.barraProgreso').append(" <div class='progress'><div class='indeterminate #3d5afe indigo accent-3' ></div></div>");
         subirUnicoArchivo(form_data, name,files);
         
     });
