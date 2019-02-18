@@ -21,6 +21,7 @@
 			wheelzoom(document.querySelectorAll('img'));
 			pagina=1;
 			paginaTotal= document.querySelectorAll('img').length;
+			$("#paginaTotal").val(paginaTotal);
 			
 			var Page = (function() {
 				var config = {
@@ -48,13 +49,16 @@
 							if(pagina!=paginaTotal){
 								document.querySelector(nodo).dispatchEvent(new CustomEvent('wheelzoom.reset'));
 								pagina++;
-								config.$bookBlock.bookblock( 'next' );
-								return false;
+								$("#pagina").val(pagina);
 							}else{
 								document.querySelector(nodo).dispatchEvent(new CustomEvent('wheelzoom.reset'));
-								config.$bookBlock.bookblock( 'next' );
+								
 							}
 							
+							config.$bookBlock.bookblock('next');		
+							$("#bb-nav-next").css("pointer-events", "none");
+							setTimeout(function(){$("#bb-nav-next").css("pointer-events", "auto");}, 1000);
+							return false;
 						} );
 
 						config.$navPrev.on( 'click touchstart', function() {
@@ -62,19 +66,23 @@
 							if(pagina!=1){
 								document.querySelector(nodo).dispatchEvent(new CustomEvent('wheelzoom.reset'));
 								pagina--;
-								config.$bookBlock.bookblock( 'prev' );
-								return false;
+								$("#pagina").val(pagina);
+								
 							}else{
 								document.querySelector(nodo).dispatchEvent(new CustomEvent('wheelzoom.reset'));
-								config.$bookBlock.bookblock( 'prev' );
+								
 							}
-							
+							config.$bookBlock.bookblock( 'prev' );
+							$("#bb-nav-prev").css("pointer-events", "none");
+							setTimeout(function(){$("#bb-nav-prev").css("pointer-events", "auto");}, 1000);
+							return false;
 						} );
 
 						config.$navFirst.on( 'click touchstart', function() {
 							nodo="img.zoom"+pagina;
 							document.querySelector(nodo).dispatchEvent(new CustomEvent('wheelzoom.reset'));
 							pagina=1;
+							$("#pagina").val(pagina);
 							config.$bookBlock.bookblock( 'first' );
 							return false;
 						} );
@@ -83,6 +91,7 @@
 							nodo="img.zoom"+pagina;
 							document.querySelector(nodo).dispatchEvent(new CustomEvent('wheelzoom.reset'));
 							pagina=paginaTotal;
+							$("#pagina").val(pagina);
 							config.$bookBlock.bookblock( 'last' );
 							return false;
 						} );
@@ -99,10 +108,36 @@
 
 							switch (keyCode) {
 								case arrow.left:
-									config.$bookBlock.bookblock( 'prev' );
+										nodo="img.zoom"+pagina;
+									if(pagina!=1){
+										document.querySelector(nodo).dispatchEvent(new CustomEvent('wheelzoom.reset'));
+										pagina--;
+										$("#pagina").val(pagina);
+										config.$bookBlock.bookblock( 'prev' );
+										
+									}else{
+										document.querySelector(nodo).dispatchEvent(new CustomEvent('wheelzoom.reset'));
+										config.$bookBlock.bookblock( 'prev' );
+									}
 									break;
+									
 								case arrow.right:
-									config.$bookBlock.bookblock( 'next' );
+										nodo="img.zoom"+pagina;
+									if(pagina!=paginaTotal){
+                                     //biblioteca setTimeout(function(){$("#numeropag").val(parseInt(pg) + 1);}, 800);
+
+
+										document.querySelector(nodo).dispatchEvent(new CustomEvent('wheelzoom.reset'));
+										pagina++;
+										$("#pagina").val(pagina);
+										config.$bookBlock.bookblock( 'next' );
+										
+									}else{
+										document.querySelector(nodo).dispatchEvent(new CustomEvent('wheelzoom.reset'));
+										config.$bookBlock.bookblock( 'next' );
+									}
+									
+									
 									break;
 							}
 						} );
@@ -134,7 +169,7 @@
 					<?php 
 					for ($i = 1; $i < count(glob('assets/libros/12/{*.jpg,*.gif,*.png}',GLOB_BRACE)); $i++) {
 						
-						echo"<div class='bb-item'>
+						echo"<div class='bb-item zoom$i'>
 								<img class='zoom$i' id='m$i' src=".base_url("assets/libros/12/$i.jpg")." />
 							</div>
 						";
@@ -148,7 +183,7 @@
 						<a id="bb-nav-first" href="#" class="bb-custom-icon bb-custom-icon-first">First page</a>
 						<a id="bb-nav-prev" href="#" class="bb-custom-icon bb-custom-icon-arrow-left">Previous</a>
 						<input type='text' class="an" id='pagina' value="1">
-						<input type='text' class="de" value='7'id='paginaTotal' readonly>
+						<input type='text' class="de" id='paginaTotal' readonly>
 						<a id="bb-nav-next" href="#" class="bb-custom-icon bb-custom-icon-arrow-right">Next</a>
 						<a id="bb-nav-last" href="#" class="bb-custom-icon bb-custom-icon-last">Last page</a>
 					</nav>
