@@ -22,6 +22,7 @@
 			pagina=1;
 			paginaTotal= document.querySelectorAll('img').length;
 			$("#paginaTotal").val(paginaTotal);
+			cambiar=true;
 			
 			var Page = (function() {
 				var config = {
@@ -98,6 +99,13 @@
 			
 						// Añadimos Eventos de tecla
 						$( document ).keydown( function(e) {
+							if(!cambiar)return false;
+
+							setTimeout(function(){
+								cambiar=true;
+							}, 800);
+							cambiar=false;
+
 							var keyCode = e.keyCode || e.which,
 								arrow = {
 									left : 37,
@@ -124,9 +132,6 @@
 								case arrow.right:
 										nodo="img.zoom"+pagina;
 									if(pagina!=paginaTotal){
-                                     //biblioteca setTimeout(function(){$("#numeropag").val(parseInt(pg) + 1);}, 800);
-
-
 										document.querySelector(nodo).dispatchEvent(new CustomEvent('wheelzoom.reset'));
 										pagina++;
 										$("#pagina").val(pagina);
