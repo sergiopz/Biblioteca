@@ -138,6 +138,29 @@
                        
             }
 
+
+
+            public function deletepaglibro($id_libro,$num_pag,$cant_pag){
+           
+            $filename="assets/libros/9/".$num_pag.".jpg";
+           // echo "numero de pagina ".$num_pag;
+     
+            $res=unlink($filename);
+            //echo $res;
+
+            if($res){
+                for($i=$num_pag;$i<$cant_pag-1;$i++){
+                    $oldDir="assets/libros/$id_libro/".($i+1).".jpg";
+                    $newDir="assets/libros/$id_libro/".$i.".jpg";
+                    rename($oldDir,$newDir);
+                }
+            }
+            return $res;
+        }
+
+
+       
+
                    
            
      

@@ -18,20 +18,13 @@
 
         public function index() {
 
-                $oldDir="assets/libros/8/1.jpg";
-                $newDir="assets/libros//69.jpg";
-                $confirm=rename($oldDir,$newDir);
-        
-    
 
 
-
-            echo "hasta aqui";
             
             
 
           
-            $this->load->view("VistaLibro");
+            $this->load->view("ModificarImagenes");
         }
 
         /*Funcion que carga la vista de libros y sus datos*/ 
@@ -201,6 +194,134 @@ public function showintadmin($id){
                
          
      }
+
+
+
+
+     public function deletepag($id_libro,$num_pag,$cant_pag){
+
+       
+    
+            $filename="assets/libros/".$id_libro."/".$num_pag.".jpg";
+           // echo "numero de pagina ".$num_pag;
+          
+            $res=unlink($filename);
+            //echo $res;
+
+            if($res){
+                for($i=$num_pag;$i<$cant_pag-1;$i++){
+                    $oldDir="assets/libros/$id_libro/".($i+1).".jpg";
+                    $newDir="assets/libros/$id_libro/".$i.".jpg";
+                    rename($oldDir,$newDir);
+                }
+            }
+
+
+        
+
+    }
+
+
+      public function cambiarDerecha($id_libro,$num_pag){
+                
+        
+                 $oldDir="assets/libros/$id_libro/".($num_pag+1).".jpg";
+                    $newDir="assets/libros/$id_libro/fotoCambio.jpg";
+                    rename($oldDir,$newDir);
+
+            
+                    $oldDir="assets/libros/$id_libro/".$num_pag.".jpg";
+                    $newDir="assets/libros/$id_libro/".($num_pag+1).".jpg";
+                    rename($oldDir,$newDir);
+
+
+                     $oldDir="assets/libros/$id_libro/fotoCambio.jpg";
+                    $newDir="assets/libros/$id_libro/".$num_pag.".jpg";
+                    rename($oldDir,$newDir);
+               
+        }
+
+         public function cambiarIzquierda($id_libro,$num_pag){
+                
+        
+                 $oldDir="assets/libros/$id_libro/".($num_pag-1).".jpg";
+                    $newDir="assets/libros/$id_libro/fotoCambio.jpg";
+                    rename($oldDir,$newDir);
+
+            
+                    $oldDir="assets/libros/$id_libro/".$num_pag.".jpg";
+                    $newDir="assets/libros/$id_libro/".($num_pag-1).".jpg";
+                    rename($oldDir,$newDir);
+
+
+                     $oldDir="assets/libros/$id_libro/fotoCambio.jpg";
+                    $newDir="assets/libros/$id_libro/".$num_pag.".jpg";
+                    rename($oldDir,$newDir);
+               
+        }
+
+
+
+            public function UploadPaginas(){
+            $total_imagenes = count(glob('assets/libros/9/{*.jpg,*.gif,*.png}',GLOB_BRACE));
+                 $pagina = $this->input->get_post("pagina");
+                 $id=9;
+
+            
+
+              
+                $resultado_subida = $this->LibrosModel->subirImagenPelicula($id);
+                if ($resultado_subida["codigo"] == 1) {
+                    // Éxito
+                    $img_name=$resultado_subida["mensaje"];
+                    echo $img_name;
+                    //var_dump($img_name);
+
+
+
+                    
+               
+               for($i=$total_imagenes;$i>=$pagina;$i--){
+                    $oldDir="assets/libros/9/".$i.".jpg";
+                    $newDir="assets/libros/9/".($i+1).".jpg";
+                    rename($oldDir,$newDir);
+                }
+
+                    //$cambio = count(glob('assets/libros/9/{*.jpg,*.gif,*.png}',GLOB_BRACE));
+
+
+                    $oldDir="assets/libros/9/".$img_name;
+                    $newDir="assets/libros/9/".$pagina.".jpg";
+                    rename($oldDir,$newDir);
+
+                 //$this->SustitucionPagina($img_name, $pagina);
+                  //$this->SustitucionPagina($img_name, $pagina);
+
+
+                  
+
+                } else {
+                    // Fallo
+                    $data["mensaje"] = "Error al subir la imagen de la película";
+ 
+
+                }
+                
+               
+         
+     }
+
+
+         public function SustitucionPagina($img_name, $pagina){
+                    $oldDir="assets/libros/9/". $img_name.".jpg";
+                    $newDir="assets/libros/9/".$pagina.".jpg";
+                    rename($oldDir,$newDir);
+
+         }
+
+
+
+
 
 
 
