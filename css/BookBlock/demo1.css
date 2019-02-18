@@ -10,7 +10,7 @@
 }
 
 .bb-custom-wrapper {
-	width: 420px;
+	width: 790px;
 	position: relative;
 	margin: 0 auto 40px;
 	text-align: center;
@@ -87,5 +87,5 @@
 }
 
 .no-js .bb-custom-content {
-	height: 470px;
+	height: 690px;
 }
