@@ -48,7 +48,7 @@ $("document").ready(function() {
 </script>
 
 
-<button><?php echo anchor("Libros", "Mostrar libros", ""); ?></button>
+
 
 <div class="row"></div>
 <div class="row container">
@@ -64,13 +64,13 @@ $("document").ready(function() {
                     <th hidden class="#000000 black-text">Fecha</th>
                     <th hidden class="#000000 black-text">Paginas</th>
                     <th class="#000000 black-text">Instituto</th>
-                    <th class="#000000 black-text">Usuario</th>
                     <th class="#000000 black-text">Editorial</th>
                     <th class="#000000 black-text">Autor</th>
                     <th class="#000000 black-text">Categoria</th>
                     <th>Modificar</th>
                     <th>Eliminar</th>
-                    <th>paginas</th>
+                    <th>Subir</th>
+                    <th>Páginas</th>
                    
                 </tr>
             </thead>
@@ -100,13 +100,7 @@ $("document").ready(function() {
 
        echo  "</select></td>";
           
-       for ($j = 0; $j < count($listaUsuarios); $j++) {
-              $usuario = $listaUsuarios[$j]; 
-              if( $libro->idUsuario==$usuario->id ){ 
-       echo          "<td class='colorFila'><input class='#ffffff' type='text'  value='$usuario->nombre' readonly></td>";
-       echo          "<input class='#ffffff white-text' type='hidden' name='idUsuario' value='$usuario->id' />";                      
-              }
-       }
+  
 
        echo   "<td class='colorFila'><select name='idEditorial' >";  
 
@@ -154,12 +148,14 @@ $("document").ready(function() {
        }
 
        //BOTONES MODIFICAR ELIMINAR Y SUBIR EN LA TABLA
-
+       /*<button><?php echo anchor("Libros", "Mostrar libros", ""); ?></button>*/
        echo"</select></td>
         <td class='colorFila'><button href='#lupa$libro->id' class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 modal-trigger'>Modificar</button></td>
         <td class='colorFila'><a value='$libro->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text claseBorrar' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>
         <td class='colorFila'><a class='btn-flat waves-effect waves-light #1e88e5 blue darken-1 white-text' href='http://localhost/biblioteca/index.php/libros/showintadmin/$libro->id'><i class='material-icons' title='Subir páginas'>file_upload</i></a></td>
-
+        <td class='colorFila'><a href='http://localhost/biblioteca/index.php/Libros>Mostrar libros</a></td>
+        
+        
        </tr>
 
 
