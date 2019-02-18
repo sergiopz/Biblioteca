@@ -41,10 +41,12 @@
 		<div id="cualquiera">
 			<?php  
 			
-			$directorio = "assets/libros/9";
+			$directorio = "assets/libros/".$id;
+			echo $directorio;
 			$arrayPag = scandir($directorio);
 			$num_pag = count($arrayPag)-1;
-			echo $num_pag;
+			echo $num_pag ;
+			
 			
 			
 				echo "<table>";
@@ -68,6 +70,31 @@
 													echo "<a href='".site_url("Libros/cambiarDerecha/9/$i")."' class=''>derecha</a> <br>";
 
 													echo "<a href='".site_url("Libros/cambiarIzquierda/9/$i")."' class=''>izquierda</a>";
+
+														echo form_open_multipart("Libros/UploadPaginas");
+        //echo form_open("peliculas/insertPeliculas");
+        //id : <input type='text' name='id'/><br/>
+
+													        echo "
+													            <fieldset>
+													                
+													               
+													                Despues de la pagina <input type='text' hidden readonly name='pagina' value='$i'/><br/>
+													                cartel: <input type='file' name='files' /><br/>  ";
+													              
+													            echo "<br/>
+													                </fieldset>
+													            ";
+
+													       
+
+													        echo"       
+													                <input type='hidden' name='do' value='insertPelicula'/>
+													                <input  type='submit' name='Enviar' value='Insertar'/>
+													                </form>
+													        ";
+
+
 										
 												
 								
@@ -75,7 +102,7 @@
 								echo "</td>";
 
 								echo "
-									</form>
+									
 									<br>
 									<br>
 									<br><br>";

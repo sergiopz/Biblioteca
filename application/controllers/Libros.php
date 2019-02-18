@@ -27,6 +27,20 @@
             $this->load->view("ModificarImagenes");
         }
 
+
+        public function ModificarPaginas($id) {
+
+          
+                   $datos["id"]=$id;
+
+
+
+            $this->load->view("ModificarImagenes",$datos);
+        
+
+        }
+
+
         /*Funcion que carga la vista de libros y sus datos*/ 
         public function VistaAjax() {
             $data["listaInstitutos"] = $this->InstitutosModel->getAll();
