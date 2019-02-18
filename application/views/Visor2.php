@@ -131,24 +131,24 @@
 			<div class="main clearfix">
 				<div class="bb-custom-wrapper">
 					<div id="bb-bookblock" class="bb-bookblock">
-					<?php 
-					for ($i = 1; $i < count(glob('assets/libros/12/{*.jpg,*.gif,*.png}',GLOB_BRACE)); $i++) {
-						
-						echo"<div class='bb-item'>
-								<img class='zoom$i' id='m$i' src=".base_url("assets/libros/12/$i.jpg")." />
-							</div>
-						";
-					}
-					?>
-	
-						
-						
+						<div class="bb-item">
+							<img class='zoom1' id="m"  src="<?php echo base_url('assets/libros/12/1.jpg');?>" /> 
+						</div>
+						<div class="bb-item" >
+							<img class='zoom2' src="<?php echo base_url('assets/libros/12/2.jpg');?>" /> 
+						</div>
+						<div class="bb-item" >
+							<img class='zoom3' src="<?php echo base_url('assets/libros/12/3.jpg');?>" /> 
+						</div>
+						<div class="bb-item" >
+							<img class='zoom4' src="<?php echo base_url('assets/libros/12/5.jpg');?>" /> 
+						</div>
 					</div>
 					<nav>
 						<a id="bb-nav-first" href="#" class="bb-custom-icon bb-custom-icon-first">First page</a>
 						<a id="bb-nav-prev" href="#" class="bb-custom-icon bb-custom-icon-arrow-left">Previous</a>
-						<input type='text' class="an" id='pagina' value="1">
-						<input type='text' class="de" value='7'id='paginaTotal' readonly>
+						<!--BOTON DE PAGINA ACTUAL<input  type='text' id='numeropag' value="2">-->
+						<!--BOTON DE PAGINA TOTAL<input  type='text' value='7' readonly>-->
 						<a id="bb-nav-next" href="#" class="bb-custom-icon bb-custom-icon-arrow-right">Next</a>
 						<a id="bb-nav-last" href="#" class="bb-custom-icon bb-custom-icon-last">Last page</a>
 					</nav>
