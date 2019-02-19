@@ -181,7 +181,7 @@
 		$data = getimagesize("assets/libros/12/1.jpg");
 		$width = $data[0];
 		$height = $data[1];
-		$ancho =1050;
+		
 	?>
 	
 		<div class="container">
@@ -195,15 +195,18 @@
 					
 					for ($i = 1; $i <count(glob('assets/libros/12/{*.jpg,*.gif,*.png}',GLOB_BRACE))-1; $i++) {
 						
-						echo"<div class='bb-item zoom$i'>
-								<img class='zoom$i' id='m$i' src=".base_url("assets/libros/12/$i.jpg")." width='$ancho+'px' height='530px' />
-							</div>
+						echo"<div class='bb-item zoom$i'>";
+						if($width<3000){
+							echo"	<img class='zoom$i' id='m$i' src=".base_url("assets/libros/12/$i.jpg")." width='750px' height='530px' />";
+						}else {
+							echo"	<img class='zoom$i' id='m$i' src=".base_url("assets/libros/12/$i.jpg")." width='1050px' height='530px' />";
+							echo"<style>.bb-bookblock {width: 1050px;} .bb-custom-wrapper {width: 1090px;}</style>";
+						}
+				
+						echo"</div>
 						";
 					}
 					?>
-	
-						
-						
 					</div>
 					<nav>
 						<a id="bb-nav-first" href="#" class="bb-custom-icon bb-custom-icon-first">First page</a>
