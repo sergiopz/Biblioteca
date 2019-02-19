@@ -27,7 +27,7 @@
             
            
 
-              if ($resultado1 == 1) { // Error: usuario o contraseña no existen
+              if ($resultado1 == 0) { // Error: usuario o contraseña no existen
             
              //$data["listaUsuarios"] = $this->UsuariosModel->getAll();
             // $data["nombreVista"] = "VistaAdministrador";
@@ -58,7 +58,7 @@
             //$this->load->view("EditorialAjax.php", $data);
                 // $data["nombreVista"] = "VistaAdministrador";
              //$this->load->view("plantilla", $data);
-                 $this->load->view("EntradaLogin");
+                // $this->load->view("EntradaLogin");
 
 
 
