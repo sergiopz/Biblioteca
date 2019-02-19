@@ -3,8 +3,9 @@
     /*include_once('seguridad.php');
     //incluimos seguridad php y extendemos de la clase seguridad.php en vez de cI_controller.
     class Peliculas extends Seguridad{*/
+      include_once("Seguridad.php");
 
-    class Categorias extends CI_Controller {
+    class Categorias extends Seguridad  {
 
        public function __construct() {
             parent::__construct();
@@ -12,13 +13,16 @@
         }
 
         public function VistaAjax() {
+          if($this->security_check()){
             $this->load->model("CategoriasModel");
             $data["listaCategorias"] = $this->CategoriasModel->getAll();
             $this->load->view("CategoriaAjax.php", $data);
             
         }
+      }
 
         public function InsertarCategoria(){
+          if($this->security_check()){
             $nombre = $this->input->get_post("nombre");
 
             $resultado = $this->CategoriasModel->InsertarCategoria($nombre);
@@ -30,9 +34,12 @@
                            $data["tabla"] = "categoria";   // La tabla que queremos que se muestre automáticamente en la vista principal
                            $this->load->view("plantilla", $data);
                     }
+
+                  }
       }
     
         public function EliminarCategoria($id) {
+          if($this->security_check()){
 
             $resultado = $this->CategoriasModel->EliminarCategoria($id);
     
@@ -44,10 +51,13 @@
                 echo "No se pudo eliminar la Categoria.";
                 $this->load->view("header");
             }
+
+          }
     
         }
 
             public function ModificarCategoria(){
+              if($this->security_check()){
 
                 $id = $this->input->post('id');
                 $nombre = $this->input->post('nombre');
@@ -64,3 +74,4 @@
                 }
             }
         }
+       } 

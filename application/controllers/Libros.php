@@ -1,7 +1,7 @@
 <?php
 //Controlador de Autores
-    include_once("seguridad.php");
-    class Libros extends seguridad {
+    include_once("Seguridad.php");
+    class Libros extends Seguridad {
         
         public function __construct() {
             parent::__construct();
@@ -17,6 +17,7 @@
 
 
         public function index() {
+               if($this->security_check()){
 
 
 
@@ -24,11 +25,31 @@
             
 
           
-            $this->load->view("ModificarImagenes");
+            $this->load->view("example");
+        }
+            
+        }
+
+              public function salir() {
+
+                $this->cerrar_sesion();
+
+
+
+            
+            
+
+          
+   
+            
         }
 
 
+
+
+
         public function ModificarPaginas($id) {
+               if($this->security_check()){
 
           
                    $datos["id"]=$id;
@@ -39,10 +60,12 @@
         
 
         }
+    }
 
 
         /*Funcion que carga la vista de libros y sus datos*/ 
         public function VistaAjax() {
+            if($this->security_check()){
             $data["listaInstitutos"] = $this->InstitutosModel->getAll();
             $data["listaEditoriales"] = $this->EditorialesModel->getAll();           
             $data["listaUsuarios"] = $this->UsuariosModel->getAll();
@@ -56,9 +79,10 @@
             $data["nombreVista"] = "LibroAjax";
             $this->load->view("plantilla" , $data);
         }
-    
+    }
         /*Funcion que inserta un libro */    
         public function InsertarLibro(){ 
+            if($this->security_check()){
             $id=$this->LibrosModel->getMax();
             if($id==0){
                 $id=1;
@@ -94,16 +118,20 @@
                 $this->VistaAjax();
             }
         }
+    }
 
 
         public function carpeta($id){
+            if($this->security_check()){
             $ruta = "assets/libros/$id";
             mkdir($ruta);
         }
+    }
 
 
         /*Funcion que elimina un libro */
         public function EliminarLibro($id){
+            if($this->security_check()){
             $r=$this->LibrosModel->EliminarLibro($id);
             if ($r== 0) { 
                 echo"Fallo al eliminar libro";
@@ -118,9 +146,11 @@
                } 
             }
         }
+    }
 
         /*Funcion que Modifica un libro */
         public function ModificarLibro(){
+            if($this->security_check()){
             $id = $this->input->get_post("id");
             $isbn = $this->input->get_post("isbn");
             $titulo= $this->input->get_post("titulo");
@@ -155,11 +185,13 @@
                 $this->VistaAjax();
             }
         }
+    }
 
 
 
 
 public function showintadmin($id){
+    if($this->security_check()){
 
     
         $datos["id"]=$id;
@@ -169,6 +201,7 @@ public function showintadmin($id){
 
         $this->load->view('upload_multiple',$datos);
     }
+}
 
 
 /**
@@ -178,6 +211,7 @@ public function showintadmin($id){
 
    
            public function Upload($id){
+            if($this->security_check()){
 
             
 
@@ -206,13 +240,14 @@ public function showintadmin($id){
                 }
                 
                
-         
+        } 
      }
 
 
 
 
      public function deletepag($id_libro,$num_pag,$cant_pag){
+        if($this->security_check()){
 
        
     
@@ -230,6 +265,8 @@ public function showintadmin($id){
                 }
             }
 
+        }
+
 
         
 
@@ -237,6 +274,8 @@ public function showintadmin($id){
 
 
       public function cambiarDerecha($id_libro,$num_pag){
+        if($this->security_check()){
+
                 
         
                  $oldDir="assets/libros/$id_libro/".($num_pag+1).".jpg";
@@ -254,8 +293,10 @@ public function showintadmin($id){
                     rename($oldDir,$newDir);
                
         }
+    }
 
          public function cambiarIzquierda($id_libro,$num_pag){
+            if($this->security_check()){
                 
         
                  $oldDir="assets/libros/$id_libro/".($num_pag-1).".jpg";
@@ -273,10 +314,12 @@ public function showintadmin($id){
                     rename($oldDir,$newDir);
                
         }
+    }
 
 
 
             public function UploadPaginas(){
+                if($this->security_check()){
             $total_imagenes = count(glob('assets/libros/9/{*.jpg,*.gif,*.png}',GLOB_BRACE));
                  $pagina = $this->input->get_post("pagina");
                  $id=9;
@@ -320,6 +363,8 @@ public function showintadmin($id){
  
 
                 }
+
+            }
                 
                
          
@@ -327,11 +372,13 @@ public function showintadmin($id){
 
 
          public function SustitucionPagina($img_name, $pagina){
+            if($this->security_check()){
                     $oldDir="assets/libros/9/". $img_name.".jpg";
                     $newDir="assets/libros/9/".$pagina.".jpg";
                     rename($oldDir,$newDir);
 
          }
+     }
 
 
 

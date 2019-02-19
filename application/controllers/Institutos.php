@@ -3,8 +3,9 @@
     /*include_once('seguridad.php');
     //incluimos seguridad php y extendemos de la clase seguridad.php en vez de cI_controller.
     class Peliculas extends Seguridad{*/
+        include_once("Seguridad.php");
 
-    class Institutos extends CI_Controller {
+    class Institutos extends Seguridad  {
 
         public function __construct() {
             parent::__construct();
@@ -13,13 +14,16 @@
 
         
         public function VistaAjax() {
+                if($this->security_check()){
             $this->load->model("InstitutosModel");
             $data["listaInstitutos"] = $this->InstitutosModel->getAll();
             $this->load->view("institutosAjax.php", $data);
             
         }
+    }
 
         public function InsertarInstituto(){
+                if($this->security_check()){
 
             $nombre = $this->input->get_post("nombre");
             $localidad = $this->input->get_post("localidad");
@@ -35,9 +39,11 @@
                            $data["tabla"] = "institutos";   // La tabla que queremos que se muestre automáticamente en la vista principal
                            $this->load->view("plantilla", $data);
             }
+        }
         } 
     
         public function EliminarInstituto($id){
+                if($this->security_check()){
 
             $resultado = $this->InstitutosModel->EliminarInstituto($id);
     
@@ -51,8 +57,10 @@
             }
     
         }
+    }
 
         public function ModificarInstituto(){
+                if($this->security_check()){
 
             $id = $this->input->post('id');
             $nombre = $this->input->post("nombre");
@@ -76,3 +84,4 @@
   
         }
     }
+}
