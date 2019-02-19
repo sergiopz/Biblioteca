@@ -27,13 +27,17 @@
             
            
 
-              if ($resultado1 == 1) { // Error: usuario o contraseña no existen
+              if ($resultado1 == 0) { // Error: usuario o contraseña no existen
             
-             $data["listaUsuarios"] = $this->UsuariosModel->getAll();
-             $data["nombreVista"] = "VistaAdministrador";
-             $this->load->view("plantilla", $data);
+             //$data["listaUsuarios"] = $this->UsuariosModel->getAll();
+            // $data["nombreVista"] = "VistaAdministrador";
+             //$this->load->view("plantilla", $data);
                  
-                //echo "Error de logueo";
+     
+                  $this->crearLogin();
+                //echo "Usario identificado";
+                //llamamos funcion de abajo
+                $this->main();
 
 
             }elseif ($resultado2 == 1) { // Error: usuario o contraseña no existen
@@ -52,13 +56,40 @@
              //$data["listaUsuarios"] = $this->AdministradorModel->getAll();
             //$data["listaEditoriales"] = $this->EditorialesModel->getAll();
             //$this->load->view("EditorialAjax.php", $data);
-                 $data["nombreVista"] = "VistaAdministrador";
-             $this->load->view("plantilla", $data);
+                // $data["nombreVista"] = "VistaAdministrador";
+             //$this->load->view("plantilla", $data);
+                // $this->load->view("EntradaLogin");
+
+
+
 
      }
      
  
 }
+
+     public function main() {
+
+        //Comprobamos que entre , y le pasamos la vista main menu
+        if($this->security_check()){
+              //$nombre = $this->input->get_post("nombre");
+            //$pass = $this->input->get_post("password");
+            //vamos a usuarios model para mirar que este el id
+            //$resultado = $this->usuariosModel->prueba($nombre,$pass);
+
+              $data["nombreVista"] = "VistaAdministrador";
+             $this->load->view("plantilla", $data);
+                 //$this->cerrar_sesion();
+               
+
+         
+
+       
+
+            }
+
+
+     }
 
 }
 
