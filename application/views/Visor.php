@@ -101,6 +101,7 @@
 						$( document ).keydown( function(e) {
 							if(!cambiar)return false;
 
+						
 							setTimeout(function(){
 								cambiar=true;
 							}, 800);
@@ -111,7 +112,8 @@
 									left : 37,
 									up : 38,
 									right : 39,
-									down : 40
+									down : 40,
+									enter : 13
 								};
 
 							switch (keyCode) {
@@ -127,6 +129,7 @@
 										document.querySelector(nodo).dispatchEvent(new CustomEvent('wheelzoom.reset'));
 										config.$bookBlock.bookblock( 'prev' );
 									}
+									
 									break;
 									
 								case arrow.right:
@@ -142,8 +145,23 @@
 										config.$bookBlock.bookblock( 'next' );
 									}
 									
-									
 									break;
+									
+								case arrow.enter:
+									nodo="img.zoom"+pagina;
+									document.querySelector(nodo).dispatchEvent(new CustomEvent('wheelzoom.reset'));
+									actual=$("#pagina").val();
+								if( (actual>=1) &&(actual<=paginaTotal)){
+									$("#pagina").val(actual);		
+									config.$bookBlock.bookblock('jump', actual);
+								}							
+									cambiar=true;
+								break;
+
+								default:
+									cambiar=true;
+									
+								break;
 							}
 						} );
 					};
@@ -172,7 +190,7 @@
 				<div class="bb-custom-wrapper">
 					<div id="bb-bookblock" class="bb-bookblock">
 					<?php 
-					for ($i = 1; $i < count(glob('assets/libros/12/{*.jpg,*.gif,*.png}',GLOB_BRACE)); $i++) {
+					for ($i = 1; $i <count(glob('assets/libros/12/{*.jpg,*.gif,*.png}',GLOB_BRACE))-1; $i++) {
 						
 						echo"<div class='bb-item zoom$i'>
 								<img class='zoom$i' id='m$i' src=".base_url("assets/libros/12/$i.jpg")." />
@@ -203,4 +221,5 @@
   Asi se cuenta el total de libros 
     $total_imagenes = count(glob('assets/libros/12/{*.jpg,*.gif,*.png}',GLOB_BRACE));
     echo "total_imagenes = ".$total_imagenes;
+	contraseñas sa1 scriptar un script en php forma mas normal
  -->
