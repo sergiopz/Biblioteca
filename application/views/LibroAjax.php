@@ -46,7 +46,7 @@ $("document").ready(function() {
 
 } );
 </script>
-<button><?php echo anchor("Libros/salir", "salir", ""); ?></button>
+
 
  <button><?php echo anchor("Libros", "Mostrar libros", ""); ?></button>
 

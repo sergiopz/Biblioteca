@@ -99,6 +99,10 @@
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down categoria">Categorias</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down editorial">Editorial</a></li>
         
+        
+      </ul>
+      <ul class="right">
+        <?php echo "<li><a  href='".site_url("Libros/salir")."' class=' waves-effect waves-light btn-small #8c9eff indigo accent-1 white-text z-depth-1 '><i class='material-icons right' title='Cerrar Sesion'>exit_to_app</i>Cerrar Sesión</a></li>";?>
       </ul>
       
       <ul class=" hide-on-med-and-up show-on-medium-and-down">
@@ -112,7 +116,7 @@
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 libro" style="color:white">Libros</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 categoria" style="color:white">Categorias</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 editorial" style="color:white">Editorial</a></li>
-       
+      
       </ul>
     </div>
   </nav>
