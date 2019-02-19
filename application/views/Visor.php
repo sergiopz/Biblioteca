@@ -171,16 +171,18 @@
 			})();
 			
 			Page.init();
-
-	
-			
-
-
 		});
  
   </script>
+
 	</head>
 	<body>
+	<?php 
+		$data = getimagesize("assets/libros/12/1.jpg");
+		$width = $data[0];
+		$height = $data[1];
+		$ancho =1050;
+	?>
 	
 		<div class="container">
 			<header>
@@ -190,10 +192,11 @@
 				<div class="bb-custom-wrapper">
 					<div id="bb-bookblock" class="bb-bookblock">
 					<?php 
+					
 					for ($i = 1; $i <count(glob('assets/libros/12/{*.jpg,*.gif,*.png}',GLOB_BRACE))-1; $i++) {
 						
 						echo"<div class='bb-item zoom$i'>
-								<img class='zoom$i' id='m$i' src=".base_url("assets/libros/12/$i.jpg")." />
+								<img class='zoom$i' id='m$i' src=".base_url("assets/libros/12/$i.jpg")." width='$ancho+'px' height='530px' />
 							</div>
 						";
 					}
