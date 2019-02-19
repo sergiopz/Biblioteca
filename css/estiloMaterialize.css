@@ -157,3 +157,38 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
       background:#536DFE;
       background-color:#536DFE;
     }
+
+    .tamañoSubmit{
+      
+      height: 50px;
+      max-width: 75px;
+    }
+    .centrarBotones{
+      margin-left:6.5%;
+    }
+    .bajarBotones{
+      margin-top:100%;
+    }
+    .elementoInvisible {
+      width:1px;
+    }
+    .botonFile{
+      margin-top:100%;
+    }
+    .subidaImagen{
+      margin-top: 160px;
+    }
+    .subir{
+      padding-left:17px;
+      padding-right: 17px;
+      padding-top:20px;
+
+      background: #2BBBAD;
+      color:#fff;
+      border:0px solid #fff;
+  }
+   
+  .subir:hover{
+      color:#fff;
+      background: #f7cb15;
+  }
