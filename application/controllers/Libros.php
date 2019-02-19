@@ -276,6 +276,13 @@ public function showintadmin($id){
       public function cambiarDerecha($id_libro,$num_pag){
         if($this->security_check()){
 
+             $total_imagenes = count(glob('assets/libros/9/{*.jpg,*.gif,*.png}',GLOB_BRACE));
+
+
+            if ($num_pag<$total_imagenes) {
+                # code...
+            
+
                 
         
                  $oldDir="assets/libros/$id_libro/".($num_pag+1).".jpg";
@@ -293,10 +300,15 @@ public function showintadmin($id){
                     rename($oldDir,$newDir);
                
         }
+      }
     }
 
          public function cambiarIzquierda($id_libro,$num_pag){
             if($this->security_check()){
+
+                if ($num_pag!=1) {
+                    # code...
+                
                 
         
                  $oldDir="assets/libros/$id_libro/".($num_pag-1).".jpg";
@@ -312,7 +324,7 @@ public function showintadmin($id){
                      $oldDir="assets/libros/$id_libro/fotoCambio.jpg";
                     $newDir="assets/libros/$id_libro/".$num_pag.".jpg";
                     rename($oldDir,$newDir);
-               
+            }   
         }
     }
 
@@ -320,80 +332,52 @@ public function showintadmin($id){
 
             public function UploadPaginas(){
                 if($this->security_check()){
-            $total_imagenes = count(glob('assets/libros/9/{*.jpg,*.gif,*.png}',GLOB_BRACE));
-                 $pagina = $this->input->get_post("pagina");
-                 $id=9;
-
-            
-
-              
-                $resultado_subida = $this->LibrosModel->subirImagenPelicula($id);
-                if ($resultado_subida["codigo"] == 1) {
-                    // Éxito
-                    $img_name=$resultado_subida["mensaje"];
-                    echo $img_name;
-                    //var_dump($img_name);
-
-
+                         $total_imagenes = count(glob('assets/libros/9/{*.jpg,*.gif,*.png}',GLOB_BRACE));
+                         $pagina = $this->input->get_post("pagina");
+                         $id=9;
 
                     
-               
-               for($i=$total_imagenes;$i>=$pagina;$i--){
-                    $oldDir="assets/libros/9/".$i.".jpg";
-                    $newDir="assets/libros/9/".($i+1).".jpg";
-                    rename($oldDir,$newDir);
-                }
 
-                    //$cambio = count(glob('assets/libros/9/{*.jpg,*.gif,*.png}',GLOB_BRACE));
-
-
-                    $oldDir="assets/libros/9/".$img_name;
-                    $newDir="assets/libros/9/".$pagina.".jpg";
-                    rename($oldDir,$newDir);
-
-                 //$this->SustitucionPagina($img_name, $pagina);
-                  //$this->SustitucionPagina($img_name, $pagina);
+                      
+                        $resultado_subida = $this->LibrosModel->subirImagenPelicula($id);
+                        if ($resultado_subida["codigo"] == 1) {
+                            // Éxito
+                            $img_name=$resultado_subida["mensaje"];
+                            echo $img_name;
+                            //var_dump($img_name);
 
 
-                  
 
-                } else {
-                    // Fallo
-                    $data["mensaje"] = "Error al subir la imagen de la película";
- 
+                            
+                       
+                       for($i=$total_imagenes;$i>=$pagina;$i--){
+                            $oldDir="assets/libros/9/".$i.".jpg";
+                            $newDir="assets/libros/9/".($i+1).".jpg";
+                            rename($oldDir,$newDir);
+                        }
 
-                }
+                            //$cambio = count(glob('assets/libros/9/{*.jpg,*.gif,*.png}',GLOB_BRACE));
+
+
+                            $oldDir="assets/libros/9/".$img_name;
+                            $newDir="assets/libros/9/".$pagina.".jpg";
+                            rename($oldDir,$newDir);
+
+                         //$this->SustitucionPagina($img_name, $pagina);
+                          //$this->SustitucionPagina($img_name, $pagina);
+
+
+                          
+
+                        } else {
+                            // Fallo
+                            $data["mensaje"] = "Error al subir la imagen de la película";
+         
+
+                        }
 
             }
                 
-               
-         
-     }
-
-
-         public function SustitucionPagina($img_name, $pagina){
-            if($this->security_check()){
-                    $oldDir="assets/libros/9/". $img_name.".jpg";
-                    $newDir="assets/libros/9/".$pagina.".jpg";
-                    rename($oldDir,$newDir);
-
-         }
-     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      }
 
 }
