@@ -2,7 +2,7 @@
 
 include "fpdf/fpdf.php";
 
-$pdf = new FPDF('P','mm',array(150,300));
+$pdf = new FPDF('L','mm',array(150,100));
 //PAGINA
 //37.79 MEDIDA
 
@@ -19,8 +19,8 @@ $pdf = new FPDF('P','mm',array(150,300));
  for($i=1;$i<$total_imagenes ;$i++){
 
 $pdf->AddPage();
-$pdf->Image('assets/libros/12/'.$i.'.jpg',0,0, 210 , 250);
-//IMAGEN
+$pdf->Image('assets/libros/12/'.$i.'.jpg',0,0, 150 , 100);
+//IMAGEN eje x eje y anchura y altura
 
 }
 
