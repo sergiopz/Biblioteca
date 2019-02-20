@@ -332,8 +332,10 @@ public function showintadmin($id){
 
             public function UploadPaginas(){
                 if($this->security_check()){
+
                          $total_imagenes = count(glob('assets/libros/9/{*.jpg,*.gif,*.png}',GLOB_BRACE));
                          $pagina = $this->input->get_post("pagina");
+                         echo $pagina;
                          $id=9;
 
                     

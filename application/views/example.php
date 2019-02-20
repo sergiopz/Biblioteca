@@ -10,7 +10,7 @@ $pdf = new FPDF();
  for($i=1;$i<$total_imagenes ;$i++){
 
 $pdf->AddPage();
-$pdf->Image('assets/libros/12/'.$i.'.jpg',0,0, 210 , 297);
+$pdf->Image('assets/libros/12/'.$i.'.jpg',0,0, 210 , 277);
 
 }
 
