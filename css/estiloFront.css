@@ -1,0 +1,195 @@
+#logo{
+    width: 43px;
+    height: 50px;
+}
+
+.barraNavegacion{
+    height: 170px;
+    background-image: url("http://localhost/biblioteca/imgs/utilidadesFront/oldBooks.jpg");
+    background-size:100%;
+}
+
+.elementosNav{
+    font-size: 30px;
+    color:white !important;
+    text-shadow: 0.5px 1px 1px black !important;
+}
+
+.barraSuperiorEInferior{
+    background: #3B3429;
+}
+
+.botonCerrar{
+    color: #3B3429;
+}
+
+.contenidoModal{
+    margin-left:15%;
+    padding-bottom: 3%;
+}
+.cabeceraModal{
+    background: #23272B ; 
+    color:#DC3545;
+    
+}
+.pieModal{
+    background: rgb(134, 191, 230);
+    background-image: url("recorteLibro.png");
+}
+
+#fixed-sidebar {
+    position: fixed;
+    max-width: 20%;
+    color: white;
+}
+
+.colorFooter{
+    background: rgb(99, 99, 201);
+}
+
+.tamañoModal{
+    overflow-y: scroll;
+    max-height: 500px;
+}
+img{
+    width: 200px;
+    height: 350px;
+}
+
+body{
+    background: #6c77d4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #6c77d4, #cc2135);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #6c77d4, #cc2135); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+  }
+.transparencia{
+    background:rgba(0, 0, 0, 0.644);
+}
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+#buscador{
+    width: 700px;
+}
+/*Slider*/
+
+.slick-slide {
+    margin: 0px 20px;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-slider
+{
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+            user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+.liBuscador{
+    list-style:none;
+}
