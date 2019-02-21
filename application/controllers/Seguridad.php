@@ -33,7 +33,8 @@
         public function cerrar_sesion() {
             $this->load->library("session");
             $this->session->sess_destroy();
-            $this->load->view("EntradaLogin");
+            $data["nombreVista"] = "homeFront";
+            $this->load->view("plantillaFront", $data);
         }
     
     }
