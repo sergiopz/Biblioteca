@@ -18,27 +18,18 @@
     <title>Front</title>
 </head>
 <body class="imgFondo">
-    <nav class="navbar navbar-expand-lg navbar-light   barraNavegacion">
-    
+    <nav id="barrasuperior" class="navbar navbar-expand-lg navbar-light">
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <img id="logo" class="nav-link" src="https://iescelia.org/web/wp-content/uploads/2015/05/escudo.png">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link elementosNav" href="#">Libros</a>
+                    <a class="nav-link elementosNav" href="">Libros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link elementosNav" href="#">Uwu</a>
+                    <a class="nav-link elementosNav" href="">Uwu</a>
                 </li>
-            </ul>
-            <ul class="navbar-center">
-              <li class="nav-content liBuscador">
-                <form class="form-inline">
-                  <input id="buscador" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                 <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-                </form>
-              </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <button class="form-control mr-sm-2 btn-dark"  data-toggle="modal" data-target="#modalInicio" >Iniciar Sesion</button>
@@ -46,6 +37,21 @@
             </form>
         </div>
     </nav>
+    <nav class="navbar navbar-expand-lg navbar-light barraNavegacion" style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondo.jpg')">
+    
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        
+        <ul class="navbar-center">
+          <li class="nav-content liBuscador">
+            <form class="form-inline">
+              <input id="buscador" class="form-control mr-sm-2" type="search" placeholder="Titulo, autor, categoria..." aria-label="Search">
+             <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+            </form>
+          </li>
+        </ul>
+
+    </div>
+</nav>
 
     <div class="row">
     
@@ -84,7 +90,7 @@
             </div>
             
             <!-- Modal footer -->
-            <div class="modal-footer pieModal">
+            <div class="modal-footer pieModal" style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/recorteLibro.png')">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
             
@@ -104,37 +110,37 @@
             
             <!-- Modal body -->
             <div class="modal-body">
-                <form>
+            <?php echo form_open("envio_email/nuevo_usuario") ?>
                     <div class="form-group">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" placeholder="Nombre" required>
+                        <input type="text" class="form-control" name="nombre" placeholder="Nombre" <?php echo set_value('nombre') ?> required>
                     </div>
 
                     <div class="form-group">
                         <label>Apellidos</label>
-                        <input type="text" class="form-control" placeholder="Apellidos" required>
+                        <input type="text" class="form-control" name="apellidos" placeholder="Apellidos"<?php echo set_value('apellidos') ?> required>
                     </div>
 
                     <div class="form-group">
                         <label class="estiloLabel">Nombre de Usuario</label>
-                        <input type="text" class="form-control" placeholder="Nombre de usuario" required>
+                        <input type="text" name="nick" class="form-control" <?php echo set_value('nick') ?> placeholder="Nombre de usuario" required>
                     </div>
 
                     <div class="form-group">
                         <label >E-mail</label>
-                        <input type="email" class="form-control" placeholder="E-mail" required>
+                        <input type="email" name="correo" class="form-control" <?php echo set_value('correo') ?> placeholder="E-mail" required>
                     </div>
 
                     <div class="form-group">
                         <label class="estiloLabel">Teléfono</label>
                         <div class="row"></div>
-                        <input type="text" class="form-control" placeholder="Teléfono" pattern="^[9|8|7|6]\d{8}$" required>
+                        <input type="text" class="form-control" name="telefono" <?php echo set_value('telefono') ?> placeholder="Teléfono" pattern="^[9|8|7|6]\d{8}$" required>
                     </div>
 
                     <div class="form-group">
                         <label class="estiloLabel">Contraseña</label>
                         <div class="row"></div>
-                        <input type="password" class="form-control" placeholder="Contraseña" required>
+                        <input type="password" name="contrasena" class="form-control"  placeholder="Contraseña" <?php echo set_value('contrasena') ?> required>
                     </div>
 
                     <div class="center">
@@ -147,7 +153,7 @@
             </div>
             
             <!-- Modal footer -->
-            <div class="modal-footer pieModal">
+            <div class="modal-footer pieModal" style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/recorteLibro.png')">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
             
