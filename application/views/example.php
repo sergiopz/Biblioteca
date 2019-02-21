@@ -8,7 +8,7 @@ $data = getimagesize("assets/libros/12/1.jpg");
 
 	/*Creamos unas hojas del pdf en cm con la medida transformada en cm a 300 ppt //1 cm a 300 ppp = 118,11 px 
 	ajustamos el ancho y el alto de las imagenes al contenedor y a la portada y contraportada le hacemos
-	un ajuste de posicion al total del contenedor para que se quede en mitad*/
+	un ajuste de posicion al total del contenedor para que se quede en mitad ya que estas son de menor ancho*/
 		$pdf = new FPDF('L','cm',array($width , $height));
 
 		$total_imagenes = count(glob('assets/libros/12/{*.jpg,*.gif,*.png}',GLOB_BRACE));
