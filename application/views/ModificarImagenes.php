@@ -81,13 +81,27 @@
        
         echo "
         <div class='subidaImagen'>
-         <input type='text' hidden readonly name='pagina' value='".$i."'/>
+        <input type='text' hidden readonly name='idlibro' value='".$id."'/>
+        <input type='text' hidden readonly name='pagina' value='".$i."'/>
        
       <label for='file-upload' class='subir'>
         <i class='material-icons'>add_circle</i>
+
+
       </label>
-      <input id='file-upload' onchange='cambiar()' type='file' name='files' style='display: none;'/>
+
+
+
+      <input type='file' name='files' />
       <div id='info'></div>
+
+
+
+
+
+
+
+
        
         <button class='btn waves-effect waves-light' type='submit' name='files'>Go!</button>
         </div>

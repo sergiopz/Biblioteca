@@ -265,6 +265,15 @@ public function showintadmin($id){
                 }
             }
 
+
+                     
+          // header("location:ModificarImagenes.php");
+
+
+                 //  $datos["id"]=9;
+
+              // $this->load->view("ModificarImagenes",$datos);
+
         }
 
 
@@ -276,7 +285,7 @@ public function showintadmin($id){
       public function cambiarDerecha($id_libro,$num_pag){
         if($this->security_check()){
 
-             $total_imagenes = count(glob('assets/libros/9/{*.jpg,*.gif,*.png}',GLOB_BRACE));
+             $total_imagenes = count(glob('assets/libros/$id_libro/{*.jpg,*.gif,*.png}',GLOB_BRACE));
 
 
             if ($num_pag<$total_imagenes) {
@@ -324,7 +333,15 @@ public function showintadmin($id){
                      $oldDir="assets/libros/$id_libro/fotoCambio.jpg";
                     $newDir="assets/libros/$id_libro/".$num_pag.".jpg";
                     rename($oldDir,$newDir);
-            }   
+            }
+
+          
+                   //$datos["id"]=$id_libro;
+
+
+
+            //$this->load->view("ModificarImagenes",$datos);
+            
         }
     }
 
@@ -333,10 +350,14 @@ public function showintadmin($id){
             public function UploadPaginas(){
                 if($this->security_check()){
 
+
+
                          $total_imagenes = count(glob('assets/libros/9/{*.jpg,*.gif,*.png}',GLOB_BRACE));
                          $pagina = $this->input->get_post("pagina");
+                         $id = $this->input->get_post("idlibro");
+
                          echo $pagina;
-                         $id=9;
+                        
 
                     
 
@@ -353,20 +374,22 @@ public function showintadmin($id){
                             
                        
                        for($i=$total_imagenes;$i>=$pagina;$i--){
-                            $oldDir="assets/libros/9/".$i.".jpg";
-                            $newDir="assets/libros/9/".($i+1).".jpg";
+                            $oldDir="assets/libros/".$id."/".$i.".jpg";
+                            $newDir="assets/libros/".$id."/".($i+1).".jpg";
                             rename($oldDir,$newDir);
                         }
 
                             //$cambio = count(glob('assets/libros/9/{*.jpg,*.gif,*.png}',GLOB_BRACE));
 
 
-                            $oldDir="assets/libros/9/".$img_name;
-                            $newDir="assets/libros/9/".$pagina.".jpg";
+                            $oldDir="assets/libros/".$id."/".$img_name;
+                            $newDir="assets/libros/".$id."/".$pagina.".jpg";
                             rename($oldDir,$newDir);
 
                          //$this->SustitucionPagina($img_name, $pagina);
                           //$this->SustitucionPagina($img_name, $pagina);
+
+
 
 
                           

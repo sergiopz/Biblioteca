@@ -10,6 +10,17 @@
         }
 
 
+              public function index() {
+
+
+                 $this->load->view("VistaLibro.php");
+
+
+
+              }
+
+
+
        
     //Funcion que carga la vista de editoriales y sus datos
         public function VistaAjax() {

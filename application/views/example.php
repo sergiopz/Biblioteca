@@ -1,42 +1,26 @@
 <?php
-
 include "fpdf/fpdf.php";
+//Sacamos el ancho y alto de una imagen como referencia
+$data = getimagesize("assets/libros/12/1.jpg");
+	$width = $data[0]/118.11;	
+	$height = $data[1]/118.11;
+	
 
-$pdf = new FPDF('L','mm',array(150,100));
-//PAGINA
-//37.79 MEDIDA
+	/*Creamos unas hojas del pdf en cm con la medida transformada en cm a 300 ppt //1 cm a 300 ppp = 118,11 px 
+	ajustamos el ancho y el alto de las imagenes al contenedor y a la portada y contraportada le hacemos
+	un ajuste de posicion al total del contenedor para que se quede en mitad ya que estas son de menor ancho*/
+		$pdf = new FPDF('L','cm',array($width , $height));
 
-
-//$data = getimagesize("assets/libros/9/1.jpg");
-	//	$width = $data[0];
-		//$height = $data[1];
-
-//if($width)		
-		
-
-
- $total_imagenes = count(glob('assets/libros/12/{*.jpg,*.gif,*.png}',GLOB_BRACE));
- for($i=1;$i<$total_imagenes ;$i++){
-
-$pdf->AddPage();
-$pdf->Image('assets/libros/12/'.$i.'.jpg',0,0, 150 , 100);
-//IMAGEN eje x eje y anchura y altura
-
-}
-
-//IMAGE (RUTA,X,Y,ANCHO,ALTO,EXTEN)
-
-//$pdf->MultiCell(190,40, $pdf->Image($url_imagen, $pdf->GetX()+40, $pdf->GetY()+3, 100) ,0,"C");
-
-
-
-
-
-
-
-
-
+		$total_imagenes = count(glob('assets/libros/12/{*.jpg,*.gif,*.png}',GLOB_BRACE));
+		for($i=0;$i<$total_imagenes ;$i++){
+			if(($i==0)||($i==count(glob('assets/libros/12/{*.jpg,*.gif,*.png}',GLOB_BRACE))-1)){
+				$pdf->AddPage();
+				
+				   $pdf->Image('assets/libros/12/'.$i.'.jpg', $width/4,0,  $width/2 , $height);
+			}else{
+		   $pdf->AddPage();
+		   $pdf->Image('assets/libros/12/'.$i.'.jpg',0,0, $width , $height);
+			}
+		}
 $pdf->output();
-
-
 ?>
