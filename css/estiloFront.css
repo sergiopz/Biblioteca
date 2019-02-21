@@ -14,8 +14,11 @@
 
 .elementosNav{
     font-size: 30px;
-    color:white !important;
+    color:#E84A4C !important;
     text-shadow: 0.5px 1px 1px black !important;
+}
+.btnLog{
+    color:#E84A4C;    
 }
 
 .barraSuperiorEInferior{
@@ -78,7 +81,8 @@ body{
     height:50px;
 }
 #buscador:focus{
-
+    border-color:#E84A4C;
+    box-shadow: 0 0 0 0.5px #E84A4C;
 }
 /*Slider*/
 

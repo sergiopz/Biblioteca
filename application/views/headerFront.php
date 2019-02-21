@@ -32,8 +32,8 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <button class="form-control mr-sm-2 btn-dark"  data-toggle="modal" data-target="#modalInicio" >Iniciar Sesion</button>
-                <button class="form-control mr-sm-2 btn-dark"  data-toggle="modal" data-target="#modalRegistro" >Registrarse</button>
+                <button class="form-control mr-sm-2 btn-dark btnLog"  data-toggle="modal" data-target="#modalInicio" >Iniciar Sesion</button>
+                <button class="form-control mr-sm-2 btn-dark btnLog"  data-toggle="modal" data-target="#modalRegistro" >Registrarse</button>
             </form>
         </div>
     </nav>
@@ -72,9 +72,6 @@
                 <?php echo form_open("Administrador/ComprobarUsuario");?>
                     <div class="form-group">
                         <label>Usuario</label>
-
-                       
-
                         <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
                     </div>
 
