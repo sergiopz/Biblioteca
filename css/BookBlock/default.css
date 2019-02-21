@@ -44,7 +44,7 @@ a img {
 .main,
 .container > header {
 	margin: 0 auto;
-	padding: 2em;
+	padding: 1.5em;
 }
 
 .container {
@@ -98,8 +98,7 @@ a img {
 
 /* To Navigation Style */
 .codrops-top {
-	background: #fff;
-	background: rgba(255, 255, 255, 0.6);
+	background: red;
 	text-transform: uppercase;
 	width: 100%;
 	font-size: 0.69em;
@@ -114,7 +113,7 @@ a img {
 }
 
 .codrops-top a:hover {
-	background: rgba(255,255,255,0.95);
+	background: red;
 	color: #333;
 }
 
@@ -169,7 +168,7 @@ a img {
 	display: inline-block;
 	margin: 0.2em;
 	padding: 0.45em 1em;
-	background: #999;
+	background: red;
 	color: #fff;
 	font-weight: 700;
 	border-radius: 2px;
@@ -194,7 +193,7 @@ a img {
 /* Demo Styles */
 
 .demo-1 body {
-	color: #87968e;
+	color: black;
 	background: #fff2e3;
 }
 
@@ -294,4 +293,8 @@ a img {
 		display: none;
 	}
 
+}
+
+header.cabecera{
+	background-color:rgba(207, 166, 132, 0.411);
 }
