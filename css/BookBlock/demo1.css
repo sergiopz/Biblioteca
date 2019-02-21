@@ -89,3 +89,13 @@
 .no-js .bb-custom-content {
 	height: 690px;
 }
+
+.bb-custom-wrapper nav input{
+	width: 30px;
+	height: 30px;
+	background: black;
+	text-align: center;
+	border-radius: 2px;
+	color: #fff;
+	margin: 2px;
+}

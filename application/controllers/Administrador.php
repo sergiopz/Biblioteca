@@ -13,7 +13,8 @@
         //cargamos vista
 
         public function Index() {
-            $this->load->view("EntradaLogin");
+          $data["nombreVista"] = "homeFront";
+          $this->load->view("plantillaFront", $data);
         }
 
         public function ComprobarUsuario() {
