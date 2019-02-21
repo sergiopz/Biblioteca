@@ -41,6 +41,7 @@
 			
 			$arrayPag = scandir($directorio);
 			$num_pag = count($arrayPag)-1;
+      echo $num_pag;
 
 			
 			for($i = 1;$i<$num_pag;$i++){
@@ -73,18 +74,19 @@
 
   echo "
       
-  <input type='text' hidden readonly name='pagina' value='1'/>
+ 
 
       <div class='col m1 s6 '>";
         echo form_open_multipart('Libros/UploadPaginas');
        
         echo "
         <div class='subidaImagen'>
+         <input type='text' hidden readonly name='pagina' value='".$i."'/>
        
       <label for='file-upload' class='subir'>
         <i class='material-icons'>add_circle</i>
       </label>
-      <input id='file-upload' onchange='cambiar()' type='file' style='display: none;'/>
+      <input id='file-upload' onchange='cambiar()' type='file' name='files' style='display: none;'/>
       <div id='info'></div>
        
         <button class='btn waves-effect waves-light' type='submit' name='files'>Go!</button>
