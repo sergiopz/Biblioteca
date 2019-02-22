@@ -24,6 +24,7 @@
          //$usuario = $this->UsuariosModel->ComprobarUsuario($nick,$contrasena);
          //$datosUser = $this->UsuariosModel->ComprobarTipo($nick,$contrasena);
          //$idUser = $datosUser[0]['id'];
+         //Esos datos hay que pasarselo acrear login y en el array de logue in meterle todo
         
          
          //$tipo = $this->UsuariosModel->tipo($nick,$contrasena);
