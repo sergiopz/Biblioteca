@@ -28,7 +28,7 @@
         <div class="formulario">
             <h2>Iniciar Sesión</h2>
      <?php
-            echo form_open("Administrador/ComprobarUsuario");
+            echo form_open("Editorial/buscador");
      ?>
 
             

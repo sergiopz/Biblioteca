@@ -277,6 +277,13 @@ public function showintadmin($id){
         }
 
 
+                $datos["id"]=$id_libro;
+
+
+
+            $this->load->view("ModificarImagenes",$datos);
+
+
         
 
     }
@@ -392,14 +399,28 @@ public function showintadmin($id){
 
 
 
+
+
+
+
+
                           
 
                         } else {
                             // Fallo
-                            $data["mensaje"] = "Error al subir la imagen de la película";
+                           
          
 
                         }
+
+                        //$datos["id"]=$id;
+
+
+
+            //$this->load->view("ModificarImagenes",$datos);
+
+            redirect("http://localhost/biblioteca/index.php/libros/ModificarPaginas/9");
+
 
             }
                 

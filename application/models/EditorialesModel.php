@@ -35,4 +35,22 @@
         return $this->db->affected_rows();   
         }
 
+
+ public function consulta($valor) {
+           
+            
+            //$id = $this->db->query("SELECT * from libros where idInstituto=(select id from instituto WHERE nombre='$valor') or idEditorial=(select id from editorial WHERE nombre='$valor')"); 
+
+         $r = $this->db->query("SELECT id from libros where titulo ='$valor' or idInstituto=(select id from instituto WHERE nombre='$valor') or idEditorial=(select id from editorial WHERE nombre='$valor') union SELECT idLibro FROM librocategoria WHERE idCategoria =(select id from categoria where nombre='$valor') union SELECT idLibro FROM autoreslibros WHERE idAutor =(select id from autores where nombre= '$valor')"); 
+            
+               $busqueda=array();
+        foreach($r->result()as $editorial){
+            $busqueda[]=$editorial;
+            }
+        return $busqueda;     
+        }
+            
+        
+
+
 }

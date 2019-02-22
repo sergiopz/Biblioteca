@@ -19,6 +19,29 @@
 
               }
 
+                 public function buscador() {
+
+
+
+                    $valor = $this->input->get_post("buscador");
+                    echo $valor;
+
+
+              $data["listaBusqueda"]=$this->EditorialesModel->consulta($valor);
+                    $this->load->view("VistaDos.php", $data);
+               //echo $r;
+
+               //var_dump($data);
+
+
+               //$data=$r;
+
+            
+
+
+
+              }
+
 
 
        
