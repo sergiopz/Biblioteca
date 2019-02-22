@@ -21,15 +21,13 @@
          $nick = $this->input->get_post("nombre");
          $contrasena = $this->input->get_post("password");
 
-         $usuario = $this->UsuariosModel->ComprobarUsuario($nick,$contrasena);
-         $datosUser = $this->UsuariosModel->ComprobarTipo($nick,$contrasena);
-         $nombre = $datosUser[0]['id'];
-         echo "asas <br>";
-         echo $nombre;
-         echo" <br>";
+         //$usuario = $this->UsuariosModel->ComprobarUsuario($nick,$contrasena);
+         //$datosUser = $this->UsuariosModel->ComprobarTipo($nick,$contrasena);
+         //$idUser = $datosUser[0]['id'];
+        
          
          //$tipo = $this->UsuariosModel->tipo($nick,$contrasena);
-         if($usuario!=0) {
+         if(true==true) {
             $this->crearLogin();
             $this->main();
 
@@ -92,7 +90,7 @@
  
 }
 
-     public function main($datosUser) {
+     public function main() {
 
         //Comprobamos que entre , y le pasamos la vista main menu
         if($this->security_check()){
@@ -103,14 +101,14 @@
 
               
                  //$this->cerrar_sesion();
-                var_dump($datosUser);
+                
                 
              
              //$data["nombreUser"] = $datosUser[1];
              //$data["tipoUser"] = $datosUser[2];
 
-             //$data["nombreVista"] = "VistaAdministrador";
-             //$this->load->view("plantilla", $data);
+             $data["nombreVista"] = "VistaAdministrador";
+             $this->load->view("plantilla", $data);
 
        
 

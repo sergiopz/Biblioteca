@@ -22,9 +22,9 @@
         //$this->load->library("session"); esto es obligatorio llamar a la libreia
 
 
-        public function crearLogin($id,$nombre,$tipo) {
+        public function crearLogin() {
                 $this->load->library("session");
-                $session_logued = array('loguedIn' => TRUE,'id'=>$id);
+                $session_logued = array('loguedIn' => TRUE);
                 $this->session->set_userdata($session_logued);
         }
 

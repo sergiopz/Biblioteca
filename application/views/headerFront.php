@@ -69,7 +69,7 @@
             
             <!-- Modal body -->
             <div class="modal-body ">
-                <?php echo form_open("Administrador/ComprobarUsuario");?>
+                <?php echo form_open("Administrador/ComprobarUsuario2");?>
                     <div class="form-group">
                         <label>Usuario</label>
                         <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
