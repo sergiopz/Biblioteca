@@ -198,7 +198,7 @@
 	<!-- Todas las clases usadas son dictadas por la libreria BookBlock para realizar las animaciones de pasar de pagina,
 			 Las clases que no pertenecen a estas son las creadas dinamicamente como zoom1,zoom2... y los identificadores m1,m2...-->
 		<div class="container">
-			<header>
+			<header class="cabecera">
 				<h1>Nombre del Libro a elegir</h1>	
 			</header>
 			<div class="main clearfix">

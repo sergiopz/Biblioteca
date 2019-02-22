@@ -16,6 +16,28 @@
           $data["nombreVista"] = "homeFront";
           $this->load->view("plantillaFront", $data);
         }
+        //Esta es la que estamos haciendo
+        public function ComprobarUsuario2(){
+         $nick = $this->input->get_post("nombre");
+         $contrasena = $this->input->get_post("password");
+
+         //$usuario = $this->UsuariosModel->ComprobarUsuario($nick,$contrasena);
+         //$datosUser = $this->UsuariosModel->ComprobarTipo($nick,$contrasena);
+         //$idUser = $datosUser[0]['id'];
+         //Esos datos hay que pasarselo acrear login y en el array de logue in meterle todo
+        
+         
+         //$tipo = $this->UsuariosModel->tipo($nick,$contrasena);
+         if(true==true) {
+            $this->crearLogin();
+            $this->main();
+
+         }else{
+            echo "te equivocaste wey";
+           
+         }
+        }
+
 
         public function ComprobarUsuario() {
             
@@ -78,12 +100,16 @@
             //vamos a usuarios model para mirar que este el id
             //$resultado = $this->usuariosModel->prueba($nombre,$pass);
 
-              $data["nombreVista"] = "VistaAdministrador";
-             $this->load->view("plantilla", $data);
+              
                  //$this->cerrar_sesion();
-               
+                
+                
+             
+             //$data["nombreUser"] = $datosUser[1];
+             //$data["tipoUser"] = $datosUser[2];
 
-         
+             $data["nombreVista"] = "VistaAdministrador";
+             $this->load->view("plantilla", $data);
 
        
 

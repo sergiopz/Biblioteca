@@ -27,11 +27,32 @@ class UsuariosModel extends CI_Model{
            
         return $query->num_rows();
     }
+     
+//Prueba de funcion que te devuelve un array con el id el nombre y el tipo de la persona que se conecto
+    public function ComprobarTipo($nick,$contrasena){
+       
+        $r = $this->db->query(" SELECT id,nombre,tipo FROM usuarios WHERE nick='$nick' OR correo='$nick' AND contrasena='$contrasena' ");
+        
+    
+        return $r->result_array();  
+    }
+//Funcion que devuelve si un usuario existe en la tabla de datos
+    public function ComprobarUsuario($nick,$contrasena){
+        $query = $this->db->query(" SELECT id FROM usuarios WHERE nick='$nick' OR correo='$nick' AND contrasena='$contrasena' ");
+        return $query->num_rows();
+    }
+    //Funcion que te devuelve el tipo del usuario que se logueo
+    public function tipo($nick,$contrasena){
+        $r = $this->db->query("SELECT tipo FROM usuarios WHERE nick='$nick' OR correo='$nick' AND contrasena='$contrasena' ");
+        $a= $r->result_array();
+        return $a[0]['tipo'];
+    }
 
      public function __construct() {
             parent::__construct();
             $this->load->library("session");
         }
+
          public function getAll() {
            
             

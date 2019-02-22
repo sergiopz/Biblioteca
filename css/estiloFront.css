@@ -4,15 +4,21 @@
 }
 
 .barraNavegacion{
-    height: 170px;
-    background-image: url("http://localhost/biblioteca/imgs/utilidadesFront/oldBooks.jpg");
+    height: 500px;
     background-size:100%;
+}
+
+#barrasuperior{
+    background: #080804 ;
 }
 
 .elementosNav{
     font-size: 30px;
-    color:white !important;
+    color:#E84A4C !important;
     text-shadow: 0.5px 1px 1px black !important;
+}
+.btnLog{
+    color:#E84A4C;    
 }
 
 .barraSuperiorEInferior{
@@ -57,9 +63,9 @@ img{
 }
 
 body{
-    background: #6c77d4;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #6c77d4, #cc2135);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #6c77d4, #cc2135); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: white;  /* fallback for old browsers */
+   /* background: -webkit-linear-gradient(to left, #6c77d4, #cc2135);  /* Chrome 10-25, Safari 5.1-6 */
+   /* background: linear-gradient(to left, #6c77d4, #cc2135); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
   }
 .transparencia{
@@ -72,6 +78,11 @@ body{
 }
 #buscador{
     width: 700px;
+    height:50px;
+}
+#buscador:focus{
+    border-color:#E84A4C;
+    box-shadow: 0 0 0 0.5px #E84A4C;
 }
 /*Slider*/
 
