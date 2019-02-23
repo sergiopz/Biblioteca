@@ -1,5 +1,5 @@
      
-<footer class="page-footerfont-small blue pt-4 barraSuperiorEInferior">
+<footer class="page-footerfont-small blue pt-4 estiloPie">
 
 <div class="container-fluid text-center text-md-left">
 

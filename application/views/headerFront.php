@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="https://iescelia.org/web/wp-content/uploads/2015/05/escudo.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
@@ -17,7 +18,7 @@
 
     <title>Front</title>
 </head>
-<body class="imgFondo">
+<body style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondoweb.jpg')" class="imgFondo" >
     <nav id="barrasuperior" class="navbar navbar-expand-lg navbar-light">
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -25,10 +26,10 @@
                     <img id="logo" class="nav-link" src="https://iescelia.org/web/wp-content/uploads/2015/05/escudo.png">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link elementosNav" href="">Libros</a>
+                    <a class="nav-link elementosNav" href="#">Libros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link elementosNav" href="">Uwu</a>
+                    <a class="nav-link elementosNav" href="#">Uwu</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -140,7 +141,7 @@
                         <input type="password" name="contrasena" class="form-control"  placeholder="Contraseña" <?php echo set_value('contrasena') ?> required>
                     </div>
 
-                    <div class="center">
+                    <div class="">
                         <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
                     </div>
                     <div class="row contenidoModal">

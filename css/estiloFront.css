@@ -1,8 +1,19 @@
+*{
+    font-family: 'Roboto Slab', serif;
+}
 #logo{
     width: 43px;
     height: 50px;
 }
-
+#lastBooks{
+    color:#E2484A;
+    text-shadow: 3px 3px 2px #517EA8;
+}
+.imgFondo{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:100%;
+}
 .barraNavegacion{
     height: 500px;
     background-size:100%;
@@ -21,8 +32,22 @@
     color:#E84A4C;    
 }
 
-.barraSuperiorEInferior{
-    background: #3B3429;
+a:link{
+    color:#E84A4C;    
+
+}
+a:visited{
+    color:#E84A4C;
+}
+a:hover{
+    color:rgb(173, 20, 23);
+}
+
+
+
+.estiloPie{
+    color: white;
+    background:rgba(0, 0, 0, 0.637);
 }
 
 .botonCerrar{
@@ -69,7 +94,7 @@ body{
     
   }
 .transparencia{
-    background:rgba(0, 0, 0, 0.644);
+    background:rgba(0, 0, 0, 0.808);
 }
 .navbar-center {
     position: absolute;

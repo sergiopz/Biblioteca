@@ -1,6 +1,6 @@
 <content class="">
         <div class="row"><p></p></div>
-        <h2 class="display-1">Ultimos Libros</h2>
+        <h2 id="lastBooks" class="display-1 text-center">Últimos Libros</h2>
         <section class="slider1 slider">
           <div class="slide"><img clas="imagen" src="https://i.pinimg.com/originals/54/fc/91/54fc9110db41a427b521dde284c5155a.jpg"></div>
           <div class="slide"><img clas="imagen" src="https://i.pinimg.com/originals/0d/ee/e7/0deee7aa20d17c45c51bc68eb72f381a.jpg"></div>
@@ -11,9 +11,9 @@
           <div class="slide"><img clas="imagen" src=""></div>
        </section>
        <div class="row"><p></p></div>
+       <!--
        <h2 class="display-1">Autores</h2>
         <section class="slider2 slider">
-        
           <div class="slide"><img clas="imagen" src="Autores/255px-Shakespeare.jpg"></div>
           <div class="slide"><img clas="imagen" src="Autores/tolkien.jpg"></div>
           <div class="slide"><img clas="imagen" src="Autores/cervantes.jpg"></div>
@@ -35,7 +35,7 @@
           <div class="slide"><img clas="imagen" src="Portadas/dictar.jpg"></div>
           <div class="slide"><img clas="imagen" src="Portadas/masones.jpg"></div>
        </section>
-              
+             --> 
        <div class="row"><p></p></div>
 
       </content>
