@@ -21,19 +21,21 @@
          $nick = $this->input->get_post("nombre");
          $contrasena = $this->input->get_post("password");
 
-         //$usuario = $this->UsuariosModel->ComprobarUsuario($nick,$contrasena);
-         //$datosUser = $this->UsuariosModel->ComprobarTipo($nick,$contrasena);
-         //$idUser = $datosUser[0]['id'];
+         $usuario = $this->UsuariosModel->ComprobarUsuario($nick,$contrasena);
+         
          //Esos datos hay que pasarselo acrear login y en el array de logue in meterle todo
         
          
          //$tipo = $this->UsuariosModel->tipo($nick,$contrasena);
-         if(true==true) {
-            $this->crearLogin();
-            $this->main();
+         if($usuario!=0) {
+            $datosUser = $this->UsuariosModel->ComprobarTipo($nick,$contrasena);
+            $idUser = $datosUser[0]['id'];
 
+            $this->crearLogin($datosUser[0]['id'],$datosUser[0]['nombre'], $datosUser[0]['tipo']);
+            $this->main();
+            //echo "valores = " . $this->session->userdata('loguedIn');
          }else{
-            echo "te equivocaste wey";
+            $this->Index();
            
          }
         }
