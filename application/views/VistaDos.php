@@ -5,6 +5,7 @@
           //echo $bus->id;
 
                  echo "<img src='".base_url("assets/libros/".$bus->id."/1.jpg")."' >";
+                 echo $bus->titulo; 
              }
      ?>
 
