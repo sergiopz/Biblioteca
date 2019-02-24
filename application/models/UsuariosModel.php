@@ -22,9 +22,6 @@ class UsuariosModel extends CI_Model{
 
       public function ComprobarTipo2($nombre, $pass){
         $query = $this->db->query("SELECT id FROM usuarios WHERE nombre='$nombre' AND contrasena='$pass' and tipo='2'");
-
-            
-           
         return $query->num_rows();
     }
      
@@ -32,8 +29,6 @@ class UsuariosModel extends CI_Model{
     public function ComprobarTipo($nick,$contrasena){
        
         $r = $this->db->query(" SELECT id,nombre,tipo FROM usuarios WHERE nick='$nick' OR correo='$nick' AND contrasena='$contrasena' ");
-        
-    
         return $r->result_array();  
     }
 //Funcion que devuelve si un usuario existe en la tabla de datos
@@ -41,12 +36,7 @@ class UsuariosModel extends CI_Model{
         $query = $this->db->query(" SELECT id FROM usuarios WHERE nick='$nick' OR correo='$nick' AND contrasena='$contrasena' ");
         return $query->num_rows();
     }
-    //Funcion que te devuelve el tipo del usuario que se logueo
-    public function tipo($nick,$contrasena){
-        $r = $this->db->query("SELECT tipo FROM usuarios WHERE nick='$nick' OR correo='$nick' AND contrasena='$contrasena' ");
-        $a= $r->result_array();
-        return $a[0]['tipo'];
-    }
+
 
      public function __construct() {
             parent::__construct();
