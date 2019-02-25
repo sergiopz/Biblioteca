@@ -78,10 +78,16 @@
        echo "<div class='info'>
                      <tr  class='$categoria->id'>
                             <input hidden type='text' name='id' value='$categoria->id'>
-                            <td style='width:60%' class='colorFila'><P hidden>$categoria->nombre</p><input class='#ffffff ' type='text' name='nombre' value='$categoria->nombre'></td>
-                            <td class='colorFila'><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$categoria->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>
-                            <td class='colorFila'><a value='$categoria->id' class='btn-flat waves-effect waves-light #d32f2f red darken-2 white-text borrarcategoria' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>
-                     </tr>
+                            <td style='width:60%' class='colorFila'><P hidden>$categoria->nombre</p><input class='#ffffff ' type='text' name='nombre' value='$categoria->nombre'></td>";
+                     if($this->session->userdata('tipoUsuario')==0){
+                            echo"<td class='colorFila'><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$categoria->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";  
+                            echo"<td class='colorFila'><a value='$categoria->id' class='btn-flat waves-effect waves-light #d32f2f red darken-2 white-text borrarcategoria' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>";
+                     }else{
+                            echo"<td class='colorFila'><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar disabled' value='$categoria->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";  
+                            echo"<td class='colorFila'><a value='$categoria->id' class='btn-flat waves-effect waves-light #d32f2f red darken-2 white-text borrarcategoria disabled' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>";
+                     }
+
+              echo"</tr>
               </div>
        ";
        }

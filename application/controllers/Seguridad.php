@@ -8,8 +8,8 @@
         { 
             $this->load->library("session");
             if (!isset($this->session->loguedIn)){
-                echo("<script>alert('No tienes permiso para acceder a este sitio');</script>");
-                $this->load->view("formLogin");
+                $data["nombreVista"] = "homeFront";
+          $this->load->view("plantillaFront", $data);
 
                 return false;
             }else{

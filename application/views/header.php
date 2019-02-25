@@ -92,12 +92,26 @@
   <nav>
     <div class="nav-wrapper #616161 grey darken-2">
       <ul class="center">
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down usuarios" >Usuarios</a></li>
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down institutos">Institutos</a></li>
+      <?php  
+        if($this->session->userdata('tipoUsuario')==0){
+          echo"<li><a class='waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down usuarios' >Usuarios</a></li>";
+          echo "<li><a class='waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down institutos'>Institutos</a></li>";
+      }
+      ?>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down autor">Autores</a></li>
         <li><a href="<?php echo site_url('Libros/VistaAjax');?>" class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down libro">Libros</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down categoria">Categorias</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down editorial">Editorial</a></li>
+        <li><?php 
+  if($this->session->userdata('tipoUsuario')==0){
+    echo $this->session->userdata('nombreUsuario') ." (Administrador)";
+}else if($this->session->userdata('tipoUsuario')==1){
+    echo $this->session->userdata('nombreUsuario') ." (Bibliotecario)";
+}
+
+
+            ?>
+        </li>
         
         
       </ul>

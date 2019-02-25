@@ -15,20 +15,13 @@
 
         }
 
-
+/* FUNCION COMENTADA DE PRUEBA
         public function index() {
                if($this->security_check()){
-
-
-
-            
-            
-
-          
             $this->load->view("example");
         }
             
-        }
+        }*/
 
               public function salir() {
 
@@ -69,7 +62,12 @@
             $data["listaInstitutos"] = $this->InstitutosModel->getAll();
             $data["listaEditoriales"] = $this->EditorialesModel->getAll();           
             $data["listaUsuarios"] = $this->UsuariosModel->getAll();
-            $data["listaLibros"] = $this->LibrosModel->getAll();
+            if($this->session->userdata('tipoUsuario')==0){
+                $data["listaLibros"] = $this->LibrosModel->getAll();
+            }else if($this->session->userdata('tipoUsuario')==1){
+                $data["listaLibros"] = $this->LibrosModel->getLibros($this->session->userdata('idUsuario'));
+            }
+           
             $data["listaCategorias"] = $this->CategoriasModel->getAll();
             $data["listaAutoresLibros"] = $this->LibrosModel->getAutoresLibros();
             $data["listaLibrosCategorias"] = $this->LibrosModel->getLibrosCategorias();

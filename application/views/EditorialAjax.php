@@ -73,10 +73,16 @@
           echo "<div class='info'>
                 <tr class='$editorial->id'>
                   <input hidden type='text' name='id' value='$editorial->id'>
-                  <td class='colorFila 'style='width:60%'><p hidden>$editorial->nombre</p><input class='#ffffff' type='text' name='nombre' value='$editorial->nombre'></td>
-                  <td class='colorFila'><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$editorial->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>
-                  <td class='colorFila'><a value='$editorial->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>
-                </tr>
+                  <td class='colorFila 'style='width:60%'><p hidden>$editorial->nombre</p><input class='#ffffff' type='text' name='nombre' value='$editorial->nombre'></td>";
+                  if($this->session->userdata('tipoUsuario')==0){
+                    echo"   <td class='colorFila'><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$editorial->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
+                    echo"<td class='colorFila'><a value='$editorial->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>";
+                  }else{
+                    echo"   <td class='colorFila'><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar disabled' value='$editorial->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
+                    echo"<td class='colorFila'><a value='$editorial->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto disabled' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>";
+                  }
+
+          echo" </tr>
                 </div>
               ";
         }

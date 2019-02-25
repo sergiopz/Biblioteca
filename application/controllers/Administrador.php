@@ -33,7 +33,9 @@
 
             $this->crearLogin($datosUser[0]['id'],$datosUser[0]['nombre'], $datosUser[0]['tipo']);
             $this->main();
-            //echo "valores = " . $this->session->userdata('loguedIn');
+            //echo "valores = " . $this->session->userdata('tipoUsuario');
+            
+           
          }else{
             $this->Index();
            

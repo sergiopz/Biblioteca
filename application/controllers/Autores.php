@@ -1,12 +1,11 @@
 <?php
 //Controlador de Autores
-    include_once("seguridad.php");
-    class Autores extends seguridad {
+    include_once("Seguridad.php");
+    class Autores extends Seguridad {
         
         public function __construct() {
             parent::__construct();
             $this->load->model("AutoresModel");
-
         }
 
     //Funcion que carga la vista de autores y sus datos

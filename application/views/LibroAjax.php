@@ -81,8 +81,6 @@ $("document").ready(function() {
                 <?php
        for ($i = 0; $i < count($listaLibros); $i++) {
               $libro = $listaLibros[$i];
-
-       
        echo   "<div class='info'>
               <tr class='$libro->id'>
                      <input type='hidden' name='id' value='$libro->id' readonly>
@@ -274,7 +272,7 @@ $("document").ready(function() {
             </form>
         </div>";
 
-
+//Aqui cierra el for de libros
        } 
        ?>
 
