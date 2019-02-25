@@ -12,28 +12,17 @@
         public function buscador() {
 
             $valor = $this->input->get_post("buscador");
-            echo $valor;
 
             $data["listaBusqueda"]=$this->BuscadorModel->consulta($valor);
             //$this->load->view("VistaDos.php", $data);
 
-
-                 $data["nombreVista"] = "VistaDos";
-
+            $data["nombreVista"] = "VistaDos";
+            $data["tituloBuqueda"] = $valor;
           $this->load->view("plantillaFront", $data);
 
         }
 
 
-          public function buscador() {
-
-
-
-            //$this->load->view("visor.php", $data);
-
-
-
-          }
 
 
 
