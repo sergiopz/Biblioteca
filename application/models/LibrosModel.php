@@ -12,6 +12,17 @@
         }
         return $libros;     
     }
+    /*Funciones de tabla libros
+
+     Devolver todos los valores de la tabla libros*/
+     public function getLibros($idUsuario) {
+        $r = $this->db->query("SELECT * FROM libros WHERE idUsuario='$idUsuario'");
+        $libros=array();
+        foreach($r->result()as $libro){
+            $libros[]=$libro;
+        }
+        return $libros;     
+    }
 
     //Funcion que selecciona el maximo id y le suma 1 
     public function getMax(){
