@@ -10,41 +10,12 @@
         }
 
 
-              public function index() {
+        public function index() {
 
+            $this->load->view("VistaLibro.php");
 
-                 $this->load->view("VistaLibro.php");
-
-
-
-              }
-
-                 public function buscador() {
-
-
-
-                    $valor = $this->input->get_post("buscador");
-                    echo $valor;
-
-
-              $data["listaBusqueda"]=$this->EditorialesModel->consulta($valor);
-                    $this->load->view("VistaDos.php", $data);
-               //echo $r;
-
-               //var_dump($data);
-
-
-               //$data=$r;
-
-            
-
-
-
-              }
-
-
-
-       
+        }
+   
     //Funcion que carga la vista de editoriales y sus datos
         public function VistaAjax() {
             if($this->security_check()){

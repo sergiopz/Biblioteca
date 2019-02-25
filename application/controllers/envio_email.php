@@ -4,7 +4,7 @@ class Envio_email extends CI_Controller{
     function __construct(){
 
         parent::__construct();
-        $this->load->model('envioEmailModel');
+        $this->load->model('EnvioEmailModel');
 
     }
     /*function index()
@@ -15,23 +15,20 @@ class Envio_email extends CI_Controller{
     }*/
     function nuevo_usuario(){
        
-                //EN CASO CONTRARIO PROCESAMOS LOS DATOS
-                $nombre = $this->input->post('nombre');
-                $apellidos = $this->input->post('apellidos');
-                $nick = $this->input->post('nick');
-                $correo = $this->input->post('correo');
-                $telefono = $this->input->post('telefono');
-                $contrasena = $this->input->post('contrasena');
-                //ENVÍAMOS LOS DATOS AL MODELO CON LA SIGUIENTE LÍNEA
-                $insert = $this->envioEmailModel->new_user($nombre,$apellidos,$nick,$correo,$telefono,$contrasena);
+        $nombre = $this->input->post('nombre');
+        $apellidos = $this->input->post('apellidos');
+        $nick = $this->input->post('nick');
+        $contrasena = $this->input->post('contrasena');
+        $instituto = $this->input->post('instituto');
+        $correo = $this->input->post('correo');
+        $telefono = $this->input->post('telefono');
+                
+        
+                $insert = $this->envioEmailModel->new_user($nombre,$apellidos,$nick,$contrasena,$instituto,$correo,$telefono);
                 //si el modelo nos responde afirmando que todo ha ido bien, envíamos un correo
                 //al usuario y lo redirigimos al index, en verdad deberíamos redirigirlo al home de
                 //nuestra web para que puediera iniciar sesión
 
-                
-                
-              
-   
                 $config = Array(
 
                     'protocol' => 'sendmail',
