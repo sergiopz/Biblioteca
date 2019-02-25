@@ -15,7 +15,26 @@
             echo $valor;
 
             $data["listaBusqueda"]=$this->BuscadorModel->consulta($valor);
-            $this->load->view("VistaDos.php", $data);
+            //$this->load->view("VistaDos.php", $data);
+
+
+                 $data["nombreVista"] = "VistaDos";
+
+          $this->load->view("plantillaFront", $data);
 
         }
+
+
+          public function buscador() {
+
+
+
+            //$this->load->view("visor.php", $data);
+
+
+
+          }
+
+
+
     }

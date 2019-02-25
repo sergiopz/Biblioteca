@@ -100,7 +100,7 @@
                         <input type="file"  id="files" multiple>
                     </div>
                     <div class="file-path-wrapper ">
-                        <input class="file-path validate " type="text" placeholder="Sube una o mas imágenes en formato JPG o PNG">
+                        <input class="file-path validate " type="text" placeholder="Sube una o mas imágenes en formato JPG ">
                     </div>
                 </div>
             </form>
@@ -151,8 +151,8 @@
         for(count; count<files.length; count++){ 
             var name = files[count].name;
             var extension = name.split('.').pop().toLowerCase();
-            if(jQuery.inArray(extension, ['jpg','png','jpeg']) == -1){
-              $('#uploaded_images').append("<label class='text-success'> Se ha producido un error en la subida de tus ficheros. Archivo con extensión no válida ( solo jpg o png) </label>" );
+            if(jQuery.inArray(extension, ['jpg']) == -1){
+              $('#uploaded_images').append("<label class='text-success'> Se ha producido un error en la subida de tus ficheros. Archivo con extensión no válida ( solo jpg) </label>" );
             }else{
                 var formulario = new FormData();
                 formulario.append("files", files[count]);
