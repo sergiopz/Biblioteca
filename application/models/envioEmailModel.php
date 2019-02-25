@@ -1,5 +1,5 @@
 <?php 
-class envioEmailModel extends CI_Model
+class EnvioEmailModel extends CI_Model
 {
     public function construct()
     {
@@ -7,14 +7,16 @@ class envioEmailModel extends CI_Model
     }
     //realizamos la inserción de los datos y devolvemos el 
     //resultado al controlador para envíar el correo si todo ha ido bien
-    function new_user($nombre,$apellidos,$nick,$correo,$telefono,$contrasena){
+    function new_user($nombre,$apellidos,$nick,$contrasena,$instituto,$correo,$telefono){
         $data = array(
             'nombre' => $nombre,
             'apellidos' => $apellidos,
             'nick' => $nick,
+            'contrasena' => $contrasena,
+            'instituto' => $instituto,
             'correo' => $correo,
             'telefono' => $telefono,
-            'contrasena' => $contrasena
+            'tipo' => 3
         );
         return $this->db->insert('usuarios', $data);
     }

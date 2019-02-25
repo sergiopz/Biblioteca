@@ -127,7 +127,7 @@
 
          function subirImagenPelicula($id) {
                 $config['upload_path'] = './assets/libros/'.$id;
-                $config['allowed_types']        = 'gif|jpg|png';
+                $config['allowed_types']        = 'jpg';
                 $config['max_size']             = 100000;
                 $config['max_width']            = 10240;
                 $config['max_height']           = 7680;

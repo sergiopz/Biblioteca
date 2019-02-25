@@ -12,8 +12,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
     <link rel="stylesheet" href="<?php echo base_url('css/estiloFront.css');?>">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="<?php echo base_url('css/slick.css');?>">
+    <link rel="stylesheet" href="<?php echo base_url('/css/slick-theme.css');?>">
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/slick.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/frontJS.js"></script>
 
     <title>Front</title>
@@ -26,10 +27,10 @@
                     <img id="logo" class="nav-link" src="https://iescelia.org/web/wp-content/uploads/2015/05/escudo.png">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link elementosNav" href="#">Libros</a>
+                    <a class="nav-link elementosNav" href="#">Todos los libros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link elementosNav" href="#">Uwu</a>
+                    <a class="nav-link elementosNav" href="#">Categorias</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -44,10 +45,13 @@
         
         <ul class="navbar-center">
           <li class="nav-content liBuscador">
-            <form class="form-inline">
-              <input id="buscador" class="form-control mr-sm-2" type="search" placeholder="Titulo, autor, categoria..." aria-label="Search">
-             <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+            
+            <form name="formularioBuscador" action="<?php echo base_url(); ?>index.php/Buscador/buscador" class="form-inline" method="post" accept-charset="utf-8">
+
+              <input id="buscador" name="buscador" class="form-control mr-sm-2" type="search" placeholder="Titulo, autor, categoria..." aria-label="Search">
+
             </form>
+
           </li>
         </ul>
 
@@ -125,6 +129,19 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="estiloLabel">Contraseña</label>
+                        <div class="row"></div>
+                        <input type="password" name="contrasena" class="form-control"  placeholder="Contraseña" <?php echo set_value('contrasena') ?> required>
+                    </div>
+
+                    <div class="form-group">
+                        <label >Instituto</label>
+                        <input type="text" name="instituto" class="form-control" <?php echo set_value('instituto') ?> placeholder="Instituto" required>
+                    </div>
+
+
+
+                    <div class="form-group">
                         <label >E-mail</label>
                         <input type="email" name="correo" class="form-control" <?php echo set_value('correo') ?> placeholder="E-mail" required>
                     </div>
@@ -133,12 +150,6 @@
                         <label class="estiloLabel">Teléfono</label>
                         <div class="row"></div>
                         <input type="text" class="form-control" name="telefono" <?php echo set_value('telefono') ?> placeholder="Teléfono" pattern="^[9|8|7|6]\d{8}$" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="estiloLabel">Contraseña</label>
-                        <div class="row"></div>
-                        <input type="password" name="contrasena" class="form-control"  placeholder="Contraseña" <?php echo set_value('contrasena') ?> required>
                     </div>
 
                     <div class="">
