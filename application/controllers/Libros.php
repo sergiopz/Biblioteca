@@ -91,10 +91,11 @@
             $fecha = $this->input->get_post("fecha");
             $paginas = $this->input->get_post("paginas");
             $idInstituto= $this->input->get_post("idInstituto");
-            $idUsuario = $this->input->get_post("idUsuario");
+            $idUsuario = $this->session->userdata('idUsuario');
             $idEditorial = $this->input->get_post("idEditorial");
             $idAutor = $this->input->post('idAutor');
             $idCategoria = $this->input->post('idCategoria');
+
 
             $r=$this->LibrosModel->InsertarLibro($isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial);
 

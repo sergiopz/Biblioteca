@@ -324,21 +324,7 @@ $("document").ready(function() {
                     </select>
                     <label style="color:royalblue" for="idInstituto">IdInstituto</label>
                 </div>
-                <div class="input-field">
-                    <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
-                    <select name="idUsuario" id="idUsuario">
-                        <?php
-                                          for ($j = 0; $j < count($listaUsuarios); $j++) {
-                                           $usuario = $listaUsuarios[$j];
-                                                 if($j==0){
-                                          echo      "<option  value='$usuario->id' selected >$usuario->nombre</option> ";                      
-                                                  }else{
-                                          echo      "<option  value='$usuario->id'>$usuario->nombre</option> ";                  
-                                                  }
-                                          }?>
-                    </select>
-                    <label style="color:royalblue" for="idUsuario">Usuario</label>
-                </div>
+                
                 <div class="input-field">
                     <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
                     <select name="idEditorial" id="idEditorial">
