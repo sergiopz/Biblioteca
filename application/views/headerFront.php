@@ -16,15 +16,15 @@
     <link rel="stylesheet" href="<?php echo base_url('/css/slick-theme.css');?>">
     <script type="text/javascript" src="<?php echo base_url(); ?>js/slick.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/frontJS.js"></script>
-
     <title>Front</title>
 </head>
 <body style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondoweb.jpg')" class="imgFondo" >
+
     <nav id="barrasuperior" class="navbar navbar-expand-lg navbar-light">
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <img id="logo" class="nav-link" src="https://iescelia.org/web/wp-content/uploads/2015/05/escudo.png">
+                    <a href="<?php echo base_url(); ?>" ><img id="logo" class="nav-link" src="https://iescelia.org/web/wp-content/uploads/2015/05/escudo.png"></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link elementosNav" href="#">Todos los libros</a>
@@ -33,12 +33,13 @@
                     <a class="nav-link elementosNav" href="#">Categorias</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <button class="form-control mr-sm-2 btn-dark btnLog"  data-toggle="modal" data-target="#modalInicio" >Iniciar Sesion</button>
+            <form class="form-inline my-2 my-lg-0" action="#">
+                <button class="form-control mr-sm-2 btn-dark btnLog"   data-toggle="modal" data-target="#modalInicio" >Iniciar Sesion</button>
                 <button class="form-control mr-sm-2 btn-dark btnLog"  data-toggle="modal" data-target="#modalRegistro" >Registrarse</button>
             </form>
         </div>
     </nav>
+
     <nav class="navbar navbar-expand-lg navbar-light barraNavegacion" style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondo.jpg')">
     
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
@@ -57,6 +58,7 @@
 
     </div>
 </nav>
+
 
     <div class="row">
     

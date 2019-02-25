@@ -20,6 +20,8 @@ $(document).ready(function(){
         }]
     });
 
+    var alto_ventana = $(window).height();
+    $(".barraNavegacion").css("height",alto_ventana-50);
 
     function enviar_formulario(){
         document.formularioBuscador.submit()
@@ -34,5 +36,8 @@ $(document).ready(function(){
         }
 
     });
+
+  
+
 
 });
