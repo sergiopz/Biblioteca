@@ -10,7 +10,7 @@
           <div class='col-3'>
             <div class='card' style='width: 18rem;'>
 
-              <a href='".site_url("Buscador/Visor/$bus->id")."'><img class='card-img-top'  src='".base_url("assets/libros/".$bus->id."/0.jpg")."' ></a>
+              <a href=''><img class='card-img-top'  src='".base_url("assets/libros/".$bus->id."/1.jpg")."' ></a>
 
 					    <div class='card-body'>
 					      <h5 class='card-title text-center'>$bus->titulo</h5> 

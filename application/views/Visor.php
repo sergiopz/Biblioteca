@@ -1,9 +1,9 @@
-<!--<html class="no-js demo-1">
+<html class="no-js demo-1">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		Estilos y archivos necesarios para la animacion de BookBlock, el plugin encargado de la funcion de pasar pagina
+		<!--Estilos y archivos necesarios para la animacion de BookBlock, el plugin encargado de la funcion de pasar pagina-->
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/BookBlock/default.css');?>" />
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/BookBlock/bookblock.css');?>"/>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/BookBlock/demo1.css');?>" />
@@ -11,7 +11,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="<?php echo base_url('js/BookBlock/jquerypp.custom.js');?>" ></script>
 		<script src="<?php echo base_url('js/BookBlock/jquery.bookblock.js');?>" ></script>
-		Archivo necesario para el plugin de zoom
+		<!--Archivo necesario para el plugin de zoom-->
 		<script src="<?php echo base_url('js/wheelzoom.js');?>"></script>
 		<script>
  		$( document ).ready(function() {
@@ -185,15 +185,12 @@
  
   </script>
 
-	</head>-->
+	</head>
 	<body>
 	
 	<?php 
-
-
 	//Metodo de php para coger las medidas de una imagen la cual utilizaremos a posterior para crear el contenedor dinamicamente
-		$data = getimagesize("assets/libros/".$id."/1.jpg");
-
+		$data = getimagesize("assets/libros/12/1.jpg");
 		$width = $data[0];
 		$height = $data[1];
 		
@@ -210,14 +207,13 @@
 					<?php 
 					//Saber cuantos archivos estan en una carpeta especifica y no contamos ni la portada frontal ni la trasera
 					//Dependiendo del tamaño de la foto crearemos unas medidas modificado los estilos necesarios o no
-					
-					for ($i = 1; $i <count(glob('assets/libros/'.$id.'/{*.jpg,*.gif,*.png}',GLOB_BRACE))-1; $i++) {
+					for ($i = 1; $i <count(glob('assets/libros/12/{*.jpg,*.gif,*.png}',GLOB_BRACE))-1; $i++) {
 						
 						echo"<div class='bb-item'>";
 						if($width<3000){
-							echo"	<img class='zoom$i' src=".base_url("assets/libros/$id/$i.jpg")." width='750px' height='530px' />";
+							echo"	<img class='zoom$i' src=".base_url("assets/libros/12/$i.jpg")." width='750px' height='530px' />";
 						}else {
-							echo"	<img class='zoom$i' src=".base_url("assets/libros/$id/$i.jpg")." width='1050px' height='530px' />";
+							echo"	<img class='zoom$i' src=".base_url("assets/libros/12/$i.jpg")." width='1050px' height='530px' />";
 							echo"<style>.bb-bookblock {width: 1050px;} .bb-custom-wrapper {width: 1090px;}</style>";
 						}
 				
@@ -239,5 +235,5 @@
 				</div>
 			</div>
 		</div>
-	<!--</body>
+	</body>
 </html>
