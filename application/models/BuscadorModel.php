@@ -26,5 +26,22 @@
 
         return $busqueda;     
         }
+
+
+
+        public function UltimosLibros() {
+           
+            
+            $r = $this->db->query("SELECT id FROM libros ORDER BY id DESC limit 7"); 
+            
+            $libros = array();
+           foreach ($r -> result()as $li) {
+            $libros[]=$li;
+          
+           }
+            
+            
+            return $libros;
+        }
             
     }
