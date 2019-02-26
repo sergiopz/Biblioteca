@@ -57,11 +57,12 @@
 					<nav>
 						<a id="bb-nav-first" href="#" class="bb-custom-icon bb-custom-icon-first">First page</a>
 						<a id="bb-nav-prev" href="#" class="bb-custom-icon bb-custom-icon-arrow-left">Previous</a>
-						<input type='text' class="an" id='pagina' value="1">
-						<input type='text' class="de" id='paginaTotal' readonly>
+						
 						<a id="bb-nav-next" href="#" class="bb-custom-icon bb-custom-icon-arrow-right">Next</a>
 						<a id="bb-nav-last" href="#" class="bb-custom-icon bb-custom-icon-last">Last page</a>
 					</nav>
+					<input type='text' class="an" id='pagina' value="1">
+					<input type='text' class="de" id='paginaTotal' readonly>
 				</div>
 			</div>
 		</div>
