@@ -14,16 +14,22 @@
             $valor = $this->input->get_post("buscador");
 
             $data["listaBusqueda"]=$this->BuscadorModel->consulta($valor);
-            //$this->load->view("VistaDos.php", $data);
+           // $this->load->view("VistaDos.php", $data);
 
             $data["nombreVista"] = "VistaDos";
-            $data["tituloBuqueda"] = $valor;
+            $data["tituloBusqueda"] = $valor;
           $this->load->view("plantillaFront", $data);
 
         }
 
 
+        public function Visor($id) {
 
+          $data["id"]=$id;
+   
+          $this->load->view("visor.php", $data);
+
+        }
 
 
     }
