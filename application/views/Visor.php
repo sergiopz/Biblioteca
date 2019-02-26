@@ -20,7 +20,7 @@
 	
 	<?php 
 	//Metodo de php para coger las medidas de una imagen la cual utilizaremos a posterior para crear el contenedor dinamicamente
-		$data = getimagesize("assets/libros/12/1.jpg");
+		$data = getimagesize("assets/libros/$id/1.jpg");
 		$width = $data[0];
 		$height = $data[1];
 		
@@ -37,13 +37,13 @@
 					<?php 
 					//Saber cuantos archivos estan en una carpeta especifica y no contamos ni la portada frontal ni la trasera
 					//Dependiendo del tamaño de la foto crearemos unas medidas modificado los estilos necesarios o no
-					for ($i = 1; $i <count(glob('assets/libros/12/{*.jpg,*.gif,*.png}',GLOB_BRACE))-1; $i++) {
+					for ($i = 1; $i <count(glob('assets/libros/'.$id.'/{*.jpg,*.gif,*.png}',GLOB_BRACE))-1; $i++) {
 						
 						echo"<div class='bb-item'>";
 						if($width<3000){
-							echo"	<img class='zoom$i' src=".base_url("assets/libros/12/$i.jpg")." width='750px' height='530px' />";
+							echo"	<img class='zoom$i' src=".base_url("assets/libros/$id/$i.jpg")." width='750px' height='530px' />";
 						}else {
-							echo"	<img class='zoom$i' src=".base_url("assets/libros/12/$i.jpg")." width='1050px' height='530px' />";
+							echo"	<img class='zoom$i' src=".base_url("assets/libros/$id/$i.jpg")." width='1050px' height='530px' />";
 							echo"<style>.bb-bookblock {width: 1050px;} .bb-custom-wrapper {width: 1090px;}</style>";
 						}
 				
