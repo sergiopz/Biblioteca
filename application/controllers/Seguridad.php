@@ -3,6 +3,13 @@
 
         //Aqui controlaremos la seguridad
         //Con public function security_check() nos dara permiso para poder entrar si es true
+               public function __construct() {
+            parent::__construct();
+  
+            $this->load->model("UsuariosModel");
+                 $this->load->model("EditorialesModel");
+                  $this->load->model("BuscadorModel");
+        }
     
         public function security_check()
         { 
@@ -34,6 +41,7 @@
             $this->load->library("session");
             $this->session->sess_destroy();
             $data["nombreVista"] = "homeFront";
+            $data["ultimosLibros"]=$this->BuscadorModel->UltimosLibros();
             $this->load->view("plantillaFront", $data);
         }
     

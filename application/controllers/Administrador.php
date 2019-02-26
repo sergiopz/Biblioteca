@@ -8,12 +8,15 @@
   
             $this->load->model("UsuariosModel");
                  $this->load->model("EditorialesModel");
+                  $this->load->model("BuscadorModel");
         }
 
         //cargamos vista
 
         public function Index() {
           $data["nombreVista"] = "homeFront";
+          $data["ultimosLibros"]=$this->BuscadorModel->UltimosLibros();
+
           $this->load->view("plantillaFront", $data);
         }
         //Esta es la que estamos haciendo
