@@ -1,28 +1,47 @@
 <body style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondoweb.jpg')" class="imgFondo" >
 
-  <nav id="barrasuperior" class="navbar navbar-expand-lg navbar-light">
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a href="<?php echo base_url(); ?>" ><img id="logo" class="nav-link" src="https://iescelia.org/web/wp-content/uploads/2015/05/escudo.png"></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link elementosNav" href="#">Todos los libros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link elementosNav" href="#">Categorias</a>
-        </li>
-      </ul>
-      <!-- <form class="form-inline my-2 my-lg-0" action="#"> -->
-        <button class="form-control mr-sm-2 btn-dark btnLog"   data-toggle="modal" data-target="#modalInicio" STYLE="width: 10%">Iniciar Sesion</button>
-        <button class="form-control mr-sm-2 btn-dark btnLog"  data-toggle="modal" data-target="#modalRegistro" STYLE="width: 10%">Registrarse</button>
-      <!-- </form> -->
-    </div>
-  </nav>
+ 
+<nav id="barraSuperior"class=" navbar navbar-expand-md navbar-dark">
+  <!-- Brand -->
+  <a href="<?php echo base_url(); ?>" ><img id="logo" class="nav-link" src="https://iescelia.org/web/wp-content/uploads/2015/05/escudo.png"></a>
 
-  <nav class="navbar navbar-expand-lg navbar-light barraNavegacion" style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondo.jpg')">
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link elementosNav" href="#">Todos los libros</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link elementosNav" href="#">Cateogorias</a>
+      </li>
+
+
+    </ul>
+    <ul class="navbar-nav justify-content-end ml-auto">
+     
+      <li class="nav-item ">
+        <a id="botonInicio" href="" class="nav-link"   data-toggle="modal" data-target="#modalInicio">Iniciar sesión</a>
+      </li>
+
+      <li class="nav-item justify-content-end">
+        <a id="botonRegistro" href="" class="nav-link"  data-toggle="modal" data-target="#modalRegistro">Registrarse</a>
+      </li>
+
+    </ul>
+  </div> 
+</nav>
+
+
+  <nav id="imagenBuscador" class="navbar navbar-expand-lg navbar-light barraNavegacion" style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondo.png')">
     
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <div class=" " id="navbarSupportedContent">
       <ul class="navbar-center">
         <li class="nav-content liBuscador">
           <form name="formularioBuscador" action="<?php echo base_url(); ?>index.php/Buscador/buscador" class="form-inline" method="post" accept-charset="utf-8">

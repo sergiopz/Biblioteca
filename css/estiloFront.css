@@ -2,13 +2,14 @@
     font-family: 'Roboto Slab', serif;
 }
 #logo{
-    width: 43px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
 }
 #lastBooks{
     color:#E2484A;
     text-shadow: 3px 3px 2px #517EA8;
 }
+
 
 .librosBuscados{
     padding-top: 3%;
@@ -24,12 +25,12 @@
     background-size:100%;
 }
 
-#barrasuperior{
-    background: #080804 ;
+#barraSuperior{
+    background:rgba(0, 0, 0, 0.880);
 }
 
 .elementosNav{
-    font-size: 30px;
+    font-size: 19px;
     color:#E84A4C !important;
     text-shadow: 0.5px 1px 1px black !important;
 }
@@ -98,6 +99,12 @@ body{
    /* background: linear-gradient(to left, #6c77d4, #cc2135); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
   }
+/*
+#botonInicio, #botonRegistro{
+    width:15%;
+}
+*/
+
 .transparencia{
     background:rgba(0, 0, 0, 0.808);
 }
@@ -110,11 +117,18 @@ body{
     width: 700px;
     height:50px;
 }
+#buscador2{
+    width:200px;
+    height:50px;
+}
 #buscador:focus{
     border-color:#E84A4C;
     box-shadow: 0 0 0 0.5px #E84A4C;
 }
-
+#buscador2:focus{
+    border-color:#E84A4C;
+    box-shadow: 0 0 0 0.5px #E84A4C;
+}
 .liBuscador{
     list-style:none;
 }
