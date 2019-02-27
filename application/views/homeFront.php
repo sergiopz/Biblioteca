@@ -13,10 +13,10 @@
           <a class="nav-link elementosNav" href="#">Categorias</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0" action="#">
-        <button class="form-control mr-sm-2 btn-dark btnLog"   data-toggle="modal" data-target="#modalInicio" >Iniciar Sesion</button>
-        <button class="form-control mr-sm-2 btn-dark btnLog"  data-toggle="modal" data-target="#modalRegistro" >Registrarse</button>
-      </form>
+      <!-- <form class="form-inline my-2 my-lg-0" action="#"> -->
+        <button class="form-control mr-sm-2 btn-dark btnLog"   data-toggle="modal" data-target="#modalInicio" STYLE="width: 10%">Iniciar Sesion</button>
+        <button class="form-control mr-sm-2 btn-dark btnLog"  data-toggle="modal" data-target="#modalRegistro" STYLE="width: 10%">Registrarse</button>
+      <!-- </form> -->
     </div>
   </nav>
 

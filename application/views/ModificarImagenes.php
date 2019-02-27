@@ -30,6 +30,12 @@
       </ul>
       
     </div>
+    <?php
+    if (isset($error)) echo "<div style='color:red'>$error</div>";
+         if (isset($mensaje)) echo "<div style='color:green'>$mensaje</div>";
+
+          ?>
+
   </nav>
 
 	<div class="container" >
@@ -40,11 +46,11 @@
 			$directorio = "assets/libros/".$id;
 			
 			$arrayPag = scandir($directorio);
-			$num_pag = count($arrayPag)-1;
+			$num_pag = count($arrayPag)-2;
       echo $num_pag;
 
 			
-			for($i = 1;$i<$num_pag;$i++){
+			for($i = 0;$i<$num_pag;$i++){
 
   echo "
   

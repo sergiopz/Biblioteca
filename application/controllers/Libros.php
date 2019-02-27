@@ -205,7 +205,7 @@ public function showintadmin($id){
 
 /**
      * Funcion de subida de imagenes libros al servidor
-     *
+     *2
      */
 
    
@@ -224,9 +224,11 @@ public function showintadmin($id){
 
 
                     
-                $total_imagenes = count(glob('assets/libros/'.$id.'/{*.jpg,*.gif,*.png}',GLOB_BRACE));
+                $total_imagenes1 = count(glob('assets/libros/'.$id.'/{*.jpg,*.gif,*.png}',GLOB_BRACE));
+                $total_imagenes2=$total_imagenes1-1;
+
                 $oldDir= "assets/libros/".$id."/".$img_name;
-                $newDir="assets/libros/".$id."/".$total_imagenes.".jpg";
+                $newDir="assets/libros/".$id."/".$total_imagenes2.".jpg";
                 $confirm=rename($oldDir,$newDir);
         
                   
@@ -276,11 +278,14 @@ public function showintadmin($id){
         }
 
 
-                $datos["id"]=$id_libro;
+                //$datos["id"]=$id_libro;
 
 
 
-            $this->load->view("ModificarImagenes",$datos);
+            //$this->load->view("ModificarImagenes",$datos);
+
+
+            redirect(site_url("Libros/ModificarPaginas/$id_libro"));
 
 
         
@@ -291,12 +296,14 @@ public function showintadmin($id){
       public function cambiarDerecha($id_libro,$num_pag){
         if($this->security_check()){
 
-             $total_imagenes = count(glob('assets/libros/$id_libro/{*.jpg,*.gif,*.png}',GLOB_BRACE));
+             $total_imagenes = count(glob('assets/libros/'.$id_libro.'/{*.jpg,*.gif,*.png}',GLOB_BRACE));
+
+             echo $num_pag ;
+             echo $total_imagenes;
 
 
-            if ($num_pag<$total_imagenes) {
-                # code...
-            
+            if ($num_pag<$total_imagenes-1) {
+
 
                 
         
@@ -315,13 +322,15 @@ public function showintadmin($id){
                     rename($oldDir,$newDir);
                
         }
+
+         redirect(site_url("Libros/ModificarPaginas/$id_libro"));
       }
     }
 
          public function cambiarIzquierda($id_libro,$num_pag){
             if($this->security_check()){
 
-                if ($num_pag!=1) {
+                if ($num_pag!=0) {
                     # code...
                 
                 
@@ -347,6 +356,7 @@ public function showintadmin($id){
 
 
             //$this->load->view("ModificarImagenes",$datos);
+             redirect(site_url("Libros/ModificarPaginas/$id_libro"));
             
         }
     }
@@ -357,10 +367,10 @@ public function showintadmin($id){
                 if($this->security_check()){
 
 
-
-                         $total_imagenes = count(glob('assets/libros/9/{*.jpg,*.gif,*.png}',GLOB_BRACE));
-                         $pagina = $this->input->get_post("pagina");
+                        $pagina = $this->input->get_post("pagina");
                          $id = $this->input->get_post("idlibro");
+                         $total_imagenes = count(glob('assets/libros/'.$id.'/{*.jpg,*.gif,*.png}',GLOB_BRACE));
+                         
 
                          echo $pagina;
                         
@@ -379,7 +389,7 @@ public function showintadmin($id){
 
                             
                        
-                       for($i=$total_imagenes;$i>=$pagina;$i--){
+                       for($i=$total_imagenes-1;$i>=$pagina;$i--){
                             $oldDir="assets/libros/".$id."/".$i.".jpg";
                             $newDir="assets/libros/".$id."/".($i+1).".jpg";
                             rename($oldDir,$newDir);
@@ -418,7 +428,8 @@ public function showintadmin($id){
 
             //$this->load->view("ModificarImagenes",$datos);
 
-            redirect("http://localhost/biblioteca/index.php/libros/ModificarPaginas/9");
+            //redirect("http://localhost/biblioteca/index.php/libros/ModificarPaginas/$id");
+             redirect(site_url("Libros/ModificarPaginas/$id"));
 
 
             }
