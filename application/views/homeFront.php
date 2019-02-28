@@ -173,7 +173,7 @@
           $libro = $ultimosLibros[$i];
 
           echo"
-        <div class='slide'><a href='".site_url("Buscador/Visor/$libro->id")."'><img clas='imagen' src='".base_url("assets/libros/".$libro->id."/0.jpg")."' ></a></div>";
+        <div class='slide'><a href='".site_url("Buscador/Visor/$libro->id")."'><img class='imagen imgSlider' src='".base_url("assets/libros/".$libro->id."/0.jpg")."' ></a></div>";
       }
         
           ?>

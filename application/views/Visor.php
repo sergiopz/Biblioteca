@@ -8,13 +8,21 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/BookBlock/bookblock.css');?>"/>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/BookBlock/demo1.css');?>" />
 		<script src="<?php echo base_url('js/BookBlock/modernizr.custom.js');?>"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="<?php echo base_url('js/BookBlock/jquerypp.custom.js');?>" ></script>
 		<script src="<?php echo base_url('js/BookBlock/jquery.bookblock.js');?>" ></script>
 		<!--Archivo necesario para el plugin de zoom-->
 		<script src="<?php echo base_url('js/wheelzoom.js');?>"></script>
 		<script src="<?php echo base_url('js/scriptVisor.js');?>"></script>
-
+    	<link rel="shortcut icon" href="https://iescelia.org/web/wp-content/uploads/2015/05/escudo.png">
+    	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    	<script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+    	<link rel="stylesheet" href="<?php echo base_url('css/estiloFront.css');?>">
+    	<script type="text/javascript" src="<?php echo base_url(); ?>js/frontJS.js"></script>
+    	<title>Front</title>
 	</head>
 	<body>
 	
@@ -27,10 +35,15 @@
 	?>
 	<!-- Todas las clases usadas son dictadas por la libreria BookBlock para realizar las animaciones de pasar de pagina,
 			 Las clases que no pertenecen a estas son las creadas dinamicamente como zoom1,zoom2... y los identificadores m1,m2...-->
-		<div class="container">
-			<header class="cabecera">
-				<h1>Nombre del Libro a elegir</h1>	
-			</header>
+			 <nav id="barraSuperior"class=" navbar navbar-expand-md navbar-dark">
+  			
+
+  			
+
+    				
+  				
+			</nav>
+			<div class="container">
 			<div class="main clearfix">
 				<div class="bb-custom-wrapper">
 					<div id="bb-bookblock" class="bb-bookblock">
@@ -54,7 +67,7 @@
 					</div>
 					<!-- Navegacion con los botones configurados de BookBlock que se encargaran de realizar las funciones escritas, ademas de los
 							 dos input creados para almacenar la pagina actual y la pagina Total-->
-					<nav>
+					<nav id="margenPaginas">
 						<a id="bb-nav-first" href="#" class="bb-custom-icon bb-custom-icon-first">First page</a>
 						<a id="bb-nav-prev" href="#" class="bb-custom-icon bb-custom-icon-arrow-left">Previous</a>
 						
@@ -65,6 +78,72 @@
 					<input type='text' class="de" id='paginaTotal' readonly>
 				</div>
 			</div>
-		</div>
+		</div>	
+		<footer id="margenPie" class="page-footerfont-small blue pt-4 estiloPie">
+
+			<div class="container-fluid text-center text-md-left">
+
+  				<div class="row">
+
+    				<div class="col-md-6 mt-md-0 mt-3">
+
+      					<h5 class="text-uppercase">Biblioteca Celia Viñas</h5>
+
+    				</div>
+
+    				<hr class="clearfix w-100 d-md-none pb-3">
+
+
+    				<div class="col-md-3 mb-md-0 mb-3">
+
+
+        				<h5 class="text-uppercase">Nosotros</h5>
+
+        				<ul class="list-unstyled">
+          					<li>
+            					<a href="https://github.com/JuapiCallejon"><ion-icon name="logo-github"></ion-icon>Juan Callejón</a>
+         					</li>
+          					<li>
+            					<a href="https://github.com/graciancristales"><ion-icon name="logo-github"></ion-icon>Gracián Ruíz</a>
+          					</li>
+          					<li>
+            					<a href="https://github.com/sergiopz"><ion-icon name="logo-github"></ion-icon>Sergio Pérez</a>
+          					</li>
+        				</ul>
+
+      				</div>
+
+      				<div class="col-md-3 mb-md-0 mb-3">
+
+
+        				<h5 class="text-uppercase">Links</h5>
+
+        					<ul class="list-unstyled">
+         						<li>
+            						<a href="#!">Link 1</a>
+          						</li>
+          						<li>
+            						<a href="#!">Link 2</a>
+          						</li>
+          						<li>
+            						<a href="#!">Link 3</a>
+          						</li>
+          						<li>
+            						<a href="#!">Link 4</a>
+          						</li>
+        					</ul>
+
+      				</div>
+
+
+  				</div>
+
+			</div>
+
+			<div class="footer-copyright text-center py-3 transparencia">© 2019 Copyright:
+  				<a href="https://iescelia.org/web/">iescelia.org</a>
+			</div>
+
+		</footer>		
 	</body>
 </html>

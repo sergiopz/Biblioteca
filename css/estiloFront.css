@@ -59,7 +59,12 @@ a:hover{
 .botonCerrar{
     color: #3B3429;
 }
-
+#margenPie{
+    margin-top:5%;
+}
+#margenPaginas{
+    margin-bottom: 1.5%;
+}
 .contenidoModal{
     margin-left:15%;
     padding-bottom: 3%;
@@ -88,8 +93,16 @@ a:hover{
     overflow-y: scroll;
     max-height: 500px;
 }
-img{
+.imgSlider{
     width: 200px;
+    height: 350px;
+}
+
+.tamañoTarjeta{
+    width: 250px;
+}
+.imgTarjeta{
+    width: 250px;
     height: 350px;
 }
 
