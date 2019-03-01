@@ -3,7 +3,7 @@
 
 <nav id="barraSuperior"class=" navbar navbar-expand-md navbar-dark">
   <!-- Brand -->
-  <a href="<?php echo base_url(); ?>" ><img id="logo" class="nav-link" src="https://iescelia.org/web/wp-content/uploads/2015/05/escudo.png"></a>
+  <a href="<?php echo base_url(); ?>" ><?php echo"<img id='logo' class='nav-link' src='".base_url("imgs/escudocv.png")."'></a>"; ?>
 
   <!-- Toggler/collapsibe Button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">

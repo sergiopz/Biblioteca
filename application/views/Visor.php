@@ -14,7 +14,7 @@
 		<!--Archivo necesario para el plugin de zoom-->
 		<script src="<?php echo base_url('js/wheelzoom.js');?>"></script>
 		<script src="<?php echo base_url('js/scriptVisor.js');?>"></script>
-    	<link rel="shortcut icon" href="https://iescelia.org/web/wp-content/uploads/2015/05/escudo.png">
+    	<link rel="shortcut icon" href="<?php echo base_url("imgs/escudocv.png")?>">
     	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
