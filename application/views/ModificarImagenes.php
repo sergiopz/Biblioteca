@@ -27,20 +27,28 @@
     <div class="nav-wrapper #616161 grey darken-2">
       <ul class="center">
         <li><a href="<?php echo site_url('Libros/VistaAjax');?>" class="waves-effect waves-light btn #8c9eff indigo accent-1 libro">Volver</a></li>
+        <li>
+          <?php
+    if (isset($error)) echo "<div style='color:red'>$error</div>";
+    if (isset($mensaje)) echo "<div id='alerta' style='color:white'>$mensaje</div>";
+
+          ?> 
+
+          
+
+        </li>
       </ul>
       
     </div>
-    <?php
-    if (isset($error)) echo "<div style='color:red'>$error</div>";
-         if (isset($mensaje)) echo "<div style='color:green'>$mensaje</div>";
-
-          ?>
+   
 
   </nav>
 
 	<div class="container" >
         <div class="row"></div>
 		<div class="row">
+
+      
 			<?php  
 			
 			$directorio = "assets/libros/".$id;

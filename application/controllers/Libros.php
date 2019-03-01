@@ -46,6 +46,7 @@
 
           
                    $datos["id"]=$id;
+                   //$datos["mensaje"]=2;
 
 
 
@@ -264,28 +265,31 @@ public function showintadmin($id){
                     $newDir="assets/libros/$id_libro/".$i.".jpg";
                     rename($oldDir,$newDir);
                 }
+
+                $datos["mensaje"]="Se elimino la imagen con exito";
+                  
+                  
+            }
+            else{
+                $datos["mensaje"]="Error al eliminarse";
             }
 
 
-                     
-          // header("location:ModificarImagenes.php");
+             
+                $datos["id"]=$id_libro;
+              
 
 
-                 //  $datos["id"]=9;
 
-              // $this->load->view("ModificarImagenes",$datos);
+            $this->load->view("ModificarImagenes",$datos);
+
+
+            //redirect(site_url("Libros/ModificarPaginas/$id_libro/$mensaje"));
+        
+ 
 
         }
 
-
-                //$datos["id"]=$id_libro;
-
-
-
-            //$this->load->view("ModificarImagenes",$datos);
-
-
-            redirect(site_url("Libros/ModificarPaginas/$id_libro"));
 
 
         
