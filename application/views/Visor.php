@@ -24,7 +24,7 @@
     	<script type="text/javascript" src="<?php echo base_url(); ?>js/frontJS.js"></script>
     	<title>Front</title>
 	</head>
-	<body>
+	<body style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondoweb.jpg')" class="imgFondo">
 	
 	<?php 
 	//Metodo de php para coger las medidas de una imagen la cual utilizaremos a posterior para crear el contenedor dinamicamente
@@ -35,14 +35,11 @@
 	?>
 	<!-- Todas las clases usadas son dictadas por la libreria BookBlock para realizar las animaciones de pasar de pagina,
 			 Las clases que no pertenecen a estas son las creadas dinamicamente como zoom1,zoom2... y los identificadores m1,m2...-->
-			 <nav id="barraSuperior"class=" navbar navbar-expand-md navbar-dark">
+			 <div id="barraSuperior"class=" navbar navbar-expand-md navbar-dark">
   			
+			 <a class="btn" href="<?php echo base_url(); ?>" >Volver</a>
 
-  			
-
-    				
-  				
-			</nav>
+			</div>
 			<div class="container">
 			<div class="main clearfix">
 				<div class="bb-custom-wrapper">
