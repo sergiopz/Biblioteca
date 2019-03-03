@@ -1,6 +1,6 @@
+     
 <body style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondoweb.jpg')" class="imgFondo" >
 
- 
 <nav id="barraSuperior"class=" navbar navbar-expand-md navbar-dark">
   <!-- Brand -->
   <a href="<?php echo base_url(); ?>" ><?php echo"<img id='logo' class='nav-link' src='".base_url("imgs/escudocv.png")."'></a>"; ?>
@@ -14,13 +14,24 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
 
-
       <li class="nav-item">
-        <a class="nav-link elementosNav" href="<?php echo base_url(); ?>index.php/Buscador/Categoria">Categorias</a>
+        <a class="nav-link elementosNav" href="#">Todos los libros</a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link elementosNav" href="#">Cateogorias</a>
+      </li>
 
     </ul>
+    <ul class="navbar-center">
+      <li class="nav-content liBuscador">
+        <form name="formularioBuscador" action="<?php echo base_url(); ?>index.php/Buscador/buscador" class="form-inline" method="post" accept-charset="utf-8">
+          <input id="buscador2" name="buscador" class="form-control mr-sm-2" type="search" placeholder="Titulo, autor, categoria..." aria-label="Search">
+        </form>
+      </li>
+    </ul>
+
+
     <ul class="navbar-nav justify-content-end ml-auto">
      
       <li class="nav-item ">
@@ -36,21 +47,9 @@
 </nav>
 
 
-  <nav id="imagenBuscador" class="navbar navbar-expand-lg navbar-light barraNavegacion" style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondo.png')">
+    <div class="row">
     
-    <div class=" " id="navbarSupportedContent">
-      <ul class="navbar-center">
-        <li class="nav-content liBuscador">
-          <form name="formularioBuscador" action="<?php echo base_url(); ?>index.php/Buscador/buscador" class="form-inline" method="post" accept-charset="utf-8">
-            <input id="buscador" name="buscador" class="form-control mr-sm-2" type="search" placeholder="Titulo, autor, categoria..." aria-label="Search">
-          </form>
-        </li>
-      </ul>
     </div>
-
-  </nav>
-
-    <div class="row"></div>
 
     <div class="modal fade tamañoModal" id="modalInicio">
         <div class="modal-dialog">
@@ -160,21 +159,28 @@
         </div>
       </div>
 <!--fin ventana modal-->
-<content class="">
-  <div class="row"><p></p></div>
-    <h2 id="lastBooks" class="display-1 text-center">Últimos Libros</h2>
-       <section class="slider1 slider">
 
-         <?php
-         for ($i = 0; $i < count($ultimosLibros); $i++) {
-          $libro = $ultimosLibros[$i];
+
+  <?php
+
+ for ($i = 0; $i < count($listaCategoria); $i++) {
+          $ca = $listaCategoria[$i];
+
+
 
           echo"
-        <div class='slide'><a href='".site_url("Buscador/Visor/$libro->id")."'><img class='imagen imgSlider' src='".base_url("assets/libros/".$libro->id."/0.jpg")."' ></a></div>";
-      }
-        
-          ?>
-        
-      </section>
-  <div class="row"><p></p></div>
-</content>
+
+
+            <a href='".site_url("Buscador/BuscadorCategoria/$ca->nombre")."'><div class='alert alert-primary' role='alert'>
+              $ca->nombre
+            </div></a>";
+
+
+          }
+
+
+                ?>
+           
+     
+
+

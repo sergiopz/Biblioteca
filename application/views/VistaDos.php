@@ -19,7 +19,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link elementosNav" href="#">Cateogorias</a>
+        <a class="nav-link elementosNav" href="<?php echo base_url(); ?>index.php/Buscador/Categoria">Categorias</a>
       </li>
 
     </ul>
