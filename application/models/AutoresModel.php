@@ -13,7 +13,7 @@
 
        
 
-   // Insertar un autor de la tabla. Devuelve 1 si lo consigue o 0 en caso de error 
+   // Insertar un autor en la tabla. Devuelve 1 si lo consigue o 0 en caso de error 
     public function InsertarAutor($nombre) {
         $r = $this->db->query("select max(id) as id from autores");
         $row =$r->result()[0];
@@ -24,14 +24,14 @@
         }
 
 
-    //Borrar un autor de la tabla. Devuelve 1 si lo consigue o 0 en caso de error
+    //Borrar un autor en la tabla. Devuelve 1 si lo consigue o 0 en caso de error
     public function EliminarAutor($id) {
             $this->db->query("DELETE FROM autores WHERE id= '$id' ");
             return $this->db->affected_rows();   
         }
 
 
-    //Modificar un autor de la tabla. Devuelve 1 si lo consigue o 0 en caso de error
+    //Modificar un autor en la tabla. Devuelve 1 si lo consigue o 0 en caso de error
     public function ModificarAutor($id,$nombre) {
         $this->db->query("UPDATE autores SET nombre='$nombre' WHERE id='$id'");
         return $this->db->affected_rows();   

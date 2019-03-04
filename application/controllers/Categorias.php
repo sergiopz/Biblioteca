@@ -1,8 +1,5 @@
 <?php
-
-    /*include_once('seguridad.php');
-    //incluimos seguridad php y extendemos de la clase seguridad.php en vez de cI_controller.
-    class Peliculas extends Seguridad{*/
+//Controlador de Categorias
       include_once("Seguridad.php");
 
     class Categorias extends Seguridad  {
@@ -12,6 +9,7 @@
             $this->load->model("CategoriasModel");
         }
 
+      //Funcion que carga la vista de categorias y sus datos
         public function VistaAjax() {
           if($this->security_check()){
             $this->load->model("CategoriasModel");
@@ -20,7 +18,8 @@
             
         }
       }
-
+      
+      //Funcion que inserta una categoria
         public function InsertarCategoria(){
           if($this->security_check()){
             $nombre = $this->input->get_post("nombre");
@@ -31,13 +30,14 @@
                        
                     } else {
                       $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "categoria";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $data["tabla"] = "categoria";   
                            $this->load->view("plantilla", $data);
                     }
 
                   }
       }
     
+      //Funcion que elimina una categoria
         public function EliminarCategoria($id) {
           if($this->security_check()){
 
@@ -55,7 +55,7 @@
           }
     
         }
-
+        //Funcion que modifica una categoria
             public function ModificarCategoria(){
               if($this->security_check()){
 
@@ -65,13 +65,14 @@
 
                 if ($resultado==0) {
                    $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "categoria";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $data["tabla"] = "categoria";  
                            $this->load->view("plantilla", $data);
                 } else {
                    $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "categoria";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $data["tabla"] = "categoria";   
                            $this->load->view("plantilla", $data);
                 }
             }
         }
-       } 
+
+    } 

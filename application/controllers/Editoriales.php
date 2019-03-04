@@ -9,11 +9,9 @@
 
         }
 
-
+    //Funcion del buscador de categorias
         public function index() {
-
             $this->load->view("VistaLibro.php");
-
         }
    
     //Funcion que carga la vista de editoriales y sus datos
@@ -71,6 +69,6 @@
                            $this->load->view("plantilla", $data);
             }
         }
- 
     }
+    
 }
