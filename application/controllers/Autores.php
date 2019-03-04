@@ -23,7 +23,7 @@
                 
             } else {
                  $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "autor";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $data["tabla"] = "autor";   
                            $this->load->view("plantilla", $data);           
             }
         }
@@ -49,7 +49,7 @@
                 
             } else {
                 $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "autor";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $data["tabla"] = "autor";   
                            $this->load->view("plantilla", $data);
             }
         }

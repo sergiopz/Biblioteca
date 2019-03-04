@@ -1,9 +1,6 @@
 <?php
 
-    /*include_once('seguridad.php');
-    //incluimos seguridad php y extendemos de la clase seguridad.php en vez de cI_controller.
-    class Peliculas extends Seguridad{*/
-        include_once("Seguridad.php");
+    include_once("Seguridad.php");
 
     class Institutos extends Seguridad  {
 
@@ -13,17 +10,19 @@
         }
 
         
+     //Funcion que carga la vista de Insitutos y sus datos
         public function VistaAjax() {
                 if($this->security_check()){
             $this->load->model("InstitutosModel");
             $data["listaInstitutos"] = $this->InstitutosModel->getAll();
-            $this->load->view("institutosAjax.php", $data);
+            $this->load->view("InstitutoAjax.php", $data);
             
         }
     }
-
+    
+        //Funcion que inserta un Insituto
         public function InsertarInstituto(){
-                if($this->security_check()){
+            if($this->security_check()){
 
             $nombre = $this->input->get_post("nombre");
             $localidad = $this->input->get_post("localidad");
@@ -36,12 +35,13 @@
                     $data["mensaje"] = "Error al insertar el instituto en la base de datos";   
             } else {
                $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "institutos";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $data["tabla"] = "instituto";   // La tabla que queremos que se muestre automáticamente en la vista principal
                            $this->load->view("plantilla", $data);
             }
         }
-        } 
+    } 
     
+        //Funcion que elimina un Insituto
         public function EliminarInstituto($id){
                 if($this->security_check()){
 
@@ -59,6 +59,7 @@
         }
     }
 
+        //Funcion que modifica un Insituto
         public function ModificarInstituto(){
                 if($this->security_check()){
 
@@ -78,10 +79,10 @@
                 $this->load->view("header",$data);
             } else {
                 $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "institutos";   // La tabla que queremos que se muestre automáticamente en la vista principal
+                           $data["tabla"] = "instituto";   // La tabla que queremos que se muestre automáticamente en la vista principal
                            $this->load->view("plantilla", $data);
             }
-  
         }
     }
+
 }

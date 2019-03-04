@@ -11,7 +11,7 @@
         return $editoriales;     
         }
 
-   // Insertar un editorial de la tabla. Devuelve 1 si lo consigue o 0 en caso de error 
+   // Insertar una editorial de la tabla. Devuelve 1 si lo consigue o 0 en caso de error 
    public function InsertarEditorial($nombre) {
         $r = $this->db->query("select max(id) as id from editorial");
         $row =$r->result()[0];
@@ -22,14 +22,14 @@
         }
 
 
-    //Borrar un editorial de la tabla. Devuelve 1 si lo consigue o 0 en caso de error
+    //Borrar una editorial de la tabla. Devuelve 1 si lo consigue o 0 en caso de error
     public function EliminarEditorial($id) {
         $this->db->query("DELETE FROM editorial WHERE id= '$id' ");
         return $this->db->affected_rows();   
         }
 
 
-    //Modificar un editorial de la tabla. Devuelve 1 si lo consigue o 0 en caso de error
+    //Modificar una editorial de la tabla. Devuelve 1 si lo consigue o 0 en caso de error
     public function ModificarEditorial($id,$nombre) {
         $this->db->query("UPDATE editorial SET nombre='$nombre' WHERE id='$id'");
         return $this->db->affected_rows();   
