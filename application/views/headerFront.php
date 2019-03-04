@@ -12,9 +12,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
     <link rel="stylesheet" href="<?php echo base_url('css/estiloFront.css');?>">
-    <link rel="stylesheet" href="<?php echo base_url('css/slick.css');?>">
-    <link rel="stylesheet" href="<?php echo base_url('/css/slick-theme.css');?>">
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/slick.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/frontJS.js"></script>
     <title>Front</title>
 </head>

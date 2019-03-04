@@ -164,21 +164,25 @@
         </div>
       </div>
 <!--fin ventana modal-->
-<content class="">
+<content class="justify-content-center">
   <div class="row"><p></p></div>
     <h2 id="lastBooks" class="display-1 text-center">Últimos Libros</h2>
-       <section class="slider1 slider">
-
+       <section class="">
+          <div class="slider">
          <?php
          for ($i = 0; $i < count($ultimosLibros); $i++) {
+        
           $libro = $ultimosLibros[$i];
-
+          
           echo"
-        <div class='slide'><a href='".site_url("Buscador/Visor/$libro->id")."'><img class='imagen imgSlider' src='".base_url("assets/libros/".$libro->id."/0.jpg")."' ></a></div>";
+          
+        <div class=''><a href='".site_url("Buscador/Visor/$libro->id")."'><img class='imagen imgSlider' src='".base_url("assets/libros/".$libro->id."/0.jpg")."' ></a></div>
+        ";
       }
         
           ?>
-        
-      </section>
+          </div>
+        </section>
+
   <div class="row"><p></p></div>
 </content>
