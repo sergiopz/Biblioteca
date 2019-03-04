@@ -18,12 +18,27 @@
 </head>
 <body class="gradiente">
 <script>
+
+	//location.reload(true);
+
+
+
   function cambiar(){
     var pdrs = document.getElementById('file-upload').files[0].name;
     document.getElementById('info').innerHTML = pdrs;
   }
   $("document").ready(function(){
+
+  		//location.reload(true);
+
+  		$.ajaxSetup({
+ cache: false
+
+	});
+
   $('.borrarOpcion').click(function(e){
+
+
 
 
 
@@ -34,7 +49,7 @@
 
   }
 
-  
+  	window.location.reload(true);
 
   });
 
