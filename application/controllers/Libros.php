@@ -285,16 +285,17 @@ public function showintadmin($id){
 
 
             redirect(site_url("Libros/redireccionar/$id_libro/$mensaje"));
-        
+        }
  
 
         }
 
          public function redireccionar($id_libro,$mensaje){
-        if($this->security_check()){
+            if($this->security_check()){
 
              $datos["id"]=$id_libro;
             $datos["mensaje"]=$mensaje;
+            //echo "hola";
 
 
               $this->load->view("ModificarImagenes",$datos);
@@ -307,7 +308,7 @@ public function showintadmin($id){
 
         
 
-    }
+    
 
 
       public function cambiarDerecha($id_libro,$num_pag){

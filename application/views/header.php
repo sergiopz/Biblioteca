@@ -24,7 +24,7 @@
             $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".instituto").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".libro").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
           });
           //$("#btnNuevoUsuario".click(function() {alert("Boton nuevo usuario");}));
@@ -34,7 +34,7 @@
             $(".usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".instituto").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".libro").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
           });
 
@@ -44,7 +44,7 @@
             $(".usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".instituto").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".libro").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
           });
 
@@ -55,14 +55,14 @@
             $(".usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".instituto").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".libro").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
           });
 
 
-          $(".institutos").click(function() {
+          $(".instituto").click(function() {
             $("#capaAdmin").load("<?php echo site_url("Institutos/VistaAjax"); ?>", function() { });
-            $(".institutos").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
+            $(".instituto").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
             $(".usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
@@ -77,7 +77,7 @@
             $(".administracion").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
+            $(".instituto").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
             $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
           });
  */ 
@@ -95,7 +95,7 @@
       <?php  
         if($this->session->userdata('tipoUsuario')==0){
           echo"<li><a class='waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down usuarios' >Usuarios</a></li>";
-          echo "<li><a class='waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down institutos'>Institutos</a></li>";
+          echo "<li><a class='waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down instituto'>Institutos</a></li>";
       }
       ?>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 hide-on-med-and-down autor">Autores</a></li>
@@ -125,7 +125,7 @@
 
       <ul id='dropdown1' class='dropdown-content #8c9eff indigo accent-1'>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 usuarios" style="color:white" >Usuarios</a></li>
-        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 institutos" style="color:white">Institutos</a></li>
+        <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 instituto" style="color:white">Institutos</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 autor" style="color:white">Autores</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 libro" style="color:white">Libros</a></li>
         <li><a class="waves-effect waves-light btn #8c9eff indigo accent-1 categoria" style="color:white">Categorias</a></li>

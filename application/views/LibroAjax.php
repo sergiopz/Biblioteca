@@ -153,8 +153,8 @@ $("document").ready(function() {
        echo"</select></td>
         <td class='colorFila'><button href='#lupa$libro->id' class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 modal-trigger'>Modificar</button></td>
         <td class='colorFila'><a value='$libro->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text claseBorrar' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>
-        <td class='colorFila'><a class='btn-flat waves-effect waves-light #1e88e5 blue darken-1 white-text' href='http://localhost/biblioteca/index.php/libros/showintadmin/$libro->id'><i class='material-icons' title='Subir páginas'>file_upload</i></a></td>
-       <td class='colorFila'><a class='btn-flat waves-effect waves-light #1e88e5 blue darken-1 white-text' href='http://localhost/biblioteca/index.php/libros/ModificarPaginas/$libro->id'><i class='material-icons' title='Subir páginas'>file_upload</i></a></td>
+        <td class='colorFila'><a class='btn-flat waves-effect waves-light #1e88e5 blue darken-1 white-text' href='".site_url("libros/showintadmin/$libro->id")."'><i class='material-icons' title='Subir páginas'>file_upload</i></a></td>
+       <td class='colorFila'><a class='btn-flat waves-effect waves-light #1e88e5 blue darken-1 white-text' href='".site_url("libros/ModificarPaginas/$libro->id")."'><i class='material-icons' title='Subir páginas'>file_upload</i></a></td>
         
         
        </tr>
