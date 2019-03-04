@@ -23,13 +23,15 @@
     document.getElementById('info').innerHTML = pdrs;
   }
   $("document").ready(function(){
-  $('#borrarOpcion').click(function(){
+  $('.borrarOpcion').click(function(e){
 
-   var r = confirm("Press a button!\nEither OK or Cancel.\nThe button you pressed will be displayed in the result window.");
-  if (r == true) {
-   alert( "You pressed OK!");
-  } else {
-   alert("no");
+
+
+   var r = confirm("Vas a eliminar un registro!\n¿Estás seguro?");
+  if (r == false) {
+   
+  	e.preventDefault();
+
   }
 
   
@@ -90,7 +92,7 @@
       <div class='card-action centrarBotones'>
         <a href='".site_url("Libros/cambiarIzquierda/$id/$i")."' class=' btn-floating #3d5afe indigo accent-3 white-text z-depth-1 '><i class='material-icons' title='Siguiente'>navigate_before</i></a>
         
-        <a id='borrarOpcion' href='".site_url("Libros/deletepag/$id/$i/$num_pag")."' class=' btn-floating #3d5afe indigo accent-3 white-text z-depth-1 ' ><i class='material-icons' title='Subir archivos'>delete</i></a>
+        <a href='".site_url("Libros/deletepag/$id/$i/$num_pag")."' class=' btn-floating #3d5afe indigo accent-3 white-text z-depth-1 borrarOpcion' ><i class='material-icons' title='Subir archivos'>delete</i></a>
         <a href='".site_url("Libros/cambiarDerecha/$id/$i")."' class=' btn-floating #3d5afe indigo accent-3 white-text z-depth-1 '><i class='material-icons' title='Siguiente'>navigate_next</i></a>
       </div>
     </div>

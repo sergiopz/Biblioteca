@@ -266,29 +266,42 @@ public function showintadmin($id){
                     rename($oldDir,$newDir);
                 }
 
-                $datos["mensaje"]="Se elimino la imagen con exito";
+                $mensaje=1;
                   
                   
             }
             else{
-                $datos["mensaje"]="Error al eliminarse";
+                $mensaje=2;
             }
 
 
              
-                $datos["id"]=$id_libro;
+                //$datos["id"]=$id_libro;
               
 
 
 
-            $this->load->view("ModificarImagenes",$datos);
+            //$this->load->view("ModificarImagenes",$datos);
 
 
-            //redirect(site_url("Libros/ModificarPaginas/$id_libro/$mensaje"));
+            redirect(site_url("Libros/redireccionar/$id_libro/$mensaje"));
         
  
 
         }
+
+         public function redireccionar($id_libro,$mensaje){
+        if($this->security_check()){
+
+             $datos["id"]=$id_libro;
+            $datos["mensaje"]=$mensaje;
+
+
+              $this->load->view("ModificarImagenes",$datos);
+
+
+        }
+    }
 
 
 
