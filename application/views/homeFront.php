@@ -14,9 +14,13 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
 
+    	 <li class="nav-item">
+        <a class="nav-link elementosNav" href="<?php echo base_url(); ?>">Inicio</a>
+      </li>
+
 
       <li class="nav-item">
-        <a class="nav-link elementosNav" href="<?php echo base_url(); ?>index.php/Buscador/Categoria">Categorias</a>
+        <a class="nav-link elementosNav" href="<?php echo base_url('index.php/Buscador/Categoria'); ?>">Categorias</a>
       </li>
 
 
