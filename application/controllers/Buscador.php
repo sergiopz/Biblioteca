@@ -40,7 +40,7 @@
 
           $data["id"]=$id;
    
-          $this->load->view("visor.php", $data);
+          $this->load->view("Visor.php", $data);
 
         }
 
