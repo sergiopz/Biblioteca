@@ -1,4 +1,4 @@
-     
+
 <body style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondoweb.jpg')" class="imgFondo" >
 
 <nav id="barraSuperior"class=" navbar navbar-expand-md navbar-dark">
@@ -160,27 +160,28 @@
       </div>
 <!--fin ventana modal-->
 
-
+  <div class="container">
+     <div class="row contenedorDiv box-wrap">
   <?php
 
- for ($i = 0; $i < count($listaCategoria); $i++) {
+      for ($i = 0; $i < count($listaCategoria); $i++) {
           $ca = $listaCategoria[$i];
 
 
 
           echo"
-
-
-            <a href='".site_url("Buscador/BuscadorCategoria/$ca->nombre")."'><div class='alert alert-primary' role='alert'>
-              $ca->nombre
-            </div></a>";
+            <div class='col-md-3 offset-1 col-sm-5 col-xs-12 d-block bg-primary divCategorias box'>
+              <a class='enlacesCategorias justicify-content-center' href='".site_url("Buscador/BuscadorCategoria/$ca->nombre")."'>$ca->nombre</a>
+            </div>
+          ";
 
 
           }
 
 
                 ?>
-           
+    </div>
+    </div>
      
 
 
