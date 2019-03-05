@@ -4,20 +4,27 @@
         public function consulta($valor) {
            
            
-            $this->db->query("DROP TABLE busqueda");
-            $this->db->query("CREATE TABLE busqueda (id INT ,titulo VARCHAR(50))");
-            $r = $this->db->query("SELECT id from libros where titulo ='$valor' or idInstituto=(select id from instituto WHERE nombre='$valor') or idEditorial=(select id from editorial WHERE nombre='$valor') union SELECT idLibro FROM librocategoria WHERE idCategoria =(select id from categoria where nombre='$valor') union SELECT idLibro FROM autoreslibros WHERE idAutor =(select id from autores where nombre= '$valor')"); 
-            
-            foreach($r->result()as $res){
-                
-                $this->db->query("INSERT INTO `busqueda`(SELECT id , titulo from libros where id ='$res->id')");
+          
+            $r=$this->db->query("SELECT libros.id, libros.titulo FROM libros, instituto WHERE libros.idInstituto = instituto.id AND instituto.nombre = '$valor'
 
-            }
+                                union
+
+                                SELECT libros.id, libros.titulo FROM libros, editorial WHERE libros.idInstituto = editorial.id AND editorial.nombre = '$valor'
+
+                                union
+
+                                SELECT libros.id , libros.titulo FROM libros, librocategoria, categoria WHERE libros.id = libroCategoria.idLibro AND librocategoria.idCategoria = categoria.id AND categoria.nombre = '$valor'
+
+                                union
+
+                                SELECT libros.id, libros.titulo FROM libros, autoresLibros, autores WHERE libros.id = autoresLibros.idLibro AND autoresLibros.idAutor = autores.id AND autores.nombre = '$valor'"); 
+                                            
+            
        
-            $r2 = $this->db->query("SELECT * from busqueda");
+           
             $busqueda=array();
 
-            foreach($r2->result()as $consulta){
+            foreach($r->result()as $consulta){
             
                 $busqueda[]=$consulta;
 

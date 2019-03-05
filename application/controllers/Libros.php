@@ -283,6 +283,8 @@ public function showintadmin($id){
 
             //$this->load->view("ModificarImagenes",$datos);
 
+            
+
 
             redirect(site_url("Libros/redireccionar/$id_libro/$mensaje"));
         }
