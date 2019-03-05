@@ -190,13 +190,6 @@ $("document").ready(function() {
     </tbody>
 </table>
 
-
-
-
-
-
-
-
 </div>
 </div>
 
@@ -273,7 +266,7 @@ $("document").ready(function() {
         <br>
         <br>
 
-
+        
         </form>
     </div>
 </div>

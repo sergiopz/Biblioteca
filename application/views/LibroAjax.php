@@ -18,14 +18,6 @@ $("document").ready(function() {
 
     //Borrar registros
     $(".claseBorrar").click(function() {
-
-        var r = confirm("Vas a eliminar un registro!\n¿Estás seguro?");
-  if (r == false) {
-   
-    e.preventDefault();
-
-  }else{
-
  
 
  var id=$(this).attr("value");
@@ -37,9 +29,6 @@ $("document").ready(function() {
  $.ajax({
  url: cadena
   });
-
-
-}
 
 
 });
