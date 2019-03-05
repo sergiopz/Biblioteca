@@ -1,12 +1,15 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
+
 <script>
 $("document").ready(function() {
-  $('#table_id').DataTable({
+    //Plugin de jquery para las tablas
+    $('#table_id').DataTable({
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
         }
     });
 
+    //Ejecutar eliminar el registro al hacer click en el boton Eliminar
     $(".claseBorrar").click(function() {
 
         var idUsuario = $(this).attr("value");
@@ -21,6 +24,7 @@ $("document").ready(function() {
 
     });
 
+    //Ejecutar modificar el registro al hacer click en el boton Modificar
     $('.claseModificar').click(function() {
 
         var iddiv = $(this).attr("value");
@@ -53,8 +57,6 @@ $("document").ready(function() {
 
     });
 });
-
-//para modificar cogemos todos los campos uno a uno y los guardamos en variables , para enviar todos los datos al controlador por ajax.
 </script>
 
 <a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i
@@ -74,7 +76,7 @@ $("document").ready(function() {
     </thead>
     <tbody>
         <?php
-        
+  //Recorremos el array de datos de la tabla Usuarios y para cada usuario recorremos los arrays de datos necesarios
   for ($i = 0; $i < count($listaUsuarios); $i++) {
           $usuario = $listaUsuarios[$i];
 
@@ -99,15 +101,14 @@ $("document").ready(function() {
         echo" <td class='colorFila'><button href='#lupa$usuario->id'  class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 modal-trigger'>Modificar</button></td>
               <td class='colorFila'><button class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text anchuraBoton2 claseBorrar ' value='$usuario->id' type='submit' name='action'>Eliminar<i class='material-icons right' title='Eliminar'>delete</i></button></td>
               </tr>";
-        echo"<div id='lupa$usuario->id' class='modal $usuario->id'>
-           
+        echo"
+        <div id='lupa$usuario->id' class='modal $usuario->id'>  
          <h5 class='modal-close'>&#10005;</h5>
           <div class='modal-content center tamañoVModal'>
             <h4 class='flow-text #00e676 green-text text-accent-3'>Modificar Usuarios</h4>
         
               <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>person</i>
-               
                 <input type='text' name='nombre' id='nombre'  value='$usuario->nombre'>
                 <label class='active' style='color:royalblue' for='nombre'>Nombre</label>
               </div>
@@ -157,7 +158,8 @@ $("document").ready(function() {
                       echo"<option  value='$instituto->id' >$instituto->nombre</option> ";
                     }
                   }
-                echo"</select>
+                echo"
+                </select>
               </div>
 
               <!--<div><input style='background-color:royalblue' type='submit' value='Modificar' class='btn btn-large'></div>-->
@@ -237,6 +239,7 @@ $("document").ready(function() {
         <div class="input-field">
             <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
 
+          <!-- Campo de la tabla ajena de la tabla Institutos-->
             <select name="idInstituto" id="idInstituto">
                 <?php
                 for ($j = 0; $j < count($listaInstitutos); $j++) {

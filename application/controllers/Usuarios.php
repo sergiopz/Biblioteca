@@ -42,7 +42,7 @@
       
       //Funcion que elimina un usuario
       public function EliminarUsuarios($id) {  
-            resultado = $this->UsuariosModel->BorrarUsuarios($id);     
+            $resultado = $this->UsuariosModel->BorrarUsuarios($id);     
         if ($resultado == 0) { 
             $this->load->view("VistaAdministrador");
         } else {
