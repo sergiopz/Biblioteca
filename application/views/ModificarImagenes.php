@@ -61,9 +61,15 @@
         <li><a href="<?php echo site_url('Libros/VistaAjax');?>" class="waves-effect waves-light btn #8c9eff indigo accent-1 libro">Volver</a></li>
         <li>
           <?php
-    if (isset($error)) echo "<div style='color:red'>$error</div>";
-    if (isset($mensaje)) echo "<div id='alerta' style='color:white'>$mensaje</div>";
 
+    if (isset($mensaje)){ ;
+
+      if ($mensaje == 1){
+        echo "<div id='alerta' style='color:white'> Eliminado correctamente.</div>";
+      }else {
+        echo "<div id='alerta' style='color:white'>Error en la eliminación de la página.</div>";
+      }
+    }
           ?> 
 
           
@@ -87,10 +93,43 @@
 			
 			$arrayPag = scandir($directorio);
 			$num_pag = count($arrayPag)-2;
-      echo $num_pag;
+      
 
 			
 			for($i = 0;$i<$num_pag;$i++){
+
+
+        echo "
+      
+ 
+
+        <div class='col m1 s6 '>";
+        echo "<div class='subidaImagen'>";
+          echo form_open_multipart('Libros/UploadPaginas');
+         
+          echo "
+          
+          <input type='text' hidden readonly name='idlibro' value='".$id."'/>
+          <input type='text' hidden readonly name='pagina' value='".$i."'/>
+          
+            <div class='file-field input-field botonFile'>
+              <div class='btn #3d5afe indigo accent-3 '>
+                <span>File</span>
+                <input type='file'  name='files' multiple>
+              </div>
+              <div class='file-path-wrapper '>
+                <input class='file-path validate' type='text'>
+              </div>
+            </div>
+         
+  
+          <button class='btn waves-effect waves-light #3d5afe indigo accent-3 white-text' type='submit' name='files'><i class='material-icons' title='Subir archivos'>cloud_upload</i></button>
+          </form>
+
+        </div>
+
+        </div>";
+
 
   echo "
   
@@ -119,41 +158,7 @@
 	<input type='hidden' name='pagina_ant' value='".($i-1)."'>";
 
 
-  echo "
-      
- 
 
-      <div class='col m1 s6 '>";
-        echo form_open_multipart('Libros/UploadPaginas');
-       
-        echo "
-        <div class='subidaImagen'>
-        <input type='text' hidden readonly name='idlibro' value='".$id."'/>
-        <input type='text' hidden readonly name='pagina' value='".$i."'/>
-       
-      <label for='file-upload' class='subir'>
-        <i class='material-icons'>add_circle</i>
-
-
-      </label>
-
-
-
-      <input type='file' name='files' />
-      <div id='info'></div>
-
-
-
-
-
-
-
-
-       
-        <button class='btn waves-effect waves-light' type='submit' name='files'>Go!</button>
-        </div>
-        </form>
-      </div>";
     }
     echo"
     </div>
