@@ -94,8 +94,8 @@
             <h3 >Subida múltiple de imagenes para un libro</h3><br />
             
             <form action="#">
-                <div class="file-field input-field ">
-                    <div class="btn #3d5afe indigo accent-3 botonFile">
+                <div class="file-field input-field botonFile">
+                    <div class="btn #3d5afe indigo accent-3 ">
                         <span>File</span>
                         <input type="file"  id="files" multiple>
                     </div>

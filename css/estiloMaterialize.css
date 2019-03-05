@@ -172,11 +172,8 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
     .elementoInvisible {
       width:1px;
     }
-    .botonFile{
-      margin-top:100%;
-    }
     .subidaImagen{
-      margin-top: 160px;
+      margin-top: 150px;
     }
     .subir{
       padding-left:17px;
