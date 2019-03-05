@@ -240,7 +240,7 @@
                 }
                     redirect(site_url("Libros/redireccionar/$id_libro/$mensaje"));
             }
-<<<<<<< HEAD
+
 
 
              
@@ -255,8 +255,7 @@
 
 
             redirect(site_url("Libros/redireccionar/$id_libro/$mensaje"));
-=======
->>>>>>> a2b571e28ab428534234acbcb15ac010653fdbfa
+
         }
 
         //Funcion que se encarga de poner en pantalla un mensaje de error
