@@ -2,6 +2,10 @@
     <html lang="es">
     <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Expires" content="0">
+  <meta http-equiv="Last-Modified" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+  <meta http-equiv="Pragma" content="no-cache">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
@@ -14,10 +18,16 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
     <title>Administracion</title>
 </head>
 <body class="gradiente">
 <script>
+
+    $.ajaxSetup({
+ cache: false
+
+  });
 
 	//location.reload(true);
 
@@ -29,12 +39,20 @@
   }
   $("document").ready(function(){
 
+
+     $('#recargar').click(function(){
+
+
+
+        //location.reload(true);
+
+       
+        
+        });
+
   		//location.reload(true);
 
-  		$.ajaxSetup({
- cache: false
-
-	});
+  	
 
   $('.borrarOpcion').click(function(e){
 
@@ -137,7 +155,7 @@
 
     <div class='card'>
       <div class='card-image'>
-        <img src='".base_url("assets/libros/$id/$i.jpg")."' height='250px' width='200px'>
+        <img src='".base_url("assets/libros/$id/$i.jpg")."?time=".date("H:i:s")."' height='250px' width='200px'>
         <span class='card-title'>Card Title</span>
       </div>
       <div class='card-content'>

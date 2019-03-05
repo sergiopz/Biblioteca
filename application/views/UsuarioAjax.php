@@ -12,6 +12,14 @@ $("document").ready(function() {
     //Ejecutar eliminar el registro al hacer click en el boton Eliminar
     $(".claseBorrar").click(function() {
 
+        var r = confirm("Vas a eliminar un registro!\n¿Estás seguro?");
+  if (r == false) {
+   
+    e.preventDefault();
+
+  }else{
+
+
         var idUsuario = $(this).attr("value");
 
         $("." + idUsuario).remove();
@@ -21,6 +29,7 @@ $("document").ready(function() {
         $.ajax({
             url: cadena
         });
+      }
 
     });
 

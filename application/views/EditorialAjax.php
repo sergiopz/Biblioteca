@@ -11,7 +11,14 @@ $("document").ready(function() {
     //Ejecutar eliminar el registro al hacer click en el boton Eliminar
     $(".borrarInstituto").click(function() {
 
-        var idInstituto = $(this).attr("value");
+          var r = confirm("Vas a eliminar un registro!\n¿Estás seguro?");
+  if (r == false) {
+   
+    e.preventDefault();
+
+  }else{
+
+          var idInstituto = $(this).attr("value");
 
         $("." + idInstituto).remove();
 
@@ -21,7 +28,10 @@ $("document").ready(function() {
             url: cadena
         });
 
-    });
+  
+  }
+  });
+  
 
     //Ejecutar modificar el registro al hacer click en el boton Modificar
     $('.clasemodificar').click(function() {

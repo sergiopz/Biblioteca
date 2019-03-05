@@ -240,6 +240,22 @@
                 }
                     redirect(site_url("Libros/redireccionar/$id_libro/$mensaje"));
             }
+
+
+
+             
+                //$datos["id"]=$id_libro;
+              
+
+
+
+            //$this->load->view("ModificarImagenes",$datos);
+
+            
+
+
+            redirect(site_url("Libros/redireccionar/$id_libro/$mensaje"));
+
         }
 
         //Funcion que se encarga de poner en pantalla un mensaje de error
