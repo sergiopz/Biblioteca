@@ -13,10 +13,13 @@
 .divCategorias{
     margin-top:3%;
     height: 80px;
-    background:rgba(0, 0, 0, 0.880)!important;
+   
   }
 .enlacesCategorias:hover{
     color:white;
+}
+.enlacesCategorias{
+    color: #373737 !important;
 }
 .contenedorDiv{
     margin-bottom:3%;
@@ -160,45 +163,58 @@ body{
     width:17%;
     list-style:none;
 }
-body{
-    background:#f1f1f1;
-    
-    font-weight:bold;
-    color:gray;
-    text-align:center;
-    -webkit-font-smoothing: antialiased;
-  }
-  @media (max-width: 600px) {
-    .box-wrap {
-      font-size: 0.3em;
-    }
+.divCategorias {
+    transition: .5s ease;
 }
-  .box-wrap{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin:10%;
-    font-weight: bold;
-  }
-  .box{
-    padding:30px;
-    margin:2%;
-    background:white;
-    width:30%;
-    border:1px solid #d6d6d6;
-    box-shadow:0 2px 3px 0px rgba(0,0,0,0.25);
-    border-radius:3px;
-    transition:.2s all; 
-  }
-  .box-wrap:hover .box{
-    filter:blur(3px);
-    opacity:.5;
-    transform: scale(.98);
-    box-shadow:none;
-  }
-  .box-wrap:hover .box:hover{
-    transform:scale(1);
-    filter:blur(0px);
-    opacity:1;
-    box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
-  }
+    
+.divCategorias:hover{
+    box-shadow:
+    1px 1px #373737,
+    2px 2px #373737,
+    3px 3px #373737,
+    4px 4px #373737,
+    5px 5px #373737,
+    6px 6px #373737;
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+    transition: .5s ease;
+}
+.categoria0{
+    background:rgb(241, 56, 56)!important;
+}
+.categoria1{
+    background:rgb(232, 235, 85)!important;
+}
+.categoria2{
+    background:rgba(112, 235, 96, 0.88)!important;
+}
+.categoria3{
+    background:rgba(93, 209, 209, 0.88)!important;
+}
+.categoria4{
+    background:rgba(212, 95, 228, 0.88)!important;
+}
+.categoria5{
+    background:rgba(58, 245, 33, 0.88)!important;
+}
+.categoria6{
+    background:rgb(236, 43, 43)!important;
+}
+.categoria7{
+    background:rgba(41, 247, 247, 0.88)!important;
+}
+.categoria8{
+    background:rgba(220, 54, 241, 0.88)!important;
+}
+.categoria9{
+    background:rgb(238, 241, 54)!important;
+}
+.categoria10{
+    background:rgba(58, 245, 33, 0.88)!important;
+}
+.categoria11{
+    background:rgb(236, 43, 43)!important;
+}
+.categoria12{
+    background:rgba(41, 247, 247, 0.88)!important;
+}

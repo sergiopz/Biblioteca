@@ -161,16 +161,16 @@
 <!--fin ventana modal-->
 
   <div class="container">
-     <div class="row contenedorDiv box-wrap">
+     <div class="row contenedorDiv ">
   <?php
 
       for ($i = 0; $i < count($listaCategoria); $i++) {
           $ca = $listaCategoria[$i];
 
-
+          
 
           echo"
-            <div class='col-md-3 offset-1 col-sm-5 col-xs-12 d-block bg-primary divCategorias box'>
+            <div class='col-md-3 offset-1 col-sm-5 col-xs-12 d-block  divCategorias categoria$i '>
               <a class='enlacesCategorias justicify-content-center' href='".site_url("Buscador/BuscadorCategoria/$ca->nombre")."'>$ca->nombre</a>
             </div>
           ";
