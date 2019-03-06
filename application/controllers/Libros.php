@@ -135,36 +135,7 @@
                 }
             }
         }
-
-        //Funcion para modificar paginas 
-        public function ModificarPaginas($id) {
-            if($this->security_check()){
-                $datos["id"]=$id;
-                $this->load->view("ModificarImagenes",$datos);
-            }
-        }
-
-        //Funcion que se encarga de cerrar la sesion
-        public function salir() {
-            $this->cerrar_sesion();
-        }
-
-        //Funcion que crea una carpeta con un id recibido en assets
-        public function carpeta($id){
-            if($this->security_check()){
-                $ruta = "assets/libros/$id";
-                mkdir($ruta);
-            }
-        }
-
-        //Funcion que carga la vista de donde vemos las paginas una a una
-        public function showintadmin($id){
-            if($this->security_check()){
-                $datos["id"]=$id;
-                $this->load->view('upload_multiple',$datos);
-            }
-        }
-   
+ 
         //Funcion que se encarga de subir una imagen en la carpeta assets
         public function Upload($id){
             if($this->security_check()){     
@@ -182,7 +153,6 @@
             } 
         }
 
-        
         //Funcion que se encarga de subir las paginas de la ventana de imagenes sueltas
         public function UploadPaginas(){
             if($this->security_check()){
@@ -208,6 +178,14 @@
                 }
              redirect(site_url("Libros/ModificarPaginas/$id"));
             }        
+        }     
+
+        //Funcion para modificar paginas 
+        public function ModificarPaginas($id) {
+            if($this->security_check()){
+                $datos["id"]=$id;
+                $this->load->view("ModificarImagenes",$datos);
+            }
         }
 
         //Funcion que borra una imagen en concreto de la pagina de assets
@@ -229,6 +207,22 @@
                     $mensaje=2;
                 }
                 redirect(site_url("Libros/redireccionar/$id_libro/$mensaje"));
+            }
+        }
+
+        //Funcion que crea una carpeta con un id recibido en assets
+        public function carpeta($id){
+            if($this->security_check()){
+                $ruta = "assets/libros/$id";
+                mkdir($ruta);
+            }
+        }
+
+        //Funcion que carga la vista de donde vemos las paginas una a una
+        public function showintadmin($id){
+            if($this->security_check()){
+                $datos["id"]=$id;
+                $this->load->view('upload_multiple',$datos);
             }
         }
 
@@ -286,5 +280,9 @@
             }
         }
 
+        //Funcion que se encarga de cerrar la sesion
+        public function salir() {
+            $this->cerrar_sesion();
+        }        
 
 }
