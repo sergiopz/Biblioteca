@@ -12,7 +12,7 @@
 
 .divCategorias{
     margin-top:3%;
-    height: 80px;
+    height: 95px;
    
   }
 .enlacesCategorias:hover{
@@ -36,11 +36,12 @@
     background-size:100%;
 }
 .barraNavegacion{
+    background-repeat: no-repeat;
     background-size:100%;
 }
 
 #barraSuperior{
-    background:rgba(0, 0, 0, 0.880);
+    background:#1c1d1a;
 }
 
 .elementosNav{
@@ -186,35 +187,22 @@ body{
     background:rgb(232, 235, 85)!important;
 }
 .categoria2{
-    background:rgba(112, 235, 96, 0.88)!important;
+    background:rgba(112, 235, 96)!important;
 }
 .categoria3{
-    background:rgba(93, 209, 209, 0.88)!important;
+    background:rgba(93, 209, 209)!important;
 }
 .categoria4{
-    background:rgba(212, 95, 228, 0.88)!important;
+    background:rgba(212, 95, 228)!important;
 }
 .categoria5{
-    background:rgba(58, 245, 33, 0.88)!important;
+    background:rgba(211, 101, 143)!important;
 }
 .categoria6{
-    background:rgb(236, 43, 43)!important;
+    background:rgb(156, 202, 82)!important;
 }
 .categoria7{
-    background:rgba(41, 247, 247, 0.88)!important;
+    background:rgb(108, 80, 211)!important;
 }
-.categoria8{
-    background:rgba(220, 54, 241, 0.88)!important;
-}
-.categoria9{
-    background:rgb(238, 241, 54)!important;
-}
-.categoria10{
-    background:rgba(58, 245, 33, 0.88)!important;
-}
-.categoria11{
-    background:rgb(236, 43, 43)!important;
-}
-.categoria12{
-    background:rgba(41, 247, 247, 0.88)!important;
-}
+
+

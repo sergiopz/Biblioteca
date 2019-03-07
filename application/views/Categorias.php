@@ -163,19 +163,23 @@
   <div class="container">
      <div class="row contenedorDiv ">
   <?php
-
+  $colorCategoria = 0;
       for ($i = 0; $i < count($listaCategoria); $i++) {
           $ca = $listaCategoria[$i];
-
           
+          if ($colorCategoria == 8){
+            $colorCategoria = 0;
+          }
+         
 
           echo"
-            <div class='col-md-3 offset-1 col-sm-5 col-xs-12 d-block  divCategorias categoria$i '>
+            <div class='col-md-3 col-sm-5 col-xs-8 d-block  divCategorias categoria$colorCategoria '>
               <a class='enlacesCategorias justicify-content-center' href='".site_url("Buscador/BuscadorCategoria/$ca->nombre")."'>$ca->nombre</a>
             </div>
+            <div class='col-md-1 col-sm-1 col-xs-1'></div>
           ";
 
-
+          $colorCategoria++;
           }
 
 

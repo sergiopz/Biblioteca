@@ -174,7 +174,7 @@
 
                     $oldDir="assets/libros/".$id."/".$img_name;
                     $newDir="assets/libros/".$id."/".$pagina.".jpg";
-                    rename($oldDir,$newDir)
+                    rename($oldDir,$newDir);
                 }
              redirect(site_url("Libros/ModificarPaginas/$id"));
             }        
