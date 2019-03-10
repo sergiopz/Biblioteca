@@ -169,14 +169,14 @@
 
           echo"
 
-          <div class='col-3'>
+          <div class='col-3 margenTarjeta'>
             <div class='card tamañoTarjeta'>
 
               <a href='".site_url("Buscador/Visor/$bus->id")."'><img class='card-img-top imgTarjeta'  src='".base_url("assets/libros/".$bus->id."/1.jpg")."' ></a>
 
 					    <div class='card-body'>
-					      <h5 class='card-title text-center'>$bus->titulo</h5> 
-					      <a href='#' class='btn btn-primary center'>Ver libro</a>
+					      <h5 class='card-title tituloTarjeta'>$bus->titulo</h5> 
+					      <a href='#' class='botonTarjeta '>Ver libro</a>
               </div>
  
 				    </div>

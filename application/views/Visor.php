@@ -37,7 +37,7 @@
 			 Las clases que no pertenecen a estas son las creadas dinamicamente como zoom1,zoom2... y los identificadores m1,m2...-->
 			 <div id="barraSuperior"class=" navbar navbar-expand-md navbar-dark">
   			
-			 <a class="btn" href="<?php echo base_url(); ?>" >Volver</a>
+			 <a class="elementosNav" href="<?php echo base_url(); ?>" >Volver</a>
 
 			</div>
 			<div class="container">
@@ -98,13 +98,13 @@
 
         				<ul class="list-unstyled">
           					<li>
-            					<a href="https://github.com/JuapiCallejon"><ion-icon name="logo-github"></ion-icon>Juan Callejón</a>
+            					<a href="https://github.com/JuapiCallejon" class="elementosNav"><ion-icon name="logo-github"></ion-icon>Juan Callejón</a>
          					</li>
           					<li>
-            					<a href="https://github.com/graciancristales"><ion-icon name="logo-github"></ion-icon>Gracián Ruíz</a>
+            					<a href="https://github.com/graciancristales" class="elementosNav"><ion-icon name="logo-github"></ion-icon>Gracián Ruíz</a>
           					</li>
           					<li>
-            					<a href="https://github.com/sergiopz"><ion-icon name="logo-github"></ion-icon>Sergio Pérez</a>
+            					<a href="https://github.com/sergiopz" class="elementosNav"><ion-icon name="logo-github"></ion-icon>Sergio Pérez</a>
           					</li>
         				</ul>
 
@@ -117,16 +117,16 @@
 
         					<ul class="list-unstyled">
          						<li>
-            						<a href="#!">Link 1</a>
+            						<a href="#!" class="elementosNav">Link 1</a>
           						</li>
           						<li>
-            						<a href="#!">Link 2</a>
+            						<a href="#!" class="elementosNav">Link 2</a>
           						</li>
           						<li>
-            						<a href="#!">Link 3</a>
+            						<a href="#!" class="elementosNav">Link 3</a>
           						</li>
           						<li>
-            						<a href="#!">Link 4</a>
+            						<a href="#!" class="elementosNav">Link 4</a>
           						</li>
         					</ul>
 
@@ -138,7 +138,7 @@
 			</div>
 
 			<div class="footer-copyright text-center py-3 transparencia">© 2019 Copyright:
-  				<a href="https://iescelia.org/web/">iescelia.org</a>
+  				<a href="https://iescelia.org/web/" class="elementosNav">iescelia.org</a>
 			</div>
 
 		</footer>		

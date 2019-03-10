@@ -35,11 +35,11 @@
     <ul class="navbar-nav justify-content-end ml-auto">
      
       <li class="nav-item ">
-        <a id="botonInicio" href="" class="nav-link"   data-toggle="modal" data-target="#modalInicio">Iniciar sesión</a>
+        <a id="botonInicio" href="" class="nav-link elementosNav"   data-toggle="modal" data-target="#modalInicio">Iniciar sesión</a>
       </li>
 
       <li class="nav-item justify-content-end">
-        <a id="botonRegistro" href="" class="nav-link"  data-toggle="modal" data-target="#modalRegistro">Registrarse</a>
+        <a id="botonRegistro" href="" class="nav-link elementosNav"  data-toggle="modal" data-target="#modalRegistro">Registrarse</a>
       </li>
 
     </ul>
