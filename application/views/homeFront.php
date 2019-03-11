@@ -155,7 +155,7 @@
       </div>
 <!--fin ventana modal-->
 
-<content class="justify-content-center">
+<div class="container">
   <div class="row"><p></p></div>
     <h2 id="lastBooks" class="display-1 text-center">Últimos Libros</h2>
        <section class="">
@@ -165,15 +165,21 @@
         
           $libro = $ultimosLibros[$i];
           
-          echo"
+         /* echo"
           
         <div class=''><a href='".site_url("Buscador/Visor/$libro->id/$libro->titulo")."'><img class='imagen imgSlider' src='".base_url("assets/libros/".$libro->id."/0.jpg")."' ></a></div>
-        ";
+        ";*/
       }
         
+
+
+
+
+
+      
           ?>
           </div>
         </section>
 
   <div class="row"><p></p></div>
-</content>
+</div>

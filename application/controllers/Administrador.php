@@ -9,6 +9,7 @@
             $this->load->model("UsuariosModel");
                  $this->load->model("EditorialesModel");
                   $this->load->model("BuscadorModel");
+                  $this->load->model("InstitutosModel");
         }
 
         //cargamos vista
@@ -16,6 +17,7 @@
         public function Index() {
           $data["nombreVista"] = "homeFront";
           $data["ultimosLibros"]=$this->BuscadorModel->UltimosLibros();
+          $data["institutos"]=$this->InstitutosModel->getAll();
 
           $this->load->view("plantillaFront", $data);
         }

@@ -37,14 +37,13 @@
 			 Las clases que no pertenecen a estas son las creadas dinamicamente como zoom1,zoom2... y los identificadores m1,m2...-->
 			 <div id="barraSuperior"class=" navbar navbar-expand-md navbar-dark">
   			
-			 <a class="elementosNav" href="<?php echo base_url(); ?>" >Volver</a>
-
+			 <a class="elementosNav nav-link" href="<?php echo base_url(); ?>" >Volver</a>		
+			 <?php echo" <a class='nav-link text-center tituloLibro'>$titulo</a>"; ?>
+			 <?php echo"<a class='nav-link elementosNav' href='".site_url("Buscador/cargarPdf/$id")."'>Generar PDF</a>";?>
 			</div>
 			<div class="container">
 			<div class="main clearfix">
 				<div class="bb-custom-wrapper">
-				<p><?phpecho $titulo; ?></p>
-			<?php echo"	<a href='".site_url("Buscador/cargarPdf/$id")."'>Cargar PDF</a>";?>
 					<div id="bb-bookblock" class="bb-bookblock">
 					<?php 
 					//Saber cuantos archivos estan en una carpeta especifica y no contamos ni la portada frontal ni la trasera

@@ -35,11 +35,11 @@
     <ul class="navbar-nav justify-content-end ml-auto">
      
       <li class="nav-item ">
-        <a id="botonInicio" href="" class="nav-link"   data-toggle="modal" data-target="#modalInicio">Iniciar sesión</a>
+        <a id="botonInicio" href="" class="nav-link elementosNav"   data-toggle="modal" data-target="#modalInicio">Iniciar sesión</a>
       </li>
 
       <li class="nav-item justify-content-end">
-        <a id="botonRegistro" href="" class="nav-link"  data-toggle="modal" data-target="#modalRegistro">Registrarse</a>
+        <a id="botonRegistro" href="" class="nav-link elementosNav"  data-toggle="modal" data-target="#modalRegistro">Registrarse</a>
       </li>
 
     </ul>
@@ -172,7 +172,7 @@
           <div class='col-3 margenTarjeta'>
             <div class='card tamañoTarjeta'>
 
-              <a href='".site_url("Buscador/Visor/$bus->id")."'><img class='card-img-top imgTarjeta'  src='".base_url("assets/libros/".$bus->id."/1.jpg")."' ></a>
+              <a href='".site_url("Buscador/Visor/$bus->id/$bus->titulo")."'><img class='card-img-top imgTarjeta'  src='".base_url("assets/libros/".$bus->id."/0.jpg")."' ></a>
 
 					    <div class='card-body'>
 					      <h5 class='card-title tituloTarjeta'>$bus->titulo</h5> 

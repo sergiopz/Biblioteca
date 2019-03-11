@@ -10,6 +10,7 @@
     text-shadow: 3px 3px 2px #517EA8;
 }
 
+
 .divCategorias{
     margin-top:3%;
     height: 95px;
@@ -48,6 +49,13 @@
     font-size: 19px;
     color:#E84A4C !important;
     text-shadow: 0.5px 1px 1px black !important;
+}
+
+.tituloLibro{
+    font-size: 19px;
+    color: ivory !important;
+    text-shadow: 0.5px 1px 1px black !important;
+    margin: 0 auto;
 }
 
 .elementosNav:hover{
