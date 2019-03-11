@@ -39,7 +39,7 @@
         public function UltimosLibros() {
            
             
-            $r = $this->db->query("SELECT id FROM libros ORDER BY id DESC limit 7"); 
+            $r = $this->db->query("SELECT id,titulo FROM libros ORDER BY id DESC limit 7"); 
             
             $libros = array();
            foreach ($r -> result()as $li) {

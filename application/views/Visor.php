@@ -43,7 +43,7 @@
 			<div class="container">
 			<div class="main clearfix">
 				<div class="bb-custom-wrapper">
-				<p>Nombre y tal</p>
+				<p><?phpecho $titulo; ?></p>
 			<?php echo"	<a href='".site_url("Buscador/cargarPdf/$id")."'>Cargar PDF</a>";?>
 					<div id="bb-bookblock" class="bb-bookblock">
 					<?php 
