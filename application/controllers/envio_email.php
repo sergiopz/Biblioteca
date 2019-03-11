@@ -19,17 +19,18 @@ class Envio_email extends CI_Controller{
         $apellidos = $this->input->post('apellidos');
         $nick = $this->input->post('nick');
         $contrasena = $this->input->post('contrasena');
-        $instituto = $this->input->post('instituto');
         $correo = $this->input->post('correo');
+        $instituto = $this->input->post('instituto');
         $telefono = $this->input->post('telefono');
+        $tipo = 5;
+        $codgio = 0;
                 
         
-                $insert = $this->envioEmailModel->new_user($nombre,$apellidos,$nick,$contrasena,$instituto,$correo,$telefono);
+                $insert = $this->envioEmailModel->new_user($nombre,$apellidos,$nick,$contrasena,$instituto,$correo,$telefono,$tipo,$codigo);
                 //si el modelo nos responde afirmando que todo ha ido bien, envíamos un correo
-                //al usuario y lo redirigimos al index, en verdad deberíamos redirigirlo al home de
-                //nuestra web para que puediera iniciar sesión
+                //al usuario y lo redirigimos al index para que pueda iniciar sesión
 
-                $config = Array(
+               /* $config = Array(
 
                     'protocol' => 'sendmail',
                     'mailpath' => '/usr/sbin/sendmail',
@@ -50,6 +51,6 @@ class Envio_email extends CI_Controller{
                 $this->email->message('<h2>' . $nombre . ' gracias por registrarte en Biblioteca Celia Viñas</h2><hr><br><br>
                 Tu nombre de usuario es: ' . $nick . '.<br>Tu password es: ' . $contrasena.'pincha en el link para confirmar tu correoooooooooooooooo');
                 $this->email->send();
-      
+      */
     }
 }

@@ -106,7 +106,7 @@
             
             <!-- Modal body -->
             <div class="modal-body">
-            <?php echo form_open("envio_email/nuevo_usuario") ?>
+            <?php echo form_open("RegistroUsuarios/registrarUsuarios") ?>
                     <div class="form-group">
                         <label>Nombre</label>
                         <input type="text" class="form-control" name="nombre" placeholder="Nombre" <?php echo set_value('nombre') ?> required>
@@ -128,12 +128,6 @@
                         <input type="password" name="contrasena" class="form-control"  placeholder="Contraseña" <?php echo set_value('contrasena') ?> required>
                     </div>
 
-                    <div class="form-group">
-                        <label >Instituto</label>
-                        <input type="text" name="instituto" class="form-control" <?php echo set_value('instituto') ?> placeholder="Instituto" required>
-                    </div>
-
-
 
                     <div class="form-group">
                         <label >E-mail</label>
@@ -145,11 +139,7 @@
                         <div class="row"></div>
                         <input type="text" class="form-control" name="telefono" <?php echo set_value('telefono') ?> placeholder="Teléfono" pattern="^[9|8|7|6]\d{8}$" required>
                     </div>
-
-                    <div class="">
-                        <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
-                    </div>
-                    <div class="row contenidoModal">
+                    <div class="form-group contenidoModal">
                         <input type="submit" class="btn btn-dark">
                     </div>
                 </form>
@@ -177,7 +167,7 @@
           
           echo"
           
-        <div class=''><a href='".site_url("Buscador/Visor/$libro->id")."'><img class='imagen imgSlider' src='".base_url("assets/libros/".$libro->id."/0.jpg")."' ></a></div>
+        <div class=''><a href='".site_url("Buscador/Visor/$libro->id/$libro->titulo")."'><img class='imagen imgSlider' src='".base_url("assets/libros/".$libro->id."/0.jpg")."' ></a></div>
         ";
       }
         
