@@ -58,6 +58,11 @@
 
         }
 
-
+        //Funcion que carga el pdf de un libro
+        public function cargarPdf($id){
+          $data["id"]=$id;
+          $this->load->view("VistaPdf.php", $data);
+        
+        }
 
     }
