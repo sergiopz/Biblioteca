@@ -36,9 +36,10 @@
         }
 
 
-        public function Visor($id) {
+        public function Visor($id,$titulo) {
 
           $data["id"]=$id;
+          $data["titulo"]=$titulo;
    
           $this->load->view("Visor.php", $data);
 
@@ -58,6 +59,11 @@
 
         }
 
-
+        //Funcion que carga el pdf de un libro
+        public function cargarPdf($id){
+          $data["id"]=$id;
+          $this->load->view("VistaPdf.php", $data);
+        
+        }
 
     }
