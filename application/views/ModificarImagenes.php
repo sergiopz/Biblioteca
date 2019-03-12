@@ -24,13 +24,7 @@
 <body class="gradiente">
 <script>
 
-    $.ajaxSetup({
- cache: false
-
-  });
-
-	//location.reload(true);
-
+   
 
 
   function cambiar(){
@@ -156,7 +150,7 @@
     <div class='card'>
       <div class='card-image'>
         <img src='".base_url("assets/libros/$id/$i.jpg")."?time=".date("H:i:s")."' height='250px' width='200px'>
-        <span class='card-title'>Card Title</span>
+        <span class='card-title'></span>
       </div>
       <div class='card-content'>
       <p class='numeroPagina'>Página: $i</p>
