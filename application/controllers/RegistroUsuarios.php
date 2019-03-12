@@ -2,7 +2,7 @@
   //Controlador de Usuarios
   include_once('Seguridad.php');
   
-    class Usuarios extends Seguridad {
+    class RegistroUsuarios extends Seguridad {
         public function __construct() {
             parent::__construct();
             $this->load->model("registroUsuarioModel");
@@ -10,7 +10,7 @@
         }
 
 
-    public function RegistrarUsuarios() {
+    public function InsertarUsuarios() {
         
         $nombre = $this->input->get_post("nombre");
         $apellidos = $this->input->get_post("apellidos");
@@ -21,17 +21,19 @@
         $idInstituto = $this->input->get_post("idInstituto");
         $codigoConfirmacion = $this->input->get_post("codigoConfirmacion");
             
-        $resultado = $this->UsuariosModel->InsertarUsuarios($nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto,$codigoConfirmacion );
+        $resultado = $this->UsuariosModel->InsertarUsuarios($nombre,$apellidos,$nick,$contrasena,$correo,$telefono, 5,$idInstituto,$codigoConfirmacion );
             if ($resultado == 0) {
-                $data["mensaje"] = "Error al insertar la película en la base de datos";
+                $data["mensaje"] = "Error al realizar el registro en la base de datos";
             } else {
-                $data["nombreVista"] = "VistaAdministrador";
-                $data["tabla"] = "usuarios";
-                $this->load->view("plantilla", $data);
+            
+                redirect(site_url("RegistroUsuarios/redireccionRegistro"));
             }
         }
 
-
-
+        public function redireccionRegistro(){
+            $data["nombreVista"] = "VistaRegistrado";
+            $this->load->view("plantillaFront", $data);
+        }
 
     }
+    

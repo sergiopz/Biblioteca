@@ -16,6 +16,10 @@
     height: 95px;
   }
 
+#mensajeRegistrado{
+    margin-top: 13%;
+    margin-bottom: 13%; 
+}
 
 .enlacesCategorias:hover{
     color:white;

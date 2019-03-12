@@ -1,5 +1,51 @@
 <body  class="imgFondo" >
+<script>
 
+//------------------------------------------------------
+//                  Equivalente en JQUERY!             |
+//------------------------------------------------------
+/*
+$(document).ready(function() {
+    $("#usuario").blur(function() {
+        $("#mensajeAjax").load('<?php //echo site_url("login/checkUsuario/");?>' + $("#usuario").val());
+    }
+});*/
+/*public function checkUsuario($usuario) {
+        $this->load->model("usuarioModel");
+        $r = $this->usuarioModel->checkUsuario($usuario);
+        if ($r){
+            $this->output->set_output("Nombre no existe");
+        }
+        else{
+            $this->output->set_output("Nombre correcto");
+        }
+    }*/
+
+peticionHttp = new XMLHttpRequest();
+
+function comprobarUsuario(){
+
+var queryString;
+var usuario;
+
+usuario = document.getElementById('usuario');
+//queryString = '&usuario=' + encodeURIComponent(usuario.value);
+
+peticionHttp.onreadystatechange = muestraResultadoComprobacionUsuario;
+peticionHttp.open('GET', '<?php echo site_url("login/checkUsuario/");?>' + usuario.value, true);
+//peticionHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+peticionHttp.send(null);
+}
+
+function muestraResultadoComprobacionUsuario(){
+if(peticionHttp.readyState == 4) {
+if(peticionHttp.status == 200) {
+document.getElementById("mensajeAjax").innerHTML = peticionHttp.responseText;
+}
+}
+}
+
+</script>
  <div id="imagenBuscador" style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondo.png')">
 <nav id=""class=" navbar navbar-expand-md navbar-dark">
   <!-- Brand -->
@@ -107,7 +153,7 @@
             
             <!-- Modal body -->
             <div class="modal-body">
-            <?php echo form_open("RegistroUsuarios/registrarUsuarios") ?>
+            <?php echo form_open("RegistroUsuarios/InsertarUsuarios") ?>
                     <div class="form-group">
                         <label>Nombre</label>
                         <input type="text" class="form-control" name="nombre" placeholder="Nombre" <?php echo set_value('nombre') ?> required>
