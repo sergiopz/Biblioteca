@@ -116,7 +116,7 @@
     }
 
     //Funcion que se encarga de subir una imagen en la carpeta
-    public function subirImagenPelicula($id) {
+    public function subirImagenPagina($id) {
         $config['upload_path'] = './assets/libros/'.$id;
         $config['allowed_types']        = 'jpg';
         $config['max_size']             = 100000;
@@ -138,20 +138,5 @@
         return $resultado;               
     }
 
-    //Funcion que se encarga de borrar las paginas de un libro
-    public function deletepaglibro($id_libro,$num_pag,$cant_pag){
-           
-        $filename="assets/libros/9/".$num_pag.".jpg";
-        $res=unlink($filename);
-
-        if($res){
-            for($i=$num_pag;$i<$cant_pag-1;$i++){
-                $oldDir="assets/libros/$id_libro/".($i+1).".jpg";
-                $newDir="assets/libros/$id_libro/".$i.".jpg";
-                rename($oldDir,$newDir);
-            }
-        }
-        return $res;
-    }      
-
+    
 }

@@ -140,7 +140,7 @@
         //Funcion que se encarga de subir una imagen en la carpeta assets
         public function Upload($id){
             if($this->security_check()){     
-                $resultado_subida = $this->LibrosModel->subirImagenPelicula($id);
+                $resultado_subida = $this->LibrosModel->subirImagenPagina($id);
                 if ($resultado_subida["codigo"] == 1) {
                     $img_name=$resultado_subida["mensaje"];        
                     $total_imagenes1 = count(glob('assets/libros/'.$id.'/{*.jpg,*.gif,*.png}',GLOB_BRACE));
@@ -160,12 +160,12 @@
                 $pagina = $this->input->get_post("pagina");
                 $id = $this->input->get_post("idlibro");
                 $total_imagenes = count(glob('assets/libros/'.$id.'/{*.jpg,*.gif,*.png}',GLOB_BRACE));
-                echo $pagina;   
-                $resultado_subida = $this->LibrosModel->subirImagenPelicula($id);
+                 
+                $resultado_subida = $this->LibrosModel->subirImagenPagina($id);
 
                 if ($resultado_subida["codigo"] == 1) {
                     $img_name=$resultado_subida["mensaje"];
-                    echo $img_name;
+                    
 
                     for($i=$total_imagenes-1;$i>=$pagina;$i--){
                             $oldDir="assets/libros/".$id."/".$i.".jpg";
@@ -192,21 +192,11 @@
         //Funcion que borra una imagen en concreto de la pagina de assets
         public function deletepag($id_libro,$num_pag,$cant_pag){
             if($this->security_check()){
-                $filename="assets/libros/".$id_libro."/".$num_pag.".jpg";
-                $res=unlink($filename);
 
-                if($res){
-                    for($i=$num_pag;$i<$cant_pag-1;$i++){
-                        $oldDir="assets/libros/$id_libro/".($i+1).".jpg";
-                        $newDir="assets/libros/$id_libro/".$i.".jpg";
-                        rename($oldDir,$newDir);
-                    }    
-                $mensaje=1;  
+                   
 
-                }
-                else{
-                    $mensaje=2;
-                }
+               $mensaje=$this->PaginasModel->Eliminar($id_libro,$num_pag,$cant_pag);
+
                 redirect(site_url("Libros/redireccionar/$id_libro/$mensaje"));
             }
         }
@@ -247,26 +237,19 @@
             }
         }
 
+
+
+
         //Funcion que se encarga de mover una imagen a la izquierda
         public function cambiarIzquierda($id_libro,$num_pag){
             if($this->security_check()){
-                if ($num_pag!=0) {
-                    //Coge la pagina a la izquierda de la que quieres mover y le cambia el nombre
-                    $oldDir="assets/libros/$id_libro/".($num_pag-1).".jpg";
-                    $newDir="assets/libros/$id_libro/fotoCambio.jpg";
-                    rename($oldDir,$newDir);
-                    //Coge la pagina que quieres mover y la cambia a la izquierda
-                    $oldDir="assets/libros/$id_libro/".$num_pag.".jpg";
-                    $newDir="assets/libros/$id_libro/".($num_pag-1).".jpg";
-                    rename($oldDir,$newDir);
-                    //Muevela pagina a de la izquierda y la pone a la del principio
-                    $oldDir="assets/libros/$id_libro/fotoCambio.jpg";
-                    $newDir="assets/libros/$id_libro/".$num_pag.".jpg";
-                    rename($oldDir,$newDir);
+
+                $this->PaginasModel->CambiarIzquierda($id_libro,$num_pag);
+                
                 }
              redirect(site_url("Libros/ModificarPaginas/$id_libro"));  
             }
-        }
+        
 
         //Funcion que se encarga de cerrar la sesion
         public function salir() {

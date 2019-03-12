@@ -28,4 +28,50 @@
           
         }
 
+         public function CambiarIzquierda($id_libro,$num_pag) {
+
+            if ($num_pag!=0) {
+                    //Coge la pagina a la izquierda de la que quieres mover y le cambia el nombre
+                    $oldDir="assets/libros/$id_libro/".($num_pag-1).".jpg";
+                    $newDir="assets/libros/$id_libro/fotoCambio.jpg";
+                    rename($oldDir,$newDir);
+                    //Coge la pagina que quieres mover y la cambia a la izquierda
+                    $oldDir="assets/libros/$id_libro/".$num_pag.".jpg";
+                    $newDir="assets/libros/$id_libro/".($num_pag-1).".jpg";
+                    rename($oldDir,$newDir);
+                    //Muevela pagina a de la izquierda y la pone a la del principio
+                    $oldDir="assets/libros/$id_libro/fotoCambio.jpg";
+                    $newDir="assets/libros/$id_libro/".$num_pag.".jpg";
+                    rename($oldDir,$newDir);
+
+        
+                    }
+          
+        }
+
+
+
+         public function Eliminar($id_libro,$num_pag,$cant_pag) {
+
+
+             $filename="assets/libros/".$id_libro."/".$num_pag.".jpg";
+                $res=unlink($filename);
+
+                if($res){
+                    for($i=$num_pag;$i<$cant_pag-1;$i++){
+                        $oldDir="assets/libros/$id_libro/".($i+1).".jpg";
+                        $newDir="assets/libros/$id_libro/".$i.".jpg";
+                        rename($oldDir,$newDir);
+                    }    
+                return $mensaje=1;  
+
+                }
+                else{
+                   return $mensaje=2;
+                }
+
+
+         }
+
+         
 }
