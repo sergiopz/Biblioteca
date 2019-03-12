@@ -26,8 +26,7 @@
 }
 .enlacesCategorias{
     position: relative;
-    top:25%;
-    left:25%;
+    text-shadow: 2px 2px 1px #d4d5d6;
     color: #373737 !important;
 }
 .contenedorDiv{
@@ -39,10 +38,15 @@
     padding-bottom: 3%;
 }
 
+#imgFondoVisor{
+    background: #454649; /* fallback for old browsers */
+}
+
 .imgFondo{
-background: #757f9a; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #283352, #b6247e); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #454649, #d4d5d6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   
+    background: #757f9a; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #454649, #d4d5d6); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #454649, #d4d5d6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 #imagenBuscador{
     background-repeat: no-repeat;
@@ -54,10 +58,18 @@ background: #757f9a; /* fallback for old browsers */
 }
 
 .elementosNav{
+    font-size: 25px;
+    color:#E84A4C !important;
+    text-shadow: 0.5px 1px 1px black !important;
+}
+.elementosNavFooter{
     font-size: 19px;
     color:#E84A4C !important;
     text-shadow: 0.5px 1px 1px black !important;
 }
+.elementosNavFooter:hover{
+    color:rgb(201, 14, 17) !important;
+    }
 
 .tituloLibro{
     font-size: 19px;
@@ -145,7 +157,7 @@ a:active{
 }
 .botonTarjeta{
     font-size: 19px;
-    color:#E84A4C !important;
+    color:#454649 !important;
     text-shadow: 0.5px 1px 1px black !important;
 }
 .tituloTarjeta{
@@ -189,7 +201,7 @@ a:active{
     list-style:none;
 }
 .divCategorias {
-
+    
     transition: .5s ease;
 }
     

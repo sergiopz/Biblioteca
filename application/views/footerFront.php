@@ -21,13 +21,13 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="https://github.com/JuapiCallejon" class="elementosNav"><ion-icon name="logo-github"></ion-icon>Juan Callejón</a>
+            <a href="https://github.com/JuapiCallejon" class="elementosNavFooter"><ion-icon name="logo-github"></ion-icon>Juan Callejón</a>
           </li>
           <li>
-            <a href="https://github.com/graciancristales" class="elementosNav"><ion-icon name="logo-github"></ion-icon>Gracián Ruíz</a>
+            <a href="https://github.com/graciancristales" class="elementosNavFooter"><ion-icon name="logo-github"></ion-icon>Gracián Ruíz</a>
           </li>
           <li>
-            <a href="https://github.com/sergiopz" class="elementosNav"><ion-icon name="logo-github"></ion-icon>Sergio Pérez</a>
+            <a href="https://github.com/sergiopz" class="elementosNavFooter"><ion-icon name="logo-github"></ion-icon>Sergio Pérez</a>
           </li>
         </ul>
 
@@ -36,21 +36,16 @@
       <div class="col-md-3 mb-md-0 mb-3">
 
 
-        <h5 class="text-uppercase">Links</h5>
+        <h5 class="text-uppercase">Info</h5>
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!" class="elementosNav">Link 1</a>
+            <a  class="elementosNavFooter">950 156 151</a>
           </li>
           <li>
-            <a href="#!" class="elementosNav">Link 2</a>
+            <a  class="elementosNavFooter">C/ Javier Sanz 15, 04004 Almería (España)</a>
           </li>
-          <li>
-            <a href="#!" class="elementosNav">Link 3</a>
-          </li>
-          <li>
-            <a href="#!" class="elementosNav">Link 4</a>
-          </li>
+
         </ul>
 
       </div>
@@ -61,7 +56,7 @@
 </div>
 
 <div class="footer-copyright text-center py-3 transparencia">© 2019 Copyright:
-  <a href="https://iescelia.org/web/" class="elementosNav">iescelia.org</a>
+  <a href="https://iescelia.org/web/" class="elementosNavFooter">iescelia.org</a>
 </div>
 
 </footer>

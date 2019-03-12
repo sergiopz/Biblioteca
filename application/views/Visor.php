@@ -22,9 +22,9 @@
     	<script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
     	<link rel="stylesheet" href="<?php echo base_url('css/estiloFront.css');?>">
     	<script type="text/javascript" src="<?php echo base_url(); ?>js/frontJS.js"></script>
-    	<title>Front</title>
+    	<title>Visor</title>
 	</head>
-	<body style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondoweb.jpg')" class="imgFondo">
+	<body  id="imgFondoVisor">
 	
 	<?php 
 	//Metodo de php para coger las medidas de una imagen la cual utilizaremos a posterior para crear el contenedor dinamicamente
@@ -105,13 +105,13 @@
 
         				<ul class="list-unstyled">
           					<li>
-            					<a href="https://github.com/JuapiCallejon" class="elementosNav"><ion-icon name="logo-github"></ion-icon>Juan Callejón</a>
+            					<a href="https://github.com/JuapiCallejon" class="elementosNavFooter"><ion-icon name="logo-github"></ion-icon>Juan Callejón</a>
          					</li>
           					<li>
-            					<a href="https://github.com/graciancristales" class="elementosNav"><ion-icon name="logo-github"></ion-icon>Gracián Ruíz</a>
+            					<a href="https://github.com/graciancristales" class="elementosNavFooter"><ion-icon name="logo-github"></ion-icon>Gracián Ruíz</a>
           					</li>
           					<li>
-            					<a href="https://github.com/sergiopz" class="elementosNav"><ion-icon name="logo-github"></ion-icon>Sergio Pérez</a>
+            					<a href="https://github.com/sergiopz" class="elementosNavFooter"><ion-icon name="logo-github"></ion-icon>Sergio Pérez</a>
           					</li>
         				</ul>
 
@@ -120,20 +120,14 @@
       				<div class="col-md-3 mb-md-0 mb-3">
 
 
-        				<h5 class="text-uppercase">Links</h5>
+        				<h5 class="text-uppercase">Info</h5>
 
         					<ul class="list-unstyled">
-         						<li>
-            						<a href="#!" class="elementosNav">Link 1</a>
+								<li>
+            						<a  class="elementosNavFooter">950 156 151</a>
           						</li>
           						<li>
-            						<a href="#!" class="elementosNav">Link 2</a>
-          						</li>
-          						<li>
-            						<a href="#!" class="elementosNav">Link 3</a>
-          						</li>
-          						<li>
-            						<a href="#!" class="elementosNav">Link 4</a>
+            						<a  class="elementosNavFooter">C/ Javier Sanz 15, 04004 Almería (España)</a>
           						</li>
         					</ul>
 
@@ -145,7 +139,7 @@
 			</div>
 
 			<div class="footer-copyright text-center py-3 transparencia">© 2019 Copyright:
-  				<a href="https://iescelia.org/web/" class="elementosNav">iescelia.org</a>
+  				<a href="https://iescelia.org/web/" class="elementosNavFooter">iescelia.org</a>
 			</div>
 
 		</footer>		

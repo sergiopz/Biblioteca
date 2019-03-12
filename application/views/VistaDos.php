@@ -1,5 +1,5 @@
      
-<body style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondoweb.jpg')" class="imgFondo" >
+<body  class="imgFondo" >
 
 <nav id="barraSuperior"class=" navbar navbar-expand-md navbar-dark">
   <!-- Brand -->
@@ -36,10 +36,6 @@
      
       <li class="nav-item ">
         <a id="botonInicio" href="" class="nav-link elementosNav"   data-toggle="modal" data-target="#modalInicio">Iniciar sesión</a>
-      </li>
-
-      <li class="nav-item justify-content-end">
-        <a id="botonRegistro" href="" class="nav-link elementosNav"  data-toggle="modal" data-target="#modalRegistro">Registrarse</a>
       </li>
 
     </ul>
@@ -89,75 +85,6 @@
         </div>
       </div>
 
-      <div class="modal fade tamañoModal" id="modalRegistro">
-        <div class="modal-dialog">
-          <div class="modal-content">
-          
-            <!-- Modal Header -->
-            <div class="modal-header cabeceraModal">
-              <h4 class="modal-title">Registrarse</h4>
-              <button type="button" class="close botonCerrar" data-dismiss="modal">×</button>
-            </div>
-            
-            <!-- Modal body -->
-            <div class="modal-body">
-            <?php echo form_open("envio_email/nuevo_usuario") ?>
-                    <div class="form-group">
-                        <label>Nombre</label>
-                        <input type="text" class="form-control" name="nombre" placeholder="Nombre" <?php echo set_value('nombre') ?> required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Apellidos</label>
-                        <input type="text" class="form-control" name="apellidos" placeholder="Apellidos"<?php echo set_value('apellidos') ?> required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="estiloLabel">Nombre de Usuario</label>
-                        <input type="text" name="nick" class="form-control" <?php echo set_value('nick') ?> placeholder="Nombre de usuario" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="estiloLabel">Contraseña</label>
-                        <div class="row"></div>
-                        <input type="password" name="contrasena" class="form-control"  placeholder="Contraseña" <?php echo set_value('contrasena') ?> required>
-                    </div>
-
-                    <div class="form-group">
-                        <label >Instituto</label>
-                        <input type="text" name="instituto" class="form-control" <?php echo set_value('instituto') ?> placeholder="Instituto" required>
-                    </div>
-
-
-
-                    <div class="form-group">
-                        <label >E-mail</label>
-                        <input type="email" name="correo" class="form-control" <?php echo set_value('correo') ?> placeholder="E-mail" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="estiloLabel">Teléfono</label>
-                        <div class="row"></div>
-                        <input type="text" class="form-control" name="telefono" <?php echo set_value('telefono') ?> placeholder="Teléfono" pattern="^[9|8|7|6]\d{8}$" required>
-                    </div>
-
-                    <div class="">
-                        <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
-                    </div>
-                    <div class="row contenidoModal">
-                        <input type="submit" class="btn btn-dark">
-                    </div>
-                </form>
-            </div>
-            
-            <!-- Modal footer -->
-            <div class="modal-footer pieModal" style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/recorteLibro.png')">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-            
-          </div>
-        </div>
-      </div>
 <!--fin ventana modal-->
     <script>
             
@@ -200,8 +127,8 @@
               <a href='".site_url("Buscador/Visor/$bus->id/$bus->titulo")."'><img id='$bus->id' name='$ultimaPag' class='card-img-top imgTarjeta'  src='".base_url("assets/libros/".$bus->id."/0.jpg")."' ></a>
 
 					    <div class='card-body'>
-					      <h5 class='card-title tituloTarjeta'>$bus->titulo</h5> 
-					      <a href='#' class='botonTarjeta '>Ver libro</a>
+					      <h5 class='card-title tituloTarjeta text-center'>$bus->titulo</h5> 
+					      <a href='".site_url("Buscador/Visor/$bus->id")."'><h5 class='botonTarjeta text-center'>Ver libro</h5></a>
               </div>
  
 				    </div>

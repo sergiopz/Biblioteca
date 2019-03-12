@@ -218,14 +218,14 @@ document.getElementById("mensajeAjax").innerHTML = peticionHttp.responseText;
 
           echo"
 
-          <div class='col-md-3 col-sm-4 margenTarjeta'>
+          <div class='col-md-3 col-sm-4 col-xs-12 margenTarjeta'>
             <div class='card tamañoTarjeta'>
 
               <a href='".site_url("Buscador/Visor/$libro->id")."'><img class='card-img-top imgTarjeta' id='$libro->id' name='$ultimaPag'  src='".base_url("assets/libros/".$libro->id."/0.jpg")."' ></a>
 
 					    <div class='card-body'>
-					      <h5 class='card-title tituloTarjeta'>$libro->titulo</h5> 
-					      <a href='#' class='botonTarjeta '>Ver libro</a>
+					      <h5 class='card-title tituloTarjeta text-center'>$libro->titulo</h5> 
+					      <a href='".site_url("Buscador/Visor/$libro->id")."'><h5 class='botonTarjeta text-center'>Ver libro</h5></a>
               </div>
  
 				    </div>
@@ -236,8 +236,12 @@ document.getElementById("mensajeAjax").innerHTML = peticionHttp.responseText;
         
           ?>
           <script>
+
+            
             
             $("document").ready(function(){
+
+           
               
               var direccion= '<?php echo base_url("assets/libros/"); ?>'
 
