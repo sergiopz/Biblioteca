@@ -37,6 +37,29 @@ $("document").ready(function() {
         }
     });
 
+    $('.claseModificar').click(function() {
+        alert("hola");
+        var search={};
+        search['ISBN'] = $("#lupa" + iddiv + " input[name='isbn']").val();
+
+        var iddiv = $(this).attr("value");
+        var isbn = $("#lupa" + iddiv + " input[name='isbn']").val();
+        var titulo = $("#lupa" + iddiv + " input[name='titulo']").val();
+        var descripcion = $("#lupa" + iddiv + " input[name='descripcion']").val();
+        var fecha = $("#lupa" + iddiv + " input[name='fecha']").val();
+        var instituto = $("#lupa" + iddiv + " select[name='idInstituto'] ").val();
+        var usuario = $(".user"+ iddiv).val();
+        var editorial = $("#lupa" + iddiv + " select[name='idEditorial'] ").val();
+        var autor = $("#lupa" + iddiv + " select[name='idAutor[]'] ").val();
+        var categoria = $("#lupa" + iddiv + " select[name='idCategoria[]'] ").val();
+        var myJSON = JSON.stringify(search);
+        
+        alert(isbn);
+        alert(myJSON);
+    
+    });
+
+
 });
 </script>
 
@@ -200,7 +223,7 @@ $("document").ready(function() {
             </div>
             <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                <select name='idInstituto' class='browser-default'>";
+                <select name='idInstituto' class='active'>";
                     for ($j = 0; $j < count($listaInstitutos); $j++) { 
                         $instituto=$listaInstitutos[$j]; 
                             if( $usuario-> idInstituto==$instituto->id ){
@@ -210,21 +233,27 @@ $("document").ready(function() {
                             }
                         }
                         echo"</select>
-            </div>
+            </div> 
             <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>face</i>";
-                for ($j = 0; $j < count($listaUsuarios); $j++) {
-                    $usuario=$listaUsuarios[$j]; 
-                    if( $libro->idUsuario==$usuario->id ){
-                        echo "<input type='text' name='usuario' id='usuario' value='$usuario->nombre'>";
-                        echo "<input type='hidden' name='idUsuario' id='idUsuario' value='$usuario->id'>";
-                        echo "<label class='active' style='color:royalblue' for='usuario'>Usuario</label>";
-                    }
-                }
-                    echo" </div>
-            <div class='input-field'>
+                    <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
+                    <select  name='idUsuario' class='active user$libro->id'>";
+                        for ($j = 0; $j < count($listaUsuarios); $j++) { 
+                            $usuario=$listaUsuarios[$j];
+                            if($this->session->userdata('tipoUsuario')==0){
+                                if(($libro->idUsuario==$usuario->id)){
+                                    echo"<option value='$usuario->id' selected >$usuario->nombre</option> ";
+                                }else{
+                                    echo"<option value='$usuario->id'  >$usuario->nombre</option> ";
+                                }
+                            }else if( ($libro->idUsuario==$usuario->id)&&($this->session->userdata('tipoUsuario')!=0) ){
+                               echo"<option value='$usuario->id' selected >$usuario->nombre</option> ";
+                            }
+                        }
+                echo"</select>
+                </div>
+                <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                <select name='idEditorial' class='browser-default'>";
+                <select name='idEditorial' class='active'>";
                     for ($j = 0; $j < count($listaEditoriales); $j++) { 
                         $editorial=$listaEditoriales[$j]; 
                         if( $libro->idEditorial==$editorial->id ){
@@ -237,7 +266,7 @@ $("document").ready(function() {
             </div>
             <div>
                 <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                <select multiple name='idAutor[]' class='browser-default'>";
+                <select multiple name='idAutor[]' class='active'>";
 
                      //Recorremos la lista de Autores y dentro recorremos la tabla Autores Libros y si el id del autor
                     //de la tabla ajena coincide con el id del autor y del libro actual lo saca selected sino lo desactivamos
@@ -261,7 +290,7 @@ $("document").ready(function() {
             </div>
             <div>
                 <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                <select multiple name='idCategoria[]' class='browser-default'>";
+                <select multiple name='idCategoria[]' class='active'>";
 
         //Recorremos la lista de categorias y dentro recorremos la tabla Libros Categorias y si el id de la categoria
         //de la tabla ajena coincide con el id de la categoria y del libro actual lo saca selected sino lo desactivamos     
@@ -283,8 +312,7 @@ $("document").ready(function() {
             </div>
             <br>
             <button class='btn btn-large waves-effect waves-light #e65100 orange darken-4 z-depth-0 claseModificar'
-                value='$usuario->id' type='submit' name='action'><i class='material-icons '>create</i></button>
-
+                value='$libro->id' type='submit' name='action'><i class='material-icons '>create</i></button>
         </div>
         </form>
     </div>";

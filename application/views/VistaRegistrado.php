@@ -159,58 +159,10 @@
         </div>
       </div>
 <!--fin ventana modal-->
-    <script>
-            
-      $("document").ready(function(){
-              
-        var direccion= '<?php echo base_url("assets/libros/"); ?>'
-
-          $(".imgTarjeta").hover(function(){
-
-            var ultimaPag = $(this).attr("name");
-            var carpetaImg = $(this).attr("id");
-                
-            $("#"+carpetaImg).attr("src",direccion+carpetaImg+"/"+ultimaPag+".jpg");
-  
-          });
-
-          $(".imgTarjeta").mouseout(function(){
-
-            var carpetaImg = $(this).attr("id"); 
-            $("#"+carpetaImg).attr("src",direccion+carpetaImg+"/0.jpg");
-                 
-          });
-
-      });
-                
-      </script>
-     <?php
-      echo "<div class='container librosBuscados'>";
-      echo "<h2 id='lastBooks' class='display-4 text-left'>Busqueda: $tituloBusqueda</h2>";
-      echo "<div class='row' >";
-      for ($i = 0; $i < count($listaBusqueda); $i++) {
-          $bus = $listaBusqueda[$i];
-          $ultimaPag = count(glob('assets/libros/'.$bus->id.'/{*.jpg,*.gif,*.png}',GLOB_BRACE))-1;
-          
-          echo"
-
-          <div class='col-3 margenTarjeta'>
-            <div class='card tamañoTarjeta'>
-
-              <a href='".site_url("Buscador/Visor/$bus->id/$bus->titulo")."'><img id='$bus->id' name='$ultimaPag' class='card-img-top imgTarjeta'  src='".base_url("assets/libros/".$bus->id."/0.jpg")."' ></a>
-
-					    <div class='card-body'>
-					      <h5 class='card-title tituloTarjeta'>$bus->titulo</h5> 
-					      <a href='#' class='botonTarjeta '>Ver libro</a>
-              </div>
- 
-				    </div>
-          </div>
-          <div class='col-1'></div>";
-          
-        }
-          echo "</div>
-          </div>";
-     ?>
+     <div  class="container" >
+            <h3 id="mensajeRegistrado" >Se ha registrado, ahora debe esperar a que un administrador conceda su solicitud.</h3>
+    </div>
+   
+     
 
 
