@@ -1,6 +1,39 @@
 *{
     font-family: 'Roboto Slab', serif;
 }
+#buscador3{
+    margin-top:2%;
+    width: 90%;
+}
+
+
+@media (max-width: 812px){
+    #lastBooks{
+        font-size: 50px;
+    }
+
+}
+
+@media (max-width: 1024px){
+   
+    #buscador2{
+        display: none;
+    }
+    #buscador{
+        display: none;
+    }
+
+    #buscador3{
+        display:block;
+    }
+}
+@media (min-width: 1025px){
+    #buscador3{
+        display:none;
+    }
+}
+
+
 #logo{
     width: 100px;
     height: 100px;
@@ -26,6 +59,7 @@
 }
 .enlacesCategorias{
     position: relative;
+    top: 20px;
     text-shadow: 2px 2px 1px #d4d5d6;
     color: #373737 !important;
 }

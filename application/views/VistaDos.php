@@ -113,7 +113,12 @@
       </script>
      <?php
       echo "<div class='container librosBuscados'>";
-      echo "<h2 id='lastBooks' class='display-4 text-left'>Busqueda: $tituloBusqueda</h2>";
+      echo "<div  class='col-md-11 col-sm-11 col-xs-11 offset-1'>
+              <form name='formularioBuscador' action='<?php echo base_url(); ?>index.php/Buscador/buscador' class='form-inline' method='post' accept-charset='utf-8'>
+                <input id='buscador3' name='buscador' class='form-control mr-sm-2' type='search' placeholder='Titulo, autor, categoria...' aria-label='Search'>
+              </form>
+            </div>";
+      echo "<h2 id='lastBooks' class='display-4 text-center'>Busqueda: $tituloBusqueda</h2>";
       echo "<div class='row' >";
       for ($i = 0; $i < count($listaBusqueda); $i++) {
           $bus = $listaBusqueda[$i];
@@ -121,7 +126,7 @@
           
           echo"
 
-          <div class='col-3 margenTarjeta'>
+          <div class='col-md-3 col-sm-4 col-xs-12 margenTarjeta'>
             <div class='card tamañoTarjeta'>
 
               <a href='".site_url("Buscador/Visor/$bus->id/$bus->titulo")."'><img id='$bus->id' name='$ultimaPag' class='card-img-top imgTarjeta'  src='".base_url("assets/libros/".$bus->id."/0.jpg")."' ></a>
@@ -133,7 +138,7 @@
  
 				    </div>
           </div>
-          <div class='col-1'></div>";
+          <div class='col-md-1 col-sm2 '></div>";
           
         }
           echo "</div>

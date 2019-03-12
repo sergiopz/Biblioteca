@@ -203,6 +203,11 @@ document.getElementById("mensajeAjax").innerHTML = peticionHttp.responseText;
 <!--fin ventana modal-->
 
 <div class="container">
+  <div  class="col-md-11 col-sm-11 col-xs-11 offset-1">
+    <form name="formularioBuscador" action="<?php echo base_url(); ?>index.php/Buscador/buscador" class="form-inline" method="post" accept-charset="utf-8">
+      <input id="buscador3" name="buscador" class="form-control mr-sm-2" type="search" placeholder="Titulo, autor, categoria..." aria-label="Search">
+    </form>
+  </div>
   <div class="row"><p></p></div>
     <h2 id="lastBooks" class="display-1 text-center">Últimos Libros</h2>
        <section class="">
@@ -218,7 +223,7 @@ document.getElementById("mensajeAjax").innerHTML = peticionHttp.responseText;
 
           echo"
 
-          <div class='col-md-3 col-sm-4 col-xs-12 margenTarjeta'>
+          <div class='col-md-3 col-sm-4 col-xs-12 margenTarjeta '>
             <div class='card tamañoTarjeta'>
 
               <a href='".site_url("Buscador/Visor/$libro->id")."'><img class='card-img-top imgTarjeta' id='$libro->id' name='$ultimaPag'  src='".base_url("assets/libros/".$libro->id."/0.jpg")."' ></a>
@@ -235,14 +240,13 @@ document.getElementById("mensajeAjax").innerHTML = peticionHttp.responseText;
       }
         
           ?>
-          <script>
 
-            
-            
+          </div>
+        </section>
+          <script>
+ 
             $("document").ready(function(){
 
-           
-              
               var direccion= '<?php echo base_url("assets/libros/"); ?>'
 
                 $(".imgTarjeta").hover(function(){
@@ -264,8 +268,5 @@ document.getElementById("mensajeAjax").innerHTML = peticionHttp.responseText;
             });
                 
           </script>
-          </div>
-        </section>
-
   <div class="row"><p></p></div>
 </div>
