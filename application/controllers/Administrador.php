@@ -37,6 +37,10 @@
             $idUser = $datosUser[0]['id'];
 
             $this->crearLogin($datosUser[0]['id'],$datosUser[0]['nombre'], $datosUser[0]['tipo']);
+            if($this->session->userdata('tipoUsuario')>1){
+              
+               redirect(site_url());
+            }
             $this->main();
             //echo "valores = " . $this->session->userdata('tipoUsuario');
             

@@ -40,10 +40,9 @@
 }
 
 .imgFondo{
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size:100%;
-    background-color: #BCBCB9; 
+background: #757f9a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #283352, #b6247e); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #454649, #d4d5d6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 #imagenBuscador{
     background-repeat: no-repeat;
