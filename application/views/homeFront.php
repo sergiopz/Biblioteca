@@ -175,7 +175,7 @@
           <div class='col-md-3 col-sm-4 margenTarjeta'>
             <div class='card tamañoTarjeta'>
 
-              <a href='".site_url("Buscador/Visor/$libro->id/$libro->titulo")."'><img class='card-img-top imgTarjeta' id='$libro->id' name='$ultimaPag'  src='".base_url("assets/libros/".$libro->id."/0.jpg")."' ></a>
+              <a href='".site_url("Buscador/Visor/$libro->id")."'><img class='card-img-top imgTarjeta' id='$libro->id' name='$ultimaPag'  src='".base_url("assets/libros/".$libro->id."/0.jpg")."' ></a>
 
 					    <div class='card-body'>
 					      <h5 class='card-title tituloTarjeta'>$libro->titulo</h5> 

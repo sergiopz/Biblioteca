@@ -36,10 +36,10 @@
         }
 
 
-        public function Visor($id,$titulo) {
+        public function Visor($id) {
 
           $data["id"]=$id;
-          $data["titulo"]=$titulo;
+         $data["titulo"]=$this->BuscadorModel->TituloVisor($id);
    
           $this->load->view("Visor.php", $data);
 

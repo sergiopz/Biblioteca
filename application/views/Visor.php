@@ -38,7 +38,13 @@
 			 <div id="barraSuperior"class=" navbar navbar-expand-md navbar-dark">
   			
 			 <a class="elementosNav nav-link" href="<?php echo base_url(); ?>" >Volver</a>		
-			 <?php echo" <a class='nav-link text-center tituloLibro'>$titulo</a>"; ?>
+			 <?php for ($i = 0; $i < count($titulo); $i++) {
+        
+          $titul = $titulo[$i];
+
+			  echo" <a class='nav-link text-center tituloLibro'>".$titul->titulo."</a>"; 
+
+			}?>
 			 <?php echo"<a class='nav-link elementosNav' href='".site_url("Buscador/cargarPdf/$id")."'>Generar PDF</a>";?>
 			</div>
 			<div class="container">

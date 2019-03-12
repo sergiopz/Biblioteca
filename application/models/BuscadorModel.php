@@ -82,5 +82,22 @@
             
             return $listaBusqueda;
         }
+
+         public function TituloVisor($id) {
+           
+            
+            $r = $this->db->query("SELECT titulo from libros where id='$id'"); 
+
+             $titulo = array();
+           foreach ($r -> result()as $ti) {
+            $titulo[]=$ti;
+          
+           }
+            
+           
+            
+            
+            return $titulo;
+        }
             
     }
