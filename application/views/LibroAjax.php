@@ -39,8 +39,9 @@ $("document").ready(function() {
 
     $('.claseModificar').click(function() {
         alert("hola");
-        var search={};
-        search['ISBN'] = $("#lupa" + iddiv + " input[name='isbn']").val();
+        
+      
+        
 
         var iddiv = $(this).attr("value");
         var isbn = $("#lupa" + iddiv + " input[name='isbn']").val();
@@ -48,15 +49,15 @@ $("document").ready(function() {
         var descripcion = $("#lupa" + iddiv + " input[name='descripcion']").val();
         var fecha = $("#lupa" + iddiv + " input[name='fecha']").val();
         var instituto = $("#lupa" + iddiv + " select[name='idInstituto'] ").val();
-        var usuario = $(".user"+ iddiv).val();
+        var usuario = $(".user" + iddiv).val();
         var editorial = $("#lupa" + iddiv + " select[name='idEditorial'] ").val();
         var autor = $("#lupa" + iddiv + " select[name='idAutor[]'] ").val();
         var categoria = $("#lupa" + iddiv + " select[name='idCategoria[]'] ").val();
-        var myJSON = JSON.stringify(search);
         
-        alert(isbn);
-        alert(myJSON);
-    
+        var search=new Array(isbn,titulo,descripcion,fecha,instituto,usuario,editorial,autor,categoria);
+        var myJSON = JSON.stringify(search);
+        console.log(myJSON);
+
     });
 
 
