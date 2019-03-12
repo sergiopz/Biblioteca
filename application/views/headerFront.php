@@ -13,5 +13,5 @@
     <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
     <link rel="stylesheet" href="<?php echo base_url('css/estiloFront.css');?>">
     <script type="text/javascript" src="<?php echo base_url(); ?>js/frontJS.js"></script>
-    <title>Front</title>
+    <title>Biblioteca</title>
 </head>

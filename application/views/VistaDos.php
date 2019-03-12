@@ -24,7 +24,7 @@
 
     </ul>
     <ul class="navbar-center">
-      <li class="nav-content liBuscador">
+      <li  class="nav-content buscadorCatBus">
         <form name="formularioBuscador" action="<?php echo base_url(); ?>index.php/Buscador/buscador" class="form-inline" method="post" accept-charset="utf-8">
           <input id="buscador2" name="buscador" class="form-control mr-sm-2" type="search" placeholder="Titulo, autor, categoria..." aria-label="Search">
         </form>

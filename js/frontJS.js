@@ -1,8 +1,11 @@
 $(document).ready(function(){
 
     var alto_ventana = $(window).height();
-    $(".barraNavegacion").css("height",alto_ventana-50);
-
+    $("#imagenBuscador").css("height",alto_ventana);
+    $(window).resize(function(){
+        alto_ventana = $(window).height();
+        $("#imagenBuscador").css("height",alto_ventana);
+    });
     function enviar_formulario(){
         document.formularioBuscador.submit()
     }
@@ -16,8 +19,5 @@ $(document).ready(function(){
         }
 
     });
-
-  
-
 
 });

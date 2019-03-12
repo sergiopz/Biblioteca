@@ -14,12 +14,16 @@
 .divCategorias{
     margin-top:3%;
     height: 95px;
-   
   }
+
+
 .enlacesCategorias:hover{
     color:white;
 }
 .enlacesCategorias{
+    position: relative;
+    top:25%;
+    left:25%;
     color: #373737 !important;
 }
 .contenedorDiv{
@@ -35,8 +39,9 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size:100%;
+    background-color: #BCBCB9; 
 }
-.barraNavegacion{
+#imagenBuscador{
     background-repeat: no-repeat;
     background-size:100%;
 }
@@ -169,14 +174,19 @@ a:active{
     border-color:#E84A4C;
     box-shadow: 0 0 0 0.5px #E84A4C;
 }
+.buscadorCatBus{
+    list-style:none;
+}
 .liBuscador{
     list-style:none;
+    margin-top: 25%;
 }
 .liBuscador2{
     width:17%;
     list-style:none;
 }
 .divCategorias {
+
     transition: .5s ease;
 }
     

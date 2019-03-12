@@ -1,7 +1,7 @@
-<body style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondoweb.jpg')" class="imgFondo" >
+<body  class="imgFondo" >
 
- 
-<nav id="barraSuperior"class=" navbar navbar-expand-md navbar-dark">
+ <div id="imagenBuscador" style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondo.png')">
+<nav id=""class=" navbar navbar-expand-md navbar-dark">
   <!-- Brand -->
   <a href="<?php echo base_url(); ?>" ><?php echo"<img id='logo' class='nav-link' src='".base_url("imgs/escudocv.png")."'></a>"; ?>
 
@@ -40,7 +40,7 @@
 </nav>
 
 
-  <nav id="imagenBuscador" class="navbar navbar-expand-lg navbar-light barraNavegacion" style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondo.png')">
+  <nav  class="navbar navbar-expand-lg navbar-light barraNavegacion" >
     
     <div class=" " id="navbarSupportedContent">
       <ul class="navbar-center">
@@ -53,6 +53,7 @@
     </div>
 
   </nav>
+  </div>
 
     <div class="row"></div>
 
@@ -159,25 +160,60 @@
   <div class="row"><p></p></div>
     <h2 id="lastBooks" class="display-1 text-center">Últimos Libros</h2>
        <section class="">
-          <div class="slider">
+          <div class="row">
+          
          <?php
+         
          for ($i = 0; $i < count($ultimosLibros); $i++) {
         
           $libro = $ultimosLibros[$i];
           
-         /* echo"
-          
-        <div class=''><a href='".site_url("Buscador/Visor/$libro->id/$libro->titulo")."'><img class='imagen imgSlider' src='".base_url("assets/libros/".$libro->id."/0.jpg")."' ></a></div>
-        ";*/
+          $ultimaPag = count(glob('assets/libros/'.$libro->id.'/{*.jpg,*.gif,*.png}',GLOB_BRACE))-1;
+
+          echo"
+
+          <div class='col-md-3 col-sm-4 margenTarjeta'>
+            <div class='card tamañoTarjeta'>
+
+              <a href='".site_url("Buscador/Visor/$libro->id/$libro->titulo")."'><img class='card-img-top imgTarjeta' id='$libro->id' name='$ultimaPag'  src='".base_url("assets/libros/".$libro->id."/0.jpg")."' ></a>
+
+					    <div class='card-body'>
+					      <h5 class='card-title tituloTarjeta'>$libro->titulo</h5> 
+					      <a href='#' class='botonTarjeta '>Ver libro</a>
+              </div>
+ 
+				    </div>
+          </div>
+          <div class='col-md-1 col-sm-2'></div>";
+
       }
         
-
-
-
-
-
-      
           ?>
+          <script>
+            
+            $("document").ready(function(){
+              
+              var direccion= '<?php echo base_url("assets/libros/"); ?>'
+
+                $(".imgTarjeta").hover(function(){
+
+                    var ultimaPag = $(this).attr("name");
+                    var carpetaImg = $(this).attr("id");
+                
+                      $("#"+carpetaImg).attr("src",direccion+carpetaImg+"/"+ultimaPag+".jpg");
+  
+                });
+
+                $(".imgTarjeta").mouseout(function(){
+
+                  var carpetaImg = $(this).attr("id"); 
+                  $("#"+carpetaImg).attr("src",direccion+carpetaImg+"/0.jpg");
+                 
+                });
+
+            });
+                
+          </script>
           </div>
         </section>
 
