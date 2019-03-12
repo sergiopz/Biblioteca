@@ -17,7 +17,7 @@
 
                                 union
 
-                                SELECT libros.id, libros.titulo FROM libros, autoresLibros, autores WHERE libros.id = autoresLibros.idLibro AND autoresLibros.idAutor = autores.id AND autores.nombre = '$valor'"); 
+                                SELECT id, titulo FROM libros where titulo= '$valor'"); 
                                             
             
        
