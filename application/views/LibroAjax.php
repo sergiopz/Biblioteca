@@ -38,25 +38,41 @@ $("document").ready(function() {
     });
 
     $('.claseModificar').click(function() {
-        alert("hola");
-        
-      
-        
-
         var iddiv = $(this).attr("value");
         var isbn = $("#lupa" + iddiv + " input[name='isbn']").val();
         var titulo = $("#lupa" + iddiv + " input[name='titulo']").val();
         var descripcion = $("#lupa" + iddiv + " input[name='descripcion']").val();
+        var paginas = $("#lupa" + iddiv + " input[name='paginas']").val();
         var fecha = $("#lupa" + iddiv + " input[name='fecha']").val();
         var instituto = $("#lupa" + iddiv + " select[name='idInstituto'] ").val();
         var usuario = $(".user" + iddiv).val();
         var editorial = $("#lupa" + iddiv + " select[name='idEditorial'] ").val();
         var autor = $("#lupa" + iddiv + " select[name='idAutor[]'] ").val();
         var categoria = $("#lupa" + iddiv + " select[name='idCategoria[]'] ").val();
+
+        var json = {
+            'id':iddiv,
+            'isbn': isbn,
+            'titulo': titulo,
+            'descripcion': descripcion,
+            'paginas': paginas,
+            'fecha': fecha,
+            'instituto': instituto,
+            'usuario': usuario,
+            'editorial': editorial,
+            'autor': autor,
+            'categoria': categoria
+            }
+        ;
+
         
-        var search=new Array(isbn,titulo,descripcion,fecha,instituto,usuario,editorial,autor,categoria);
-        var myJSON = JSON.stringify(search);
-        console.log(myJSON);
+        var cadena = "<?php echo site_url("Libros/ModificarLibro/"); ?>";
+        $.ajax({
+            type: "POST",
+            url: cadena,
+            data: json,
+            dataType: "json"
+        });
 
     });
 
@@ -197,13 +213,13 @@ $("document").ready(function() {
     //Aqui comienza la modal de modificar
 
     echo"<div id='lupa$libro->id' class='modal tamañoVModal'>";
-        echo form_open_multipart("Libros/ModificarLibro");
+        
         echo" <h5 class='modal-close'>&#10005;</h5>
         <div class='modal-content center'>
             <h4 class='flow-text #00e676 green-text text-accent-3'>Modificar libros</h4>
             <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>event_note</i>
-                <input type='hidden' name='id' value='$libro->id' readonly>
+                <input type='hidden' name='id' value='$libro->id' >
                 <input type='text' name='isbn' id='isbn' value='$libro->isbn'>
                 <label class='active' style='color:royalblue' for='isbn'>Isbn</label>
             </div>
@@ -216,6 +232,11 @@ $("document").ready(function() {
                 <i class='material-icons prefix' style='color:royalblue'>description</i>
                 <input type='text' name='descripcion' id='descripcion' value='$libro->descripcion'>
                 <label class='active' style='color:royalblue' for='descripcion'>Descripcion</label>
+            </div>
+            <div class='input-field'>
+                <i class='material-icons prefix' style='color:royalblue'>add_box</i>
+                <input type='text' name='paginas' id='paginas' value='$libro->paginas'>
+                <label class='active' style='color:royalblue' for='Paginas'>Paginas</label>
             </div>
             <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue'>date_range</i>
@@ -313,9 +334,9 @@ $("document").ready(function() {
             </div>
             <br>
             <button class='btn btn-large waves-effect waves-light #e65100 orange darken-4 z-depth-0 claseModificar'
-                value='$libro->id' type='submit' name='action'><i class='material-icons '>create</i></button>
+                value='$libro->id'  name='Modificar'><i class='material-icons '>create</i></button>
         </div>
-        </form>
+        
     </div>";
 
     //Aqui cierra el for de libros

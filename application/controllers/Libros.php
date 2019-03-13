@@ -86,17 +86,18 @@
         /*Funcion que Modifica un libro */
         public function ModificarLibro(){
             if($this->security_check()){
+                 var_dump($_POST);
                 $id = $this->input->get_post("id");
                 $isbn = $this->input->get_post("isbn");
                 $titulo= $this->input->get_post("titulo");
                 $descripcion = $this->input->get_post("descripcion");
                 $fecha = $this->input->get_post("fecha");
                 $paginas = $this->input->get_post("paginas");
-                $idInstituto= $this->input->get_post("idInstituto");
-                $idUsuario = $this->input->get_post("idUsuario");
-                $idEditorial = $this->input->get_post("idEditorial");
-                $idAutor = $this->input->get_post('idAutor');
-                $idCategoria = $this->input->get_post('idCategoria');
+                $idInstituto= $this->input->get_post("instituto"); 
+                $idUsuario = $this->input->get_post("usuario");
+                $idEditorial = $this->input->get_post("editorial");
+                $idAutor = $this->input->get_post('autor');
+                $idCategoria = $this->input->get_post('categoria');
 
                 //Recibe un libro y luego borra los registros de tablas ajenas e inserta las nuevas
                 $r=$this->LibrosModel->ModificarLibro($id,$isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial);
@@ -114,7 +115,10 @@
                     $categoria = $idCategoria[$i];
                     $r=$this->LibrosModel->InsertarLibroCategoria($categoria,$id);
                 }  
-                    $this->VistaAjax();  
+                    echo"putas para todos";
+
+                    redirect('/Libros/VistaAjax','refresh');
+
             }
         }
 
