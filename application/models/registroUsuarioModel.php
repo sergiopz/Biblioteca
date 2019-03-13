@@ -14,4 +14,9 @@ class registroUsuarioModel extends CI_Model{
         return $this->db->affected_rows();
     }
 
+    public function ComprobarNick($nick){
+        $r = $this->db->query("select nick from usuarios where nick='$nick'");
+        return $r->num_rows();
+    }
+
 }

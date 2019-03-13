@@ -1,49 +1,29 @@
 <body  class="imgFondo" >
 <script>
 
-//------------------------------------------------------
-//                  Equivalente en JQUERY!             |
-//------------------------------------------------------
-/*
-$(document).ready(function() {
-    $("#usuario").blur(function() {
-        $("#mensajeAjax").load('<?php //echo site_url("login/checkUsuario/");?>' + $("#usuario").val());
-    }
-});*/
-/*public function checkUsuario($usuario) {
-        $this->load->model("usuarioModel");
-        $r = $this->usuarioModel->checkUsuario($usuario);
-        if ($r){
-            $this->output->set_output("Nombre no existe");
-        }
-        else{
-            $this->output->set_output("Nombre correcto");
-        }
-    }*/
+  
+  $(document).ready(function(){
+      $("#nickRegistro").blur(function(){
+        valorNick = $("#nickRegistro").val();
+        datos = "nick="+valorNick;
+        $.ajax({
+          url:"<?php echo site_url("RegistroUsuarios/ComprobarNick/"); ?>", 
+          method:"POST",
+          data:datos,
+          success:function(data){
+            if (data==1){
+              alert("hola");
+            } else {
+              
+            }
+          }
+        });
+      });
+       
+      
+  });
 
-peticionHttp = new XMLHttpRequest();
 
-function comprobarUsuario(){
-
-var queryString;
-var usuario;
-
-usuario = document.getElementById('usuario');
-//queryString = '&usuario=' + encodeURIComponent(usuario.value);
-
-peticionHttp.onreadystatechange = muestraResultadoComprobacionUsuario;
-peticionHttp.open('GET', '<?php echo site_url("login/checkUsuario/");?>' + usuario.value, true);
-//peticionHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-peticionHttp.send(null);
-}
-
-function muestraResultadoComprobacionUsuario(){
-if(peticionHttp.readyState == 4) {
-if(peticionHttp.status == 200) {
-document.getElementById("mensajeAjax").innerHTML = peticionHttp.responseText;
-}
-}
-}
 
 </script>
  
@@ -156,17 +136,17 @@ document.getElementById("mensajeAjax").innerHTML = peticionHttp.responseText;
             <?php echo form_open("RegistroUsuarios/InsertarUsuarios") ?>
                     <div class="form-group">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" name="nombre" placeholder="Nombre" <?php echo set_value('nombre') ?> required>
+                        <input id="nombreRegistro" type="text" class="form-control" name="nombre" placeholder="Nombre" <?php echo set_value('nombre') ?> required>
                     </div>
 
                     <div class="form-group">
                         <label>Apellidos</label>
-                        <input type="text" class="form-control" name="apellidos" placeholder="Apellidos"<?php echo set_value('apellidos') ?> required>
+                        <input id="apellidosRegistro" type="text" class="form-control" name="apellidos" placeholder="Apellidos"<?php echo set_value('apellidos') ?> required>
                     </div>
 
                     <div class="form-group">
                         <label class="estiloLabel">Nombre de Usuario</label>
-                        <input type="text" name="nick" class="form-control" <?php echo set_value('nick') ?> placeholder="Nombre de usuario" required>
+                        <input id="nickRegistro" type="text" name="nick" class="form-control" <?php echo set_value('nick') ?> placeholder="Nombre de usuario" required>
                     </div>
 
                     <div class="form-group">
