@@ -19,4 +19,16 @@ class registroUsuarioModel extends CI_Model{
         return $r->num_rows();
     }
 
+    public function ComprobarCorreo($correo){
+        $r = $this->db->query("select correo from usuarios where correo='$correo'");
+        return $r->num_rows();
+    }
+
+    public function ComprobarTelefono($telefono){
+        $r = $this->db->query("select telefono from usuarios where telefono='$telefono'");
+        return $r->num_rows();
+    }
+
+
+
 }

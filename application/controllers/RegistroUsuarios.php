@@ -45,5 +45,22 @@
             
         }
 
+        public function ComprobarCorreo(){
+           
+            $correo = $this->input->post("correo");
+            $resultado = $this->registroUsuarioModel->ComprobarCorreo($correo);
+            echo $resultado;
+
+        }
+
+        public function ComprobarTelefono(){
+           
+            $telefono = $this->input->post("telefono");
+            $resultado = $this->registroUsuarioModel->ComprobarTelefono($telefono);
+            echo $resultado;
+
+        }
+
+
     }
     

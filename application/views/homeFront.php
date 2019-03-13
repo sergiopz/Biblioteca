@@ -3,7 +3,19 @@
 
   
   $(document).ready(function(){
-      $("#nickRegistro").blur(function(){
+
+    $("#contrasenaRepetida").keyup(function(){
+      contrasena1 = $("#contrasenaRegistro").val();
+      contrasena2 = $("#contrasenaRepetida").val();
+      if(contrasena1 == contrasena2){
+         $("#contrasenaRepetida").css("border", "2px solid green");
+
+      } else {
+         $("#contrasenaRepetida").css("border", "2px solid red");
+      }
+    });
+
+      $("#nickRegistro").keyup(function(){
         valorNick = $("#nickRegistro").val();
         datos = "nick="+valorNick;
         $.ajax({
@@ -12,15 +24,56 @@
           data:datos,
           success:function(data){
             if (data==1){
-              alert("hola");
+              $("#nickRegistro").css("border", "2px solid red");
             } else {
-              
+
+               $("#nickRegistro").css("border", "2px solid green");
+
             }
           }
         });
       });
-       
-      
+
+      $("#correoRegistro").keyup(function(){
+        valor = $("#correoRegistro").val();
+        datos = "correo="+valor;
+        $.ajax({
+          url:"<?php echo site_url("RegistroUsuarios/ComprobarCorreo/"); ?>", 
+          method:"POST",
+          data:datos,
+          success:function(data){
+            if (data==1){
+              $("#correoRegistro").css("border", "2px solid red");
+            } else {
+
+               $("#correoRegistro").css("border", "2px solid green");
+
+            }
+          }
+        });
+      });
+
+      $("#telefonoRegistro").keyup(function(){
+        valor = $("#telefonoRegistro").val();
+        datos = "telefono="+valor;
+        $.ajax({
+          url:"<?php echo site_url("RegistroUsuarios/ComprobarTelefono/"); ?>", 
+          method:"POST",
+          data:datos,
+          success:function(data){
+            if (data==1){
+              $("#telefonoRegistro").css("border", "2px solid red");
+            } else {
+
+               $("#telefonoRegistro").css("border", "2px solid green");
+            }
+          }
+        });
+      });
+     /*  alert($("#nickRegistro").css("border"))
+      if( $("#nickRegistro").css("border"))*/
+
+
   });
 
 
@@ -95,7 +148,7 @@
             
             <!-- Modal body -->
             <div class="modal-body ">
-                <?php echo form_open("Administrador/ComprobarUsuario2");?>
+                <?php echo form_open("Administrador/ComprobarUsuario");?>
                     <div class="form-group">
                         <label>Usuario</label>
                         <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
@@ -136,38 +189,41 @@
             <?php echo form_open("RegistroUsuarios/InsertarUsuarios") ?>
                     <div class="form-group">
                         <label>Nombre</label>
-                        <input id="nombreRegistro" type="text" class="form-control" name="nombre" placeholder="Nombre" <?php echo set_value('nombre') ?> required>
+                        <input id="nombreRegistro" type="text" class="form-control" name="nombre" placeholder="Nombre"  required>
                     </div>
 
                     <div class="form-group">
                         <label>Apellidos</label>
-                        <input id="apellidosRegistro" type="text" class="form-control" name="apellidos" placeholder="Apellidos"<?php echo set_value('apellidos') ?> required>
+                        <input id="apellidosRegistro" type="text" class="form-control" name="apellidos" placeholder="Apellidos" required>
                     </div>
 
                     <div class="form-group">
                         <label class="estiloLabel">Nombre de Usuario</label>
-                        <input id="nickRegistro" type="text" name="nick" class="form-control" <?php echo set_value('nick') ?> placeholder="Nombre de usuario" required>
+                        <input data-status="rojo" id="nickRegistro" type="text" name="nick" class="form-control" <?php echo set_value('nick') ?> placeholder="Nombre de usuario" required>
                     </div>
 
                     <div class="form-group">
                         <label class="estiloLabel">Contraseña</label>
-                        <div class="row"></div>
-                        <input type="password" name="contrasena" class="form-control"  placeholder="Contraseña" <?php echo set_value('contrasena') ?> required>
+                        <input id="contrasenaRegistro" type="password" name="contrasena" class="form-control"  placeholder="Contraseña"  required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="estiloLabel">Repita la contraseña</label>
+                        <input id="contrasenaRepetida" type="password" name="contrasena2" class="form-control"  placeholder="Contraseña"  required>
                     </div>
 
 
                     <div class="form-group">
                         <label >E-mail</label>
-                        <input type="email" name="correo" class="form-control" <?php echo set_value('correo') ?> placeholder="E-mail" required>
+                        <input id="correoRegistro" type="email" name="correo" class="form-control"  placeholder="E-mail" required>
                     </div>
 
                     <div class="form-group">
                         <label class="estiloLabel">Teléfono</label>
-                        <div class="row"></div>
-                        <input type="text" class="form-control" name="telefono" <?php echo set_value('telefono') ?> placeholder="Teléfono" pattern="^[9|8|7|6]\d{8}$" required>
+                        <input id="telefonoRegistro" type="text" class="form-control" name="telefono"  placeholder="Teléfono" pattern="^[9|8|7|6]\d{8}$" required>
                     </div>
                     <div class="form-group contenidoModal">
-                        <input type="submit" class="btn btn-dark">
+                        <input disabled  type="submit" class="btn btn-dark">
                     </div>
                 </form>
             </div>
