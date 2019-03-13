@@ -86,7 +86,6 @@
         /*Funcion que Modifica un libro */
         public function ModificarLibro(){
             if($this->security_check()){
-                 var_dump($_POST);
                 $id = $this->input->get_post("id");
                 $isbn = $this->input->get_post("isbn");
                 $titulo= $this->input->get_post("titulo");
@@ -115,9 +114,7 @@
                     $categoria = $idCategoria[$i];
                     $r=$this->LibrosModel->InsertarLibroCategoria($categoria,$id);
                 }  
-                    echo"putas para todos";
-
-                    redirect('/Libros/VistaAjax','refresh');
+            
 
             }
         }

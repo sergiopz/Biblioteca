@@ -51,7 +51,7 @@ $("document").ready(function() {
         var categoria = $("#lupa" + iddiv + " select[name='idCategoria[]'] ").val();
 
         var json = {
-            'id':iddiv,
+            'id': iddiv,
             'isbn': isbn,
             'titulo': titulo,
             'descripcion': descripcion,
@@ -62,16 +62,17 @@ $("document").ready(function() {
             'editorial': editorial,
             'autor': autor,
             'categoria': categoria
-            }
-        ;
-
+        };
         
         var cadena = "<?php echo site_url("Libros/ModificarLibro/"); ?>";
+
         $.ajax({
             type: "POST",
             url: cadena,
             data: json,
-            dataType: "json"
+            dataType: "text"
+        }).done(function(data) {
+            window.location = "<?php echo base_url('index.php/Libros/VistaAjax'); ?>";
         });
 
     });
@@ -213,7 +214,7 @@ $("document").ready(function() {
     //Aqui comienza la modal de modificar
 
     echo"<div id='lupa$libro->id' class='modal tamañoVModal'>";
-        
+   
         echo" <h5 class='modal-close'>&#10005;</h5>
         <div class='modal-content center'>
             <h4 class='flow-text #00e676 green-text text-accent-3'>Modificar libros</h4>
