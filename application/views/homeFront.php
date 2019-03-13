@@ -319,21 +319,29 @@
 
               var direccion= '<?php echo base_url("assets/libros/"); ?>'
 
-                $(".imgTarjeta").hover(function(){
-
+                $(".imgTarjeta").hover(function() {
                     var ultimaPag = $(this).attr("name");
-                    var carpetaImg = $(this).attr("id");
+                    var carpetaImg = $(this).attr("id");  
+                    $(this).fadeOut( "600", function() {
+                      $("#"+carpetaImg).attr("src",direccion+carpetaImg+"/"+ultimaPag+".jpg"); 
+                      });
+                      $(this).fadeIn( "fast", function() {
+                      $("#"+carpetaImg).attr("src",direccion+carpetaImg+"/"+ultimaPag+".jpg"); 
+                      });
+                     
+                  }, function() {
+                    var carpetaImg = $(this).attr("id"); 
+                    $(this).fadeOut( "600", function() {
+                      $("#"+carpetaImg).attr("src",direccion+carpetaImg+"/0.jpg");
+                      });
+                      $(this).fadeIn( "fast", function() {
+                        $("#"+carpetaImg).attr("src",direccion+carpetaImg+"/0.jpg");
+                      });
+
+                     
+                  });
+
                 
-                      $("#"+carpetaImg).attr("src",direccion+carpetaImg+"/"+ultimaPag+".jpg");
-  
-                });
-
-                $(".imgTarjeta").mouseout(function(){
-
-                  var carpetaImg = $(this).attr("id"); 
-                  $("#"+carpetaImg).attr("src",direccion+carpetaImg+"/0.jpg");
-                 
-                });
 
             });
                 
