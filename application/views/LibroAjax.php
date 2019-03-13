@@ -38,6 +38,8 @@ $("document").ready(function() {
     });
 
     $('.claseModificar').click(function() {
+        //Recoge los valores de la moda y cuando pulsa el boton los enviamos con un json por ajax
+        
         var iddiv = $(this).attr("value");
         var isbn = $("#lupa" + iddiv + " input[name='isbn']").val();
         var titulo = $("#lupa" + iddiv + " input[name='titulo']").val();
@@ -63,7 +65,7 @@ $("document").ready(function() {
             'autor': autor,
             'categoria': categoria
         };
-        
+
         var cadena = "<?php echo site_url("Libros/ModificarLibro/"); ?>";
 
         $.ajax({
