@@ -120,7 +120,15 @@
               </form>
             </div>
             </div>";
-      echo "<h2 id='lastBooks' class='display-4 text-center'>Busqueda: $tituloBusqueda</h2>";
+            for ($i = 0; $i < count($listaCategoria); $i++) {
+          $ca = $listaCategoria[$i];
+
+          
+
+
+      echo "<h2 id='lastBooks' class='display-4 text-center'>Busqueda: $ca->nombre </h2>";
+    }
+    
       echo "<div class='row' >";
       for ($i = 0; $i < count($listaBusqueda); $i++) {
           $bus = $listaBusqueda[$i];

@@ -55,7 +55,21 @@
             public function Categorias() {
            
 
-            $r = $this->db->query("SELECT nombre FROM categoria"); 
+            $r = $this->db->query("SELECT nombre ,id FROM categoria"); 
+            
+            $categoria = array();
+           foreach ($r -> result()as $ca) {
+            $categoria[]=$ca;
+          
+           }
+            
+            
+            return $categoria;
+        }
+        public function Categorias2($id) {
+           
+
+            $r = $this->db->query("SELECT nombre FROM categoria where id='$id'"); 
             
             $categoria = array();
            foreach ($r -> result()as $ca) {
@@ -71,7 +85,7 @@
             public function LibrosCategorias($LibrosCategorias) {
            
             
-            $r = $this->db->query("SELECT libros.id , libros.titulo FROM libros, librocategoria, categoria WHERE libros.id = libroCategoria.idLibro AND librocategoria.idCategoria = categoria.id AND categoria.nombre = '$LibrosCategorias'"); 
+            $r = $this->db->query("SELECT libros.id , libros.titulo FROM libros, librocategoria, categoria WHERE libros.id = libroCategoria.idLibro AND librocategoria.idCategoria = categoria.id AND categoria.id = '$LibrosCategorias'"); 
             
             $listaBusqueda = array();
            foreach ($r -> result()as $ca) {

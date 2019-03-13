@@ -109,8 +109,8 @@
 
           echo"
             <div class='col-md-3 col-sm-5 col-xs-8 d-block  divCategorias categoria$colorCategoria '>
-              <a class='enlacesCategorias' href='".site_url("Buscador/BuscadorCategoria/$ca->nombre")."'>
-                <h2 class='text-center' href='".site_url("Buscador/BuscadorCategoria/$ca->nombre")."'>$ca->nombre</h2>
+              <a class='enlacesCategorias' href='".site_url("Buscador/BuscadorCategoria/$ca->id")."'>
+                <h2 class='text-center' href='".site_url("Buscador/BuscadorCategoria/$ca->id")."'>$ca->nombre</h2>
               </a>
             </div>
             <div class='col-md-1 col-sm-1 col-xs-1'></div>

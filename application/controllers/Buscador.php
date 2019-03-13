@@ -46,15 +46,16 @@
         }
 
 
-          public function BuscadorCategoria($categoria) {
+          public function BuscadorCategoria($id) {
 
             //$valor = $this->input->get_post("buscador");
+              $data["listaCategoria"]=$this->BuscadorModel->categorias2($id);
 
-            $data["listaBusqueda"]=$this->BuscadorModel->LibrosCategorias($categoria);
+            $data["listaBusqueda"]=$this->BuscadorModel->LibrosCategorias($id);
            // $this->load->view("VistaDos.php", $data);
 
             $data["nombreVista"] = "VistaDos";
-            $data["tituloBusqueda"] = $categoria;
+            //$data["tituloBusqueda"] = $categoria;
           $this->load->view("plantillaFront", $data);
 
         }
