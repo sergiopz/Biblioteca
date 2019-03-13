@@ -1,5 +1,5 @@
      
-<body style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/fondoweb.jpg')" class="imgFondo" >
+<body  class="imgFondo" >
 
 <nav id="barraSuperior"class=" navbar navbar-expand-md navbar-dark">
   <!-- Brand -->
@@ -15,11 +15,11 @@
     <ul class="navbar-nav">
 
        <li class="nav-item">
-        <a class="nav-link elementosNav" href="<?php echo base_url(); ?>">Inicio</a>
+        <a class="nav-link enlacesDrop elementosNav" href="<?php echo base_url(); ?>">Inicio</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link elementosNav" href="<?php echo base_url(); ?>index.php/Buscador/Categoria">Categorias</a>
+        <a class="nav-link enlacesDrop elementosNav" href="<?php echo base_url(); ?>index.php/Buscador/Categoria">Categorias</a>
       </li>
 
     </ul>
@@ -35,11 +35,7 @@
     <ul class="navbar-nav justify-content-end ml-auto">
      
       <li class="nav-item ">
-        <a id="botonInicio" href="" class="nav-link elementosNav"   data-toggle="modal" data-target="#modalInicio">Iniciar sesión</a>
-      </li>
-
-      <li class="nav-item justify-content-end">
-        <a id="botonRegistro" href="" class="nav-link elementosNav"  data-toggle="modal" data-target="#modalRegistro">Registrarse</a>
+        <a id="botonInicio" href="" class="nav-link enlacesDrop elementosNav"   data-toggle="modal" data-target="#modalInicio">Iniciar sesión</a>
       </li>
 
     </ul>
@@ -63,7 +59,7 @@
             
             <!-- Modal body -->
             <div class="modal-body ">
-                <?php echo form_open("Administrador/ComprobarUsuario2");?>
+                <?php echo form_open("Administrador/ComprobarUsuario");?>
                     <div class="form-group">
                         <label>Usuario</label>
                         <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
@@ -89,78 +85,19 @@
         </div>
       </div>
 
-      <div class="modal fade tamañoModal" id="modalRegistro">
-        <div class="modal-dialog">
-          <div class="modal-content">
-          
-            <!-- Modal Header -->
-            <div class="modal-header cabeceraModal">
-              <h4 class="modal-title">Registrarse</h4>
-              <button type="button" class="close botonCerrar" data-dismiss="modal">×</button>
-            </div>
-            
-            <!-- Modal body -->
-            <div class="modal-body">
-            <?php echo form_open("envio_email/nuevo_usuario") ?>
-                    <div class="form-group">
-                        <label>Nombre</label>
-                        <input type="text" class="form-control" name="nombre" placeholder="Nombre" <?php echo set_value('nombre') ?> required>
-                    </div>
 
-                    <div class="form-group">
-                        <label>Apellidos</label>
-                        <input type="text" class="form-control" name="apellidos" placeholder="Apellidos"<?php echo set_value('apellidos') ?> required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="estiloLabel">Nombre de Usuario</label>
-                        <input type="text" name="nick" class="form-control" <?php echo set_value('nick') ?> placeholder="Nombre de usuario" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="estiloLabel">Contraseña</label>
-                        <div class="row"></div>
-                        <input type="password" name="contrasena" class="form-control"  placeholder="Contraseña" <?php echo set_value('contrasena') ?> required>
-                    </div>
-
-                    <div class="form-group">
-                        <label >Instituto</label>
-                        <input type="text" name="instituto" class="form-control" <?php echo set_value('instituto') ?> placeholder="Instituto" required>
-                    </div>
-
-
-
-                    <div class="form-group">
-                        <label >E-mail</label>
-                        <input type="email" name="correo" class="form-control" <?php echo set_value('correo') ?> placeholder="E-mail" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="estiloLabel">Teléfono</label>
-                        <div class="row"></div>
-                        <input type="text" class="form-control" name="telefono" <?php echo set_value('telefono') ?> placeholder="Teléfono" pattern="^[9|8|7|6]\d{8}$" required>
-                    </div>
-
-                    <div class="">
-                        <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
-                    </div>
-                    <div class="row contenidoModal">
-                        <input type="submit" class="btn btn-dark">
-                    </div>
-                </form>
-            </div>
-            
-            <!-- Modal footer -->
-            <div class="modal-footer pieModal" style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/recorteLibro.png')">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-            
-          </div>
         </div>
       </div>
 <!--fin ventana modal-->
      <div  class="container" >
-            <h3 id="mensajeRegistrado" >Se ha registrado, ahora debe esperar a que un administrador conceda su solicitud.</h3>
+     <div class='row'>
+        <div  class='col-md-11 col-sm-11 col-xs-11 offset-1'>
+          <form name='formularioBuscador' action='<?php echo base_url(); ?>index.php/Buscador/buscador' class='form-inline' method='post' accept-charset='utf-8'>
+            <input id='buscador3' name='buscador' class='form-control mr-sm-2' type='search' placeholder='Titulo, autor, categoria...' aria-label='Search'>
+          </form>
+        </div>
+      </div>
+            <h3 id="mensajeRegistrado" >Usted ha sido registrado, ahora debe esperar a que un administrador conceda su solicitud.</h3>
     </div>
    
      

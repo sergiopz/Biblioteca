@@ -10,10 +10,14 @@
       if(contrasena1 == contrasena2){
          $("#contrasenaRepetida").css("border", "2px solid green");
            $("#verificar").attr("value","2");
+           $("#verificar2").attr("value","2");
+           $("#verificar3").attr("value","2");
 
       } else {
          $("#contrasenaRepetida").css("border", "2px solid red");
                 $("#verificar").attr("value","1");
+                $("#verificar2").attr("value","1");
+                $("#verificar3").attr("value","1");
       }
     });
 
@@ -28,13 +32,15 @@
             if (data==1){
               $("#nickRegistro").css("border", "2px solid red");
               $("#verificar").attr("value","1");
+              $("#verificar2").attr("value","1");
+              $("#verificar3").attr("value","1");
             } else {
 
                $("#nickRegistro").css("border", "2px solid green");
                $("#verificar").attr("value","2");
-                  //alert($("#verificar").val());
-
-
+               $("#verificar2").attr("value","2");
+               $("#verificar3").attr("value","2");
+    
             }
           }
         });
@@ -51,10 +57,14 @@
             if (data==1){
               $("#correoRegistro").css("border", "2px solid red");
                $("#verificar").attr("value","1");
+               $("#verificar2").attr("value","1");
+               $("#verificar3").attr("value","1");
             } else {
 
                $("#correoRegistro").css("border", "2px solid green");
                 $("#verificar").attr("value","2");
+                $("#verificar2").attr("value","2");
+                $("#verificar3").attr("value","2");
 
             }
           }
@@ -72,32 +82,30 @@
             if (data==1){
               $("#telefonoRegistro").css("border", "2px solid red");
                $("#verificar").attr("value","1");
+               $("#verificar2").attr("value","1");
+               $("#verificar3").attr("value","1");
             } else {
 
                $("#telefonoRegistro").css("border", "2px solid green");
                 $("#verificar").attr("value","2");
+                $("#verificar2").attr("value","2");
+                $("#verificar3").attr("value","2");
+
 
             }
           }
         });
       });
-     /*  alert($("#nickRegistro").css("border"))
-      if( $("#nickRegistro").css("border"))*/
-$('#validarBoton').click(function(e){
 
+      $('#validarBoton').click(function(e){
 
-
-
-
+        if ( ($("#verificar").val()==1) || ($("#verificar2").val()==1) || ($("#verificar3").val()==1) ) {
    
-  if (1 == $("#verificar").val()) {
-   
-    e.preventDefault();
+          e.preventDefault();
 
-  }
+        }
 
-
-  });
+      });
 
 
   });
@@ -216,7 +224,9 @@ $('#validarBoton').click(function(e){
                     <div class="form-group">
                         <label>Nombre</label>
                         <input id="nombreRegistro" type="text" class="form-control" name="nombre" placeholder="Nombre"  required>
-                        <input hidden="" id="verificar" value="">
+                        <input hidden id="verificar" value="">
+                        <input hidden id="verificar2" value="">
+                        <input hidden id="verificar3" value="">
                     </div>
 
                     <div class="form-group">
@@ -226,7 +236,7 @@ $('#validarBoton').click(function(e){
 
                     <div class="form-group">
                         <label class="estiloLabel">Nombre de Usuario</label>
-                        <input data-status="rojo" id="nickRegistro" type="text" name="nick" class="form-control" <?php echo set_value('nick') ?> placeholder="Nombre de usuario" required>
+                        <input id="nickRegistro" type="text" name="nick" class="form-control" <?php echo set_value('nick') ?> placeholder="Nombre de usuario" required>
                     </div>
 
                     <div class="form-group">
