@@ -14,6 +14,7 @@
             $valor = $this->input->get_post("buscador");
 
             $data["listaBusqueda"]=$this->BuscadorModel->consulta($valor);
+            
            // $this->load->view("VistaDos.php", $data);
 
             $data["nombreVista"] = "VistaDos";
