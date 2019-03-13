@@ -201,10 +201,10 @@ $("document").ready(function() {
                         class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text claseBorrar'>Eliminar<i
                             class='material-icons right' title='Eliminar'>delete</i></a></td>
                 <td class='colorFila'><a class='btn-flat waves-effect waves-light #1e88e5 blue darken-1 white-text'
-                        href='".site_url("libros/showintadmin/$libro->id")."'><i class='material-icons'
+                        href='".site_url("Libros/showintadmin/$libro->id")."'><i class='material-icons'
                             title='Subir páginas'>file_upload</i></a></td>
                 <td class='colorFila'><a class='btn-flat waves-effect waves-light #1e88e5 blue darken-1 white-text'
-                        href='".site_url("libros/ModificarPaginas/$libro->id")."'><i class='material-icons'
+                        href='".site_url("Libros/ModificarPaginas/$libro->id")."'><i class='material-icons'
                             title='Subir páginas'>file_upload</i></a></td>
 
 
