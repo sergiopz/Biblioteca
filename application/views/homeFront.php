@@ -10,14 +10,11 @@
       if(contrasena1 == contrasena2){
          $("#contrasenaRepetida").css("border", "2px solid green");
            $("#verificar").attr("value","2");
-           $("#verificar2").attr("value","2");
-           $("#verificar3").attr("value","2");
-
+         
       } else {
          $("#contrasenaRepetida").css("border", "2px solid red");
                 $("#verificar").attr("value","1");
-                $("#verificar2").attr("value","1");
-                $("#verificar3").attr("value","1");
+               
       }
     });
 
@@ -31,15 +28,15 @@
           success:function(data){
             if (data==1){
               $("#nickRegistro").css("border", "2px solid red");
-              $("#verificar").attr("value","1");
+           
               $("#verificar2").attr("value","1");
-              $("#verificar3").attr("value","1");
+           
             } else {
 
                $("#nickRegistro").css("border", "2px solid green");
-               $("#verificar").attr("value","2");
+               
                $("#verificar2").attr("value","2");
-               $("#verificar3").attr("value","2");
+              
     
             }
           }
@@ -56,14 +53,13 @@
           success:function(data){
             if (data==1){
               $("#correoRegistro").css("border", "2px solid red");
-               $("#verificar").attr("value","1");
-               $("#verificar2").attr("value","1");
+      
+              
                $("#verificar3").attr("value","1");
             } else {
 
                $("#correoRegistro").css("border", "2px solid green");
-                $("#verificar").attr("value","2");
-                $("#verificar2").attr("value","2");
+                
                 $("#verificar3").attr("value","2");
 
             }
@@ -81,15 +77,13 @@
           success:function(data){
             if (data==1){
               $("#telefonoRegistro").css("border", "2px solid red");
-               $("#verificar").attr("value","1");
-               $("#verificar2").attr("value","1");
-               $("#verificar3").attr("value","1");
+              
+               $("#verificar4").attr("value","1");
             } else {
 
                $("#telefonoRegistro").css("border", "2px solid green");
-                $("#verificar").attr("value","2");
-                $("#verificar2").attr("value","2");
-                $("#verificar3").attr("value","2");
+                
+                $("#verificar4").attr("value","2");
 
 
             }
@@ -99,7 +93,7 @@
 
       $('#validarBoton').click(function(e){
 
-        if ( ($("#verificar").val()==1) || ($("#verificar2").val()==1) || ($("#verificar3").val()==1) ) {
+        if ( ($("#verificar").val()==1) || ($("#verificar2").val()==1) || ($("#verificar3").val()==1) || ($("#verificar3").val()==1) ) {
    
           e.preventDefault();
 
@@ -227,6 +221,7 @@
                         <input hidden id="verificar" value="">
                         <input hidden id="verificar2" value="">
                         <input hidden id="verificar3" value="">
+                        <input hidden id="verificar4" value="">
                     </div>
 
                     <div class="form-group">
