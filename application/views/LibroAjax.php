@@ -205,7 +205,7 @@ $("document").ready(function() {
                             title='Subir páginas'>file_upload</i></a></td>
                 <td class='colorFila'><a class='btn-flat waves-effect waves-light #1e88e5 blue darken-1 white-text'
                         href='".site_url("Libros/ModificarPaginas/$libro->id")."'><i class='material-icons'
-                            title='Subir páginas'>file_upload</i></a></td>
+                            title='Subir páginas'>book</i></a></td>
 
 
                 </tr>
