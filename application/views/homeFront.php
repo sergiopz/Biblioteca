@@ -93,7 +93,7 @@
 
       $('#validarBoton').click(function(e){
 
-        if ( ($("#verificar").val()==1) || ($("#verificar2").val()==1) || ($("#verificar3").val()==1) || ($("#verificar3").val()==1) ) {
+        if ( ($("#verificar").val()==1) || ($("#verificar2").val()==1) || ($("#verificar3").val()==1) || ($("#verificar4").val()==1) ) {
    
           e.preventDefault();
 
