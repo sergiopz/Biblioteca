@@ -15,11 +15,11 @@
     <ul class="navbar-nav">
 
        <li class="nav-item">
-        <a class="nav-link elementosNav" href="<?php echo base_url(); ?>">Inicio</a>
+        <a class="enlacesDrop nav-link elementosNav" href="<?php echo base_url(); ?>">Inicio</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link elementosNav" href="<?php echo base_url(); ?>index.php/Buscador/Categoria">Categorias</a>
+        <a class="enlacesDrop nav-link elementosNav" href="<?php echo base_url(); ?>index.php/Buscador/Categoria">Categorias</a>
       </li>
 
     </ul>
@@ -35,7 +35,7 @@
     <ul class="navbar-nav justify-content-end ml-auto">
      
       <li class="nav-item ">
-        <a id="botonInicio" href="" class="nav-link elementosNav"   data-toggle="modal" data-target="#modalInicio">Iniciar sesión</a>
+        <a id="botonInicio" href="" class="enlacesDrop nav-link elementosNav"   data-toggle="modal" data-target="#modalInicio">Iniciar sesión</a>
       </li>
 
     </ul>
@@ -112,11 +112,13 @@
                 
       </script>
      <?php
-      echo "<div class='container librosBuscados'>";
+      echo "<div class='container librosBuscados'>
+            <div class='row'>";
       echo "<div  class='col-md-11 col-sm-11 col-xs-11 offset-1'>
               <form name='formularioBuscador' action='<?php echo base_url(); ?>index.php/Buscador/buscador' class='form-inline' method='post' accept-charset='utf-8'>
                 <input id='buscador3' name='buscador' class='form-control mr-sm-2' type='search' placeholder='Titulo, autor, categoria...' aria-label='Search'>
               </form>
+            </div>
             </div>";
       echo "<h2 id='lastBooks' class='display-4 text-center'>Busqueda: $tituloBusqueda</h2>";
       echo "<div class='row' >";

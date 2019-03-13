@@ -15,11 +15,11 @@
     <ul class="navbar-nav">
 
    <li class="nav-item">
-        <a class="nav-link elementosNav" href="<?php echo base_url(); ?>">Inicio</a>
+        <a class="enlacesDrop nav-link elementosNav" href="<?php echo base_url(); ?>">Inicio</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link elementosNav" href="#">Categorias</a>
+        <a class="enlacesDrop nav-link elementosNav" href="#">Categorias</a>
       </li>
 
     </ul>
@@ -35,7 +35,7 @@
     <ul class="navbar-nav justify-content-end ml-auto">
      
       <li class="nav-item ">
-        <a id="botonInicio" href="" class="nav-link elementosNav"   data-toggle="modal" data-target="#modalInicio">Iniciar sesión</a>
+        <a id="botonInicio" href="" class="enlacesDrop nav-link elementosNav"   data-toggle="modal" data-target="#modalInicio">Iniciar sesión</a>
       </li>
 
     </ul>
