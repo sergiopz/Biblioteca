@@ -251,7 +251,7 @@ $("document").ready(function() {
                 <select name='idInstituto' class='active'>";
                     for ($j = 0; $j < count($listaInstitutos); $j++) { 
                         $instituto=$listaInstitutos[$j]; 
-                            if( $usuario-> idInstituto==$instituto->id ){
+                            if( $libro-> idInstituto==$instituto->id ){
                                 echo"<option value='$instituto->id' selected>$instituto->nombre</option> ";
                             }else{
                                 echo"<option value='$instituto->id'>$instituto->nombre</option> ";
