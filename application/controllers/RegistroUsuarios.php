@@ -7,6 +7,7 @@
             parent::__construct();
             $this->load->model("registroUsuarioModel");
             $this->load->model("InstitutosModel");
+            $this->load->model("registroUsuarioModel");
         }
 
 
@@ -33,6 +34,15 @@
         public function redireccionRegistro(){
             $data["nombreVista"] = "VistaRegistrado";
             $this->load->view("plantillaFront", $data);
+        }
+
+        public function ComprobarNick(){
+           
+            $nick = $this->input->post("nick");
+            $resultado = $this->registroUsuarioModel->ComprobarNick($nick);
+            echo $resultado;
+
+            
         }
 
     }
