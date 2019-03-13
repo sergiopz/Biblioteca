@@ -9,9 +9,11 @@
       contrasena2 = $("#contrasenaRepetida").val();
       if(contrasena1 == contrasena2){
          $("#contrasenaRepetida").css("border", "2px solid green");
+           $("#verificar").attr("value","2");
 
       } else {
          $("#contrasenaRepetida").css("border", "2px solid red");
+                $("#verificar").attr("value","1");
       }
     });
 
@@ -25,9 +27,13 @@
           success:function(data){
             if (data==1){
               $("#nickRegistro").css("border", "2px solid red");
+              $("#verificar").attr("value","1");
             } else {
 
                $("#nickRegistro").css("border", "2px solid green");
+               $("#verificar").attr("value","2");
+                  //alert($("#verificar").val());
+
 
             }
           }
@@ -44,9 +50,11 @@
           success:function(data){
             if (data==1){
               $("#correoRegistro").css("border", "2px solid red");
+               $("#verificar").attr("value","1");
             } else {
 
                $("#correoRegistro").css("border", "2px solid green");
+                $("#verificar").attr("value","2");
 
             }
           }
@@ -63,15 +71,33 @@
           success:function(data){
             if (data==1){
               $("#telefonoRegistro").css("border", "2px solid red");
+               $("#verificar").attr("value","1");
             } else {
 
                $("#telefonoRegistro").css("border", "2px solid green");
+                $("#verificar").attr("value","2");
+
             }
           }
         });
       });
      /*  alert($("#nickRegistro").css("border"))
       if( $("#nickRegistro").css("border"))*/
+$('#validarBoton').click(function(e){
+
+
+
+
+
+   
+  if (1 == $("#verificar").val()) {
+   
+    e.preventDefault();
+
+  }
+
+
+  });
 
 
   });
@@ -190,6 +216,7 @@
                     <div class="form-group">
                         <label>Nombre</label>
                         <input id="nombreRegistro" type="text" class="form-control" name="nombre" placeholder="Nombre"  required>
+                        <input hidden="" id="verificar" value="">
                     </div>
 
                     <div class="form-group">
@@ -223,14 +250,14 @@
                         <input id="telefonoRegistro" type="text" class="form-control" name="telefono"  placeholder="Teléfono" pattern="^[9|8|7|6]\d{8}$" required>
                     </div>
                     <div class="form-group contenidoModal">
-                        <input disabled  type="submit" class="btn btn-dark">
+                        <input  id="validarBoton" type="submit" class="btn btn-dark">
                     </div>
                 </form>
             </div>
             
             <!-- Modal footer -->
             <div class="modal-footer pieModal" style="background-image: url('<?php echo base_url(); ?>imgs/utilidadesFront/recorteLibro.png')">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="button"  class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
             
           </div>
