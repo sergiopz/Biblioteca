@@ -132,8 +132,18 @@
                     if($r1==0 || $r2==0){
                         echo"Fallo al eliminar libro";
                     }else{
-                        echo"Libro eliminado con exito"; 
-                    } 
+                        echo"Libro eliminado con exito";
+                       $total = count(glob('assets/libros/'.$id.'/{*.jpg,*.gif,*.png}',GLOB_BRACE));
+
+                       for ($i = $cont=0; $i <  $total; $i++) {
+                              $filename="assets/libros/".$id."/".$i.".jpg";
+                               $res=unlink($filename);
+
+                       }
+
+                      $ruta="assets/libros/$id";
+                      rmdir($ruta);
+                  } 
                 }
             }
         }
