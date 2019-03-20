@@ -35,7 +35,7 @@
         }
 
 
-
+// ultimos libros del homefRONT
         public function UltimosLibros() {
            
             
@@ -52,6 +52,8 @@
         }
 
 
+//MUESTRA LAS CATEGORIAS
+
             public function Categorias() {
            
 
@@ -66,6 +68,10 @@
             
             return $categoria;
         }
+
+
+        //MUESTRA EL NOMBRE DE LA CATEGORIA
+
         public function Categorias2($id) {
            
 
@@ -82,6 +88,8 @@
         }
 
 
+//MUESTRA LOS LIBROS DE CADA CATEGORIA
+
             public function LibrosCategorias($LibrosCategorias) {
            
             
@@ -96,6 +104,9 @@
             
             return $listaBusqueda;
         }
+
+
+        //DEVUELVE EL TITULO DEL VISOR
 
          public function TituloVisor($id) {
            
