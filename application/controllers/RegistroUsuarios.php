@@ -29,7 +29,6 @@
             
                 redirect(site_url("RegistroUsuarios/redireccionRegistro"));
             }
-            
         }
 
         public function redireccionRegistro(){
