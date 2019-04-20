@@ -44,8 +44,10 @@
 
 			  echo" <a class='nav-link text-center tituloLibro'>".$titul->titulo."</a>"; 
 
-			}?>
-			 <?php echo"<a class='nav-link elementosNav' href='".site_url("Buscador/cargarPdf/$id")."'>Generar PDF</a>";?>
+			}
+			if($titul->pdf=='si'){
+				
+			  echo"<a class='nav-link elementosNav' href='".site_url("Buscador/cargarPdf/$id")."'>Generar PDF</a>"; }?>
 			</div>
 			<div class="container">
 			<div class="main clearfix">

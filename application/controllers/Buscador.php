@@ -41,6 +41,7 @@
 
           $data["id"]=$id;
          $data["titulo"]=$this->BuscadorModel->TituloVisor($id);
+
    
           $this->load->view("Visor.php", $data);
 
