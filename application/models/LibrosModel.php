@@ -33,13 +33,14 @@
     }
 
    // Insertar un libro de la tabla. Devuelve 1 si lo consigue o 0 en caso de error 
-    public function InsertarLibro($isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial) {
+    public function InsertarLibro($isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial,$pdf) {
         $r = $this->db->query("select max(id) as id from libros");
         $row =$r->result()[0];
         $idM=$row->id+1;
 
-        $r = $this->db->query("INSERT INTO libros(id,isbn,titulo,descripcion,fecha,paginas,idInstituto,idUsuario,idEditorial) 
-                            VALUES ('$idM','$isbn','$titulo','$descripcion','$fecha','$paginas','$idInstituto','$idUsuario','$idEditorial')");
+        $r = $this->db->query("INSERT INTO libros(id,isbn,titulo,descripcion,fecha,paginas,idInstituto,idUsuario,idEditorial,pdf) 
+                            VALUES ('$idM','$isbn','$titulo','$descripcion','$fecha','$paginas','$idInstituto','$idUsuario',
+                            '$idEditorial','$pdf')");
         return $r;
     }
 
@@ -51,10 +52,10 @@
     }
 
     //Modificar un libro de la tabla. Devuelve 1 si lo consigue o 0 en caso de error
-    public function ModificarLibro($id,$isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial) {
+    public function ModificarLibro($id,$isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial,$pdf) {
         $this->db->query("UPDATE libros SET isbn='$isbn',titulo='$titulo',descripcion='$descripcion',
                          fecha='$fecha',paginas='$paginas',idInstituto='$idInstituto',idUsuario='$idUsuario',
-                         idEditorial='$idEditorial'WHERE id='$id'");
+                         idEditorial='$idEditorial',pdf='$pdf' WHERE id='$id'");
         return $this->db->affected_rows();   
     }
 
@@ -137,6 +138,9 @@
         }
         return $resultado;               
     }
+
+    
+
 
     
 }

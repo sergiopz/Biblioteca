@@ -51,6 +51,8 @@ $("document").ready(function() {
         var editorial = $("#lupa" + iddiv + " select[name='idEditorial'] ").val();
         var autor = $("#lupa" + iddiv + " select[name='idAutor[]'] ").val();
         var categoria = $("#lupa" + iddiv + " select[name='idCategoria[]'] ").val();
+        var pdf = $("#lupa" + iddiv + " select[name='pdfModificar'] ").val();
+      
 
         var json = {
             'id': iddiv,
@@ -63,7 +65,8 @@ $("document").ready(function() {
             'usuario': usuario,
             'editorial': editorial,
             'autor': autor,
-            'categoria': categoria
+            'categoria': categoria,
+            'pdf': pdf
         };
 
         var cadena = "<?php echo site_url("Libros/ModificarLibro/"); ?>";
@@ -111,7 +114,7 @@ $("document").ready(function() {
                 <?php
 
         //Recorremos la lista de los libros 1 por 1    
-        for ($i = 0; $i < count($listaLibros); $i++) {
+        for ($i = 0; $i < count($listaLibros); $i++) { 
               $libro = $listaLibros[$i];
          echo"<div class='info'>
                 <tr class='$libro->id'>
@@ -333,8 +336,38 @@ $("document").ready(function() {
                         }
                     }
 
-                        echo" </select>
+                     
+
+          echo " </select>
             </div>
+            <div>";
+                      if ($libro->pdf=='si') {
+
+                   
+                
+                     echo" <select name='pdfModificar' class='active' >
+                      <option value='$libro->pdf'>Si</option>
+                      <option value='no'>No</option>
+                      
+                      
+                  </select>"; 
+
+                       }
+                          else {
+
+                   
+                
+                     echo" <select name='pdfModificar' class='active' >
+                      <option value='$libro->pdf'>No</option>
+                      <option value='si'>Si</option>
+                      
+                      
+                  </select>"; 
+
+                       }
+                       echo "
+            </div>
+
             <br>
             <button class='btn btn-large waves-effect waves-light #e65100 orange darken-4 z-depth-0 claseModificar'
                 value='$libro->id'  name='Modificar'><i class='material-icons '>create</i></button>
@@ -444,11 +477,20 @@ $("document").ready(function() {
                     </select>
                     <label style="color:royalblue" for="idCategoria">Categoria</label>
                 </div>
-
+<div>
+                  <select name="pdf" >
+                      <option value="no">No</option>
+                      <option value="si">Si</option>}
+                      
+                      
+                  </select>
+                    
+                </div>
                 <div><input style="background-color:royalblue" type="submit" value="Insertar" class="btn btn-large">
                 </div>
                 <br>
                 <br>
+                
             </div>
 
             </form>

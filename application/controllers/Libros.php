@@ -57,9 +57,10 @@
                 $idEditorial = $this->input->get_post("idEditorial");
                 $idAutor = $this->input->post('idAutor');
                 $idCategoria = $this->input->post('idCategoria');
+                 $pdf = $this->input->post('pdf');
 
 
-                $r=$this->LibrosModel->InsertarLibro($isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial);
+                $r=$this->LibrosModel->InsertarLibro($isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial,$pdf);
 
                 //Una vez inserta el libro inserta los autores en la tabla ajena autor libro
                 for ($i = $cont=0; $i < count($idAutor); $i++) {
@@ -97,9 +98,12 @@
                 $idEditorial = $this->input->get_post("editorial");
                 $idAutor = $this->input->get_post('autor');
                 $idCategoria = $this->input->get_post('categoria');
+                $pdf = $this->input->get_post('pdf');
 
                 //Recibe un libro y luego borra los registros de tablas ajenas e inserta las nuevas
-                $r=$this->LibrosModel->ModificarLibro($id,$isbn,$titulo,$descripcion,$fecha,$paginas,$idInstituto,$idUsuario,$idEditorial);
+                $r=$this->LibrosModel->ModificarLibro($id,$isbn,$titulo,$descripcion,
+                                                      $fecha,$paginas,$idInstituto,
+                                                      $idUsuario,$idEditorial,$pdf);
                 $r1=$this->LibrosModel->EliminarAutorLibro($id);
                 $r2=$this->LibrosModel->EliminarLibroCategoria($id);
 
