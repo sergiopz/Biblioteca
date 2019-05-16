@@ -1,13 +1,5 @@
-<script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
-
 <script>
 $("document").ready(function() {
-    //Plugin de jquery para las tablas
-    $('#table_id').DataTable({
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
-        }
-    });
 
     //Ejecutar eliminar el registro al hacer click en el boton Eliminar
     $(".claseBorrar").click(function() {
@@ -68,16 +60,14 @@ $("document").ready(function() {
 });
 </script>
 
-<a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i
-        class="material-icons" title="Insertar">add_box</i></a>
 <table id="Dtabla" class="">
     <thead>
         <tr>
-            <th class="#000000 black-text">Nombre</th>
-            <th class="#000000 black-text">Apellidos</th>
-            <th class="#000000 black-text">Nick</th>
-            <th class="#000000 black-text">Tipo</th>
-            <th class="#000000 black-text">Instituto</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Nick</th>
+            <th>Tipo</th>
+            <th>Instituto</th>
             <th>Modificar</th>
             <th>Eliminar</th>
         </tr>
@@ -90,101 +80,112 @@ $("document").ready(function() {
           $usuario = $listaUsuarios[$i];
 
         echo" <tr class='$usuario->id'>  
-              <td class='colorFila'><p class='#ffffff black-text' name='nombre'>$usuario->nombre</p></td>
-              <td class='colorFila'><p class='#ffffff black-text' name='apellidos'>$usuario->apellidos</p></td>
-              <td class='colorFila'><p class='#ffffff black-text' name='nick'>$usuario->nick</p></td>
-              <td class='colorFila'><p class='#ffffff black-text' name='tipo'>$usuario->tipo</p></td>";
+              <td><p name='nombre'>$usuario->nombre</p></td>
+              <td><p  name='apellidos'>$usuario->apellidos</p></td>
+              <td><p name='nick'>$usuario->nick</p></td>
+              <td><p name='tipo'>$usuario->tipo</p></td>";
 
         for ($j = 0; $j < count($listaInstitutos); $j++) {
               $instituto = $listaInstitutos[$j];
 
             if( $usuario->idInstituto==$instituto->id ){ 
-        echo"<td class='colorFila'><p class='#ffffff black-text' name='idInstituto'>$instituto->nombre</p></td>";
+        echo"<td class='colorFila'><p name='idInstituto'>$instituto->nombre</p></td>";
              $j=count($listaInstitutos);
 
             }else if($j==count($listaInstitutos)-1){
-        echo"<td class='colorFila'><p class='#ffffff black-text' name='idInstituto'></p></td>";
+        echo"<td class='colorFila'><p  name='idInstituto'></p></td>";
               $j=count($listaInstitutos);
             }
         }
-        echo" <td class='colorFila'><button href='#lupa$usuario->id'  class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 modal-trigger'>Modificar</button></td>
-              <td class='colorFila'><button class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text anchuraBoton2 claseBorrar ' value='$usuario->id' type='submit' name='action'>Eliminar<i class='material-icons right' title='Eliminar'>delete</i></button></td>
+        echo" <td ><button id='lupa$usuario->id' type='button' class='btn btn-success' data-toggle='modal' data-target='#lupa$usuario->id'>Detalles</button></td>
+              <td ><button class='btn btn-danger claseBorrar ' value='$usuario->id' type='submit' name='action'>Eliminar</button></td>
               </tr>";
-        echo"
-        <div id='lupa$usuario->id' class='modal $usuario->id'>  
-         <h5 class='modal-close'>&#10005;</h5>
-          <div class='modal-content center tamañoVModal'>
-            <h4 class='flow-text #00e676 green-text text-accent-3'>Modificar Usuarios</h4>
-        
-              <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>person</i>
-                <input type='text' name='nombre' id='nombre'  value='$usuario->nombre'>
-                <label class='active' style='color:royalblue' for='nombre'>Nombre</label>
-              </div>
-              <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>person</i>
-                <input type='text' name='apellidos' id='apellido'   value='$usuario->apellidos'>
-                <label class='active' style='color:royalblue' for='apellido'>Apellidos</label>
-              </div>
-              <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>face</i>
-                <input type='text' name='nick' id='nick' value='$usuario->nick'>
-                <label class='active' style='color:royalblue' for='nick'>Nick</label>
-              </div>
-              <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>lock</i>
-                <input type='text' name='contrasena' id='contrasena' value='$usuario->contrasena'>
-                <label class='active' style='color:royalblue' for='contrasena'>Contraseña</label>
-              </div>
-              <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>mail</i>
-                <input type='text' name='correo' id='correo' value='$usuario->correo'>
-                <label class='active' style='color:royalblue' for='correo'>E-Mail</label>
-              </div>
-               <div class='input-field'>
-                  <i class='material-icons prefix' style='color:royalblue'>phone</i>
-                  <input type='text' name='telefono' id='telefono' value='$usuario->telefono'>
-                  <label class='active' style='color:royalblue' for='telefono'>Teléfono</label>
-              </div>
-              <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>add_box</i>
-                <input type='text' name='tipo' id='tipo' value='$usuario->tipo'>
-                <label class='active' style='color:royalblue' for='tipo'>Tipo de Usuario</label>
-              </div>
-              <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>add_box</i>
-                <input type='text' name='codigoConfirmacion' id='codigoConfirmacion'>
-                <label class='active' style='color:royalblue' for='codigoConfirmacion'>Código de confirmación</label>
-              </div>
-              <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                <select name='idInstituto' class=''>";
-                  for ($j = 0; $j < count($listaInstitutos); $j++) {
-                    $instituto = $listaInstitutos[$j];
-                    if( $usuario->idInstituto==$instituto->id ){ 
-                      echo"<option  value='$instituto->id' selected>$instituto->nombre</option> ";
-                    }else{
-                      echo"<option  value='$instituto->id' >$instituto->nombre</option> ";
-                    }
-                  }
-                echo"
-                </select>
-              </div>
+              echo"
 
-              <!--<div><input style='background-color:royalblue' type='submit' value='Modificar' class='btn btn-large'></div>-->
-
-              <button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 claseModificar' value='$usuario->id' type='submit' name='action'><i class='material-icons '>create</i></button>
-              <br>
-              <br>
-
-
-          
-          </div>
-        </div>
-     
-     
-   
-       ";
+              <div class='modal' id='lupa$usuario->id' class='$usuario->id'>
+              <div class='modal-dialog'>
+                <div class='modal-content'>
+            
+                  <!-- Modal Header -->
+                  <div class='modal-header'>
+                  <h4 class='flow-text #00e676 green-text text-accent-3'>Insertar Registro</h4>
+                    <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                  </div>
+            
+                  <!-- Modal body -->
+                  <div class='modal-body'>
+                    
+                  
+                        <div class='form-group'>
+                            <label for='nombre'>Nombre</label>
+                            <input type='text' id='nombre' name='nombre' value='$usuario->nombre'>
+                        </div>
+  
+                        <div class='form-group'>
+                          <label for='apellido'>Apellidos</label>
+                          <input type='text' id='apellido' name='apellidos' value='$usuario->apellidos'>
+                        </div>
+  
+                        <div class='form-group'>
+                          <label for='nick'>Nick</label>
+                          <input type='text' id='nick' name='nick' value='$usuario->nick'>
+                        </div>
+  
+                        <div class='form-group'>
+                          <label for='contrasena'>Contraseña</label>
+                          <input type='text' id='contrasena' name='contrasena' value='$usuario->contrasena'>
+                        </div>
+  
+                        <div class='form-group'>
+                          <label for='correo'>E-Mail</label>
+                          <input type='text' id='correo' name='correo' value='$usuario->correo'>
+                        </div>
+  
+                        <div class='form-group'>
+                          <label for='telefono'>Telefono</label>
+                          <input type='text' id='telefono' name='telefono' value='$usuario->telefono'>
+                        </div>
+  
+                        <div class='form-group'>
+                          <label for='tipo'>Tipo de usuario</label>
+                          <input type='text' id='tipo' name='tipo' value='$usuario->tipo'>
+                        </div>
+  
+                        <div class='form-group' >
+                          <label for='codigoConfirmacion'>Codigo de confirmacion</label>
+                          <input type='text' id='codigoConfirmacion' name='codigoConfirmacion' value='$usuario->codigoConfirmacion'>
+                        </div>
+  
+                        <div class='form-group'>
+                          <label for='idInstituto'>Instituto</label>
+                          <select id='idInstituto' name='idInstituto'>";
+  
+                            for ($j = 0; $j < count($listaInstitutos); $j++) {
+                              $instituto = $listaInstitutos[$j];
+                              if( $usuario->idInstituto==$instituto->id ){ 
+                                echo"<option  value='$instituto->id' selected>$instituto->nombre</option> ";
+                              }else{
+                                echo"<option  value='$instituto->id' >$instituto->nombre</option> ";
+                              }
+                            }
+  
+                            echo"
+                            </select>
+                        </div>
+                       
+                        <button class='btn btn-primary claseModificar' value='$usuario->id' type='submit' name='action'>Modificar</button>
+            
+                  </div>
+            
+                  <!-- Modal footer -->
+                  <div class='modal-footer'>
+                    <button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button>
+                  </div>
+            
+                </div>
+              </div>
+            </div>
+                  ";
       }
       ?>
     </tbody>

@@ -34,9 +34,7 @@
             if ($resultado == 0) {
                 $data["mensaje"] = "Error al insertar la película en la base de datos";
             } else {
-                $data["nombreVista"] = "VistaAdministrador";
-                $data["tabla"] = "usuarios";
-                $this->load->view("plantilla", $data);
+                redirect('Usuarios/VistaAjax','refresh');
           }
 
       }

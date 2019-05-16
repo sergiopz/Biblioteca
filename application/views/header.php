@@ -50,9 +50,9 @@
         <div class="jumbotron text-center mainColor" id="">
   	        <h1>Administración CambiarNombrePorVariable</h1>
         </div>
-        <div class='container'>
-            <div class='row'> 
-
+        
+            <div class='container'> 
+                <div class='row'>
                 <div class='botonesPrincipales'>
 		            <button id='menuAdmin' class='btn btn-primary'>
 			            Administración
@@ -79,8 +79,9 @@
                         echo "</div>";
                       }
                     ?>
+                </div>
             </div>    
-        </div>
+
 
 
         

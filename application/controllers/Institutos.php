@@ -35,9 +35,7 @@
             if ($resultado == 0) {
                     $data["mensaje"] = "Error al insertar el instituto en la base de datos";   
             } else {
-               $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "instituto";   // La tabla que queremos que se muestre automáticamente en la vista principal
-                           $this->load->view("plantilla", $data);
+                redirect('Institutos/VistaAjax','refresh');
             }
         }
     } 
