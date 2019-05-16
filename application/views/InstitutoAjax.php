@@ -1,23 +1,17 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
 
 <script>
-$("document").ready(function() {
-  //Plugin de jquery para las tablas
-    $('#table_id').DataTable({
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
-        }
-    });
 
     //Ejecutar eliminar el registro al hacer click en el boton Eliminar
     $(".borrarInstituto").click(function() {
 
           var r = confirm("Vas a eliminar un registro!\n¿Estás seguro?");
-  if (r == false) {
-   
-    e.preventDefault();
 
-  }else{
+    if (r == false) {
+   
+        e.preventDefault();
+
+    }else{
 
 
         var idInstituto = $(this).attr("value");
@@ -65,7 +59,7 @@ $("document").ready(function() {
 
 <a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i
         class="material-icons" title="Insertar">add_box</i></a>
-<table id="table_id" class="">
+<table id="Dtabla" class="">
     <thead>
         <tr>
             <th class="black-text">Nombre</th>

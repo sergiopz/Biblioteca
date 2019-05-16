@@ -11,7 +11,8 @@
     //Funcion que carga la vista de autores y sus datos
         public function VistaAjax() {
             $data["listaAutores"] = $this->AutoresModel->getAll();
-            $this->load->view("AutorAjax.php" , $data);
+            $data["nombreVista"] = "AutorAjax";
+            $this->load->view("plantilla.php", $data);
         }
     
     //Funcion que inserta un autor

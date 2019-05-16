@@ -70,7 +70,7 @@ $("document").ready(function() {
 
 <a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i
         class="material-icons" title="Insertar">add_box</i></a>
-<table id="table_id" class="">
+<table id="Dtabla" class="">
     <thead>
         <tr>
             <th class="#000000 black-text">Nombre</th>

@@ -2,12 +2,6 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
 <link rel="stylesheet" href="<?php echo base_url('css/estiloMaterialize.css');?>">
 <script>
-$("document").ready(function() {
-    $('#Dtabla').DataTable({
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
-        }
-    });
 
     $(".libro").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
     $(".administracion").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");

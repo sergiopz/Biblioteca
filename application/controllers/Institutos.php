@@ -15,7 +15,8 @@
                 if($this->security_check()){
             $this->load->model("InstitutosModel");
             $data["listaInstitutos"] = $this->InstitutosModel->getAll();
-            $this->load->view("InstitutoAjax.php", $data);
+            $data["nombreVista"] = "InstitutoAjax";
+            $this->load->view("plantilla.php", $data);
             
         }
     }

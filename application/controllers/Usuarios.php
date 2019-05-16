@@ -13,7 +13,8 @@
       public function VistaAjax() {
           $data["listaUsuarios"] = $this->UsuariosModel->getAll();
           $data["listaInstitutos"] = $this->InstitutosModel->getAll();
-          $this->load->view("UsuarioAjax.php", $data);
+          $data["nombreVista"] = "UsuarioAjax";
+          $this->load->view("plantilla.php", $data);
        }
         
       //Funcion que inserta un usuario con todos sus datos

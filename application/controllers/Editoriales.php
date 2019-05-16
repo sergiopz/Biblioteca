@@ -18,7 +18,8 @@
         public function VistaAjax() {
             if($this->security_check()){
             $data["listaEditoriales"] = $this->EditorialesModel->getAll();
-            $this->load->view("EditorialAjax.php", $data);
+            $data["nombreVista"] = "EditorialAjax";
+            $this->load->view("plantilla.php", $data);
         }
 
     }
@@ -33,9 +34,7 @@
                 echo"Fallo al insertar Editorial";
                 
             } else {
-                $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "editorial";   // La tabla que queremos que se muestre automáticamente en la vista principal
-                           $this->load->view("plantilla", $data);
+                redirect('Editoriales/VistaAjax','refresh');
             }
         }
 

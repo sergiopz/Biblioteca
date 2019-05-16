@@ -13,8 +13,9 @@
         public function VistaAjax() {
           if($this->security_check()){
             $this->load->model("CategoriasModel");
+            $data["nombreVista"] = "CategoriaAjax";
             $data["listaCategorias"] = $this->CategoriasModel->getAll();
-            $this->load->view("CategoriaAjax.php", $data);
+            $this->load->view("plantilla.php", $data);
             
         }
       }
@@ -29,9 +30,7 @@
                     $data["mensaje"] = "Error al insertar la categoria en la base de datos";
                        
                     } else {
-                      $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "categoria";   
-                           $this->load->view("plantilla", $data);
+                      redirect('Categorias/VistaAjax','refresh');
                     }
 
                   }
