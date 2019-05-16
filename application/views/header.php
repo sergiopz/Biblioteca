@@ -66,7 +66,7 @@
                 </div>
     
                 <div id='botonCerrarSesion' class='botonesPrincipales '>
-                        <?php echo "<a id='cerrarsesion  href='".site_url("Libros/salir")."' class='btn btn-danger '>Cerrar Sesión</a>";?>
+                        <a id='cerrarsesion'  href="<?php echo site_url("Libros/salir");?>" class='btn btn-danger'>Cerrar Sesión</a>
                 </div>
                 <?php 
                       if($this->session->userdata('tipoUsuario')==0){
