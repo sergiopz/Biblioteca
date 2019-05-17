@@ -29,14 +29,14 @@ $("document").ready(function() {
     $('.claseModificar').click(function() {
 
         var iddiv = $(this).attr("value");
-        var nombreusuario = $("." + iddiv + " input[name='nombre']").val();
-        var apellidousuario = $("." + iddiv + " input[name='apellidos']").val();
-        var nickusuario = $("." + iddiv + " input[name='nick']").val();
-        var contrasenausuario = $("." + iddiv + " input[name='contrasena']").val();
-        var correousuario = $("." + iddiv + " input[name='correo']").val();
-        var telefonousuario = $("." + iddiv + " input[name='telefono']").val();
-        var tipousuario = $("." + iddiv + " input[name='tipo']").val();
-        var idInstitutousuario = $("." + iddiv + " option:selected").val();
+        var nombreusuario = $("." + iddiv + "-nombre").val();
+        var apellidousuario = $("." + iddiv + "-apellidos").val();
+        var nickusuario = $("." + iddiv + "-nick").val();
+        var contrasenausuario = $("." + iddiv + "-contrasena").val();
+        var correousuario = $("." + iddiv + "-correo").val();
+        var telefonousuario = $("." + iddiv + "-telefono").val();
+        var tipousuario = $("." + iddiv + "-tipo").val();
+        var idInstitutousuario = $("." + iddiv + "-instituto").val();
         var valorInstitutousuario = $("." + iddiv + " option:selected").text();
 
         $("." + iddiv + " p[name='nombre']").text(nombreusuario);
@@ -48,18 +48,19 @@ $("document").ready(function() {
             "&nick=" + nickusuario + "&contrasena=" + contrasenausuario + "&correo=" + correousuario +
             "&telefono=" + telefonousuario + "&tipo=" + tipousuario + "&idInstituto=" +
             idInstitutousuario + "&codigoConfirmacion= ";
+
         var cadena = "<?php echo site_url("Usuarios/ModificarUsuarios/"); ?>";
 
         $.ajax({
             type: "POST",
             url: cadena,
             data: datos
-        });
+        }).done(function (data) { location.reload(); });
 
     });
 });
 </script>
-
+<div class='container-fluid'>
 <table id="Dtabla" class="">
     <thead>
         <tr>
@@ -118,47 +119,47 @@ $("document").ready(function() {
                   
                         <div class='form-group'>
                             <label for='nombre'>Nombre</label>
-                            <input type='text' id='nombre' name='nombre' value='$usuario->nombre'>
+                            <input type='text' class='$usuario->id-nombre' id='nombre' name='nombre' value='$usuario->nombre'>
                         </div>
   
                         <div class='form-group'>
                           <label for='apellido'>Apellidos</label>
-                          <input type='text' id='apellido' name='apellidos' value='$usuario->apellidos'>
+                          <input type='text' id='apellido'class='$usuario->id-apellidos' name='apellidos' value='$usuario->apellidos'>
                         </div>
   
                         <div class='form-group'>
                           <label for='nick'>Nick</label>
-                          <input type='text' id='nick' name='nick' value='$usuario->nick'>
+                          <input type='text' class='$usuario->id-nick' id='nick' name='nick' value='$usuario->nick'>
                         </div>
   
                         <div class='form-group'>
                           <label for='contrasena'>Contraseña</label>
-                          <input type='text' id='contrasena' name='contrasena' value='$usuario->contrasena'>
+                          <input type='text' id='contrasena' class='$usuario->id-contrasena' name='contrasena' value='$usuario->contrasena'>
                         </div>
   
                         <div class='form-group'>
                           <label for='correo'>E-Mail</label>
-                          <input type='text' id='correo' name='correo' value='$usuario->correo'>
+                          <input type='text' id='correo' class='$usuario->id-correo' name='correo' value='$usuario->correo'>
                         </div>
   
                         <div class='form-group'>
                           <label for='telefono'>Telefono</label>
-                          <input type='text' id='telefono' name='telefono' value='$usuario->telefono'>
+                          <input type='text' id='telefono' class='$usuario->id-telefono' name='telefono' value='$usuario->telefono'>
                         </div>
   
                         <div class='form-group'>
                           <label for='tipo'>Tipo de usuario</label>
-                          <input type='text' id='tipo' name='tipo' value='$usuario->tipo'>
+                          <input type='text' id='tipo' class='$usuario->id-tipo' name='tipo' value='$usuario->tipo'>
                         </div>
   
                         <div class='form-group' >
                           <label for='codigoConfirmacion'>Codigo de confirmacion</label>
-                          <input type='text' id='codigoConfirmacion' name='codigoConfirmacion' value='$usuario->codigoConfirmacion'>
+                          <input type='text' id='codigoConfirmacion' class='$usuario->id-codigoConfirmacion' name='codigoConfirmacion' value='$usuario->codigoConfirmacion'>
                         </div>
   
                         <div class='form-group'>
                           <label for='idInstituto'>Instituto</label>
-                          <select id='idInstituto' name='idInstituto'>";
+                          <select id='idInstituto' class='$usuario->id-instituto' name='idInstituto'>";
   
                             for ($j = 0; $j < count($listaInstitutos); $j++) {
                               $instituto = $listaInstitutos[$j];
@@ -191,7 +192,6 @@ $("document").ready(function() {
     </tbody>
 </table>
 
-</div>
 </div>
 
 <!--Contenido de la ventana modal de insercion-->

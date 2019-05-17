@@ -64,7 +64,7 @@
           $idInstituto = $this->input->get_post("idInstituto");
           $codigoConfirmacion = $this->input->get_post("codigoConfirmacion");                
           $resultado = $this->UsuariosModel->ModificarUsuarios($id,$nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto,$codigoConfirmacion);
-           
+     
           if ($resultado == 0) { 
               $data["error"]="No se pudo modificar";
               $data["listaUsuarios"] = $this->UsuariosModel->getAll();
