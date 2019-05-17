@@ -1,8 +1,14 @@
 body {
-  font-family: "Lato", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   transition: background-color .5s;
 }
 
+th, td {
+  text-align: center !important;
+}
+td input{
+  text-align:center !important;
+}
 .sidenav {
   height: 100%;
   width: 0;
