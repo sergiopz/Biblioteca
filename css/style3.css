@@ -9,6 +9,12 @@ th, td {
 td input{
   text-align:center !important;
 }
+td{
+  vertical-align: middle !important;
+}
+.alineacionVertical{
+  vertical-align: middle !important;
+}
 .sidenav {
   height: 100%;
   width: 0;
