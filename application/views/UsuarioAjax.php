@@ -196,78 +196,89 @@ $("document").ready(function() {
 
 <!--Contenido de la ventana modal de insercion-->
 
-<div id="insert" class="modal tamañoVModal">
-    <?php    echo form_open_multipart("Usuarios/InsertarUsuarios");?>
 
-    <h5 class="modal-close">&#10005;</h5>
-    <div class="modal-content center">
-        <h4 class="flow-text #00e676 green-text text-accent-3">Insertar Registro</h4>
 
-        <div class="input-field">
-            <i class="material-icons prefix" style="color:royalblue">person</i>
+<div class="modal" id="insertModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
-            <input type='text' name='nombre' id='nombre'>
-            <label style="color:royalblue" for="nombre">Nombre</label>
-        </div>
-        <div class="input-field">
-            <i class="material-icons prefix" style="color:royalblue">person</i>
-            <input type='text' name='apellidos' id='apellidos'>
-            <label style="color:royalblue" for="apellidos">Apellido</label>
-        </div>
-        <div class="input-field">
-            <i class="material-icons prefix" style="color:royalblue">face</i>
-            <input type='text' name='nick' id='nick'>
-            <label style="color:royalblue" for="nick">Nick</label>
-        </div>
-        <div class="input-field">
-            <i class="material-icons prefix" style="color:royalblue">lock</i>
-            <input type='text' name='contrasena' id='contrasena'>
-            <label style="color:royalblue" for="contrasena">Contrasena</label>
-        </div>
-        <div class="input-field">
-            <i class="material-icons prefix" style="color:royalblue">mail</i>
-            <input type='text' name='correo' id='correo'>
-            <label style="color:royalblue" for="correo">Correo</label>
-        </div>
-        <div class="input-field">
-            <i class="material-icons prefix" style="color:royalblue">phone</i>
-            <input type='text' name='telefono' id='telefono'>
-            <label style="color:royalblue" for="telefono">Telefono</label>
-        </div>
-        <div class="input-field">
-            <i class="material-icons prefix" style="color:royalblue">add_box</i>
-            <input type='text' name='tipo' id='tipo'>
-            <label style="color:royalblue" for="tipo">Tipo</label>
-        </div>
-        <div class="input-field">
-            <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
+      <!-- Modal Header -->
+      <div class="modal-header">
+      <h4 class="flow-text #00e676 green-text text-accent-3">Insertar Registro</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
 
-          <!-- Campo de la tabla ajena de la tabla Institutos-->
-            <select name="idInstituto" id="idInstituto">
+      <!-- Modal body -->
+      <div class="modal-body">
+        <?php    echo form_open_multipart("Usuarios/InsertarUsuarios");?>
+        
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+            </div>
+
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos">
+            </div>
+
+            <div class="form-group">
+                <label for="nick">Nick</label>
+                <input type="text" id="nick" name="nick" placeholder="Nick">
+            </div>
+
+            <div class="form-group">
+                <label for="contrasena">Contraseña</label>
+                <input type="text" id="contrasena" name="contrasena" placeholder="Contraseña">
+            </div>
+
+            <div class="form-group">
+                <label for="correo">E-Mail</label>
+                <input type="text" id="correo" name="correo" placeholder="E-Mail">
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
+            </div>
+
+            <div class="form-group">
+                <label for="tipo">Tipo de usuario</label>
+                <input type="text" id="tipo" name="tipo" placeholder="Tipo de usuario">
+            </div>
+
+            <div class="form-group">
+                <label for="IdInstituto">Instituto</label>
+                <select name="idInstituto" id="idInstituto">
                 <?php
                 for ($j = 0; $j < count($listaInstitutos); $j++) {
                   $instituto = $listaInstitutos[$j];
                   if( $usuario->id==$instituto->id ){ 
-      echo      "<option value='$instituto->id' selected >$instituto->nombre</option> ";                      
+              echo "<option value='$instituto->id' selected >$instituto->nombre</option> ";                      
                            }else{
-      echo      "<option  value='$instituto->id' >$instituto->nombre</option> ";
+              echo "<option  value='$instituto->id' >$instituto->nombre</option> ";
                            }
                 }
                 ?>
             </select>
-            <label style="color:royalblue" for="Id Instituto">IdInstituto</label>
-        </div>
-        <div class="input-field">
-            <i class="material-icons prefix" style="color:royalblue">add_box</i>
-            <input type='text' name='codigoConfirmacion' id='codigoConfirmacion'>
-            <label style="color:royalblue" for="Codigo de Confirmacion">codigoConfirmacion</label>
-        </div>
+            </div>
 
-        <div><input style="background-color:royalblue" type="submit" value="Insertar" class="btn btn-large"></div>
-        <br>
-        <br>
+            <div class="form-group" hidden>
+                <label for="codigoConfirmacion">Codigo de confirmación</label>
+                <input type="text" id="codigoConfirmacion" name="codigoConfirmacion" placeholder="Codigo de confirmación">
+            </div>
 
-        
+            <button  type="submit" value="Insertar" class="btn btn-primary">Insertar</button>
+
         </form>
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
     </div>
+  </div>
 </div>
