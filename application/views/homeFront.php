@@ -300,7 +300,8 @@
 
 					    <div class='card-body'>
 					      <h5 class='card-title tituloTarjeta text-center'>$libro->titulo</h5> 
-					      <a href='".site_url("Buscador/Visor/$libro->id")."'><h5 class='botonTarjeta text-center'>Ver libro</h5></a>
+                <a href='".site_url("Buscador/Visor/$libro->id")."'><h5 class='botonTarjeta text-center'>Ver libro</h5></a>
+                <button><i class='far fa-star'></i></button>
               </div>
  
 				    </div>

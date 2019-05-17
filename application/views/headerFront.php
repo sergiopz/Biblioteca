@@ -13,5 +13,6 @@
     <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
     <link rel="stylesheet" href="<?php echo base_url('css/estiloFront.css');?>">
     <script type="text/javascript" src="<?php echo base_url(); ?>js/frontJS.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <title>Biblioteca</title>
 </head>
