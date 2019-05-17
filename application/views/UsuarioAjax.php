@@ -98,7 +98,7 @@ $("document").ready(function() {
               $j=count($listaInstitutos);
             }
         }
-        echo" <td ><button id='lupa$usuario->id' type='button' class='btn btn-success' data-toggle='modal' data-target='#lupa$usuario->id'>Detalles</button></td>
+        echo" <td ><button id='lupa$usuario->id' type='button' class='btn btn-info' data-toggle='modal' data-target='#lupa$usuario->id'>Detalles</button></td>
               <td ><button class='btn btn-danger claseBorrar ' value='$usuario->id' type='submit' name='action'>Eliminar</button></td>
               </tr>";
               echo"
