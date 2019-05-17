@@ -54,8 +54,15 @@ $("document").ready(function() {
         $.ajax({
             type: "POST",
             url: cadena,
-            data: datos
-        }).done(function (data) { location.reload(); });
+            data: datos,
+            success:function(data) {
+              Swal.fire({
+                type: 'success',
+                title: 'Perfecto!',
+                text: 'Modificación efectuada con éxito.'
+              })  
+            }
+           }).done(function (data) { setTimeout(function(){location.reload();}, 1500); });
 
     });
 });

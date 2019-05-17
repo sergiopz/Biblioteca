@@ -1,17 +1,16 @@
-<script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
-
 <script>
 $("document").ready(function() {
 
     //Ejecutar eliminar el registro al hacer click en el boton Eliminar
-    $(".borrarInstituto").click(function() {
+    $(".borrarInstituto").click(function(e) {
 
-        var r = confirm("Vas a eliminar un registro!\n¿Estás seguro?");
-  if (r == false) {
+      var r = confirm("Vas a eliminar un registro!\n¿Estás seguro?");
+
+      if (r == false) {
    
-    e.preventDefault();
+        e.preventDefault();
 
-  }else{
+      }else{
 
 
         var idInstituto = $(this).attr("value");
@@ -42,7 +41,14 @@ $("document").ready(function() {
         $.ajax({
             type: "POST",
             url: cadena,
-            data: datos
+            data: datos,
+            success:function(data) {
+              Swal.fire({
+                type: 'success',
+                title: 'Perfecto!',
+                text: 'Modificación efectuada con éxito.'
+              })
+            }
         });
 
     });
@@ -50,14 +56,12 @@ $("document").ready(function() {
 });
 </script>
 
+<div class='container'>
 
-<a href="#insert" id="mover" class="flotante btn btn-large pulse #00e676 green accent-3 modal-trigger "><i
-        class="material-icons" title="Insertar">add_box</i></a>
-
-<table id="Dtabla" class="highlight responsive-table #536dfe indigo accent-2 ">
+<table id="Dtabla" class="table table-striped table-bordered ">
     <thead>
-        <tr class="#536dfe indigo accent-2">
-            <th class="#000000 black-text">Nombre</th>
+        <tr>
+            <th>Nombre</th>
             <th>Modificar</th>
             <th>Eliminar</th>
         </tr>
@@ -75,13 +79,13 @@ $("document").ready(function() {
           echo "<div class='info'>
             <tr class='$autor->id'>
               <input hidden type='text' name='id' value='$autor->id'>
-              <td class='colorFila' style='width:60%'><p hidden>$autor->nombre</p><input class='#ffffff black-text' type='text' name='nombre' value='$autor->nombre'></td>";
+              <td style='width:60%'><p hidden>$autor->nombre</p><input type='text' name='nombre' value='$autor->nombre'></td>";
             if($this->session->userdata('tipoUsuario')==0){
-              echo"<td class='colorFila'><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar' value='$autor->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
-              echo "<td class='colorFila'><a value='$autor->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>";
+              echo"<td><button class='btn btn-info clasemodificar' value='$autor->id' type='submit' name='action'>Modificar</button></td>";
+              echo "<td><a value='$autor->id' class='btn btn-danger borrarInstituto'>Eliminar</a></td>";
             }else{
-              echo"<td class='colorFila'><button class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 clasemodificar disabled' value='$autor->id' type='submit' name='action'>Modificar<i class='material-icons right'>create</i></button></td>";
-              echo "<td class='colorFila'><a value='$autor->id' class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text borrarInstituto disabled' >Eliminar<i class='material-icons right' title='Eliminar'>delete</i></a></td>";
+              echo"<td><button class='btn btn-info clasemodificar disabled' value='$autor->id' type='submit' name='action'>Modificar</button></td>";
+              echo "<td><a value='$autor->id' class='btn btn-danger borrarInstituto disabled' >Eliminar</a></td>";
             }
           echo"
             </tr>
@@ -94,6 +98,52 @@ $("document").ready(function() {
 </table>
 </div>
 </div>
+
+
+<div class="modal" id="insertModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+      <h4 class="flow-text #00e676 green-text text-accent-3">Insertar Registro</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <?php    echo form_open_multipart("Autores/InsertarAutor");?>
+        
+            <div class="form-group">
+                <label for="nombre">Autor</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Autor">
+                <small id="nameHelp" class="form-text text-muted">Comprueba que el autor no existe aún!</small>
+            </div>
+
+            <button  type="submit" value="Insertar" class="btn btn-primary">Insertar</button>
+
+        </form>
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
 
 <!--Contenido de la ventana modal de insercion-->
 

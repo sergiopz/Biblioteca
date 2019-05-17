@@ -50,7 +50,14 @@
         $.ajax({
             type: "POST",
             url: cadena,
-            data: datos
+            data: datos,
+            success:function(data) {
+              Swal.fire({
+                type: 'success',
+                title: 'Perfecto!',
+                text: 'Modificación efectuada con éxito.'
+              })
+            }
         });
     });
 

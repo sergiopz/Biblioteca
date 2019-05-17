@@ -1,16 +1,6 @@
-<script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/jqueryMaterialize.js"></script>
-<link rel="stylesheet" href="<?php echo base_url('css/estiloMaterialize.css');?>">
 <script>
-
-    $(".libro").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
-    $(".administracion").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-    $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-    $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-    $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-    $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-
-    $(".claseBorrar").click(function() {
+$("document").ready(function() {
+    $(".claseBorrar").click(function(e) {
 
         var r = confirm("Vas a eliminar un registro!\n¿Estás seguro?");
         if (r == false) {
@@ -80,24 +70,20 @@
 });
 </script>
 
-<div class="row"></div>
-<div class="row container">
-    <div class="col s12 m12 #536dfe indigo accent-2 z-depth-1 " id="capaAdmin">
-        <!-- Hasta aqui los divs de Vistausuario-->
-        <a href="#insert" class="btn btn-large pulse #00e676 green accent-3 modal-trigger flotante"><i
-                class="material-icons" title="Insertar">add_box</i></a>
-        <table id="Dtabla" class="highlight responsive-table #536dfe indigo accent-2 ">
+<div class="container-fluid">
+
+        <table id="Dtabla" class="table table-striped table-bordered ">
             <thead>
-                <tr class="#536dfe indigo accent-2">
-                    <th class="#000000 black-text">Isbn</th>
-                    <th class="#000000 black-text">Titulo</th>
-                    <th hidden class="#000000 black-text">Descripcion</th>
-                    <th hidden class="#000000 black-text">Fecha</th>
-                    <th hidden class="#000000 black-text">Paginas</th>
-                    <th class="#000000 black-text">Instituto</th>
-                    <th class="#000000 black-text">Editorial</th>
-                    <th class="#000000 black-text">Autor</th>
-                    <th class="#000000 black-text">Categoria</th>
+                <tr>
+                    <th>Isbn</th>
+                    <th>Titulo</th>
+                    <th hidden>Descripcion</th>
+                    <th hidden>Fecha</th>
+                    <th hidden>Paginas</th>
+                    <th>Instituto</th>
+                    <th>Editorial</th>
+                    <th>Autor</th>
+                    <th>Categoria</th>
                     <th>Modificar</th>
                     <th>Eliminar</th>
                     <th>Subir</th>
@@ -105,7 +91,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
+    <?php
 
         //Recorremos la lista de los libros 1 por 1    
         for ($i = 0; $i < count($listaLibros); $i++) { 
@@ -113,12 +99,12 @@
          echo"<div class='info'>
                 <tr class='$libro->id'>
                      <input type='hidden' name='id' value='$libro->id' readonly>
-                     <td class='colorFila'><p hidden>$libro->isbn</p><input class='#ffffff' type='text' name='isbn' value='$libro->isbn'></td>
-                     <td class='colorFila'><p hidden>$libro->titulo</p><input class='#ffffff' type='text' name='titulo' value='$libro->titulo'></td>
-                     <td hidden><input class='#ffffff' type='text' name='descripcion' value='$libro->descripcion'></td>
-                     <td hidden><input class='#ffffff' type='text' name='fecha' value='$libro->fecha'></td>
-                     <td hidden><input class='#ffffff' type='text' name='paginas' value='$libro->paginas'></td>
-                     <td class='colorFila'><select name='idInstituto' >";
+                     <td><p hidden>$libro->isbn</p><input class='#ffffff' type='text' name='isbn' value='$libro->isbn'></td>
+                     <td><p hidden>$libro->titulo</p><input class='#ffffff' type='text' name='titulo' value='$libro->titulo'></td>
+                     <td hidden><input type='text' name='descripcion' value='$libro->descripcion'></td>
+                     <td hidden><input type='text' name='fecha' value='$libro->fecha'></td>
+                     <td hidden><input type='text' name='paginas' value='$libro->paginas'></td>
+                     <td><select name='idInstituto' >";
 
         //Dentro de cada libro recorremos la lsita de Institutos y si el campo de idInstituto del libro coincide
         //con el id de la tabla instituos sacamos ese campo selected
@@ -135,7 +121,7 @@
           
   
 
-       echo   "<td class='colorFila'><select name='idEditorial' >";  
+       echo   "<td><select name='idEditorial' >";  
 
         //Si el campo idEditorial coincide con el id de la tabla editoriales sacamos ese campo selected
         for ($j = 0; $j < count($listaEditoriales); $j++) {
@@ -148,7 +134,7 @@
         }
 
        echo   "</select></td>
-               <td class='colorFila'><select required multiple name='idAutor[]' >";
+               <td><select required multiple name='idAutor[]' >";
 
 
         //Recorremos la lista de Autores y dentro recorremos la tabla Autores Libros y si el id del autor
@@ -170,7 +156,7 @@
         }
       
        echo   "</select></td>
-               <td class='colorFila'><select type='hidden' class='elementoOculto' required multiple name='idCategoria[]' >";
+               <td><select type='hidden' class='elementoOculto' required multiple name='idCategoria[]' >";
 
         //Recorremos la lista de categorias y dentro recorremos la tabla Libros Categorias y si el id de la categoria
         //de la tabla ajena coincide con el id de la categoria y del libro actual lo saca selected sino lo desactivamos     
@@ -190,23 +176,14 @@
             }
         }
 
-                echo"</select></td>
-                <td class='colorFila'><button href='#lupa$libro->id'
-                        class='btn waves-effect waves-light #e65100 orange darken-4 z-depth-0 modal-trigger'>Modificar</button>
-                </td>
-                <td class='colorFila'><a value='$libro->id'
-                        class='btn-flat waves-effect waves-light #d32f2f  red darken-2 white-text claseBorrar'>Eliminar<i
-                            class='material-icons right' title='Eliminar'>delete</i></a></td>
-                <td class='colorFila'><a class='btn-flat waves-effect waves-light #1e88e5 blue darken-1 white-text'
-                        href='".site_url("Libros/showintadmin/$libro->id")."'><i class='material-icons'
-                            title='Subir páginas'>file_upload</i></a></td>
-                <td class='colorFila'><a class='btn-flat waves-effect waves-light #1e88e5 blue darken-1 white-text'
-                        href='".site_url("Libros/ModificarPaginas/$libro->id")."'><i class='material-icons'
-                            title='Subir páginas'>book</i></a></td>
+                    echo"</select></td>
+                    <td><button id='lupa$libro->id'class='btn btn-info'>Detalles</button></td>
+                    <td><a value='$libro->id'class='btn btn-danger claseBorrar'>Eliminar</a></td>
+                    <td><a class='btn btn-primary' href='".site_url("Libros/showintadmin/$libro->id")."'>Subir libro</a></td>
+                    <td><a class='btn btn-primary' href='".site_url("Libros/ModificarPaginas/$libro->id")."'>Modificar páginas</a></td>
 
 
                 </tr>
-
 
     </div>";
 
@@ -365,9 +342,7 @@
             <br>
             <button class='btn btn-large waves-effect waves-light #e65100 orange darken-4 z-depth-0 claseModificar'
                 value='$libro->id'  name='Modificar'><i class='material-icons '>create</i></button>
-        </div>
-        
-    </div>";
+        </div>";
 
     //Aqui cierra el for de libros
     }
@@ -482,15 +457,8 @@
                 </div>
                 <div><input style="background-color:royalblue" type="submit" value="Insertar" class="btn btn-large">
                 </div>
-                <br>
-                <br>
                 
             </div>
 
             </form>
 
-        </div>
-
-        <!--Esto cierra Vista usuario-->
-    </div>
-</div>

@@ -51,8 +51,7 @@
       //Si existe la variable de sesion logue in te lleva al panel de administracion
       public function main() {
         if($this->security_check()){
-             $data["nombreVista"] = "VistaAdministrador";
-             $this->load->view("plantilla", $data);
+            redirect('Libros/VistaAjax','refresh');
          }
      }
 
