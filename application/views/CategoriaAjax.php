@@ -51,7 +51,7 @@ $("document").ready(function() {
 
 <div class='container'>
 
-<table id="Dtabla" class="highlight ">
+<table id="Dtabla" class="table table-striped table-bordered ">
     <thead>
         <tr class="">
             <th class="">Nombre</th>

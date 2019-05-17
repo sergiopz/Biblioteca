@@ -59,7 +59,7 @@
 
 <div class='container-fluid'>
 
-<table id="Dtabla" class=" highlight">
+<table id="Dtabla" class="table table-striped table-bordered">
     <thead>
         <tr>
             <th>Nombre</th>

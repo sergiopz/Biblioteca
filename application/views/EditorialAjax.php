@@ -50,7 +50,7 @@
 
 <div class='container'>
 
-<table id="Dtabla" class="">
+<table id="Dtabla" class="table table-striped table-bordered">
 
     <thead>
         <tr>

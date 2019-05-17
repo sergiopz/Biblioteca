@@ -61,7 +61,7 @@ $("document").ready(function() {
 });
 </script>
 <div class='container-fluid'>
-<table id="Dtabla" class="">
+<table id="Dtabla" class="table table-striped table-bordered">
     <thead>
         <tr>
             <th>Nombre</th>
