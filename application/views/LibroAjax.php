@@ -104,7 +104,7 @@ $("document").ready(function() {
                      <td hidden><input type='text' name='descripcion' value='$libro->descripcion'></td>
                      <td hidden><input type='text' name='fecha' value='$libro->fecha'></td>
                      <td hidden><input type='text' name='paginas' value='$libro->paginas'></td>
-                     <td><select name='idInstituto' >";
+                     <td><select class='selectpicker' name='idInstituto' >";
 
         //Dentro de cada libro recorremos la lsita de Institutos y si el campo de idInstituto del libro coincide
         //con el id de la tabla instituos sacamos ese campo selected
@@ -121,7 +121,7 @@ $("document").ready(function() {
           
   
 
-       echo   "<td><select name='idEditorial' >";  
+       echo   "<td><select class='selectpicker' name='idEditorial' >";  
 
         //Si el campo idEditorial coincide con el id de la tabla editoriales sacamos ese campo selected
         for ($j = 0; $j < count($listaEditoriales); $j++) {
@@ -134,7 +134,7 @@ $("document").ready(function() {
         }
 
        echo   "</select></td>
-               <td><select required multiple name='idAutor[]' >";
+               <td><select class='selectpicker' required multiple name='idAutor[]' >";
 
 
         //Recorremos la lista de Autores y dentro recorremos la tabla Autores Libros y si el id del autor
@@ -156,7 +156,7 @@ $("document").ready(function() {
         }
       
        echo   "</select></td>
-               <td><select type='hidden' class='elementoOculto' required multiple name='idCategoria[]' >";
+               <td><select class='selectpicker' type='hidden' class='elementoOculto' required multiple name='idCategoria[]' >";
 
         //Recorremos la lista de categorias y dentro recorremos la tabla Libros Categorias y si el id de la categoria
         //de la tabla ajena coincide con el id de la categoria y del libro actual lo saca selected sino lo desactivamos     
@@ -222,7 +222,7 @@ $("document").ready(function() {
             </div>
             <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                <select name='idInstituto' class='active'>";
+                <select class='selectpicker' name='idInstituto' class='active'>";
                     for ($j = 0; $j < count($listaInstitutos); $j++) { 
                         $instituto=$listaInstitutos[$j]; 
                             if( $libro-> idInstituto==$instituto->id ){
@@ -235,7 +235,7 @@ $("document").ready(function() {
             </div> 
             <div class='input-field'>
                     <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                    <select  name='idUsuario' class='active user$libro->id'>";
+                    <select class='selectpicker'  name='idUsuario' class='active user$libro->id'>";
                         for ($j = 0; $j < count($listaUsuarios); $j++) { 
                             $usuario=$listaUsuarios[$j];
                             if($this->session->userdata('tipoUsuario')==0){
@@ -252,7 +252,7 @@ $("document").ready(function() {
                 </div>
                 <div class='input-field'>
                 <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                <select name='idEditorial' class='active'>";
+                <select class='selectpicker' name='idEditorial' class='active'>";
                     for ($j = 0; $j < count($listaEditoriales); $j++) { 
                         $editorial=$listaEditoriales[$j]; 
                         if( $libro->idEditorial==$editorial->id ){
@@ -265,7 +265,7 @@ $("document").ready(function() {
             </div>
             <div>
                 <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                <select multiple name='idAutor[]' class='active'>";
+                <select class='selectpicker' multiple name='idAutor[]' class='active'>";
 
                      //Recorremos la lista de Autores y dentro recorremos la tabla Autores Libros y si el id del autor
                     //de la tabla ajena coincide con el id del autor y del libro actual lo saca selected sino lo desactivamos
@@ -289,7 +289,7 @@ $("document").ready(function() {
             </div>
             <div>
                 <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                <select multiple name='idCategoria[]' class='active'>";
+                <select class='selectpicker' multiple name='idCategoria[]' class='active'>";
 
         //Recorremos la lista de categorias y dentro recorremos la tabla Libros Categorias y si el id de la categoria
         //de la tabla ajena coincide con el id de la categoria y del libro actual lo saca selected sino lo desactivamos     
@@ -316,7 +316,7 @@ $("document").ready(function() {
 
                    
                 
-                     echo" <select name='pdfModificar' class='active' >
+                     echo" <select  name='pdfModificar' class='active selectpicker' >
                       <option value='$libro->pdf'>Si</option>
                       <option value='no'>No</option>
                       
@@ -328,7 +328,7 @@ $("document").ready(function() {
 
                    
                 
-                     echo" <select name='pdfModificar' class='active' >
+                     echo" <select name='pdfModificar' class='active selectpicker' >
                       <option value='$libro->pdf'>No</option>
                       <option value='si'>Si</option>
                       
@@ -342,6 +342,7 @@ $("document").ready(function() {
             <br>
             <button class='btn btn-large waves-effect waves-light #e65100 orange darken-4 z-depth-0 claseModificar'
                 value='$libro->id'  name='Modificar'><i class='material-icons '>create</i></button>
+        </div>
         </div>";
 
     //Aqui cierra el for de libros
@@ -350,6 +351,8 @@ $("document").ready(function() {
 
             </tbody>
         </table>
+        </div>
+    
 
         <div id="insert" class="modal tamañoVModal">
             <?php  echo form_open_multipart("Libros/InsertarLibro");?>
@@ -382,7 +385,7 @@ $("document").ready(function() {
                     <label style="color:royalblue" for="paginas">Paginas</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
+                    <i class="material-icons prefix" class='selectpicker' style="color:royalblue" hidden>add_box</i>
                     <select name="idInstituto" id="idInstituto">
                         <?php
                         for ($j = 0; $j < count($listaInstitutos); $j++) {
@@ -400,7 +403,7 @@ $("document").ready(function() {
 
                 <div class="input-field">
                     <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
-                    <select name="idEditorial" id="idEditorial">
+                    <select class='selectpicker' name="idEditorial" id="idEditorial">
                         <?php
                         for ($j = 0; $j < count($listaEditoriales); $j++) {
                             $editorial = $listaEditoriales[$j];
@@ -416,7 +419,7 @@ $("document").ready(function() {
                 </div>
                 <div class="input-field">
                     <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
-                    <select multiple name="idAutor[]" id="idAutor">
+                    <select class='selectpicker' multiple name="idAutor[]" id="idAutor">
                         <?php
                         for ($j = 0; $j < count($listaAutores); $j++) {
                             $autor = $listaAutores[$j];
@@ -432,7 +435,7 @@ $("document").ready(function() {
                 </div>
                 <div class="input-field">
                     <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
-                    <select multiple name="idCategoria[]" id="idCategoria">
+                    <select class='selectpicker' multiple name="idCategoria[]" id="idCategoria">
                         <?php
                         for ($j = 0; $j < count($listaCategorias); $j++) {
                             $categoria = $listaCategorias[$j];
@@ -447,7 +450,7 @@ $("document").ready(function() {
                     <label style="color:royalblue" for="idCategoria">Categoria</label>
                 </div>
 <div>
-                  <select name="pdf" >
+                  <select class='selectpicker' name="pdf" >
                       <option value="no">No</option>
                       <option value="si">Si</option>}
                       

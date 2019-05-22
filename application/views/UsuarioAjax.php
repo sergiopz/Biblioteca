@@ -116,7 +116,7 @@ $("document").ready(function() {
             
                   <!-- Modal Header -->
                   <div class='modal-header'>
-                  <h4 class='flow-text #00e676 green-text text-accent-3'>Insertar Registro</h4>
+                  <h4 class='flow-text #00e676 green-text text-accent-3'>Modificar Registro</h4>
                     <button type='button' class='close' data-dismiss='modal'>&times;</button>
                   </div>
             
@@ -166,7 +166,7 @@ $("document").ready(function() {
   
                         <div class='form-group'>
                           <label for='idInstituto'>Instituto</label>
-                          <select id='idInstituto' class='$usuario->id-instituto' name='idInstituto'>";
+                          <select id='idInstituto' class='$usuario->id-instituto selectpicker' name='idInstituto'>";
   
                             for ($j = 0; $j < count($listaInstitutos); $j++) {
                               $instituto = $listaInstitutos[$j];
@@ -256,7 +256,7 @@ $("document").ready(function() {
 
             <div class="form-group">
                 <label for="IdInstituto">Instituto</label>
-                <select name="idInstituto" id="idInstituto">
+                <select name="idInstituto" class='selectpicker' id="idInstituto">
                 <?php
                 for ($j = 0; $j < count($listaInstitutos); $j++) {
                   $instituto = $listaInstitutos[$j];
