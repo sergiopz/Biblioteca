@@ -177,7 +177,7 @@ $("document").ready(function() {
         }
 
                     echo"</select></td>
-                    <td><button id='lupa$libro->id'class='btn btn-info'>Detalles</button></td>
+                    <td><button id='lupa$libro->id'class='btn btn-info' data-toggle='modal' data-target='#lupa$libro->id'>Detalles</button></td>
                     <td><a value='$libro->id'class='btn btn-danger claseBorrar'>Eliminar</a></td>
                     <td><a class='btn btn-primary' href='".site_url("Libros/showintadmin/$libro->id")."'>Subir libro</a></td>
                     <td><a class='btn btn-primary' href='".site_url("Libros/ModificarPaginas/$libro->id")."'>Modificar páginas</a></td>
@@ -187,7 +187,193 @@ $("document").ready(function() {
 
     </div>";
 
-    //Aqui comienza la modal de modificar
+    //Aqui comienza la modal de modificar----------------------------------------------------------
+
+
+    echo"  <div class='modal' id='lupa$libro->id'>
+                <div class='modal-dialog'>
+                    <div class='modal-content'>
+
+                    <!-- Modal Header -->
+                    <div class='modal-header'>
+                        <h4 class='flow-text #00e676 green-text text-accent-3'>Modificar Registro</h4>
+                        <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class='modal-body'>";
+
+        
+    echo"   <div class='form-group'>
+                <label for='isbn'>ISBN</label>
+                <input type='text' name='isbn' id='isbn' value='$libro->isbn'>
+                <input type='hidden' name='id' value='$libro->id' >
+                
+            </div>
+            <div class='form-group'>
+                <label for='Titulo'>Título</label>
+                <input type='text' name='titulo' id='titulo' value='$libro->titulo'>
+            </div>
+            <div class='form-group'>
+                <label for='descripcion'>Descripción</label>
+                <input type='text' name='descripcion' id='descripcion' value='$libro->descripcion'>
+            </div>
+            <div class='form-group'>
+                <label for='fecha'>Fecha</label>
+                <input type='text' name='fecha' id='fecha' value='$libro->fecha'>
+            </div>
+            <div class='form-group'>
+                <label for='paginas'>Páginas</label>
+                <input type='text' name='paginas' id='paginas'>
+            </div>
+            <div class='form-group'>
+                <label for='idInstituto'>Instituto</label>
+                <select name='idInstituto' id='idInstituto'>";
+                
+
+                for ($j = 0; $j < count($listaInstitutos); $j++) { 
+                    $instituto=$listaInstitutos[$j]; 
+                        if( $libro->idInstituto==$instituto->id ){
+                            echo"<option value='$instituto->id' selected>$instituto->nombre</option> ";
+                        }else{
+                            echo"<option value='$instituto->id'>$instituto->nombre</option> ";
+                        }
+                    }
+          
+        echo"     </select>
+            </div>
+            <div class='form-group'>
+            <label for='idUsuario'>Usuarios</label>
+            <select class='selectpicker'  name='idUsuario' class='active user$libro->id'>";
+                for ($j = 0; $j < count($listaUsuarios); $j++) { 
+                    $usuario=$listaUsuarios[$j];
+                    if($this->session->userdata('tipoUsuario')==0){
+                        if(($libro->idUsuario==$usuario->id)){
+                            echo"<option value='$usuario->id' selected >$usuario->nombre</option> ";
+                        }else{
+                            echo"<option value='$usuario->id'  >$usuario->nombre</option> ";
+                        }
+                    }else if( ($libro->idUsuario==$usuario->id)&&($this->session->userdata('tipoUsuario')!=0) ){
+                        echo"<option value='$usuario->id' selected >$usuario->nombre</option> ";
+                    }
+                }
+        echo"</select>
+        </div>
+            <div class='form-group'>
+                <label for='idEditorial'>Editorial</label>
+                <select class='selectpicker' name='idEditorial' id='idEditorial'>";
+                
+                for ($j = 0; $j < count($listaEditoriales); $j++) { 
+                    $editorial=$listaEditoriales[$j]; 
+                    if( $libro->idEditorial==$editorial->id ){
+                        echo"<option value='$editorial->id' selected>$editorial->nombre</option> ";
+                    }else{
+                        echo"<option value='$editorial->id'>$editorial->nombre</option> ";
+                    }
+                }
+               
+               echo" </select>
+                </div>
+                <div class='form-group'>
+                    <label for='idAutor'>Autor/es</label>
+                        <select class='selectpicker' multiple name='idAutor[]'' id='idAutor'>";
+              
+                        for ($j = $cont=0; $j < count($listaAutores); $j++) {
+                            $autor=$listaAutores[$j]; 
+   
+                           for ($k=0; $k < count($listaAutoresLibros); $k++) {
+                               $autorlibro=$listaAutoresLibros[$k]; 
+   
+                               if(($autorlibro->idAutor==$autor->id)&&($autorlibro->idLibro==$libro->id)){
+                                   echo "<option value='$autor->id' selected>$autor->nombre</option> ";
+                                   $k=count($listaAutoresLibros);
+                               }else if ($k==count($listaAutoresLibros)-1) {
+                                   echo "<option value='$autor->id'>$autor->nombre</option> ";
+                                   $k=count($listaAutoresLibros);
+                               }
+                           }
+                       }
+              
+         echo" </select>
+            </div>
+            <div class='form-group'>
+                <label for='idCategoria'>Categorias</label>
+                <select class='selectpicker' multiple name='idCategoria[]' id='idCategoria'>";
+               
+                for ($j = 0; $j < count($listaCategorias); $j++) { 
+                    $categoria=$listaCategorias[$j]; 
+                    for ($k=0; $k < count($listaLibrosCategorias); $k++) {
+                        $librocategoria=$listaLibrosCategorias[$k];
+                        if(($librocategoria->idCategoria==$categoria->id)&&($librocategoria->idLibro==$libro->id)){
+                            echo "<option value='$categoria->id' selected>$categoria->nombre</option> ";
+                            $k=count($listaLibrosCategorias);
+                        }else if($k==count($listaLibrosCategorias)-1) {
+                            echo "<option value='$categoria->id'>$categoria->nombre</option> ";
+                            $k=count($listaLibrosCategorias);
+                        }
+                    }
+                }
+               
+            echo "    </select>
+            </div>
+            <div class='form-group'>
+                <label for='pdf'>PDF</label>
+                ";
+                if ($libro->pdf=='si') {
+
+                echo" <select  name='pdfModificar' class='selectpicker' >
+                    <option value='$libro->pdf'>Si</option>
+                    <option value='no'>No</option>
+                </select>"; 
+
+                 }
+
+                else {
+
+                echo"<select name='pdfModificar' class='selectpicker' >
+                        <option value='$libro->pdf'>No</option>
+                        <option value='si'>Si</option>
+                    </select>";
+
+                }
+              
+            echo "</div>
+            
+            <button class='btn btn-info claseModificar' value='$libro->id'  name='Modificar'>
+                Modificar
+            </button>
+            </div>
+      <!-- Modal footer -->
+      <div class='modal-footer'>
+        <button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>";
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*      HOLA */
+
+
+
+
+
+
+
+
+/*
 
     echo"<div id='lupa$libro->id' class='modal tamañoVModal'>";
    
@@ -343,7 +529,7 @@ $("document").ready(function() {
             <button class='btn btn-large waves-effect waves-light #e65100 orange darken-4 z-depth-0 claseModificar'
                 value='$libro->id'  name='Modificar'><i class='material-icons '>create</i></button>
         </div>
-        </div>";
+        </div>";*/
 
     //Aqui cierra el for de libros
     }
@@ -467,44 +653,44 @@ $("document").ready(function() {
 
         </div>-->
 
-<div class="modal" id="insertModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
+<div class='modal' id='insertModal'>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
 
       <!-- Modal Header -->
-      <div class="modal-header">
-      <h4 class="flow-text #00e676 green-text text-accent-3">Insertar Registro</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <div class='modal-header'>
+      <h4 class='flow-text #00e676 green-text text-accent-3'>Insertar Registro</h4>
+        <button type='button' class='close' data-dismiss='modal'>&times;</button>
       </div>
 
       <!-- Modal body -->
-      <div class="modal-body">
-        <?php  echo form_open_multipart("Libros/InsertarLibro");?>
+      <div class='modal-body'>
+        <?php  echo form_open_multipart('Libros/InsertarLibro');?>
         
-            <div class="form-group">
-                <label for="isbn">ISBN</label>
+            <div class='form-group'>
+                <label for='isbn'>ISBN</label>
                 <input type='text' name='isbn' id='isbn'>
             </div>
-            <div class="form-group">
+            <div class='form-group'>
                 <label for='Titulo'>Título</label>
                 <input type='text' name='titulo' id='titulo'>
                 
             </div>
-            <div class="form-group">
-                <label for="descripcion">Descripción</label>
+            <div class='form-group'>
+                <label for='descripcion'>Descripción</label>
                 <input type='text' name='descripcion' id='descripcion'>
             </div>
-            <div class="form-group">
-                <label for="fecha">Fecha</label>
+            <div class='form-group'>
+                <label for='fecha'>Fecha</label>
                 <input type='text' name='fecha' id='fecha'>
             </div>
             <div class="form-group">
                 <label for="paginas">Páginas</label>
                 <input type='text' name='paginas' id='paginas'>
             </div>
-            <div class="form-group">
-                <label for="idInstituto">Instituto</label>
-                <select name="idInstituto" id="idInstituto">
+            <div class='form-group'>
+                <label for='idInstituto'>Instituto</label>
+                <select name='idInstituto' id='idInstituto'>
                 <?php
                     for ($j = 0; $j < count($listaInstitutos); $j++) {
                         $instituto = $listaInstitutos[$j];
@@ -517,9 +703,9 @@ $("document").ready(function() {
                 ?>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="idEditorial">Editorial</label>
-                <select class='selectpicker' name="idEditorial" id="idEditorial">
+            <div class='form-group'>
+                <label for='idEditorial'>Editorial</label>
+                <select class='selectpicker' name='idEditorial' id='idEditorial'>
                 <?php
                     for ($j = 0; $j < count($listaEditoriales); $j++) {
                         $editorial = $listaEditoriales[$j];
@@ -532,9 +718,9 @@ $("document").ready(function() {
                 ?>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="idAutor">Autor/es</label>
-                <select class='selectpicker' multiple name="idAutor[]" id="idAutor">
+            <div class='form-group'>
+                <label for='idAutor'>Autor/es</label>
+                <select class='selectpicker' multiple name='idAutor[]'' id='idAutor'>
                 <?php
                     for ($j = 0; $j < count($listaAutores); $j++) {
                         $autor = $listaAutores[$j];
@@ -547,9 +733,9 @@ $("document").ready(function() {
                 ?>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="idCategoria">Categorias</label>
-                <select class='selectpicker' multiple name="idCategoria[]" id="idCategoria">
+            <div class='form-group'>
+                <label for='idCategoria'>Categorias</label>
+                <select class='selectpicker' multiple name='idCategoria[]' id='idCategoria'>
                 <?php
                     for ($j = 0; $j < count($listaCategorias); $j++) {
                         $categoria = $listaCategorias[$j];
@@ -562,23 +748,23 @@ $("document").ready(function() {
                 ?>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="pdf">PDF</label>
-                <select class='selectpicker' name="pdf" id='pdf' >
-                    <option value="no">No</option>
-                    <option value="si">Si</option>     
+            <div class='form-group'>
+                <label for='pdf'>PDF</label>
+                <select class='selectpicker' name='pdf' id='pdf' >
+                    <option value='no'>No</option>
+                    <option value='si'>Si</option>     
                 </select>  
             </div>
             
-            <button  type="submit" value="Insertar" class="btn btn-primary">Insertar</button>
+            <button  type='submit' value='Insertar' class='btn btn-primary'>Insertar</button>
 
         </form>
 
       </div>
 
       <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      <div class='modal-footer'>
+        <button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button>
       </div>
 
     </div>

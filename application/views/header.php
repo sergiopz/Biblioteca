@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/css/bootstrap-select.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
