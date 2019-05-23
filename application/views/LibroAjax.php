@@ -354,8 +354,8 @@ $("document").ready(function() {
         </div>
     
 
-        <div id="insert" class="modal tamañoVModal">
-            <?php  echo form_open_multipart("Libros/InsertarLibro");?>
+      <!--  <div id="insert" class="modal tamañoVModal">
+            
             <h5 class="modal-close">&#10005;</h5>
             <div class="modal-content center">
                 <h4 class="flow-text #00e676 green-text text-accent-3">Insertar Registro</h4>
@@ -388,14 +388,14 @@ $("document").ready(function() {
                     <i class="material-icons prefix" class='selectpicker' style="color:royalblue" hidden>add_box</i>
                     <select name="idInstituto" id="idInstituto">
                         <?php
-                        for ($j = 0; $j < count($listaInstitutos); $j++) {
+                       /* for ($j = 0; $j < count($listaInstitutos); $j++) {
                             $instituto = $listaInstitutos[$j];
                             if($j==0){
                                 echo"<option  value='$instituto->id' selected >$instituto->nombre</option> ";                      
                             }else{
                                 echo"<option  value='$instituto->id'>$instituto->nombre</option> ";                  
                             }
-                        }
+                        }*/
                     ?>
                     </select>
                     <label style="color:royalblue" for="idInstituto">IdInstituto</label>
@@ -405,14 +405,14 @@ $("document").ready(function() {
                     <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
                     <select class='selectpicker' name="idEditorial" id="idEditorial">
                         <?php
-                        for ($j = 0; $j < count($listaEditoriales); $j++) {
+                       /* for ($j = 0; $j < count($listaEditoriales); $j++) {
                             $editorial = $listaEditoriales[$j];
                             if($j==0){
                                 echo "<option  value='$editorial->id' selected >$editorial->nombre</option> ";                      
                             }else{
                                 echo"<option  value='$editorial->id'>$editorial->nombre</option> ";                  
                             }
-                        }
+                        }*/
                     ?>
                     </select>
                     <label style="color:royalblue" for="idEditorial">Editorial</label>
@@ -421,14 +421,14 @@ $("document").ready(function() {
                     <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
                     <select class='selectpicker' multiple name="idAutor[]" id="idAutor">
                         <?php
-                        for ($j = 0; $j < count($listaAutores); $j++) {
+                       /* for ($j = 0; $j < count($listaAutores); $j++) {
                             $autor = $listaAutores[$j];
                             if($j==0){
                                 echo "<option  value='$autor->id' selected >$autor->nombre</option> ";                      
                             }else{
                                 echo "<option  value='$autor->id'>$autor->nombre</option> ";                  
                             }
-                        }
+                        }*/
                     ?>
                     </select>
                     <label style="color:royalblue" for="idAutor">Autor</label>
@@ -437,27 +437,27 @@ $("document").ready(function() {
                     <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
                     <select class='selectpicker' multiple name="idCategoria[]" id="idCategoria">
                         <?php
-                        for ($j = 0; $j < count($listaCategorias); $j++) {
+                       /* for ($j = 0; $j < count($listaCategorias); $j++) {
                             $categoria = $listaCategorias[$j];
                             if($j==0){
                                 echo "<option  value='$categoria->id' selected >$categoria->nombre</option> ";                      
                             }else{
                                 echo "<option  value='$categoria->id'>$categoria->nombre</option> ";                  
                             }
-                        }
+                        }*/
                     ?>
                     </select>
                     <label style="color:royalblue" for="idCategoria">Categoria</label>
                 </div>
-<div>
+                <div>
                   <select class='selectpicker' name="pdf" >
                       <option value="no">No</option>
                       <option value="si">Si</option>}
                       
                       
-                  </select>
-                    
+                  </select>  
                 </div>
+
                 <div><input style="background-color:royalblue" type="submit" value="Insertar" class="btn btn-large">
                 </div>
                 
@@ -465,5 +465,124 @@ $("document").ready(function() {
 
             </form>
 
-        </div>
+        </div>-->
+
+<div class="modal" id="insertModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+      <h4 class="flow-text #00e676 green-text text-accent-3">Insertar Registro</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <?php  echo form_open_multipart("Libros/InsertarLibro");?>
+        
+            <div class="form-group">
+                <label for="isbn">ISBN</label>
+                <input type='text' name='isbn' id='isbn'>
+            </div>
+            <div class="form-group">
+                <label for='Titulo'>Título</label>
+                <input type='text' name='titulo' id='titulo'>
+                
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <input type='text' name='descripcion' id='descripcion'>
+            </div>
+            <div class="form-group">
+                <label for="fecha">Fecha</label>
+                <input type='text' name='fecha' id='fecha'>
+            </div>
+            <div class="form-group">
+                <label for="paginas">Páginas</label>
+                <input type='text' name='paginas' id='paginas'>
+            </div>
+            <div class="form-group">
+                <label for="idInstituto">Instituto</label>
+                <select name="idInstituto" id="idInstituto">
+                <?php
+                    for ($j = 0; $j < count($listaInstitutos); $j++) {
+                        $instituto = $listaInstitutos[$j];
+                        if($j==0){
+                            echo"<option  value='$instituto->id' selected >$instituto->nombre</option> ";                      
+                        }else{
+                            echo"<option  value='$instituto->id'>$instituto->nombre</option> ";                  
+                        }
+                    }
+                ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="idEditorial">Editorial</label>
+                <select class='selectpicker' name="idEditorial" id="idEditorial">
+                <?php
+                    for ($j = 0; $j < count($listaEditoriales); $j++) {
+                        $editorial = $listaEditoriales[$j];
+                        if($j==0){
+                            echo "<option  value='$editorial->id' selected >$editorial->nombre</option> ";                      
+                        }else{
+                            echo"<option  value='$editorial->id'>$editorial->nombre</option> ";                  
+                        }
+                    }
+                ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="idAutor">Autor/es</label>
+                <select class='selectpicker' multiple name="idAutor[]" id="idAutor">
+                <?php
+                    for ($j = 0; $j < count($listaAutores); $j++) {
+                        $autor = $listaAutores[$j];
+                        if($j==0){
+                            echo "<option  value='$autor->id' selected >$autor->nombre</option> ";                      
+                        }else{
+                            echo "<option  value='$autor->id'>$autor->nombre</option> ";                  
+                        }
+                    }
+                ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="idCategoria">Categorias</label>
+                <select class='selectpicker' multiple name="idCategoria[]" id="idCategoria">
+                <?php
+                    for ($j = 0; $j < count($listaCategorias); $j++) {
+                        $categoria = $listaCategorias[$j];
+                        if($j==0){
+                            echo "<option  value='$categoria->id' selected >$categoria->nombre</option> ";                      
+                        }else{
+                            echo "<option  value='$categoria->id'>$categoria->nombre</option> ";                  
+                        }
+                    }
+                ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="pdf">PDF</label>
+                <select class='selectpicker' name="pdf" id='pdf' >
+                    <option value="no">No</option>
+                    <option value="si">Si</option>     
+                </select>  
+            </div>
+            
+            <button  type="submit" value="Insertar" class="btn btn-primary">Insertar</button>
+
+        </form>
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 

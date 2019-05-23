@@ -75,11 +75,11 @@
                 }
 
                 if ($r== 0) { 
-                    $this->VistaAjax();
+                    redirect('Libros/VistaAjax','refresh');
                     //Si inserta el libro crea una carpeta en el direcciorio assets con el id del libro
                 } else {
                     $this->carpeta($id);
-                    $this->VistaAjax();
+                    redirect('Libros/VistaAjax','refresh');
                 }
             }
         }
