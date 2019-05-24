@@ -27,7 +27,6 @@
          $nick = $this->input->get_post("nombre");
          $contrasena = $this->input->get_post("password");
          $usuario = $this->UsuariosModel->ComprobarUsuario($nick,$contrasena);
-
          //Si el usuario esta registrado
          if($usuario!=0) {
                
