@@ -24,7 +24,7 @@ class UsuariosModel extends CI_Model{
 
     //Funcion que para ver si un usuario existe en la tabla de datos
     public function ComprobarUsuario($nick,$contrasena){
-        $query = $this->db->query(" SELECT id FROM usuarios WHERE nick='$nick' OR correo='$nick' AND contrasena='$contrasena' ");
+        $query = $this->db->query("SELECT id FROM usuarios WHERE (nick='$nick' OR correo='$nick') AND contrasena='$contrasena' ");
     return $query->num_rows();
     }
 
