@@ -141,7 +141,27 @@
       <li class="nav-item justify-content-end">
         <a id="" href="" class="enlacesDrop nav-link elementosNav"  data-toggle="modal" data-target="#modalRegistro">Registrarse</a>
       </li>
+    
+      <?php 
+         
+/*
+      if($this->session->userdata('tipoUsuario')==2){
+          echo"<li class='nav-item'>
+                <h1>".$this->session->userdata('tipoUsuario')."</h1>
+               </li>";
+          echo"<li class='nav-item'>
+                  <a id='cerrarsesion'  href='' class='btn btn-danger'>Cerrar Sesión</a>
+               </li>";
+      }else if{
+          echo "<li class='nav-item '>
+                  <a id='botonInicio' href='' class='enlacesDrop nav-link elementosNav'   data-toggle='modal' data-target='#modalInicio'>Iniciar sesión2</a>
+                </li>";
 
+          echo"<li class='nav-item justify-content-end'>
+                  <a id='' href='' class='enlacesDrop nav-link elementosNav'  data-toggle='modal' data-target='#modalRegistro2'>Registrarse</a>
+                </li>";
+      }*/
+    ?>
     </ul>
   </div> 
 </nav>
