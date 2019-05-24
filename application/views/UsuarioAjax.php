@@ -97,20 +97,20 @@ $("document").ready(function() {
           $usuario = $listaUsuarios[$i];
 
         echo" <tr class='$usuario->id'>  
-              <td><p name='nombre'>$usuario->nombre</p></td>
-              <td><p  name='apellidos'>$usuario->apellidos</p></td>
-              <td><p name='nick'>$usuario->nick</p></td>
-              <td><p name='tipo'>$usuario->tipo</p></td>";
+              <td>$usuario->nombre</td>
+              <td>$usuario->apellidos</td>
+              <td>$usuario->nick</td>
+              <td>$usuario->tipo</td>";
 
         for ($j = 0; $j < count($listaInstitutos); $j++) {
               $instituto = $listaInstitutos[$j];
 
             if( $usuario->idInstituto==$instituto->id ){ 
-        echo"<td class='colorFila'><p name='idInstituto'>$instituto->nombre</p></td>";
+        echo"<td>$instituto->nombre</td>";
              $j=count($listaInstitutos);
 
             }else if($j==count($listaInstitutos)-1){
-        echo"<td class='colorFila'><p  name='idInstituto'></p></td>";
+        echo"<td><p  name='idInstituto'></p></td>";
               $j=count($listaInstitutos);
             }
         }
