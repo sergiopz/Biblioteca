@@ -50,7 +50,7 @@
             ?>
         </div>
         <div class="jumbotron text-center mainColor" id="">
-  	        <h1>Administración CambiarNombrePorVariable</h1>
+  	        <h1>Administración biblioteca Celia Viñas</h1>
         </div>
         
             <div class='container'> 
