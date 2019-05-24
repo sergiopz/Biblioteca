@@ -67,12 +67,18 @@ $("document").ready(function() {
             type: "POST",
             url: cadena,
             data: json,
-            dataType: "text"
-        }).done(function(data) {
-            window.location = "<?php echo base_url('index.php/Libros/VistaAjax'); ?>";
+            dataType: "text",
+            success:function(data) {
+              Swal.fire({
+                type: 'success',
+                title: 'Perfecto!',
+                text: 'Modificación efectuada con éxito.'
+              })  
+            }
+           }).done(function (data) { setTimeout(function(){location.reload();}, 1500); });
+       
         });
 
-    });
 
 
 });
@@ -214,29 +220,29 @@ $("document").ready(function() {
         
     echo"   <div class='form-group'>
                 <label for='isbn'>ISBN</label>
-                <input type='text' name='isbn' id='isbn' value='$libro->isbn'>
-                <input type='hidden' name='id' value='$libro->id' >
+                <input type='text' class='form-control' name='isbn' id='isbn' value='$libro->isbn'>
+                <input type='hidden' class='form-control' name='id' value='$libro->id' >
                 
             </div>
             <div class='form-group'>
                 <label for='Titulo'>Título</label>
-                <input type='text' name='titulo' id='titulo' value='$libro->titulo'>
+                <input type='text' class='form-control' name='titulo' id='titulo' value='$libro->titulo'>
             </div>
             <div class='form-group'>
                 <label for='descripcion'>Descripción</label>
-                <input type='text' name='descripcion' id='descripcion' value='$libro->descripcion'>
+                <input type='text' class='form-control' name='descripcion' id='descripcion' value='$libro->descripcion'>
             </div>
             <div class='form-group'>
                 <label for='fecha'>Fecha</label>
-                <input type='text' name='fecha' id='fecha' value='$libro->fecha'>
+                <input type='text' class='form-control' name='fecha' id='fecha' value='$libro->fecha'>
             </div>
             <div class='form-group'>
                 <label for='paginas'>Páginas</label>
-                <input type='text' name='paginas' id='paginas'>
+                <input type='text' class='form-control' name='paginas' id='paginas'>
             </div>
             <div class='form-group'>
                 <label for='idInstituto'>Instituto</label>
-                <select data-live-search='true' class='selectpicker' name='idInstituto' id='idInstituto'>";
+                <select data-live-search='true' class='selectpicker form-control' name='idInstituto' id='idInstituto'>";
                 
 
                 for ($j = 0; $j < count($listaInstitutos); $j++) { 
@@ -252,7 +258,7 @@ $("document").ready(function() {
             </div>
             <div class='form-group'>
             <label for='idUsuario'>Usuarios</label>
-            <select data-live-search='true' class='selectpicker'  name='idUsuario' class='active user$libro->id'>";
+            <select data-live-search='true' class='selectpicker form-control'  name='idUsuario' class='active user$libro->id'>";
                 for ($j = 0; $j < count($listaUsuarios); $j++) { 
                     $usuario=$listaUsuarios[$j];
                     if($this->session->userdata('tipoUsuario')==0){
@@ -269,7 +275,7 @@ $("document").ready(function() {
         </div>
             <div class='form-group'>
                 <label for='idEditorial'>Editorial</label>
-                <select data-live-search='true' class='selectpicker' name='idEditorial' id='idEditorial'>";
+                <select data-live-search='true' class='selectpicker form-control' name='idEditorial' id='idEditorial'>";
                 
                 for ($j = 0; $j < count($listaEditoriales); $j++) { 
                     $editorial=$listaEditoriales[$j]; 
@@ -284,7 +290,7 @@ $("document").ready(function() {
                 </div>
                 <div class='form-group'>
                     <label for='idAutor'>Autor/es</label>
-                        <select data-live-search='true' class='selectpicker' multiple name='idAutor[]'' id='idAutor'>";
+                        <select data-live-search='true' class='selectpicker form-control' multiple name='idAutor[]'' id='idAutor'>";
               
                         for ($j = $cont=0; $j < count($listaAutores); $j++) {
                             $autor=$listaAutores[$j]; 
@@ -306,7 +312,7 @@ $("document").ready(function() {
             </div>
             <div class='form-group'>
                 <label for='idCategoria'>Categorias</label>
-                <select data-live-search='true' class='selectpicker' multiple name='idCategoria[]' id='idCategoria'>";
+                <select data-live-search='true' class='selectpicker form-control' multiple name='idCategoria[]' id='idCategoria'>";
                
                 for ($j = 0; $j < count($listaCategorias); $j++) { 
                     $categoria=$listaCategorias[$j]; 
@@ -329,7 +335,7 @@ $("document").ready(function() {
                 ";
                 if ($libro->pdf=='si') {
 
-                echo" <select  name='pdfModificar' class='selectpicker' >
+                echo" <select  name='pdfModificar' class='selectpicker form-control' >
                     <option value='$libro->pdf'>Si</option>
                     <option value='no'>No</option>
                 </select>"; 
@@ -338,7 +344,7 @@ $("document").ready(function() {
 
                 else {
 
-                echo"<select name='pdfModificar' class='selectpicker' >
+                echo"<select name='pdfModificar' class='selectpicker form-control' >
                         <option value='$libro->pdf'>No</option>
                         <option value='si'>Si</option>
                     </select>";
@@ -347,13 +353,13 @@ $("document").ready(function() {
               
             echo "</div>
             
-            <button class='btn btn-info claseModificar' value='$libro->id'  name='Modificar'>
+            <button class='btn btn-info claseModificar form-control' value='$libro->id'  name='Modificar'>
                 Modificar
             </button>
             </div>
       <!-- Modal footer -->
       <div class='modal-footer'>
-        <button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button>
+        <button type='button' class='btn btn-danger ' data-dismiss='modal'>Close</button>
       </div>
 
     </div>
@@ -383,28 +389,28 @@ $("document").ready(function() {
         
             <div class='form-group'>
                 <label for='isbn'>ISBN</label>
-                <input type='text' name='isbn' id='isbn'>
+                <input type='text' class='form-control' name='isbn' id='isbn'>
             </div>
             <div class='form-group'>
                 <label for='Titulo'>Título</label>
-                <input type='text' name='titulo' id='titulo'>
+                <input type='text' class='form-control' name='titulo' id='titulo'>
                 
             </div>
             <div class='form-group'>
                 <label for='descripcion'>Descripción</label>
-                <input type='text' name='descripcion' id='descripcion'>
+                <input type='text' class='form-control' name='descripcion' id='descripcion'>
             </div>
             <div class='form-group'>
                 <label for='fecha'>Fecha</label>
-                <input type='text' name='fecha' id='fecha'>
+                <input type='text' class='form-control' name='fecha' id='fecha'>
             </div>
             <div class="form-group">
                 <label for="paginas">Páginas</label>
-                <input type='text' name='paginas' id='paginas'>
+                <input type='text' class='form-control' name='paginas' id='paginas'>
             </div>
             <div class='form-group'>
                 <label for='idInstituto'>Instituto</label>
-                <select data-live-search='true' class='selectpicker' name='idInstituto' id='idInstituto'>
+                <select data-live-search='true' class='selectpicker form-control' name='idInstituto' id='idInstituto'>
                 <?php
                     for ($j = 0; $j < count($listaInstitutos); $j++) {
                         $instituto = $listaInstitutos[$j];
@@ -419,7 +425,7 @@ $("document").ready(function() {
             </div>
             <div class='form-group'>
                 <label for='idEditorial'>Editorial</label>
-                <select data-live-search='true' class='selectpicker' name='idEditorial' id='idEditorial'>
+                <select data-live-search='true' class='selectpicker form-control' name='idEditorial' id='idEditorial'>
                 <?php
                     for ($j = 0; $j < count($listaEditoriales); $j++) {
                         $editorial = $listaEditoriales[$j];
@@ -434,7 +440,7 @@ $("document").ready(function() {
             </div>
             <div class='form-group'>
                 <label for='idAutor'>Autor/es</label>
-                <select data-live-search='true' class='selectpicker' multiple name='idAutor[]'' id='idAutor'>
+                <select data-live-search='true' class='selectpicker form-control' multiple name='idAutor[]'' id='idAutor'>
                 <?php
                     for ($j = 0; $j < count($listaAutores); $j++) {
                         $autor = $listaAutores[$j];
@@ -449,7 +455,7 @@ $("document").ready(function() {
             </div>
             <div class='form-group'>
                 <label for='idCategoria'>Categorias</label>
-                <select data-live-search='true' class='selectpicker' multiple name='idCategoria[]' id='idCategoria'>
+                <select data-live-search='true' class='selectpicker form-control' multiple name='idCategoria[]' id='idCategoria'>
                 <?php
                     for ($j = 0; $j < count($listaCategorias); $j++) {
                         $categoria = $listaCategorias[$j];
@@ -464,13 +470,13 @@ $("document").ready(function() {
             </div>
             <div class='form-group'>
                 <label for='pdf'>PDF</label>
-                <select  class='selectpicker' name='pdf' id='pdf' >
+                <select  class='selectpicker form-control' name='pdf' id='pdf' >
                     <option value='no'>No</option>
                     <option value='si'>Si</option>     
                 </select>  
             </div>
             
-            <button  type='submit' value='Insertar' class='btn btn-primary'>Insertar</button>
+            <button  type='submit' value='Insertar' class='btn btn-primary form-control'>Insertar</button>
 
         </form>
 
