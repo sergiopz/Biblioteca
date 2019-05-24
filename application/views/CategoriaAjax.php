@@ -4,28 +4,35 @@ $("document").ready(function() {
 
     //Ejecutar eliminar el registro al hacer click en el boton Eliminar
     $(".borrarcategoria").click(function(e) {
+      e.preventDefault();
+    
 
-          var r = confirm("Vas a eliminar un registro!\n¿Estás seguro?");
-  if (r == false) {
-   
-    e.preventDefault();
+      Swal.fire({
+        title: '¿Estás Seguro?',
+        text: "Vas a eliminar un registro.",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, bórralo!',
+        cancelButtonText: 'No, no lo borres!'
+      }).then((r) => {
 
-  }else{
+          if (r.value) {
+            var idInstituto = $(this).attr("value");
 
+            $("." + idInstituto).remove();
 
-        var idInstituto = $(this).attr("value");
+            cadena = "<?php echo site_url('Categorias/EliminarCategoria'); ?>/" + idInstituto;
 
-        $("." + idInstituto).remove();
+            $.ajax({
+              url: cadena
+            });
+          }
 
-        cadena = "<?php echo site_url('Categorias/EliminarCategoria'); ?>/" + idInstituto;
-
-        $.ajax({
-            url: cadena
         });
 
-    }
-
-    });
+});
 
     //Ejecutar modificar el registro al hacer click en el boton Modificar
     $('.clasemodificar').click(function() {
@@ -58,7 +65,7 @@ $("document").ready(function() {
 
 <div class='container'>
 
-<table id="Dtabla" class="table table-striped table-bordered ">
+<table id="Dtabla" class="table hover compact table-striped table-bordered">
     <thead>
         <tr class="">
             <th class="">Nombre</th>
@@ -115,11 +122,11 @@ $("document").ready(function() {
         
             <div class="form-group">
                 <label for="nombre">Categoria</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Categoria">
+                <input class='form-control' type="text" id="nombre" name="nombre" placeholder="Categoria">
                 <small id="nameHelp" class="form-text text-muted">Comprueba que la categoría no existe aún!</small>
             </div>
 
-            <button  type="submit" value="Insertar" class="btn btn-primary">Insertar</button>
+            <button  type="submit" value="Insertar" class="btn btn-primary form-control">Insertar</button>
 
         </form>
 

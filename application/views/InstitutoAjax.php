@@ -5,27 +5,32 @@
     //Ejecutar eliminar el registro al hacer click en el boton Eliminar
     $(".borrarInstituto").click(function(e) {
 
-          var r = confirm("Vas a eliminar un registro!\n¿Estás seguro?");
-
-    if (r == false) {
-   
         e.preventDefault();
+        
+        Swal.fire({
+        title: '¿Estás Seguro?',
+        text: "Vas a eliminar un registro.",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, bórralo!',
+        cancelButtonText: 'No, no lo borres!'
+      }).then((r) => {
 
-    }else{
+          if (r.value) {
 
+            var idInstituto = $(this).attr("value");
+            $("." + idInstituto).remove();
+            cadena = "<?php echo site_url('Institutos/EliminarInstituto'); ?>/" + idInstituto;
 
-        var idInstituto = $(this).attr("value");
+            $.ajax({
+              url: cadena
+            });
 
-        $("." + idInstituto).remove();
-
-        cadena = "<?php echo site_url('Institutos/EliminarInstituto'); ?>/" + idInstituto;
-
-        $.ajax({
-            url: cadena
-        });
-
-    }
-
+          }
+        
+      });
     });
 
     //Ejecutar modificar el registro al hacer click en el boton Modificar
@@ -66,7 +71,7 @@
 
 <div class='container-fluid'>
 
-<table id="Dtabla" class="table table-striped table-bordered">
+<table id="Dtabla" class="table hover compact table-striped table-bordered">
     <thead>
         <tr>
             <th>Nombre</th>
@@ -120,31 +125,31 @@
         
             <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+                <input type="text" class='form-control' id="nombre" name="nombre" placeholder="Nombre">
                 <small id="nameHelp" class="form-text text-muted">Comprueba si el instituto ya existe!</small>
             </div>
 
             <div class="form-group">
                 <label for="provincia">Provincia</label>
-                <input type="text" id="provincia" name="provincia" placeholder="Provincia">
+                <input type="text" class='form-control' id="provincia" name="provincia" placeholder="Provincia">
             </div>
 
             <div class="form-group">
                 <label for="localidad">Localidad</label>
-                <input type="text" id="localidad" name="localidad" placeholder="Localidad">
+                <input type="text" class='form-control' id="localidad" name="localidad" placeholder="Localidad">
             </div>
 
             <div class="form-group">
                 <label for="nombre">Dirección</label>
-                <input type="text" id="direccion" name="direccion" placeholder="Dirección">
+                <input type="text" class='form-control' id="direccion" name="direccion" placeholder="Dirección">
             </div>
 
             <div class="form-group">
                 <label for="cp">Código postal</label>
-                <input type="text" id="cp" name="cp" placeholder="Código postal">
+                <input type="text" class='form-control' id="cp" name="cp" placeholder="Código postal">
             </div>
 
-            <button  type="submit" value="Insertar" class="btn btn-primary">Insertar</button>
+            <button  type="submit" value="Insertar" class="btn btn-primary form-control">Insertar</button>
 
         </form>
 

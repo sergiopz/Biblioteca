@@ -4,28 +4,34 @@ $("document").ready(function() {
     //Ejecutar eliminar el registro al hacer click en el boton Eliminar
     $(".borrarInstituto").click(function(e) {
 
-      var r = confirm("Vas a eliminar un registro!\n¿Estás seguro?");
+      e.preventDefault();
+    
 
-      if (r == false) {
-   
-        e.preventDefault();
+      Swal.fire({
+        title: '¿Estás Seguro?',
+        text: "Vas a eliminar un registro.",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, bórralo!',
+        cancelButtonText: 'No, no lo borres!'
+      }).then((r) => {
 
-      }else{
+        if (r.value) {
 
+          var idInstituto = $(this).attr("value");
+          $("." + idInstituto).remove();
+          cadena = "<?php echo site_url('Autores/EliminarAutor'); ?>/" + idInstituto;
 
-        var idInstituto = $(this).attr("value");
-
-        $("." + idInstituto).remove();
-
-        cadena = "<?php echo site_url('Autores/EliminarAutor'); ?>/" + idInstituto;
-
-        $.ajax({
+          $.ajax({
             url: cadena
-        });
+          });
 
       }
 
     });
+  });
 
     //Ejecutar modificar el registro al hacer click en el boton Modificar
     $('.clasemodificar').click(function() {
@@ -58,7 +64,7 @@ $("document").ready(function() {
 
 <div class='container'>
 
-<table id="Dtabla" class="table table-striped table-bordered ">
+<table id="Dtabla" class="table hover compact table-striped table-bordered">
     <thead>
         <tr>
             <th>Nombre</th>
@@ -116,11 +122,11 @@ $("document").ready(function() {
         
             <div class="form-group">
                 <label for="nombre">Autor</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Autor">
+                <input type="text" class='form-control' id="nombre" name="nombre" placeholder="Autor">
                 <small id="nameHelp" class="form-text text-muted">Comprueba que el autor no existe aún!</small>
             </div>
 
-            <button  type="submit" value="Insertar" class="btn btn-primary">Insertar</button>
+            <button  type="submit" value="Insertar" class="btn btn-primary form-control">Insertar</button>
 
         </form>
 

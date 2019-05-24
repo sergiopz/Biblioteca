@@ -2,15 +2,20 @@
 $("document").ready(function() {
 
     //Ejecutar eliminar el registro al hacer click en el boton Eliminar
-    $(".claseBorrar").click(function() {
+    $(".claseBorrar").click(function(e) {
 
-        var r = confirm("Vas a eliminar un registro!\n¿Estás seguro?");
-  if (r == false) {
-   
     e.preventDefault();
-
-  }else{
-
+    Swal.fire({
+      title: '¿Estás Seguro?',
+      text: "Vas a eliminar un registro.",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, bórralo!',
+      cancelButtonText: 'No, no lo borres!'
+    }).then((r) => {
+      if (r.value) {
 
         var idUsuario = $(this).attr("value");
         $("." + idUsuario).remove();
@@ -20,6 +25,8 @@ $("document").ready(function() {
             url: cadena
         });
       }
+
+    });
 
     });
 
@@ -50,7 +57,7 @@ $("document").ready(function() {
             'idInstituto': idInstitutousuario,
             'codigoConfirmacion': 0
         };
-        alert(idInstitutousuario);
+        
         var cadena = "<?php echo site_url("Usuarios/ModificarUsuarios/"); ?>";
 
         $.ajax({
@@ -70,7 +77,7 @@ $("document").ready(function() {
 });
 </script>
 <div class='container-fluid'>
-<table id="Dtabla" class="table table-striped table-bordered">
+<table id="Dtabla" class="table hover compact table-striped table-bordered">
     <thead>
         <tr>
             <th>Nombre</th>
@@ -128,47 +135,47 @@ $("document").ready(function() {
                   
                         <div class='form-group'>
                             <label for='nombre'>Nombre</label>
-                            <input type='text' class='$usuario->id-nombre' id='nombre' name='nombre' value='$usuario->nombre'>
+                            <input type='text' class='$usuario->id-nombre form-control' id='nombre'form-control name='nombre' value='$usuario->nombre'>
                         </div>
   
                         <div class='form-group'>
                           <label for='apellido'>Apellidos</label>
-                          <input type='text' id='apellido'class='$usuario->id-apellidos' name='apellidos' value='$usuario->apellidos'>
+                          <input type='text' id='apellido'class='$usuario->id-apellidos form-control' name='apellidos' value='$usuario->apellidos'>
                         </div>
   
                         <div class='form-group'>
                           <label for='nick'>Nick</label>
-                          <input type='text' class='$usuario->id-nick' id='nick' name='nick' value='$usuario->nick'>
+                          <input type='text' class='$usuario->id-nick form-control' id='nick' name='nick' value='$usuario->nick'>
                         </div>
   
                         <div class='form-group'>
                           <label for='contrasena'>Contraseña</label>
-                          <input type='text' id='contrasena' class='$usuario->id-contrasena' name='contrasena' value='$usuario->contrasena'>
+                          <input type='text' id='contrasena' class='$usuario->id-contrasena form-control' name='contrasena' value='$usuario->contrasena'>
                         </div>
   
                         <div class='form-group'>
                           <label for='correo'>E-Mail</label>
-                          <input type='text' id='correo' class='$usuario->id-correo' name='correo' value='$usuario->correo'>
+                          <input type='text' id='correo' class='$usuario->id-correo form-control' name='correo' value='$usuario->correo'>
                         </div>
   
                         <div class='form-group'>
                           <label for='telefono'>Telefono</label>
-                          <input type='text' id='telefono' class='$usuario->id-telefono' name='telefono' value='$usuario->telefono'>
+                          <input type='text' id='telefono' class='$usuario->id-telefono form-control' name='telefono' value='$usuario->telefono'>
                         </div>
   
                         <div class='form-group'>
                           <label for='tipo'>Tipo de usuario</label>
-                          <input type='text' id='tipo' class='$usuario->id-tipo' name='tipo' value='$usuario->tipo'>
+                          <input type='text' id='tipo' class='$usuario->id-tipo form-control' name='tipo' value='$usuario->tipo'>
                         </div>
   
                         <div hidden class='form-group' >
                           <label for='codigoConfirmacion'>Codigo de confirmacion</label>
-                          <input type='text' id='codigoConfirmacion' class='$usuario->id-codigoConfirmacion' name='codigoConfirmacion' value='$usuario->codigoConfirmacion'>
+                          <input type='text' id='codigoConfirmacion' class='$usuario->id-codigoConfirmacion form-control' name='codigoConfirmacion' value='$usuario->codigoConfirmacion'>
                         </div>
   
                         <div class='form-group'>
                           <label for='idInstituto'>Instituto</label>
-                          <select id='idInstituto' class='$usuario->id-instituto selectpicker' name='idInstituto'>";
+                          <select data-live-search='true' id='idInstituto' class='$usuario->id-instituto selectpicker form-control' name='idInstituto'>";
   
                             for ($j = 0; $j < count($listaInstitutos); $j++) {
                               $instituto = $listaInstitutos[$j];
@@ -183,7 +190,7 @@ $("document").ready(function() {
                             </select>
                         </div>
                        
-                        <button class='btn btn-primary claseModificar' value='$usuario->id' type='submit' name='action'>Modificar</button>
+                        <button class='btn btn-primary claseModificar form-control' value='$usuario->id' type='submit' name='action'>Modificar</button>
             
                   </div>
             
@@ -223,42 +230,42 @@ $("document").ready(function() {
         
             <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+                <input type="text" class='form-control' id="nombre" name="nombre" placeholder="Nombre">
             </div>
 
             <div class="form-group">
                 <label for="apellidos">Apellidos</label>
-                <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos">
+                <input type="text" class='form-control' id="apellidos" name="apellidos" placeholder="Apellidos">
             </div>
 
             <div class="form-group">
                 <label for="nick">Nick</label>
-                <input type="text" id="nick" name="nick" placeholder="Nick">
+                <input type="text" class='form-control' id="nick" name="nick" placeholder="Nick">
             </div>
 
             <div class="form-group">
                 <label for="contrasena">Contraseña</label>
-                <input type="text" id="contrasena" name="contrasena" placeholder="Contraseña">
+                <input type="text" class='form-control' id="contrasena" name="contrasena" placeholder="Contraseña">
             </div>
 
             <div class="form-group">
                 <label for="correo">E-Mail</label>
-                <input type="text" id="correo" name="correo" placeholder="E-Mail">
+                <input type="text" class='form-control' id="correo" name="correo" placeholder="E-Mail">
             </div>
 
             <div class="form-group">
                 <label for="telefono">Teléfono</label>
-                <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
+                <input type="text" class='form-control' id="telefono" name="telefono" placeholder="Teléfono">
             </div>
 
             <div class="form-group">
                 <label for="tipo">Tipo de usuario</label>
-                <input type="text" id="tipo" name="tipo" placeholder="Tipo de usuario">
+                <input type="text" class='form-control' id="tipo" name="tipo" placeholder="Tipo de usuario">
             </div>
 
             <div class="form-group">
                 <label for="IdInstituto">Instituto</label>
-                <select name="idInstituto" class='selectpicker' id="idInstituto">
+                <select data-live-search='true' name="idInstituto" class='selectpicker form-control' id="idInstituto">
                 <?php
                 for ($j = 0; $j < count($listaInstitutos); $j++) {
                   $instituto = $listaInstitutos[$j];
@@ -274,10 +281,10 @@ $("document").ready(function() {
 
             <div class="form-group" hidden>
                 <label for="codigoConfirmacion">Codigo de confirmación</label>
-                <input type="text" id="codigoConfirmacion" name="codigoConfirmacion" placeholder="Codigo de confirmación">
+                <input type="text" id="codigoConfirmacion" name="codigoConfirmacion" class='form-control' placeholder="Codigo de confirmación">
             </div>
 
-            <button  type="submit" value="Insertar" class="btn btn-primary">Insertar</button>
+            <button  type="submit" value="Insertar" class="btn btn-primary form-control">Insertar</button>
 
         </form>
 

@@ -3,26 +3,34 @@
     //Ejecutar eliminar el registro al hacer click en el boton Eliminar
     $(".borrarInstituto").click(function(e) {
 
-          var r = confirm("Vas a eliminar un registro!\n¿Estás seguro?");
-  if (r == false) {
-   
-    e.preventDefault();
+      e.preventDefault();
+    
 
-  }else{
+      Swal.fire({
+        title: '¿Estás Seguro?',
+        text: "Vas a eliminar un registro.",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, bórralo!',
+        cancelButtonText: 'No, no lo borres!'
+      }).then((r) => {
+
+        if (r.value) {
 
           var idInstituto = $(this).attr("value");
+          $("." + idInstituto).remove();
+          cadena = "<?php echo site_url('Editoriales/EliminarEditorial'); ?>/" + idInstituto;
 
-        $("." + idInstituto).remove();
-
-        cadena = "<?php echo site_url('Editoriales/EliminarEditorial'); ?>/" + idInstituto;
-
-        $.ajax({
+          $.ajax({
             url: cadena
-        });
+          });
 
   
-  }
-  });
+        }
+      }); 
+    });
   
 
     //Ejecutar modificar el registro al hacer click en el boton Modificar
@@ -57,7 +65,7 @@
 
 <div class='container'>
 
-<table id="Dtabla" class="table table-striped table-bordered">
+<table id="Dtabla" class="table hover compact table-striped table-bordered">
 
     <thead>
         <tr>
@@ -116,11 +124,11 @@
         
             <div class="form-group">
                 <label for="nombre">Editorial</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Editorial">
+                <input type="text" class='form-control' id="nombre" name="nombre" placeholder="Editorial">
                 <small id="nameHelp" class="form-text text-muted">Comprueba que la editorial no existe aún!</small>
             </div>
 
-            <button  type="submit" value="Insertar" class="btn btn-primary">Insertar</button>
+            <button  type="submit" value="Insertar" class="btn btn-primary form-control">Insertar</button>
 
         </form>
 

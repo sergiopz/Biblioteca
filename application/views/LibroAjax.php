@@ -2,23 +2,31 @@
 $("document").ready(function() {
     $(".claseBorrar").click(function(e) {
 
-        var r = confirm("Vas a eliminar un registro!\n¿Estás seguro?");
-        if (r == false) {
+        e.preventDefault();
+    
 
-            e.preventDefault();
+        Swal.fire({
+            title: '¿Estás Seguro?',
+            text: "Vas a eliminar un registro.",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, bórralo!',
+            cancelButtonText: 'No, no lo borres!'
+        }).then((r) => {
 
-        } else {
+            if (r.value) {
 
-            var id = $(this).attr("value");
+                var id = $(this).attr("value");
+                $("." + id).remove();
+                cadena = "<?php echo site_url('Libros/EliminarLibro'); ?>/" + id;
 
-            $("." + id).remove();
-
-            cadena = "<?php echo site_url('Libros/EliminarLibro'); ?>/" + id;
-
-            $.ajax({
-                url: cadena
-            });
-        }
+                $.ajax({
+                    url: cadena
+                });
+            }
+        });
     });
 
     $('.claseModificar').click(function() {
@@ -72,7 +80,7 @@ $("document").ready(function() {
 
 <div class="container-fluid">
 
-        <table id="Dtabla" class="table table-striped table-bordered ">
+        <table id="Dtabla" class="table hover compact table-striped table-bordered">
             <thead>
                 <tr>
                     <th>Isbn</th>
@@ -104,7 +112,7 @@ $("document").ready(function() {
                      <td hidden><input type='text' name='descripcion' value='$libro->descripcion'></td>
                      <td hidden><input type='text' name='fecha' value='$libro->fecha'></td>
                      <td hidden><input type='text' name='paginas' value='$libro->paginas'></td>
-                     <td><select class='selectpicker' name='idInstituto' >";
+                     <td><select class='selectpicker' data-live-search='true' name='idInstituto' >";
 
         //Dentro de cada libro recorremos la lsita de Institutos y si el campo de idInstituto del libro coincide
         //con el id de la tabla instituos sacamos ese campo selected
@@ -121,7 +129,7 @@ $("document").ready(function() {
           
   
 
-       echo   "<td><select class='selectpicker' name='idEditorial' >";  
+       echo   "<td><select data-live-search='true' class='selectpicker' name='idEditorial' >";  
 
         //Si el campo idEditorial coincide con el id de la tabla editoriales sacamos ese campo selected
         for ($j = 0; $j < count($listaEditoriales); $j++) {
@@ -134,7 +142,7 @@ $("document").ready(function() {
         }
 
        echo   "</select></td>
-               <td><select class='selectpicker' required multiple name='idAutor[]' >";
+               <td><select data-live-search='true' class='selectpicker' required multiple name='idAutor[]' >";
 
 
         //Recorremos la lista de Autores y dentro recorremos la tabla Autores Libros y si el id del autor
@@ -156,7 +164,7 @@ $("document").ready(function() {
         }
       
        echo   "</select></td>
-               <td><select class='selectpicker' type='hidden' class='elementoOculto' required multiple name='idCategoria[]' >";
+               <td><select data-live-search='true' class='selectpicker' type='hidden' class='elementoOculto' required multiple name='idCategoria[]' >";
 
         //Recorremos la lista de categorias y dentro recorremos la tabla Libros Categorias y si el id de la categoria
         //de la tabla ajena coincide con el id de la categoria y del libro actual lo saca selected sino lo desactivamos     
@@ -228,7 +236,7 @@ $("document").ready(function() {
             </div>
             <div class='form-group'>
                 <label for='idInstituto'>Instituto</label>
-                <select name='idInstituto' id='idInstituto'>";
+                <select data-live-search='true' class='selectpicker' name='idInstituto' id='idInstituto'>";
                 
 
                 for ($j = 0; $j < count($listaInstitutos); $j++) { 
@@ -244,7 +252,7 @@ $("document").ready(function() {
             </div>
             <div class='form-group'>
             <label for='idUsuario'>Usuarios</label>
-            <select class='selectpicker'  name='idUsuario' class='active user$libro->id'>";
+            <select data-live-search='true' class='selectpicker'  name='idUsuario' class='active user$libro->id'>";
                 for ($j = 0; $j < count($listaUsuarios); $j++) { 
                     $usuario=$listaUsuarios[$j];
                     if($this->session->userdata('tipoUsuario')==0){
@@ -261,7 +269,7 @@ $("document").ready(function() {
         </div>
             <div class='form-group'>
                 <label for='idEditorial'>Editorial</label>
-                <select class='selectpicker' name='idEditorial' id='idEditorial'>";
+                <select data-live-search='true' class='selectpicker' name='idEditorial' id='idEditorial'>";
                 
                 for ($j = 0; $j < count($listaEditoriales); $j++) { 
                     $editorial=$listaEditoriales[$j]; 
@@ -276,7 +284,7 @@ $("document").ready(function() {
                 </div>
                 <div class='form-group'>
                     <label for='idAutor'>Autor/es</label>
-                        <select class='selectpicker' multiple name='idAutor[]'' id='idAutor'>";
+                        <select data-live-search='true' class='selectpicker' multiple name='idAutor[]'' id='idAutor'>";
               
                         for ($j = $cont=0; $j < count($listaAutores); $j++) {
                             $autor=$listaAutores[$j]; 
@@ -298,7 +306,7 @@ $("document").ready(function() {
             </div>
             <div class='form-group'>
                 <label for='idCategoria'>Categorias</label>
-                <select class='selectpicker' multiple name='idCategoria[]' id='idCategoria'>";
+                <select data-live-search='true' class='selectpicker' multiple name='idCategoria[]' id='idCategoria'>";
                
                 for ($j = 0; $j < count($listaCategorias); $j++) { 
                     $categoria=$listaCategorias[$j]; 
@@ -352,186 +360,6 @@ $("document").ready(function() {
   </div>
 </div>";
 
-
-
-
-
-
-
-
-
-
-
-
-
-        /*      HOLA */
-
-
-
-
-
-
-
-
-/*
-
-    echo"<div id='lupa$libro->id' class='modal tamañoVModal'>";
-   
-        echo" <h5 class='modal-close'>&#10005;</h5>
-        <div class='modal-content center'>
-            <h4 class='flow-text #00e676 green-text text-accent-3'>Modificar libros</h4>
-            <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>event_note</i>
-                <input type='hidden' name='id' value='$libro->id' >
-                <input type='text' name='isbn' id='isbn' value='$libro->isbn'>
-                <label class='active' style='color:royalblue' for='isbn'>Isbn</label>
-            </div>
-            <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>collections_bookmark</i>
-                <input type='text' name='titulo' id='titulo' value='$libro->titulo'>
-                <label class='active' style='color:royalblue' for='titulo'>Titulo</label>
-            </div>
-            <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>description</i>
-                <input type='text' name='descripcion' id='descripcion' value='$libro->descripcion'>
-                <label class='active' style='color:royalblue' for='descripcion'>Descripcion</label>
-            </div>
-            <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>add_box</i>
-                <input type='text' name='paginas' id='paginas' value='$libro->paginas'>
-                <label class='active' style='color:royalblue' for='Paginas'>Paginas</label>
-            </div>
-            <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue'>date_range</i>
-                <input type='text' name='fecha' id='fecha' value='$libro->fecha'>
-                <label class='active' style='color:royalblue' for='fecha'>Fecha</label>
-            </div>
-            <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                <select class='selectpicker' name='idInstituto' class='active'>";
-                    for ($j = 0; $j < count($listaInstitutos); $j++) { 
-                        $instituto=$listaInstitutos[$j]; 
-                            if( $libro-> idInstituto==$instituto->id ){
-                                echo"<option value='$instituto->id' selected>$instituto->nombre</option> ";
-                            }else{
-                                echo"<option value='$instituto->id'>$instituto->nombre</option> ";
-                            }
-                        }
-                        echo"</select>
-            </div> 
-            <div class='input-field'>
-                    <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                    <select class='selectpicker'  name='idUsuario' class='active user$libro->id'>";
-                        for ($j = 0; $j < count($listaUsuarios); $j++) { 
-                            $usuario=$listaUsuarios[$j];
-                            if($this->session->userdata('tipoUsuario')==0){
-                                if(($libro->idUsuario==$usuario->id)){
-                                    echo"<option value='$usuario->id' selected >$usuario->nombre</option> ";
-                                }else{
-                                    echo"<option value='$usuario->id'  >$usuario->nombre</option> ";
-                                }
-                            }else if( ($libro->idUsuario==$usuario->id)&&($this->session->userdata('tipoUsuario')!=0) ){
-                               echo"<option value='$usuario->id' selected >$usuario->nombre</option> ";
-                            }
-                        }
-                echo"</select>
-                </div>
-                <div class='input-field'>
-                <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                <select class='selectpicker' name='idEditorial' class='active'>";
-                    for ($j = 0; $j < count($listaEditoriales); $j++) { 
-                        $editorial=$listaEditoriales[$j]; 
-                        if( $libro->idEditorial==$editorial->id ){
-                            echo"<option value='$editorial->id' selected>$editorial->nombre</option> ";
-                        }else{
-                            echo"<option value='$editorial->id'>$editorial->nombre</option> ";
-                        }
-                    }
-                        echo" </select>
-            </div>
-            <div>
-                <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                <select class='selectpicker' multiple name='idAutor[]' class='active'>";
-
-                     //Recorremos la lista de Autores y dentro recorremos la tabla Autores Libros y si el id del autor
-                    //de la tabla ajena coincide con el id del autor y del libro actual lo saca selected sino lo desactivamos
-                    for ($j = $cont=0; $j < count($listaAutores); $j++) {
-                         $autor=$listaAutores[$j]; 
-
-                        for ($k=0; $k < count($listaAutoresLibros); $k++) {
-                            $autorlibro=$listaAutoresLibros[$k]; 
-
-                            if(($autorlibro->idAutor==$autor->id)&&($autorlibro->idLibro==$libro->id)){
-                                echo "<option value='$autor->id' selected>$autor->nombre</option> ";
-                                $k=count($listaAutoresLibros);
-                            }else if ($k==count($listaAutoresLibros)-1) {
-                                echo "<option value='$autor->id'>$autor->nombre</option> ";
-                                $k=count($listaAutoresLibros);
-                            }
-                        }
-                    }
-
-                        echo" </select>
-            </div>
-            <div>
-                <i class='material-icons prefix' style='color:royalblue' hidden>add_box</i>
-                <select class='selectpicker' multiple name='idCategoria[]' class='active'>";
-
-        //Recorremos la lista de categorias y dentro recorremos la tabla Libros Categorias y si el id de la categoria
-        //de la tabla ajena coincide con el id de la categoria y del libro actual lo saca selected sino lo desactivamos     
-                    for ($j = 0; $j < count($listaCategorias); $j++) { 
-                        $categoria=$listaCategorias[$j]; 
-                        for ($k=0; $k < count($listaLibrosCategorias); $k++) {
-                            $librocategoria=$listaLibrosCategorias[$k];
-                            if(($librocategoria->idCategoria==$categoria->id)&&($librocategoria->idLibro==$libro->id)){
-                                echo "<option value='$categoria->id' selected>$categoria->nombre</option> ";
-                                $k=count($listaLibrosCategorias);
-                            }else if($k==count($listaLibrosCategorias)-1) {
-                                echo "<option value='$categoria->id'>$categoria->nombre</option> ";
-                                $k=count($listaLibrosCategorias);
-                            }
-                        }
-                    }
-
-                     
-
-          echo " </select>
-            </div>
-            <div>";
-                      if ($libro->pdf=='si') {
-
-                   
-                
-                     echo" <select  name='pdfModificar' class='active selectpicker' >
-                      <option value='$libro->pdf'>Si</option>
-                      <option value='no'>No</option>
-                      
-                      
-                  </select>"; 
-
-                       }
-                          else {
-
-                   
-                
-                     echo" <select name='pdfModificar' class='active selectpicker' >
-                      <option value='$libro->pdf'>No</option>
-                      <option value='si'>Si</option>
-                      
-                      
-                  </select>"; 
-
-                       }
-                       echo "
-            </div>
-
-            <br>
-            <button class='btn btn-large waves-effect waves-light #e65100 orange darken-4 z-depth-0 claseModificar'
-                value='$libro->id'  name='Modificar'><i class='material-icons '>create</i></button>
-        </div>
-        </div>";*/
-
-    //Aqui cierra el for de libros
     }
     ?>
 
@@ -539,120 +367,6 @@ $("document").ready(function() {
         </table>
         </div>
     
-
-      <!--  <div id="insert" class="modal tamañoVModal">
-            
-            <h5 class="modal-close">&#10005;</h5>
-            <div class="modal-content center">
-                <h4 class="flow-text #00e676 green-text text-accent-3">Insertar Registro</h4>
-                <div class="input-field">
-                    <i class="material-icons prefix" style="color:royalblue">person</i>
-                    <input type='text' name='isbn' id='isbn'>
-                    <label style="color:royalblue" for="isbn">isbn</label>
-                </div>
-                <div class="input-field">
-                    <i class="material-icons prefix" style="color:royalblue">add_box</i>
-                    <input type='text' name='titulo' id='titulo'>
-                    <label style="color:royalblue" for="titulo">Titulo</label>
-                </div>
-                <div class="input-field">
-                    <i class="material-icons prefix" style="color:royalblue">add_box</i>
-                    <input type='text' name='descripcion' id='descripcion'>
-                    <label style="color:royalblue" for="descripcion">Descripcion</label>
-                </div>
-                <div class="input-field">
-                    <i class="material-icons prefix" style="color:royalblue">add_box</i>
-                    <input type='text' name='fecha' id='fecha'>
-                    <label style="color:royalblue" for="fecha">Fecha</label>
-                </div>
-                <div class="input-field">
-                    <i class="material-icons prefix" style="color:royalblue">add_box</i>
-                    <input type='text' name='paginas' id='paginas'>
-                    <label style="color:royalblue" for="paginas">Paginas</label>
-                </div>
-                <div class="input-field">
-                    <i class="material-icons prefix" class='selectpicker' style="color:royalblue" hidden>add_box</i>
-                    <select name="idInstituto" id="idInstituto">
-                        <?php
-                       /* for ($j = 0; $j < count($listaInstitutos); $j++) {
-                            $instituto = $listaInstitutos[$j];
-                            if($j==0){
-                                echo"<option  value='$instituto->id' selected >$instituto->nombre</option> ";                      
-                            }else{
-                                echo"<option  value='$instituto->id'>$instituto->nombre</option> ";                  
-                            }
-                        }*/
-                    ?>
-                    </select>
-                    <label style="color:royalblue" for="idInstituto">IdInstituto</label>
-                </div>
-
-                <div class="input-field">
-                    <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
-                    <select class='selectpicker' name="idEditorial" id="idEditorial">
-                        <?php
-                       /* for ($j = 0; $j < count($listaEditoriales); $j++) {
-                            $editorial = $listaEditoriales[$j];
-                            if($j==0){
-                                echo "<option  value='$editorial->id' selected >$editorial->nombre</option> ";                      
-                            }else{
-                                echo"<option  value='$editorial->id'>$editorial->nombre</option> ";                  
-                            }
-                        }*/
-                    ?>
-                    </select>
-                    <label style="color:royalblue" for="idEditorial">Editorial</label>
-                </div>
-                <div class="input-field">
-                    <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
-                    <select class='selectpicker' multiple name="idAutor[]" id="idAutor">
-                        <?php
-                       /* for ($j = 0; $j < count($listaAutores); $j++) {
-                            $autor = $listaAutores[$j];
-                            if($j==0){
-                                echo "<option  value='$autor->id' selected >$autor->nombre</option> ";                      
-                            }else{
-                                echo "<option  value='$autor->id'>$autor->nombre</option> ";                  
-                            }
-                        }*/
-                    ?>
-                    </select>
-                    <label style="color:royalblue" for="idAutor">Autor</label>
-                </div>
-                <div class="input-field">
-                    <i class="material-icons prefix" style="color:royalblue" hidden>add_box</i>
-                    <select class='selectpicker' multiple name="idCategoria[]" id="idCategoria">
-                        <?php
-                       /* for ($j = 0; $j < count($listaCategorias); $j++) {
-                            $categoria = $listaCategorias[$j];
-                            if($j==0){
-                                echo "<option  value='$categoria->id' selected >$categoria->nombre</option> ";                      
-                            }else{
-                                echo "<option  value='$categoria->id'>$categoria->nombre</option> ";                  
-                            }
-                        }*/
-                    ?>
-                    </select>
-                    <label style="color:royalblue" for="idCategoria">Categoria</label>
-                </div>
-                <div>
-                  <select class='selectpicker' name="pdf" >
-                      <option value="no">No</option>
-                      <option value="si">Si</option>}
-                      
-                      
-                  </select>  
-                </div>
-
-                <div><input style="background-color:royalblue" type="submit" value="Insertar" class="btn btn-large">
-                </div>
-                
-            </div>
-
-            </form>
-
-        </div>-->
-
 <div class='modal' id='insertModal'>
   <div class='modal-dialog'>
     <div class='modal-content'>
@@ -690,7 +404,7 @@ $("document").ready(function() {
             </div>
             <div class='form-group'>
                 <label for='idInstituto'>Instituto</label>
-                <select name='idInstituto' id='idInstituto'>
+                <select data-live-search='true' class='selectpicker' name='idInstituto' id='idInstituto'>
                 <?php
                     for ($j = 0; $j < count($listaInstitutos); $j++) {
                         $instituto = $listaInstitutos[$j];
@@ -705,7 +419,7 @@ $("document").ready(function() {
             </div>
             <div class='form-group'>
                 <label for='idEditorial'>Editorial</label>
-                <select class='selectpicker' name='idEditorial' id='idEditorial'>
+                <select data-live-search='true' class='selectpicker' name='idEditorial' id='idEditorial'>
                 <?php
                     for ($j = 0; $j < count($listaEditoriales); $j++) {
                         $editorial = $listaEditoriales[$j];
@@ -720,7 +434,7 @@ $("document").ready(function() {
             </div>
             <div class='form-group'>
                 <label for='idAutor'>Autor/es</label>
-                <select class='selectpicker' multiple name='idAutor[]'' id='idAutor'>
+                <select data-live-search='true' class='selectpicker' multiple name='idAutor[]'' id='idAutor'>
                 <?php
                     for ($j = 0; $j < count($listaAutores); $j++) {
                         $autor = $listaAutores[$j];
@@ -735,7 +449,7 @@ $("document").ready(function() {
             </div>
             <div class='form-group'>
                 <label for='idCategoria'>Categorias</label>
-                <select class='selectpicker' multiple name='idCategoria[]' id='idCategoria'>
+                <select data-live-search='true' class='selectpicker' multiple name='idCategoria[]' id='idCategoria'>
                 <?php
                     for ($j = 0; $j < count($listaCategorias); $j++) {
                         $categoria = $listaCategorias[$j];
@@ -750,7 +464,7 @@ $("document").ready(function() {
             </div>
             <div class='form-group'>
                 <label for='pdf'>PDF</label>
-                <select class='selectpicker' name='pdf' id='pdf' >
+                <select  class='selectpicker' name='pdf' id='pdf' >
                     <option value='no'>No</option>
                     <option value='si'>Si</option>     
                 </select>  
