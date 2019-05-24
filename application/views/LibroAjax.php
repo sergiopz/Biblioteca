@@ -177,10 +177,10 @@ $("document").ready(function() {
         }
 
                     echo"</select></td>
-                    <td><button id='lupa$libro->id'class='btn btn-info' data-toggle='modal' data-target='#lupa$libro->id'>Detalles</button></td>
-                    <td><a value='$libro->id'class='btn btn-danger claseBorrar'>Eliminar</a></td>
-                    <td><a class='btn btn-primary' href='".site_url("Libros/showintadmin/$libro->id")."'>Subir libro</a></td>
-                    <td><a class='btn btn-primary' href='".site_url("Libros/ModificarPaginas/$libro->id")."'>Modificar páginas</a></td>
+                    <td><button id='lupa$libro->id'class='btn btn-info' data-toggle='modal' data-target='#lupa$libro->id'><i class='fas fa-info'></i></button></td>
+                    <td><a value='$libro->id'class='btn btn-danger claseBorrar'><i style='color:white' class='fas fa-trash-alt'></i></a></td>
+                    <td><a class='btn btn-primary' href='".site_url("Libros/showintadmin/$libro->id")."'><i class='fas fa-file-upload'></i></a></td>
+                    <td><a class='btn btn-primary' href='".site_url("Libros/ModificarPaginas/$libro->id")."'><i class='fab fa-leanpub'></i></a></td>
 
 
                 </tr>

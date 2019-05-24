@@ -80,11 +80,11 @@
                   <input hidden type='text' name='id' value='$editorial->id'>
                   <td style='width:60%'><p hidden>$editorial->nombre</p><input class='#ffffff' type='text' name='nombre' value='$editorial->nombre'></td>";
                   if($this->session->userdata('tipoUsuario')==0){
-                    echo"   <td><button class='btn btn-info clasemodificar' value='$editorial->id' type='submit' name='action'>Modificar</button></td>";
-                    echo"<td><a value='$editorial->id' class='btn btn-danger borrarInstituto' >Eliminar</a></td>";
+                    echo"   <td><button class='btn btn-info clasemodificar' value='$editorial->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";
+                    echo"<td><a value='$editorial->id' class='btn btn-danger borrarInstituto' ><i style='color:white' class='fas fa-trash-alt'></i></a></td>";
                   }else{
-                    echo"   <td><button class='btn btn-info clasemodificar disabled' value='$editorial->id' type='submit' name='action'>Modificar</button></td>";
-                    echo"<td><a value='$editorial->id' class='btn btn-danger borrarInstituto disabled' >Eliminar</a></td>";
+                    echo"   <td><button class='btn btn-info clasemodificar disabled' value='$editorial->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";
+                    echo"<td><a value='$editorial->id' class='btn btn-danger borrarInstituto disabled' ><i style='color:white' class='fas fa-trash-alt'></i></a></td>";
                   }
 
           echo" </tr>

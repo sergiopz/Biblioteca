@@ -80,11 +80,11 @@ $("document").ready(function() {
                             <input hidden type='text' name='id' value='$categoria->id'>
                             <td style='width:60%' class=''><P hidden>$categoria->nombre</p><input class=' ' type='text' name='nombre' value='$categoria->nombre'></td>";
                      if($this->session->userdata('tipoUsuario')==0){
-                            echo"<td class=''><button class='btn btn-info clasemodificar' value='$categoria->id' type='submit' name='action'>Modificar</button></td>";  
-                            echo"<td class=''><a value='$categoria->id' class='btn btn-danger borrarcategoria' >Eliminar</a></td>";
+                            echo"<td class=''><button class='btn btn-info clasemodificar' value='$categoria->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";  
+                            echo"<td class=''><a value='$categoria->id' class='btn btn-danger borrarcategoria' ><i style='color:white' class='fas fa-trash-alt'></i></a></td>";
                      }else{
-                            echo"<td class=''><button class='btn btn-info clasemodificar disabled' value='$categoria->id' type='submit' name='action'>Modificar</button></td>";  
-                            echo"<td class=''><a value='$categoria->id' class='btn btn-danger borrarcategoria disabled' >Eliminar</a></td>";
+                            echo"<td class=''><button class='btn btn-info clasemodificar disabled' value='$categoria->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";  
+                            echo"<td class=''><a value='$categoria->id' class='btn btn-danger borrarcategoria disabled' ><i style='color:white'class='fas fa-trash-alt'></i></a></td>";
                      }
 
               echo"</tr>

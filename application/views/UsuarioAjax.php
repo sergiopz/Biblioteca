@@ -13,9 +13,7 @@ $("document").ready(function() {
 
 
         var idUsuario = $(this).attr("value");
-
         $("." + idUsuario).remove();
-
         cadena = "<?php echo site_url('Usuarios/EliminarUsuarios'); ?>/" + idUsuario;
 
         $.ajax({
@@ -37,24 +35,28 @@ $("document").ready(function() {
         var telefonousuario = $("." + iddiv + "-telefono").val();
         var tipousuario = $("." + iddiv + "-tipo").val();
         var idInstitutousuario = $("." + iddiv + "-instituto").val();
+        var idInstitutousuario = $("#lupa" + iddiv + " select[name='idInstituto'] ").val();
         var valorInstitutousuario = $("." + iddiv + " option:selected").text();
 
-        $("." + iddiv + " p[name='nombre']").text(nombreusuario);
-        $("." + iddiv + " p[name='apellidos']").text(apellidousuario);
-        $("." + iddiv + " p[name='nick']").text(nickusuario);
-        $("." + iddiv + " p[name='tipo']").text(tipousuario);
-        $("." + iddiv + " p[name='idInstituto']").text(valorInstitutousuario);
-        var datos = "id=" + iddiv + "&nombre=" + nombreusuario + "&apellidos=" + apellidousuario +
-            "&nick=" + nickusuario + "&contrasena=" + contrasenausuario + "&correo=" + correousuario +
-            "&telefono=" + telefonousuario + "&tipo=" + tipousuario + "&idInstituto=" +
-            idInstitutousuario + "&codigoConfirmacion= ";
-
+        var json = {
+            'id': iddiv,
+            'nombre': nombreusuario,
+            'apellidos': apellidousuario,
+            'nick': nickusuario,
+            'contrasena': contrasenausuario,
+            'correo': correousuario,
+            'telefono': telefonousuario,
+            'tipo': tipousuario,
+            'idInstituto': idInstitutousuario,
+            'codigoConfirmacion': 0
+        };
+        alert(idInstitutousuario);
         var cadena = "<?php echo site_url("Usuarios/ModificarUsuarios/"); ?>";
 
         $.ajax({
             type: "POST",
             url: cadena,
-            data: datos,
+            data: json,
             success:function(data) {
               Swal.fire({
                 type: 'success',
@@ -105,8 +107,8 @@ $("document").ready(function() {
               $j=count($listaInstitutos);
             }
         }
-        echo" <td ><button id='lupa$usuario->id' type='button' class='btn btn-info' data-toggle='modal' data-target='#lupa$usuario->id'>Detalles</button></td>
-              <td ><button class='btn btn-danger claseBorrar ' value='$usuario->id' type='submit' name='action'>Eliminar</button></td>
+        echo" <td ><button id='lupa$usuario->id' type='button' class='btn btn-info' data-toggle='modal' data-target='#lupa$usuario->id'><i class='fas fa-info'></button></td>
+              <td ><button class='btn btn-danger claseBorrar ' value='$usuario->id' type='submit' name='action'><i class='fas fa-trash-alt'></i></button></td>
               </tr>";
               echo"
 
@@ -159,7 +161,7 @@ $("document").ready(function() {
                           <input type='text' id='tipo' class='$usuario->id-tipo' name='tipo' value='$usuario->tipo'>
                         </div>
   
-                        <div class='form-group' >
+                        <div hidden class='form-group' >
                           <label for='codigoConfirmacion'>Codigo de confirmacion</label>
                           <input type='text' id='codigoConfirmacion' class='$usuario->id-codigoConfirmacion' name='codigoConfirmacion' value='$usuario->codigoConfirmacion'>
                         </div>
@@ -171,9 +173,9 @@ $("document").ready(function() {
                             for ($j = 0; $j < count($listaInstitutos); $j++) {
                               $instituto = $listaInstitutos[$j];
                               if( $usuario->idInstituto==$instituto->id ){ 
-                                echo"<option  value='$instituto->id' selected>$instituto->nombre</option> ";
+                                echo"<option value='$instituto->id' selected>$instituto->nombre</option> ";
                               }else{
-                                echo"<option  value='$instituto->id' >$instituto->nombre</option> ";
+                                echo"<option value='$instituto->id' >$instituto->nombre</option> ";
                               }
                             }
   

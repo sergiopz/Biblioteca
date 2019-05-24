@@ -43,10 +43,10 @@
       public function EliminarUsuarios($id) {  
             $resultado = $this->UsuariosModel->BorrarUsuarios($id);     
         if ($resultado == 0) { 
-            $this->load->view("VistaAdministrador");
+            redirect('Usuarios/VistaAjax','refresh');
         } else {
             $data["listaUsuarios"] = $this->UsuariosModel->getAll();
-            $this->load->view("VistaAdministrador", $data);   
+            redirect('Usuarios/VistaAjax','refresh');  
           }
         
       }
@@ -62,18 +62,17 @@
           $telefono = $this->input->get_post("telefono");
           $tipo = $this->input->get_post("tipo");
           $idInstituto = $this->input->get_post("idInstituto");
-          $codigoConfirmacion = $this->input->get_post("codigoConfirmacion");                
+          $codigoConfirmacion = $this->input->get_post("codigoConfirmacion");  
+
           $resultado = $this->UsuariosModel->ModificarUsuarios($id,$nombre,$apellidos,$nick,$contrasena,$correo,$telefono, $tipo,$idInstituto,$codigoConfirmacion);
-     
-          if ($resultado == 0) { 
+            
+         /* if ($resultado == 0) { 
               $data["error"]="No se pudo modificar";
               $data["listaUsuarios"] = $this->UsuariosModel->getAll();
-              $this->load->view("VistaAdministrador", $data);
+              redirect('Usuarios/VistaAjax','refresh');
           } else {
-              $data["nombreVista"] = "VistaAdministrador";
-              $data["tabla"] = "administracion";  
-              $this->load->view("plantilla", $data);
-          }
+              redirect('Usuarios/VistaAjax','refresh');
+          }*/var_dump( $idInstituto);
       }
 
   }
