@@ -18,3 +18,4 @@
 <script src='https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js'></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 <script src="<?php echo base_url(); ?>js/js.js"></script>
+<script src="<?php echo base_url(); ?>js/bootsnav.js"></script>

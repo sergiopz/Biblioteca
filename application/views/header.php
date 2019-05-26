@@ -23,6 +23,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootsnav.css">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
@@ -33,6 +34,40 @@
 </head>
 
 <body>
+    <nav id='navegacionAdmin' class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="<?php echo base_url(); ?>imgs/logoadmin.png" alt="">
+            </a>
+            <a class="navbar-brand" href="#">
+                <?php 
+                      if($this->session->userdata('tipoUsuario')==0){
+                            echo $this->session->userdata('nombreUsuario') ." (Administrador)";
+                      }else if($this->session->userdata('tipoUsuario nombreAdmin')==1){
+                            echo $this->session->userdata('nombreUsuario') ." (Bibliotecario)";
+                      }
+                    ?>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a id='menuAdmin' class="nav-link" href="#">
+                            Administración
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id='botonInsert' data-toggle='modal' data-target='#insertModal' href="#">Insertar registro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"id='cerrarsesion'  href="<?php echo site_url("Libros/salir");?>">Cerrar sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
         <div id="mySidenav" class="sidenav">
 	        <a href="javascript:void(0)" id='closeMenuAdmin' class="closebtn" >&times;</a>
@@ -49,41 +84,8 @@
                 }
             ?>
         </div>
-        <div class="jumbotron text-center mainColor" id="">
-  	        <h1>Administración biblioteca Celia Viñas</h1>
-        </div>
-        
-            <div class='container'> 
-                <div class='row'>
-                <div class='botonesPrincipales'>
-		            <button id='menuAdmin' class='btn btn-primary'>
-			            Administración
-		            </button>
-                </div>
-
-                <div class='botonesPrincipales'>
-                    <button id='botonInsert' type='button' class='btn btn-success' data-toggle='modal' data-target='#insertModal'>
-                        Insertar registro
-                    </button>
-                </div>
-    
-                <div id='botonCerrarSesion' class='botonesPrincipales '>
-                        <a id='cerrarsesion'  href="<?php echo site_url("Libros/salir");?>" class='btn btn-danger'>Cerrar Sesión</a>
-                </div>
-                <?php 
-                      if($this->session->userdata('tipoUsuario')==0){
-                        echo "<div class='botonesPrincipales nombreAdmin'>";
-                            echo $this->session->userdata('nombreUsuario') ." (Administrador)";
-                        echo "</div>";
-                      }else if($this->session->userdata('tipoUsuario nombreAdmin')==1){
-                        echo "<div class='botonesPrincipales'>";
-                            echo $this->session->userdata('nombreUsuario') ." (Bibliotecario)";
-                        echo "</div>";
-                      }
-                    ?>
-                </div>
-            </div>    
-
+       
+           
 
 
         
