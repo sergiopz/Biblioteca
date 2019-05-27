@@ -227,7 +227,7 @@ $("document").ready(function() {
         echo"     </select>
             </div>
             <div class='form-group'>
-            <label for='idUsuario'>Usuarios</label>
+            <label for='idUsuario'>Libro subido por:</label>
             <select data-live-search='true' class='selectpicker form-control'  name='idUsuario' class='active user$libro->id'>";
                 for ($j = 0; $j < count($listaUsuarios); $j++) { 
                     $usuario=$listaUsuarios[$j];
