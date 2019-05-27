@@ -68,3 +68,10 @@ td, td p{
 #navegacionAdmin{
   margin-bottom: 3% !important;
 }
+#imglogo{
+  width: 150px !important;
+  height: 50px !important;
+}
+ #nombreAdministrador{
+   margin-left: 3% !important;
+ }

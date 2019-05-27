@@ -37,9 +37,9 @@
     <nav id='navegacionAdmin' class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="<?php echo base_url(); ?>imgs/logoadmin.png" alt="">
+                <img id='imglogo' src="<?php echo base_url(); ?>imgs/logoadmin.png" alt="">
             </a>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" id='nombreAdministrador' href="#">
                 <?php 
                       if($this->session->userdata('tipoUsuario')==0){
                             echo $this->session->userdata('nombreUsuario') ." (Administrador)";
