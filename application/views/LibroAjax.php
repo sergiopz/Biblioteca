@@ -108,8 +108,8 @@ $("document").ready(function() {
          echo"<div class='info'>
                 <tr class='$libro->id'>
                      <input type='hidden' name='id' value='$libro->id' readonly>
-                     <td><p hidden>$libro->isbn</p><input class='#ffffff' type='text' name='isbn' value='$libro->isbn'></td>
-                     <td><p hidden>$libro->titulo</p><input class='#ffffff' type='text' name='titulo' value='$libro->titulo'></td>
+                     <td>$libro->isbn</td>
+                     <td>$libro->titulo</td>
                      <input hidden type='text' name='descripcion' value='$libro->descripcion'>
                      <input hidden type='text' name='fecha' value='$libro->fecha'>
                      <input hidden type='text' name='paginas' value='$libro->paginas'>
