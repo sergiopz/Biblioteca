@@ -9,6 +9,7 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="shortcut icon" href="https://iescelia.org/web/wp-content/uploads/2015/05/escudo.png">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -21,7 +22,7 @@
     
     <title>Administracion</title>
 </head>
-<body class="gradiente">
+<body>
 <script>
 
    
@@ -68,9 +69,9 @@
    });
 </script>
   <nav>
-    <div class="nav-wrapper #616161 grey darken-2">
+    <div class="nav-wrapper navegadorUDT" >
       <ul class="center">
-        <li><a href="<?php echo site_url('Libros/VistaAjax');?>" class="waves-effect waves-light btn #8c9eff indigo accent-1 libro">Volver</a></li>
+        <li><a href="<?php echo site_url('Libros/VistaAjax');?>" class="waves-effect waves-light  libro">Volver</a></li>
         <li>
           <?php
 
@@ -181,31 +182,16 @@
 					
 			?>
 	
-    <footer class = "page-footer #616161 grey darken-2 z-depth-1">
-            <div class = "row">
-               <div class = "col s12 m6 l6">
-                  <h5 class = "pie">Panel de Administración</h5>
-            </div>
-               
-            <div class = "col">
-                <ul>
-                    <li><a href = "#" class = " text-lighten-4 right ">
-                        <span class="pie">Biblioteca Celia Viñas</span></a></li>
-                    <li><a href = "#" class = " text-lighten-4 right ">
-                        <span class="pie">Terminos y privacidad</span></a></li>
-                  </ul>
-               </div>
-            </div>
-            
-            <div class = "footer-copyright">
-               <div class = "container">
-                <span class="pie">© 2019 Copyright Information</span>
-                <a class = "text-lighten-4 right" href = "#!"><span class="pie">2DAW</span></a>
-               </div>
-            </div>         
+    <footer  class="page-footer white">
+          
+      <div  id='textoPie'class="center-align black-text">© 2019 Copyright:
+        <a id='pieMat' href="https://github.com/sergiopz/Biblioteca/"><ion-icon name="logo-github"></ion-icon>Github</a>
+      </div>
+
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </body>
 </html>

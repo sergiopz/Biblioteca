@@ -13,75 +13,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
-
-
-    <script type="text/javascript">
-        $(document).ready(function (){
-
-          $(".usuarios").click(function() {
-            $("#capaAdmin").load("<?php echo site_url("Usuarios/VistaAjax"); ?>", function() { });
-            $(".usuarios").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
-            $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".libro").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-          });
-          //$("#btnNuevoUsuario".click(function() {alert("Boton nuevo usuario");}));
-           $(".categoria").click(function() {
-            $("#capaAdmin").load("<?php echo site_url("Categorias/VistaAjax"); ?>", function() { });
-            $(".categoria").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
-            $(".usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".libro").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-          });
-
-          $(".editorial").click(function() {
-            $("#capaAdmin").load("<?php echo site_url("Editoriales/VistaAjax"); ?>", function() { });
-            $(".editorial").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
-            $(".usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".libro").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-          });
-
-        
-          $(".autor").click(function() {
-            $("#capaAdmin").load("<?php echo site_url("Autores/VistaAjax"); ?>", function() { });
-            $(".autor").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
-            $(".usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".institutos").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".libro").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-          });
-
-
-          $(".institutos").click(function() {
-            $("#capaAdmin").load("<?php echo site_url("Institutos/VistaAjax"); ?>", function() { });
-            $(".institutos").removeClass("#8c9eff indigo accent-1").addClass("#304ffe indigo accent-4");
-            $(".usuarios").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".editorial").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".autor").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".categoria").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-            $(".libro").removeClass("#304ffe indigo accent-4").addClass("#8c9eff indigo accent-1");
-          });
-
-      });
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Administracion</title>
 </head>
-<body class="gradiente">
+<body >
 
   <nav>
-    <div class="nav-wrapper #616161 grey darken-2">
+    <div class="nav-wrapper navegadorUDT">
       <ul class="center">
-        <li><a href="<?php echo site_url('Libros/VistaAjax');?>" class="waves-effect waves-light btn #8c9eff indigo accent-1 libro">Volver</a></li>
+        <li><a href="<?php echo site_url('Libros/VistaAjax');?>" class="waves-effect waves-light white-text libro">Volver</a></li>
       </ul>
       
     </div>
@@ -208,29 +149,14 @@
     });
   
 </script>
-    <footer class = "page-footer #616161 grey darken-2 z-depth-1">
-            <div class = "row">
-               <div class = "col s12 m6 l6">
-                  <h5 class = "pie">Panel de Administración</h5>
-            </div>
-               
-            <div class = "col">
-                <ul>
-                    <li><a href = "#" class = " text-lighten-4 right ">
-                        <span class="pie">Biblioteca Celia Viñas</span></a></li>
-                    <li><a href = "#" class = " text-lighten-4 right ">
-                        <span class="pie">Terminos y privacidad</span></a></li>
-                  </ul>
-               </div>
-            </div>
-            
-            <div class = "footer-copyright">
-               <div class = "container">
-                <span class="pie">© 2019 Copyright Information</span>
-                <a class = "text-lighten-4 right" href = "#!"><span class="pie">2DAW</span></a>
-               </div>
-            </div>         
-    </footer>
+    	
+      <footer  class="page-footer white">
+          
+          <div  id='textoPie'class="center-align black-text">© 2019 Copyright:
+            <a id='pieMat' href="https://github.com/sergiopz/Biblioteca/"><ion-icon name="logo-github"></ion-icon>Github</a>
+          </div>
+    
+        </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>

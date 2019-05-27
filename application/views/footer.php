@@ -1,7 +1,7 @@
 <footer id="piePagina" class="page-footer ">
 
     <div  id='textoPie'class="footer-copyright text-center py-3">© 2019 Copyright:
-        <a href="https://github.com/JuapiCallejon/peliculas"><ion-icon name="logo-github"></ion-icon>Github</a>
+        <a href="https://github.com/sergiopz/Biblioteca/"><ion-icon name="logo-github"></ion-icon>Github</a>
     </div>
 
 </footer>
