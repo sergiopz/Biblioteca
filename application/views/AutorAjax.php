@@ -106,7 +106,7 @@ $("document").ready(function() {
 </div>
 
 
-<div class="modal" id="insertModal">
+<div class="modal fade" id="insertModal">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -146,30 +146,3 @@ $("document").ready(function() {
 
 
 
-
-
-
-
-
-<!--Contenido de la ventana modal de insercion-->
-
-<div id="insert" class="modal tamañoVModal">
-    <?php    echo form_open_multipart("Autores/InsertarAutor");?>
-
-    <h5 class="modal-close">&#10005;</h5>
-    <div class="modal-content center">
-        <h4 class="flow-text #00e676 green-text text-accent-3">Insertar Registro</h4>
-
-        <div class="input-field">
-            <i class="material-icons prefix" style="color:royalblue">person</i>
-            <input type="text" id="nombre" name="nombre">
-            <label style="color:royalblue" for="nombre">Nombre</label>
-        </div>
-
-        <div><input style="background-color:royalblue" type="submit" value="Insertar" class="btn btn-large"></div>
-        <br>
-        <br>
-
-        </form>
-    </div>
-</div>

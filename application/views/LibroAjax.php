@@ -91,17 +91,12 @@ $("document").ready(function() {
                 <tr>
                     <th>Isbn</th>
                     <th>Titulo</th>
-                    <th hidden>Descripcion</th>
-                    <th hidden>Fecha</th>
-                    <th hidden>Paginas</th>
-                    <th>Instituto</th>
-                    <th>Editorial</th>
                     <th>Autor</th>
                     <th>Categoria</th>
                     <th>Modificar</th>
                     <th>Eliminar</th>
-                    <th>Subir</th>
-                    <th>Páginas</th>
+                    <th>Subida múltiple</th>
+                    <th>Modificar páginas</th>
                 </tr>
             </thead>
             <tbody>
@@ -115,39 +110,14 @@ $("document").ready(function() {
                      <input type='hidden' name='id' value='$libro->id' readonly>
                      <td><p hidden>$libro->isbn</p><input class='#ffffff' type='text' name='isbn' value='$libro->isbn'></td>
                      <td><p hidden>$libro->titulo</p><input class='#ffffff' type='text' name='titulo' value='$libro->titulo'></td>
-                     <td hidden><input type='text' name='descripcion' value='$libro->descripcion'></td>
-                     <td hidden><input type='text' name='fecha' value='$libro->fecha'></td>
-                     <td hidden><input type='text' name='paginas' value='$libro->paginas'></td>
-                     <td><select class='selectpicker' data-live-search='true' name='idInstituto' >";
-
-        //Dentro de cada libro recorremos la lsita de Institutos y si el campo de idInstituto del libro coincide
-        //con el id de la tabla instituos sacamos ese campo selected
-        for ($j = 0; $j < count($listaInstitutos); $j++) {
-            $instituto = $listaInstitutos[$j]; 
-            if( $libro->idInstituto==$instituto->id ){ 
-        echo "<option  value='$instituto->id' selected >$instituto->nombre</option>";                      
-            }else{
-        echo "<option  value='$instituto->id' disabled >$instituto->nombre</option>";
-            }
-        }
-
-        echo  "</select></td>";
+                     <input hidden type='text' name='descripcion' value='$libro->descripcion'>
+                     <input hidden type='text' name='fecha' value='$libro->fecha'>
+                     <input hidden type='text' name='paginas' value='$libro->paginas'>
+                     ";
           
   
 
-       echo   "<td><select data-live-search='true' class='selectpicker' name='idEditorial' >";  
-
-        //Si el campo idEditorial coincide con el id de la tabla editoriales sacamos ese campo selected
-        for ($j = 0; $j < count($listaEditoriales); $j++) {
-            $editorial = $listaEditoriales[$j]; 
-            if( $libro->idEditorial==$editorial->id ){ 
-        echo          "<option  value='$editorial->id' selected >$editorial->nombre</option> ";                      
-            }else{
-        echo          "<option  value='$editorial->id' disabled>$editorial->nombre</option> ";
-            }
-        }
-
-       echo   "</select></td>
+       echo   "
                <td><select data-live-search='true' class='selectpicker' required multiple name='idAutor[]' >";
 
 
@@ -204,7 +174,7 @@ $("document").ready(function() {
     //Aqui comienza la modal de modificar----------------------------------------------------------
 
 
-    echo"  <div class='modal' id='lupa$libro->id'>
+    echo"  <div class='modal fade' id='lupa$libro->id' >
                 <div class='modal-dialog'>
                     <div class='modal-content'>
 
@@ -236,7 +206,7 @@ $("document").ready(function() {
                 <label for='fecha'>Fecha</label>
                 <input type='text' class='form-control' name='fecha' id='fecha' value='$libro->fecha'>
             </div>
-            <div class='form-group'>
+            <div hidden class='form-group'>
                 <label for='paginas'>Páginas</label>
                 <input type='text' class='form-control' name='paginas' id='paginas'>
             </div>
@@ -373,7 +343,7 @@ $("document").ready(function() {
         </table>
         </div>
     
-<div class='modal' id='insertModal'>
+<div class='modal fade' id='insertModal'>
   <div class='modal-dialog'>
     <div class='modal-content'>
 
@@ -404,7 +374,7 @@ $("document").ready(function() {
                 <label for='fecha'>Fecha</label>
                 <input type='text' class='form-control' name='fecha' id='fecha'>
             </div>
-            <div class="form-group">
+            <div hidden class="form-group">
                 <label for="paginas">Páginas</label>
                 <input type='text' class='form-control' name='paginas' id='paginas'>
             </div>

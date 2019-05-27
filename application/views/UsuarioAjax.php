@@ -119,7 +119,7 @@ $("document").ready(function() {
               </tr>";
               echo"
 
-              <div class='modal' id='lupa$usuario->id' class='$usuario->id'>
+              <div class='modal fade' id='lupa$usuario->id' class='$usuario->id'>
               <div class='modal-dialog'>
                 <div class='modal-content'>
             
@@ -214,7 +214,7 @@ $("document").ready(function() {
 
 
 
-<div class="modal" id="insertModal">
+<div class="modal fade" id="insertModal">
   <div class="modal-dialog">
     <div class="modal-content">
 

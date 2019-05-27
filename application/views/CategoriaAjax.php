@@ -106,7 +106,7 @@ $("document").ready(function() {
 
 <!--Contenido de la ventana modal de insercion-->
 
-<div class="modal" id="insertModal">
+<div class="modal fade" id="insertModal">
   <div class="modal-dialog">
     <div class="modal-content">
 
