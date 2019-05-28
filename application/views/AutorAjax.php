@@ -87,11 +87,11 @@ $("document").ready(function() {
               <input hidden type='text' name='id' value='$autor->id'>
               <td style='width:60%'><p hidden>$autor->nombre</p><input type='text' name='nombre' value='$autor->nombre'></td>";
             if($this->session->userdata('tipoUsuario')==0){
-              echo"<td><button class='btn btn-info clasemodificar' value='$autor->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";
-              echo "<td><a value='$autor->id' class='btn btn-danger borrarInstituto'><i style='color:white' class='fas fa-trash-alt'></i></a></td>";
+              echo"<td><button class='btn btn-info clasemodificar btn-lg' value='$autor->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";
+              echo "<td><a value='$autor->id' class='btn btn-danger btn-lg borrarInstituto'><i style='color:white' class='fas fa-trash-alt'></i></a></td>";
             }else{
-              echo"<td><button class='btn btn-info clasemodificar disabled' value='$autor->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";
-              echo "<td><a value='$autor->id' class='btn btn-danger borrarInstituto disabled' ><i style='color:white' class='fas fa-trash-alt'></i></a></td>";
+              echo"<td><button class='btn btn-info btn-lg clasemodificar disabled' value='$autor->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";
+              echo "<td><a value='$autor->id' class='btn btn-danger btn-lg borrarInstituto disabled' ><i style='color:white' class='fas fa-trash-alt'></i></a></td>";
             }
           echo"
             </tr>

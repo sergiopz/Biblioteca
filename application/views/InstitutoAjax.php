@@ -96,8 +96,8 @@
             <td><p hidden>$instituto->localidad</p><input type='text' name='localidad'value='$instituto->localidad'></td>
             <td><p hidden>$instituto->direccion</p><input type='text' name='direccion'value='$instituto->direccion'></td>
             <td><p hidden>$instituto->cp</p><input type='text' name='cp'value='$instituto->cp'></td>
-            <td><button class='btn  btn-info  clasemodificar' value='$instituto->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>
-            <td><button class='btn btn-danger borrarInstituto' value='$instituto->id' type='submit' name='action'><i class='fas fa-trash-alt'></i></button></td>
+            <td><button class='btn  btn-info btn-lg  clasemodificar' value='$instituto->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>
+            <td><button class='btn btn-danger btn-lg borrarInstituto' value='$instituto->id' type='submit' name='action'><i class='fas fa-trash-alt'></i></button></td>
         </tr>
        ";
       }

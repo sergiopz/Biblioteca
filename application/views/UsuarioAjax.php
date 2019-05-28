@@ -114,8 +114,8 @@ $("document").ready(function() {
               $j=count($listaInstitutos);
             }
         }
-        echo" <td ><button id='lupa$usuario->id' type='button' class='btn btn-info' data-toggle='modal' data-target='#lupa$usuario->id'><i class='fas fa-info'></button></td>
-              <td ><button class='btn btn-danger claseBorrar ' value='$usuario->id' type='submit' name='action'><i class='fas fa-trash-alt'></i></button></td>
+        echo" <td ><button id='lupa$usuario->id' type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#lupa$usuario->id'><i class='fas fa-info'></button></td>
+              <td ><button class='btn btn-danger claseBorrar btn-lg ' value='$usuario->id' type='submit' name='action'><i class='fas fa-trash-alt'></i></button></td>
               </tr>";
               echo"
 
