@@ -14,7 +14,8 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="<?php echo base_url('css/estiloMaterialize.css');?>">
-     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="<?php echo base_url('css/jpages.css');?>">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,6 +34,14 @@
     document.getElementById('info').innerHTML = pdrs;
   }
   $("document").ready(function(){
+    $("div.holder").jPages({
+          containerID  : "itemContainer",
+	        perPage      : 6,
+	        startPage    : 1,
+	        startRange   : 1,
+	        midRange     : 5,
+	        endRange     : 1
+        });
 
 
      $('#recargar').click(function(){
@@ -97,8 +106,9 @@
 
 	<div class="container" >
         <div class="row"></div>
-		<div class="row">
-
+        <div class="holder"></div>
+		<div class="row" id='itemContainer'>
+     
       
 			<?php  
 			
@@ -113,7 +123,7 @@
 
 
         echo "
-      
+      <div  >
  
 
         <div class='col m1 s6 '>";
@@ -165,7 +175,7 @@
     </div>
 
   </div>
-
+</div>
 	<input type='hidden' name='id' value=''>
 	<input type='hidden' name='num_pag' value='$num_pag'>
 	<input type='hidden' name='pagina_ant' value='".($i-1)."'>";
@@ -174,7 +184,13 @@
 
     }
     echo"
+
     </div>
+
+    <div class='holder'>
+      
+    </div>
+
   </div>";
   
 	
@@ -192,6 +208,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="<?php echo base_url('js/jpages.js');?>"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function(){
+       
+      });
+    </script>
 </body>
 </html>
