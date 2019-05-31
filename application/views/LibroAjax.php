@@ -89,7 +89,7 @@ $("document").ready(function() {
         <table id="Dtabla" class="table hover compact table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>Isbn</th>
+                    <th>ISBN</th>
                     <th>Titulo</th>
                     <th>Autor</th>
                     <th>Categoria</th>

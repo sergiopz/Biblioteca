@@ -75,11 +75,13 @@
                 }
 
                 if ($r== 0) { 
-                    redirect('Libros/VistaAjax','refresh');
+                    $this->VistaAjax();
+                    //redirect('Libros/VistaAjax','refresh');
                     //Si inserta el libro crea una carpeta en el direcciorio assets con el id del libro
                 } else {
                     $this->carpeta($id);
-                    redirect('Libros/VistaAjax','refresh');
+                    $this->VistaAjax();
+                    //redirect('Libros/VistaAjax','refresh');
                 }
             }
         }
@@ -136,7 +138,17 @@
                     if($r1==0 || $r2==0){
                         echo"Fallo al eliminar libro";
                     }else{
-                        echo"Libro eliminado con exito"; 
+                          echo"Libro eliminado con exito";
+                         $total = count(glob('assets/libros/'.$id.'/{*.jpg,*.gif,*.png}',GLOB_BRACE));
+
+                         for ($i = $cont=0; $i <  $total; $i++) {
+                                $filename="assets/libros/".$id."/".$i.".jpg";
+                                 $res=unlink($filename);
+
+                         }
+
+                        $ruta="assets/libros/$id";
+                        rmdir($ruta);
                     } 
                 }
             }
