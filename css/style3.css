@@ -2,7 +2,9 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   transition: background-color .5s;
 }
-
+th{
+  vertical-align: middle !important;
+}
 th, td {
   text-align: center !important;
 }
