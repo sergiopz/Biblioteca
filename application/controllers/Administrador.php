@@ -36,10 +36,15 @@
                $idUser = $datosUser[0]['id'];
                $this->crearLogin($datosUser[0]['id'],$datosUser[0]['nombre'], $datosUser[0]['tipo']);
 
-            if($this->session->userdata('tipoUsuario')>1){
+            if($this->session->userdata('tipoUsuario')>2){
                redirect(site_url());
+            }else if($this->session->userdata('tipoUsuario')==2){//ME HE QUEDADO AQUI
+               redirect(site_url());
+               echo"soyaaaaaaaaaaaaaaaaaa";
+            }else if( ($this->session->userdata('tipoUsuario')>=0) && ($this->session->userdata('tipoUsuario')<=1) ){
+               $this->main();
             }
-            $this->main();
+
 
          //Si el usuario no esta registrado
          } else {

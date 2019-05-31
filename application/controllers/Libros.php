@@ -75,13 +75,12 @@
                 }
 
                 if ($r== 0) { 
-                    $this->VistaAjax();
-                    //redirect('Libros/VistaAjax','refresh');
+                    redirect('Libros/VistaAjax','refresh');
                     //Si inserta el libro crea una carpeta en el direcciorio assets con el id del libro
                 } else {
                     $this->carpeta($id);
-                    $this->VistaAjax();
-                    //redirect('Libros/VistaAjax','refresh');
+                   
+                    redirect('Libros/VistaAjax','refresh');
                 }
             }
         }
@@ -267,6 +266,10 @@
              redirect(site_url("Libros/ModificarPaginas/$id_libro"));  
             }
         
+        //Function que se encarga de coger los datos de favoritos
+        public function favoritos(){
+            $data["listaUsuariosLibros"] = $this->LibrosModel-> getUsuarioLibro();
+        }
 
         //Funcion que se encarga de cerrar la sesion
         public function salir() {

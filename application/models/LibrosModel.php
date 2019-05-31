@@ -139,8 +139,16 @@
         return $resultado;               
     }
 
-    
+        //Funciones para ver los libros favoritos
+     public function getUsuarioLibro() {
+        $r = $this->db->query("SELECT * FROM favoritos");
+        $UsuariosLibros=array();
 
+        foreach($r->result()as $UsuarioLibro){
+            $UsuariosLibros[]=$UsuarioLibro;
+        }
+        return $UsuariosLibros;     
+        }   
 
     
 }
