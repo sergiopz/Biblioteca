@@ -320,8 +320,14 @@
 
 					    <div class='card-body'>
 					      <h5 class='card-title tituloTarjeta text-center'>$libro->titulo</h5> 
-                <a href='".site_url("Buscador/Visor/$libro->id")."'><h5 class='botonTarjeta text-center'>Ver libro</h5></a>
-                <button><i class='far fa-star'></i></button>
+                <a href='".site_url("Buscador/Visor/$libro->id")."'><h5 class='botonTarjeta text-center'>Ver libro</h5></a> ";
+                
+                if($this->session->userdata('tipoUsuario')==2){
+                  echo"<button><i class='far fa-star'></i></button>
+                   ";
+              }
+                
+          echo"     
               </div>
  
 				    </div>
