@@ -91,7 +91,7 @@
                     echo"   <td><button class='btn btn-info clasemodificar btn-lg' value='$editorial->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";
                     echo"<td><a value='$editorial->id' class='btn btn-danger btn-lg borrarInstituto' ><i style='color:white' class='fas fa-trash-alt'></i></a></td>";
                   }else{
-                    echo"   <td><button class='btn btn-info clasemodificar btn-lg disabled' value='$editorial->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";
+                    echo"   <td><button class='btn btn-info btn-lg disabled' value='$editorial->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";
                     echo"<td><a value='$editorial->id' class='btn btn-danger btn-lg borrarInstituto disabled' ><i style='color:white' class='fas fa-trash-alt'></i></a></td>";
                   }
 

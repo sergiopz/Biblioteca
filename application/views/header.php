@@ -31,6 +31,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Administración</title>
+
 </head>
 
 <body>
@@ -54,7 +55,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a id='menuAdmin' class="nav-link" href="#">
+                        <a class="nav-link btn-demo" data-toggle="modal" data-target="#leftModal" href="#">
                             Administración
                         </a>
                     </li>
@@ -71,21 +72,30 @@
 
         <div id="mySidenav" class="sidenav">
 	        <a href="javascript:void(0)" id='closeMenuAdmin' class="closebtn" >&times;</a>
-	        <a href="<?php echo site_url('Libros/VistaAjax');?>" class='libro'>Libros</a>
-	        <a href="<?php echo site_url("Autores/VistaAjax"); ?>" class='autor'>Autores</a>
-	        <a href="<?php echo site_url("Categorias/VistaAjax"); ?>" class='categoria'>Categorías</a>
-	        <a href="<?php echo site_url("Editoriales/VistaAjax"); ?>" class='editorial'>Editoriales</a>
-            <?php  
-                if($this->session->userdata('tipoUsuario')==0){
-            ?>
-	                <a href='<?php echo site_url('Institutos/VistaAjax'); ?>' class='instituto'>Institutos</a>
-                    <a href='<?php echo site_url('Usuarios/VistaAjax'); ?>' class='usuario'>Usuarios</a>
-            <?php
-                }
-            ?>
+	        
         </div>
        
            
 
 
-        
+        <div  class="modal left fade" id="leftModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="nav flex-sm-column flex-row">
+                        <a class="nav-item nav-link ElementoAdmin" href="<?php echo site_url('Libros/VistaAjax');?>" class='libro'>Libros</a>
+	                    <a class="nav-item nav-link ElementoAdmin" href="<?php echo site_url("Autores/VistaAjax"); ?>" class='autor'>Autores</a>
+	                    <a class="nav-item nav-link ElementoAdmin" href="<?php echo site_url("Categorias/VistaAjax"); ?>" class='categoria'>Categorías</a>
+	                    <a class="nav-item nav-link ElementoAdmin" href="<?php echo site_url("Editoriales/VistaAjax"); ?>" class='editorial'>Editoriales</a>
+                        <?php  if($this->session->userdata('tipoUsuario')==0){ ?>
+	                        <a class="nav-item nav-link ElementoAdmin" href='<?php echo site_url('Institutos/VistaAjax'); ?>' class='instituto'>Institutos</a>
+                            <a class="nav-item nav-link ElementoAdmin" href='<?php echo site_url('Usuarios/VistaAjax'); ?>' class='usuario'>Usuarios</a>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>

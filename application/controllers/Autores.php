@@ -23,9 +23,7 @@
                 echo"Fallo al insertar autor";
                 
             } else {
-                 $data["nombreVista"] = "VistaAdministrador";
-                           $data["tabla"] = "autor";   
-                           $this->load->view("plantilla", $data);           
+                redirect('autores/VistaAjax','refresh');          
             }
         }
 

@@ -90,7 +90,7 @@ $("document").ready(function() {
               echo"<td><button class='btn btn-info clasemodificar btn-lg' value='$autor->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";
               echo "<td><a value='$autor->id' class='btn btn-danger btn-lg borrarInstituto'><i style='color:white' class='fas fa-trash-alt'></i></a></td>";
             }else{
-              echo"<td><button class='btn btn-info btn-lg clasemodificar disabled' value='$autor->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";
+              echo"<td><button class='btn btn-info btn-lg  disabled' value='$autor->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";
               echo "<td><a value='$autor->id' class='btn btn-danger btn-lg borrarInstituto disabled' ><i style='color:white' class='fas fa-trash-alt'></i></a></td>";
             }
           echo"

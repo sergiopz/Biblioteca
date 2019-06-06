@@ -90,7 +90,7 @@ $("document").ready(function() {
                             echo"<td class=''><button class='btn btn-info btn-lg clasemodificar' value='$categoria->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";  
                             echo"<td class=''><a value='$categoria->id' class='btn btn-danger btn-lg borrarcategoria' ><i style='color:white' class='fas fa-trash-alt'></i></a></td>";
                      }else{
-                            echo"<td class=''><button class='btn btn-info clasemodificar btn-lg disabled' value='$categoria->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";  
+                            echo"<td class=''><button class='btn btn-info  btn-lg disabled' value='$categoria->id' type='submit' name='action'><i class='fas fa-pencil-alt'></i></button></td>";  
                             echo"<td class=''><a value='$categoria->id' class='btn btn-danger btn-lg borrarcategoria disabled' ><i style='color:white'class='fas fa-trash-alt'></i></a></td>";
                      }
 
