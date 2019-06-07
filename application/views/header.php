@@ -44,7 +44,7 @@
                 <?php 
                       if($this->session->userdata('tipoUsuario')==0){
                             echo $this->session->userdata('nombreUsuario') ." (Administrador)";
-                      }else if($this->session->userdata('tipoUsuario nombreAdmin')==1){
+                      }else if($this->session->userdata('tipoUsuario')==1){
                             echo $this->session->userdata('nombreUsuario') ." (Bibliotecario)";
                       }
                     ?>
