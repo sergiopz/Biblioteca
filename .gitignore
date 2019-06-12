@@ -31,4 +31,8 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/results/
 /config/config.php
 /config/database.php
+
+## Archivos .env
 .env.development
+.env.production
+.env.testing
