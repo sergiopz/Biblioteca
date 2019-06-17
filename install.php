@@ -24,7 +24,11 @@
                 max-width: 1300px;
             }
             .bg-secondary {
-                background-color: #4E5D6C;
+                background-color: black;
+                border-radius: 118px 24px 24px 24px;
+-moz-border-radius: 118px 24px 24px 24px;
+-webkit-border-radius: 118px 24px 24px 24px;
+border: 2px solid #c21d1d;
             }
             .col-md-6{
                 width: 50%;
@@ -57,7 +61,7 @@
             }
             .btn-primary {
                 color: #fff;
-                background-color: #DF691A;
+                background-color: red;
                 border: none;
                 width: auto;
                 padding: 0.375rem 0.75rem;
@@ -70,7 +74,7 @@
                 padding-bottom: 15px; 
             }
             body{
-                background-color: #2B3E50;
+                background-color: white;
             }
             .text-justify{
                 text-align: justify;
@@ -92,6 +96,17 @@
             }
             .text-white {
                 color: white;
+            }
+            #contenedorMSG{
+                width: 50%;
+                margin: 0 auto;
+                margin-top: 15%;
+
+                
+            }
+            .msg{
+                text-align: center;
+                
             }
         </style>         
     </head>
@@ -276,15 +291,17 @@
         								DB_DATABASE='" . $nombredb . "<br> 
         								BASE_URL='" . $baseurl . "'<br>
         								SESSION_DIR='/tmp'<br><br><br>
-                                                                        Cuando haya creado el archivo puede visitar <a href='$baseurl/usuario'>$baseurl/usuario</a> para comenzar a administrar su visita virtual. Pida ayuda a su administrador de sistemas si no sabe cómo hacer todo esto.";
+                                                                        Cuando haya creado el archivo puede visitar <a href='$baseurl'>$baseurl</a> para comenzar a administrar su visita virtual. Pida ayuda a su administrador de sistemas si no sabe cómo hacer todo esto.";
             }
             fclose($archivo);
 			//creación de directorios 
 			
 			
 			
-            echo "<br><br><span class='text-white'>La instalación ha finalizado. <strong>IMPORTANTE: elimine ahora el archivo de instalación (install.php) del servidor para evitar posibles ataques a su base de datos.</strong>.<br>"
-            . "Visite <a href='$baseurl'>$baseurl</a> para comenzar a introducir los datos de su visita virtual.</span><br>";
+            echo "<div><div id='contenedorMSG'><span class=' msg'>La instalación ha finalizado.<br><br> <strong>IMPORTANTE: elimine ahora el archivo de instalación (install.php) del servidor para evitar posibles ataques a su base de datos.</strong><br>"
+            . "<br>Visite <strong><a style='color:black' href='$baseurl'>$baseurl</a></strong> para comenzar a introducir los datos de la Biblioteca.
+            
+                <br><br>Puede acceder a la administración del sitio web con los siguientes datos:<br><br> User: admin<br> Pass: admin</span></div></div>";
          }
      }
          // fin del if
