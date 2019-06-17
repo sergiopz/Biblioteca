@@ -154,7 +154,7 @@
       <?php
                 if($this->session->userdata('tipoUsuario')==2){
                   echo" <li class='nav-item justify-content-end'>
-                          <a class='enlacesDrop nav-link elementosNav' href='".site_url('Seguridad/cerrar_sesion')."'>Salir</a>
+                          <a class='enlacesDrop nav-link elementosNav' href='".site_url('Administrador/IndexRefresh')."'>Salir</a>
                         </li>
                       ";
                 }else if( !isset($this->session->loguedIn) ){
