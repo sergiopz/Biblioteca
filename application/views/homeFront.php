@@ -127,13 +127,13 @@
 
 
       <li class="nav-item">
-        <a class="enlacesDrop nav-link elementosNav" href="<?php echo base_url('index.php/Buscador/Categoria'); ?>">Categorias</a>
+        <a class="enlacesDrop nav-link elementosNav" href="<?php echo base_url('index.php/Buscador/Categoria'); ?>">Categorías</a>
       </li>
 
       <?php
         if($this->session->userdata('tipoUsuario')==2){
           echo" <li class='nav-item'>
-                  <a class='enlacesDrop nav-link elementosNav' href='".site_url('Buscador/Categoria')."'>Favoritos</a>
+                  <a class='enlacesDrop nav-link elementosNav' href='".site_url('Libros/favoritos/').$this->session->userdata('idUsuario')."'>Favoritos</a>
                 </li>
               ";
         }

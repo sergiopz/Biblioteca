@@ -1,4 +1,3 @@
-
 <body  class="imgFondo" >
 
 <nav id="barraSuperior"class=" navbar navbar-expand-md navbar-dark">
@@ -19,13 +18,13 @@
       </li>
 
       <li class="nav-item">
-        <a class="enlacesDrop nav-link elementosNav" href="#">Categorías</a>
+        <a class="enlacesDrop nav-link elementosNav" href="<?php echo base_url('index.php/Buscador/Categoria'); ?>">Categorias</a>
       </li>
 
       <?php
         if($this->session->userdata('tipoUsuario')==2){
           echo" <li class='nav-item'>
-                  <a class='enlacesDrop nav-link elementosNav' href='".site_url('Libros/favoritos/').$this->session->userdata('idUsuario')."'>Favoritos</a>
+                  <a class='enlacesDrop nav-link elementosNav' href='".site_url('Libros/favoritos')."'>Favoritos</a>
                 </li>
               ";
         }
@@ -112,36 +111,46 @@
      <div class="row contenedorDiv ">
        
         <div  class="col-md-11 col-sm-11 col-xs-11 offset-1">
-        <form name="formularioBuscador" action="<?php echo base_url(); ?>index.php/Buscador/buscador" class="form-inline" method="post" accept-charset="utf-8">
+        <form name="formularioBuscador"  class="form-inline" method="post" accept-charset="utf-8">
           <input id="buscador3" name="buscador" class="form-control mr-sm-2" type="search" placeholder="Titulo, autor, categoria..." aria-label="Search">
         </form>
         </div>
         <?php
-        $colorCategoria = 0;
-        for ($i = 0; $i < count($listaCategoria); $i++) {
-          $ca = $listaCategoria[$i];
-          
-          if ($colorCategoria == 8){
-            $colorCategoria = 0;
-          }
-         
+    
+            for ($i = 0; $i < count($listaUsuariosLibros); $i++) {
+                $libro = $listaUsuariosLibros[$i]; 
+   
+                
+          $ultimaPag = count(glob('assets/libros/'.$libro->id.'/{*.jpg,*.gif,*.png}',GLOB_BRACE))-1;
 
           echo"
-            <div class='col-md-3 col-sm-5 col-xs-8 d-block  divCategorias categoria$colorCategoria '>
-              <a class='enlacesCategorias' href='".site_url("Buscador/BuscadorCategoria/$ca->id")."'>
-                <h2 class='text-center' href='".site_url("Buscador/BuscadorCategoria/$ca->id")."'>$ca->nombre</h2>
-              </a>
-            </div>
-            <div class='col-md-1 col-sm-1 col-xs-1'></div>
-          ";
 
-          $colorCategoria++;
-        }
+          <div class='col-md-3 col-sm-4 col-xs-12 margenTarjeta '>
+            <div class='card tamañoTarjeta'>
 
+              <a href='".site_url("Buscador/Visor/$libro->id")."'><img class='card-img-top imgTarjeta' id='$libro->id' name='$ultimaPag'  src='".base_url("assets/libros/".$libro->id."/0.jpg")."' ></a>
 
+					    <div class='card-body'>
+					      <h5 class='card-title tituloTarjeta text-center'>$libro->titulo</h5> 
+                <a href='".site_url("Buscador/Visor/$libro->id")."'><h5 class='botonTarjeta text-center'>Ver libro</h5></a> ";
+                
+                if($this->session->userdata('tipoUsuario')==2){
+                  echo"<button><i class='far fa-star'></i></button>
+                   ";
+              }
+                
+          echo"     
+              </div>
+ 
+				    </div>
+          </div>
+          <div class='col-md-1 col-sm-2'></div>";
+
+            }
         ?>
     </div>
   </div>
+
   <script>
     $("document").ready(function(){
       $(".divCategorias").click(function(){

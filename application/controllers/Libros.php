@@ -267,8 +267,14 @@
             }
         
         //Function que se encarga de coger los datos de favoritos
-        public function favoritos(){
-            $data["listaUsuariosLibros"] = $this->LibrosModel-> getUsuarioLibro();
+        public function favoritos($idUsuario){
+            $data["listaUsuariosLibros"] = $this->LibrosModel->getLibroFavorito($idUsuario);
+            $data["nombreVista"] = "Favoritos";
+            $this->load->view("plantillaFront", $data);
+        }
+
+        public function quitarFavoritos($idLibro){
+            
         }
 
         //Funcion que se encarga de cerrar la sesion
