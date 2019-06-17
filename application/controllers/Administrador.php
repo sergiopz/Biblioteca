@@ -54,7 +54,7 @@
       //Si existe la variable de sesion logue in te lleva al panel de administracion
       public function main() {
         if($this->security_check()){
-            if($this->session->userdata('tipoUsuario')>=2){
+            if($this->session->userdata('tipoUsuario')==2){
                $this->Index();
             }else{
                redirect('Libros/VistaAjax','refresh');
