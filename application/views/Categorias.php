@@ -33,10 +33,20 @@
 
 
     <ul class="navbar-nav justify-content-end ml-auto">
-     
-      <li class="nav-item ">
-        <a id="botonInicio" href="" class="enlacesDrop nav-link elementosNav"   data-toggle="modal" data-target="#modalInicio">Iniciar sesión</a>
-      </li>
+     <?php
+      if( !isset($this->session->loguedIn) ){
+        echo "<li class='nav-item'>
+                <a id='botonInicio' href='' class='enlacesDrop nav-link elementosNav'   data-toggle='modal' data-target='#modalInicio'>Iniciar sesión</a>
+              </li>
+        ";
+      }else if($this->session->userdata('tipoUsuario')==2){
+        echo" <li class='nav-item justify-content-end'>
+                <a class='enlacesDrop nav-link elementosNav' href='".site_url('Administrador/IndexRefresh')."'>Cerrar sesión</a>
+              </li>
+            ";
+      }
+
+     ?>
 
     </ul>
   </div> 

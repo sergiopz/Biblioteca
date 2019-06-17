@@ -33,9 +33,7 @@
         public function cerrar_sesion() {
             $this->load->library("session");
             $this->session->sess_destroy();
-            $data["nombreVista"] = "homeFront";
-            $data["ultimosLibros"]=$this->BuscadorModel->UltimosLibros();
-            $this->load->view("plantillaFront", $data);
+            redirect('Administrador/Index','refresh');
         }
     
     }

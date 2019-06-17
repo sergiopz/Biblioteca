@@ -24,7 +24,6 @@
       //Funcion de prueba para cargar la vista al borrarla
       public function IndexRefresh(){
          $this->cerrar_sesion();
-         redirect('Administrador/Index','refresh');
       }
 
       //Comprobaremos si el usuario esta registrado en la plataforma
