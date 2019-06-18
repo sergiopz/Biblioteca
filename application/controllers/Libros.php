@@ -277,7 +277,9 @@
             $r=$this->LibrosModel->InsertarFavorito($idUsuario,$idLibro);
         }
 
-        public function quitarFavoritos($idUsuario,$idLibro){
+        public function EliminarFavoritos(){
+            $idUsuario = $this->input->get_post("idUsuario");
+            $idLibro = $this->input->get_post("idLibro");
             $r=$this->LibrosModel->EliminarFavorito($idUsuario,$idLibro);
         }
 
