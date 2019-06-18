@@ -315,3 +315,14 @@ a.enlacesDrop{
 .fav{
     color: rgb(35, 111, 197);
 }
+
+.botonFavorito{
+    position:absolute;
+    top:5px;
+    right:0px;
+    background-color:rgb(241, 56, 56)!important;
+    border-radius: 200px 200px 200px 200px;
+    -moz-border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    border: 0px hidden;
+}

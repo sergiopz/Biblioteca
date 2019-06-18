@@ -348,7 +348,7 @@
                 <a href='".site_url("Buscador/Visor/$libro->id")."'><h5 class='botonTarjeta text-center'>Ver libro</h5></a> ";
                 
                 if($this->session->userdata('tipoUsuario')==2){
-                  echo"<button><i class='fas fa-star'></i></button>
+                  echo"<button class='botonFavorito'><i class='fas fa-star'></i></button>
                    ";
               }
                 
