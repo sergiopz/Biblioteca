@@ -6,6 +6,7 @@
         public function __construct() {
             parent::__construct();
             $this->load->model("BuscadorModel");
+            $this->load->model("LibrosModel");
 
         }
 
@@ -16,6 +17,11 @@
             $data["listaBusqueda"]=$this->BuscadorModel->consulta($valor);
             
            // $this->load->view("VistaDos.php", $data);
+
+           if(isset($this->session->loguedIn)) {
+            $idUsuario=$this->session->userdata('idUsuario');
+            $data["favoritos"] = $this->LibrosModel->getLibroFavorito($idUsuario);
+           }
 
             $data["nombreVista"] = "VistaDos";
             $data["tituloBusqueda"] = $valor;
@@ -55,6 +61,12 @@
 
             $data["listaBusqueda"]=$this->BuscadorModel->LibrosCategorias($id);
            // $this->load->view("VistaDos.php", $data);
+
+           if(isset($this->session->loguedIn)) {
+            $idUsuario=$this->session->userdata('idUsuario');
+            $data["favoritos"] = $this->LibrosModel->getLibroFavorito($idUsuario);
+           }
+
 
             $data["nombreVista"] = "VistaDos";
             //$data["tituloBusqueda"] = $categoria;

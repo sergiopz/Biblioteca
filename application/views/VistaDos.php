@@ -118,6 +118,38 @@
 
            });
 
+           $(".favorito").click(function() {
+        var idLibro = $(this).attr('value');
+        var cadena = $("#prueba" + idLibro + " i").attr("class");
+        var datos = "idUsuario=" + "<?php echo $this->session->userdata('idUsuario'); ?>" + "&idLibro=" + idLibro;
+
+
+        if ("fas fa-star fav" == cadena) {
+          $("#prueba" + idLibro + " i").attr("class", "fas fa-star nofav");
+
+          var ruta = "<?php echo site_url("Libros/EliminarFavoritos/"); ?>";
+
+          $.ajax({
+            type: "POST",
+            url: ruta,
+            data: datos,
+            success: function(data) {}
+          });
+
+        } else {
+          $("#prueba" + idLibro + " i").attr("class", "fas fa-star fav");
+
+          var ruta = "<?php echo site_url("Libros/InsertarFavoritos/"); ?>";
+
+          $.ajax({
+            type: "POST",
+            url: ruta,
+            data: datos,
+            success: function(data) {}
+          });
+        }
+      })
+
          });
        </script>
        <?php
@@ -153,9 +185,24 @@
              <h5 class='card-title tituloTarjeta text-center'>$bus->titulo</h5>
              <a href='" . site_url("Buscador/Visor/$bus->id") . "'>
                <h5 class='botonTarjeta text-center'>Ver libro</h5>
-             </a>
-           </div>
+             </a>";
+          
+          if ($this->session->userdata('tipoUsuario') == 2) {
 
+            for ($j = 0; $j < count($favoritos); $j++) {
+              $favorito = $favoritos[$j];
+
+              if ($bus->id == $favorito->idLibro) {
+                echo "<button class='botonFavorito favorito' id='prueba$bus->id' value='$bus->id' class='favorito' ><i class='fas fa-star fav'></i></button>";
+                $j = count($favoritos);
+              } else if ($j == count($favoritos) - 1) {
+                echo "<button class='botonFavorito favorito' id='prueba$bus->id' value='$bus->id' class='favorito' ><i class='fas fa-star nofav'></i></button>";
+                $j = count($favoritos);
+              }
+            }
+          }
+        echo"   
+          </div>
          </div>
          </div>
          <div class='col-md-1 col-sm2 '></div>";
