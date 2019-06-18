@@ -135,7 +135,7 @@
                 <a href='".site_url("Buscador/Visor/$libro->id")."'><h5 class='botonTarjeta text-center'>Ver libro</h5></a> ";
                 
                 if($this->session->userdata('tipoUsuario')==2){
-                  echo"<button><i class='far fa-star'></i></button>
+                  echo"<button value='$libro->id' class='favorito' ><i class='fas fa-star fav'></i></button>
                    ";
               }
                 
@@ -151,13 +151,38 @@
     </div>
   </div>
 
+
   <script>
     $("document").ready(function(){
-      $(".divCategorias").click(function(){
-
+      $(".favorito").click(function(){
+        var idLibro=$(this).attr('value');
+        var cadena= $(".favorito").attr("class")+"1";
+        alert(cadena);
+          if("fas fa-star fav" == cadena){
+            $("#prueba1 i").attr("class","fas fa-star nofav");
+          }else{
+            $("#prueba1 i").attr("class","fas fa-star fav");
+          }
       })
     });
   </script>
-     
+  <!--
+  <script>
+    $("document").ready(function(){
+      $(".favorito").click(function(){
+
+        var atributo=$(this).attr('value');
+        alert("#"+atributo+" i");
+        var cadena= $("#prueba i").attr("class");
+        alert(cadena);
+          if("fas fa-star fav" == cadena){
+            $("#prueba1 i").attr("class","fas fa-star nofav");
+          }else{
+            $("#prueba1 i").attr("class","fas fa-star fav");
+          }
+      })
+    });
+  </script>
+  -->
 
 

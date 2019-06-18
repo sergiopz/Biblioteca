@@ -309,4 +309,9 @@ a.enlacesDrop{
     background:rgb(108, 80, 211)!important;
 }
 
-
+.nofav{
+    color: rgb(153, 153, 153);
+}
+.fav{
+    color: rgb(35, 111, 197);
+}

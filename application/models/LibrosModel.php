@@ -168,12 +168,12 @@ class LibrosModel extends CI_Model
     }
 
     public function InsertarFavorito($idUsuario,$idLibro){
-        $r = $this->db->query("INSERT INTO favoritos(idUsuario,idLibro)  VALUES ('$idUsuario','$idLibro')");
+        $r = $this->db->query("INSERT INTO favoritos (idUsuario,idLibro)  VALUES ('$idUsuario','$idLibro')");
             return $r;
     }
 
     public function EliminarFavorito($idUsuario,$idLibro){
-        $this->db->query("DELETE FROM libros WHERE idUsuario='$idUsuario' AND idLibro='$idLibro' ");
+        $this->db->query("DELETE FROM favoritos WHERE idUsuario='$idUsuario' AND idLibro='$idLibro' ");
         return $this->db->affected_rows();
     }
 }

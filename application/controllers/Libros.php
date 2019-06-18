@@ -273,8 +273,12 @@
             $this->load->view("plantillaFront", $data);
         }
 
-        public function quitarFavoritos($idLibro){
-            
+        public function InsertarFavoritos($idUsuario,$idLibro){
+            $r=$this->LibrosModel->InsertarFavorito($idUsuario,$idLibro);
+        }
+
+        public function quitarFavoritos($idUsuario,$idLibro){
+            $r=$this->LibrosModel->EliminarFavorito($idUsuario,$idLibro);
         }
 
         //Funcion que se encarga de cerrar la sesion
