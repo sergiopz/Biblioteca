@@ -214,6 +214,11 @@ border: 2px solid #c21d1d;
 
             $db->query(" INSERT INTO `librocategoria` (`idLibro`, `idCategoria`) VALUES (0, 0),");
 
+            $db->query("CREATE TABLE `favoritos` (
+                `idUsuario` int(200) NOT NULL,
+                `idLibro` int(200) NOT NULL
+              ) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
+              
             $db->query("CREATE TABLE `libros` (
                 `id` int(11) NOT NULL,
                 `isbn` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
