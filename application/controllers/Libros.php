@@ -273,7 +273,9 @@
             $this->load->view("plantillaFront", $data);
         }
 
-        public function InsertarFavoritos($idUsuario,$idLibro){
+        public function InsertarFavoritos(){
+            $idUsuario = $this->input->get_post("idUsuario");
+            $idLibro = $this->input->get_post("idLibro");
             $r=$this->LibrosModel->InsertarFavorito($idUsuario,$idLibro);
         }
 

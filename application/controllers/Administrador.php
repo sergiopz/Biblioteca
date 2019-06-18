@@ -11,6 +11,7 @@
          $this->load->model("EditorialesModel");
          $this->load->model("BuscadorModel");
          $this->load->model("InstitutosModel");
+         $this->load->model("LibrosModel");
       }
 
       //Cargamos la vista principal con los ultimos libros 
@@ -18,6 +19,7 @@
          $data["nombreVista"] = "homeFront";
          $data["ultimosLibros"]=$this->BuscadorModel->UltimosLibros();
          $data["institutos"]=$this->InstitutosModel->getAll();
+         $data["favoritos"]=$this->LibrosModel->getLibroFavorito($this->session->userdata('idUsuario'));
          $this->load->view("plantillaFront", $data);
       }
 
