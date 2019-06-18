@@ -155,29 +155,54 @@
 
   <script>
     $("document").ready(function() {
-      $(".favorito").click(function() {
-        var idLibro = $(this).attr('value');
-        var cadena = $("#prueba" + idLibro + " i").attr("class");
-        var datos = "idUsuario=" + "<?php echo $this->session->userdata('idUsuario'); ?>" + "&idLibro=" + idLibro;
+      $(".favorito").click(function(e) {
+
+        swal({
+          title: "¿Estás seguro?",
+          text: "Tu libro se eliminará de favoritos!",
+          icon: "warning",
+          buttons: ["Cancelar!", "Adelante!"],
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            
+              var idLibro = $(this).attr('value');
+              var cadena = $("#prueba" + idLibro + " i").attr("class");
+              var datos = "idUsuario=" + "<?php echo $this->session->userdata('idUsuario'); ?>" + "&idLibro=" + idLibro;
+
+              if ("fas fa-star fav" == cadena) {
+
+                $("#prueba" + idLibro + " i").attr("class", "fas fa-star nofav");
+
+                var ruta = "<?php echo site_url("Libros/EliminarFavoritos/"); ?>";
+
+                $("#borrar" + idLibro).remove();
+
+                $.ajax({
+                  type: "POST",
+                  url: ruta,
+                  data: datos,
+                  success: function(data) {}
+                });
+
+              } else {
+                $("#prueba" + idLibro + " i").attr("class", "fas fa-star fav");
+              }
+            
+          } else {
+            e.preventDefault();
+          }
+
+        });
+
+      
 
 
-        if ("fas fa-star fav" == cadena) {
-          $("#prueba" + idLibro + " i").attr("class", "fas fa-star nofav");
 
-          var ruta = "<?php echo site_url("Libros/EliminarFavoritos/"); ?>";
 
-          $("#borrar" + idLibro).remove();
 
-          $.ajax({
-            type: "POST",
-            url: ruta,
-            data: datos,
-            success: function(data) {}
-          });
-
-        } else {
-          $("#prueba" + idLibro + " i").attr("class", "fas fa-star fav");
-        }
+        
       })
     });
   </script>
