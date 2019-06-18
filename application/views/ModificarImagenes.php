@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+1<!DOCTYPE html>
     <html lang="es">
     <head>
     <meta charset="UTF-8">
@@ -44,15 +44,7 @@
         });
 
 
-     $('#recargar').click(function(){
 
-
-
-        //location.reload(true);
-
-       
-        
-        });
 
   		//location.reload(true);
 
