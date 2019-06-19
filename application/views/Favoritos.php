@@ -43,17 +43,28 @@
         <ul class="navbar-nav justify-content-end ml-auto">
           <?php
           if (!isset($this->session->loguedIn)) {
-            echo "<li class='nav-item'>
-                <a id='botonInicio' href='' class='enlacesDrop nav-link elementosNav'   data-toggle='modal' data-target='#modalInicio'>Iniciar sesión</a>
-              </li>
-        ";
-          } else if ($this->session->userdata('tipoUsuario') == 2) {
-            echo " <li class='nav-item justify-content-end'>
-                <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Administrador/IndexRefresh') . "'>Cerrar sesión</a>
-              </li>
-            ";
+            echo "   <li class='nav-item'>
+                             <a id='botonInicio' href='' class='enlacesDrop nav-link elementosNav'   data-toggle='modal' data-target='#modalInicio'>Iniciar sesión</a>
+                          </li>
+                          <li class='nav-item justify-content-end'>
+                              <a id='' href='' class='enlacesDrop nav-link elementosNav'  data-toggle='modal' data-target='#modalRegistro'>Registrarse</a>
+                          </li>";
+          } else {
+            if (($this->session->userdata('tipoUsuario') >= 0) && ($this->session->userdata('tipoUsuario') <= 1)) {
+              echo " <li class='nav-item justify-content-end'>
+                        <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Libros/VistaAjax') . "'>Admin</a>
+                      </li>
+                      <li class='nav-item justify-content-end'>
+                        <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Administrador/IndexRefresh') . "'>Cerrar sesión</a>
+                      </li>
+                  ";
+            } else if ($this->session->userdata('tipoUsuario') == 2) {
+              echo " <li class='nav-item justify-content-end'>
+                            <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Administrador/IndexRefresh') . "'>Cerrar sesión</a>
+                          </li>
+                        ";
+            }
           }
-
           ?>
 
         </ul>
@@ -134,7 +145,7 @@
 					      <h5 class='card-title tituloTarjeta text-center'>$libro->titulo</h5> 
                 <a href='" . site_url("Buscador/Visor/$libro->id") . "'><h5 class='botonTarjeta text-center'>Ver libro</h5></a> ";
 
-        if ($this->session->userdata('tipoUsuario') == 2) {
+        if ($this->session->userdata('tipoUsuario') <= 2) {
           echo "<button class='botonFavorito favorito' id='prueba$libro->id' value='$libro->id' class='favorito' ><i class='fas fa-star fav'></i></button>
                    ";
         }
@@ -158,15 +169,15 @@
       $(".favorito").click(function(e) {
 
         swal({
-          title: "¿Estás seguro?",
-          text: "Tu libro se eliminará de favoritos!",
-          icon: "warning",
-          buttons: ["Cancelar!", "Adelante!"],
-          dangerMode: true,
-        })
-        .then((willDelete) => {
-          if (willDelete) {
-            
+            title: "¿Estás seguro?",
+            text: "Tu libro se eliminará de favoritos!",
+            icon: "warning",
+            buttons: ["Cancelar!", "Adelante!"],
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+
               var idLibro = $(this).attr('value');
               var cadena = $("#prueba" + idLibro + " i").attr("class");
               var datos = "idUsuario=" + "<?php echo $this->session->userdata('idUsuario'); ?>" + "&idLibro=" + idLibro;
@@ -189,20 +200,20 @@
               } else {
                 $("#prueba" + idLibro + " i").attr("class", "fas fa-star fav");
               }
-            
-          } else {
-            e.preventDefault();
-          }
 
-        });
+            } else {
+              e.preventDefault();
+            }
 
-      
+          });
 
 
 
 
 
-        
+
+
+
       })
     });
   </script>
