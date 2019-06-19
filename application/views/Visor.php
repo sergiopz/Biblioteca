@@ -47,7 +47,7 @@
 			}
 			if($titul->pdf=='si'){
 				
-			  echo"<a class='nav-link elementosNav' href='".site_url("Buscador/cargarPdf/$id")."'>Generar PDF</a>"; }?>
+			  echo"<a class='nav-link elementosNav' href='".site_url("Buscador/cargarPdf/$id")."'>PDF</a>"; }?>
 			</div>
 			<div class="container">
 			<div class="main clearfix">
