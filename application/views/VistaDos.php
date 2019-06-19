@@ -18,8 +18,17 @@
                </li>
 
                <li class="nav-item">
-                 <a class="enlacesDrop nav-link elementosNav" href="<?php echo base_url(); ?>index.php/Buscador/Categoria">Categorias</a>
+                 <a class="enlacesDrop nav-link elementosNav" href="<?php echo base_url(); ?>index.php/Buscador/Categoria">Categorías</a>
                </li>
+
+               <?php
+                if ($this->session->userdata('tipoUsuario') == 2) {
+                  echo " <li class='nav-item'>
+                  <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Libros/favoritos/') . $this->session->userdata('idUsuario') . "'>Favoritos</a>
+                </li>
+              ";
+                }
+                ?>
 
              </ul>
              <ul class="navbar-center">
@@ -119,36 +128,36 @@
            });
 
            $(".favorito").click(function() {
-        var idLibro = $(this).attr('value');
-        var cadena = $("#prueba" + idLibro + " i").attr("class");
-        var datos = "idUsuario=" + "<?php echo $this->session->userdata('idUsuario'); ?>" + "&idLibro=" + idLibro;
+             var idLibro = $(this).attr('value');
+             var cadena = $("#prueba" + idLibro + " i").attr("class");
+             var datos = "idUsuario=" + "<?php echo $this->session->userdata('idUsuario'); ?>" + "&idLibro=" + idLibro;
 
 
-        if ("fas fa-star fav" == cadena) {
-          $("#prueba" + idLibro + " i").attr("class", "fas fa-star nofav");
+             if ("fas fa-star fav" == cadena) {
+               $("#prueba" + idLibro + " i").attr("class", "fas fa-star nofav");
 
-          var ruta = "<?php echo site_url("Libros/EliminarFavoritos/"); ?>";
+               var ruta = "<?php echo site_url("Libros/EliminarFavoritos/"); ?>";
 
-          $.ajax({
-            type: "POST",
-            url: ruta,
-            data: datos,
-            success: function(data) {}
-          });
+               $.ajax({
+                 type: "POST",
+                 url: ruta,
+                 data: datos,
+                 success: function(data) {}
+               });
 
-        } else {
-          $("#prueba" + idLibro + " i").attr("class", "fas fa-star fav");
+             } else {
+               $("#prueba" + idLibro + " i").attr("class", "fas fa-star fav");
 
-          var ruta = "<?php echo site_url("Libros/InsertarFavoritos/"); ?>";
+               var ruta = "<?php echo site_url("Libros/InsertarFavoritos/"); ?>";
 
-          $.ajax({
-            type: "POST",
-            url: ruta,
-            data: datos,
-            success: function(data) {}
-          });
-        }
-      })
+               $.ajax({
+                 type: "POST",
+                 url: ruta,
+                 data: datos,
+                 success: function(data) {}
+               });
+             }
+           })
 
          });
        </script>
@@ -177,33 +186,35 @@
           $bus = $listaBusqueda[$i];
           $ultimaPag = count(glob('assets/libros/' . $bus->id . '/{*.jpg,*.gif,*.png}', GLOB_BRACE)) - 1;
           echo " <div class='col-md-3 col-sm-4 col-xs-12 margenTarjeta'>
-         <div class='card tamañoTarjeta'>
+           <div class='card tamañoTarjeta'>
 
-           <a href='" . site_url("Buscador/Visor/$bus->id/$bus->titulo") . "'><img id='$bus->id' name='$ultimaPag' class='card-img-top imgTarjeta' src='" . base_url("assets/libros/" . $bus->id . "/0.jpg") . "'></a>
+             <a href='" . site_url("Buscador/Visor/$bus->id/$bus->titulo") . "'><img id='$bus->id' name='$ultimaPag' class='card-img-top imgTarjeta' src='" . base_url("assets/libros/" . $bus->id . "/0.jpg") . "'></a>
 
-           <div class='card-body'>
-             <h5 class='card-title tituloTarjeta text-center'>$bus->titulo</h5>
-             <a href='" . site_url("Buscador/Visor/$bus->id") . "'>
-               <h5 class='botonTarjeta text-center'>Ver libro</h5>
-             </a>";
-          
+             <div class='card-body'>
+               <h5 class='card-title tituloTarjeta text-center'>$bus->titulo</h5>
+               <a href='" . site_url("Buscador/Visor/$bus->id") . "'>
+                 <h5 class='botonTarjeta text-center'>Ver libro</h5>
+               </a>";
+
           if ($this->session->userdata('tipoUsuario') == 2) {
 
             for ($j = 0; $j < count($favoritos); $j++) {
               $favorito = $favoritos[$j];
-
               if ($bus->id == $favorito->idLibro) {
-                echo "<button class='botonFavorito favorito' id='prueba$bus->id' value='$bus->id' class='favorito' ><i class='fas fa-star fav'></i></button>";
+                echo "<button class='botonFavorito favorito' id='prueba$bus->id' value='$bus->id' class='favorito'><i class='fas fa-star fav'></i></button>";
                 $j = count($favoritos);
               } else if ($j == count($favoritos) - 1) {
-                echo "<button class='botonFavorito favorito' id='prueba$bus->id' value='$bus->id' class='favorito' ><i class='fas fa-star nofav'></i></button>";
+                echo "<button class='botonFavorito favorito' id='prueba$bus->id' value='$bus->id' class='favorito'><i class='fas fa-star nofav'></i></button>";
                 $j = count($favoritos);
               }
             }
+            if (count($favoritos) == 0) {
+              echo "<button class='botonFavorito favorito' id='prueba$bus->id' value='$bus->id' class='favorito'><i class='fas fa-star nofav'></i></button>";
+            }
           }
-        echo"   
-          </div>
-         </div>
+          echo "
+             </div>
+           </div>
          </div>
          <div class='col-md-1 col-sm2 '></div>";
         }

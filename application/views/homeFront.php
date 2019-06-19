@@ -360,6 +360,10 @@
                 $j = count($favoritos);
               }
             }
+
+            if (count($favoritos) == 0) {
+              echo "<button class='botonFavorito favorito' id='prueba$libro->id' value='$libro->id' class='favorito' ><i class='fas fa-star nofav'></i></button>";
+            }
           }
 
           echo "     
