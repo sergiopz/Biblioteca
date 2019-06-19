@@ -54,17 +54,17 @@
           } else {
             if ( ($this->session->userdata('tipoUsuario') >=0)&&($this->session->userdata('tipoUsuario') <=1) ) {
               echo " <li class='nav-item justify-content-end'>
-                        <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Libros/VistaAjax') . "'>Admin</a>
+                        <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Libros/VistaAjax') . "'><i class='fas fa-users-cog'></i></a>
                       </li>
                       <li class='nav-item justify-content-end'>
-                        <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Administrador/IndexRefresh') . "'>Cerrar sesión</a>
+                        <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Administrador/IndexRefresh') . "'><i class='fas fa-door-open'></i></a>
                       </li>
                   ";
              }
   
             else if ($this->session->userdata('tipoUsuario') == 2) {
               echo " <li class='nav-item justify-content-end'>
-                            <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Administrador/IndexRefresh') . "'>Cerrar sesión</a>
+                            <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Administrador/IndexRefresh') . "'><i class='fas fa-door-open'></i></a>
                           </li>
                         ";
             }
@@ -146,16 +146,30 @@
 
 
              if ("fas fa-star fav" == cadena) {
-               $("#prueba" + idLibro + " i").attr("class", "fas fa-star nofav");
+              swal({
+                title: "¿Estás seguro?",
+                text: "Tu libro se eliminará de favoritos!",
+                icon: "warning",
+                buttons: ["Cancelar!", "Adelante!"],
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                  $("#prueba" + idLibro + " i").attr("class", "fas fa-star nofav");
 
-               var ruta = "<?php echo site_url("Libros/EliminarFavoritos/"); ?>";
+                  var ruta = "<?php echo site_url("Libros/EliminarFavoritos/"); ?>";
 
-               $.ajax({
-                 type: "POST",
-                 url: ruta,
-                 data: datos,
-                 success: function(data) {}
-               });
+                  $.ajax({
+                    type: "POST",
+                    url: ruta,
+                    data: datos,
+                    success: function(data) {}
+                  });
+                } else {
+                  e.preventDefault();
+                }
+
+              });
 
              } else {
                $("#prueba" + idLibro + " i").attr("class", "fas fa-star fav");

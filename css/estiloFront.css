@@ -237,7 +237,8 @@ a.enlacesDrop{
     height:50px;
 }
 #buscador2{
-    width:400px;
+    margin-left: 50px;
+    width:350px;
     height:50px;
 }
 #buscador:focus{

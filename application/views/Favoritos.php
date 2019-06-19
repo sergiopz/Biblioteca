@@ -52,15 +52,15 @@
           } else {
             if (($this->session->userdata('tipoUsuario') >= 0) && ($this->session->userdata('tipoUsuario') <= 1)) {
               echo " <li class='nav-item justify-content-end'>
-                        <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Libros/VistaAjax') . "'>Admin</a>
+                        <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Libros/VistaAjax') . "'><i class='fas fa-users-cog'></i></a>
                       </li>
                       <li class='nav-item justify-content-end'>
-                        <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Administrador/IndexRefresh') . "'>Cerrar sesión</a>
+                        <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Administrador/IndexRefresh') . "'><i class='fas fa-door-open'></i></a>
                       </li>
                   ";
             } else if ($this->session->userdata('tipoUsuario') == 2) {
               echo " <li class='nav-item justify-content-end'>
-                            <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Administrador/IndexRefresh') . "'>Cerrar sesión</a>
+                            <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Administrador/IndexRefresh') . "'<i class='fas fa-door-open'></i></a>
                           </li>
                         ";
             }
@@ -206,14 +206,6 @@
             }
 
           });
-
-
-
-
-
-
-
-
       })
     });
   </script>
