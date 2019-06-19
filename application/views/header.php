@@ -36,7 +36,14 @@
 
 <body>
     <nav id='navegacionAdmin' class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-        <div class="container">
+       <a class="nav-link btn-demo" data-toggle="modal" data-target="#leftModal" href="#"><i id="mover">JUAPI MARICON</i></a>
+            <style>
+            #mover{
+                float: right;
+            }
+                
+            </style> <div class="container">
+
             <a class="navbar-brand" href="#">
                 <img id='imglogo' src="<?php echo base_url(); ?>imgs/logoadmin.png" alt="">
             </a>

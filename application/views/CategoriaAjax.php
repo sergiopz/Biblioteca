@@ -64,6 +64,11 @@ $("document").ready(function() {
 </script>
 
 <div class='container'>
+	<div id="colortitulo">
+	<h2 id="tituloultimo" align="center">Categorías</h2>	
+	</div>
+
+	
 
 <table id="Dtabla" class="table hover compact table-striped table-bordered">
     <thead>

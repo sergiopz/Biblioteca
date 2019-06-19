@@ -64,6 +64,9 @@
 </script>
 
 <div class='container'>
+  <div id="colortitulo">
+  <h2 id="tituloultimo" align="center">Editoriales</h2>  
+  </div>
 
 <table id="Dtabla" class="table hover compact table-striped table-bordered">
 
