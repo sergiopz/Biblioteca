@@ -22,7 +22,7 @@
                </li>
 
                <?php
-                if ($this->session->userdata('tipoUsuario') <= 2) {
+                if (($this->session->userdata('tipoUsuario') <= 2) &&(isset($this->session->loguedIn)) ) {
                   echo " <li class='nav-item'>
                   <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Libros/favoritos/') . $this->session->userdata('idUsuario') . "'>Favoritos</a>
                 </li>
@@ -208,7 +208,7 @@
                  <h5 class='botonTarjeta text-center'>Ver libro</h5>
                </a>";
 
-          if ($this->session->userdata('tipoUsuario') <= 2) {
+          if (($this->session->userdata('tipoUsuario') <= 2)&&(isset($this->session->loguedIn))) {
 
             for ($j = 0; $j < count($favoritos); $j++) {
               $favorito = $favoritos[$j];
@@ -220,7 +220,7 @@
                 $j = count($favoritos);
               }
             }
-            if (count($favoritos) == 0) {
+            if ( (count($favoritos) == 0) &&(isset($this->session->loguedIn))  )  {
               echo "<button class='botonFavorito favorito' id='prueba$bus->id' value='$bus->id' class='favorito'><i class='fas fa-star nofav'></i></button>";
             }
           }
