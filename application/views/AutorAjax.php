@@ -63,7 +63,7 @@ $("document").ready(function() {
 </script>
 
 <div class='container'>
-
+<h2 id="tituloultimo" align="center">Autores</h2>
 <table id="Dtabla" class="table hover compact table-striped table-bordered">
     <thead>
         <tr>

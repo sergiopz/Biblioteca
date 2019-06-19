@@ -195,10 +195,10 @@
           } else {
             if ( ($this->session->userdata('tipoUsuario') >=0)&&($this->session->userdata('tipoUsuario') <=1) ) {
               echo " <li class='nav-item justify-content-end'>
-                        <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Libros/VistaAjax') . "'><i class='fas fa-users-cog'></i></a>
+                        <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Libros/VistaAjax') . "'><i class='fas fa-users-cog'></i> Admin</a>
                       </li>
                       <li class='nav-item justify-content-end'>
-                        <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Administrador/IndexRefresh') . "'><i class='fas fa-door-open'></i></a>
+                        <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Administrador/IndexRefresh') . "'><i class='fas fa-door-open'></i> Salir</a>
                       </li>
                   ";
              }

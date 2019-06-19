@@ -36,7 +36,7 @@
 
 <body>
     <nav id='navegacionAdmin' class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-       <a class="nav-link btn-demo" data-toggle="modal" data-target="#leftModal" href="#"><i id="mover">JUAPI MARICON</i></a>
+       <a style='color:white' class="nav-link btn-demo" data-toggle="modal" data-target="#leftModal" href="#"><i class="fas fa-cogs"></i></a>
             <style>
             #mover{
                 float: right;
@@ -62,18 +62,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link btn-demo" data-toggle="modal" data-target="#leftModal" href="#">
-                            Administración
-                        </a>
+                        <a class="nav-link" id='botonInsert' data-toggle='modal' data-target='#insertModal' href="#"><i class="fas fa-plus-circle"></i> Insertar registro</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id='botonInsert' data-toggle='modal' data-target='#insertModal' href="#">Insertar registro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link"id='cerrarsesion'  href="<?php echo site_url("Libros/salir");?>">Cerrar sesión</a>
+                        <a class="nav-link"id='cerrarsesion'  href="<?php echo site_url("Libros/salir");?>"><i class="fas fa-door-open"></i> Cerrar sesión</a>
                     </li>
                     <li>
-                    <a class="nav-link" id='salirInicio'  href="<?php echo site_url("Administrador/Index");?>">index</a>
+                    <a class="nav-link" id='salirInicio'  href="<?php echo site_url("Administrador/Index");?>"><i class="fas fa-home"></i> Biblioteca</a>
                     </li>
                 </ul>
             </div>
