@@ -188,9 +188,10 @@
        <?php
         echo "<div class='container librosBuscados'>
             <div class='row'>";
-        echo "<div  class='col-md-11 col-sm-11 col-xs-11 offset-1'>
-              <form name='formularioBuscador' action='<?php echo base_url(); ?>index.php/Buscador/buscador' class='form-inline' method='post' accept-charset='utf-8'>
+        echo "<div  class='col-md-11 col-sm-11 col-xs-11 offset-1'>";?>
+              <form name="formularioBuscador" action="<?php echo base_url(); ?>index.php/Buscador/buscador" class="form-inline" method="post" accept-charset="utf-8">
        <input id='buscador3' name='buscador' class='form-control mr-sm-2' type='search' placeholder='Titulo, autor, categoria...' aria-label='Search'>
+       <?php echo"
        </form>
        </div>
        </div>";
