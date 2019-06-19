@@ -22,7 +22,7 @@
           </li>
 
           <?php
-          if ($this->session->userdata('tipoUsuario') == 2) {
+          if ($this->session->userdata('tipoUsuario') <= 2) {
             echo " <li class='nav-item'>
                     <a class='enlacesDrop nav-link elementosNav' href='" . site_url('Libros/favoritos/') . $this->session->userdata('idUsuario') . "'>Favoritos</a>
                 </li>
