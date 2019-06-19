@@ -141,7 +141,10 @@
 
 					    <div class='card-body'>
 					      <h5 class='card-title tituloTarjeta text-center'>$libro->titulo</h5> 
-                <a href='" . site_url("Buscador/Visor/$libro->id") . "'><h5 class='botonTarjeta text-center'>Ver libro</h5></a> ";
+                <a href='" . site_url("Buscador/Visor/$libro->id") . "'><h5 class='botonTarjeta text-center'>Ver libro</h5></a> 
+                <button type='button' class='botonDescripcion btn btn-secondary' data-container='body' data-toggle='popover' data-placement='right' data-content='$libro->descripcion'>
+                  Descripción
+                </button>";
 
         if ($this->session->userdata('tipoUsuario') <= 2) {
           echo "<button class='botonFavorito favorito' id='prueba$libro->id' value='$libro->id' class='favorito' ><i class='fas fa-star fav'></i></button>
@@ -164,7 +167,13 @@
 
   <script>
     $("document").ready(function() {
+
+      $('.botonDescripcion').popover({
+          container: 'body'
+        })
+
       $(".favorito").click(function(e) {
+        
 
         swal({
             title: "¿Estás seguro?",

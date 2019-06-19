@@ -2,6 +2,12 @@
   <script>
     $(document).ready(function() {
 
+      
+        $('.botonDescripcion').popover({
+          container: 'body'
+        })
+     
+
       $("#contrasenaRepetida").keyup(function() {
         contrasena1 = $("#contrasenaRegistro").val();
         contrasena2 = $("#contrasenaRepetida").val();
@@ -371,8 +377,12 @@
 
 					    <div class='card-body'>
 					      <h5 class='card-title tituloTarjeta text-center'>$libro->titulo</h5> 
-                <a href='" . site_url("Buscador/Visor/$libro->id") . "'><h5 class='botonTarjeta text-center'>Ver libro</h5></a> ";
-
+                <a href='" . site_url("Buscador/Visor/$libro->id") . "'><h5 class='botonTarjeta text-center'>Ver libro</h5></a> 
+                
+                <button type='button' class='botonDescripcion btn btn-secondary' data-container='body' data-toggle='popover' data-placement='right' data-content='$libro->descripcion'>
+                  Descripción
+                </button>";
+                
           if ($this->session->userdata('tipoUsuario') <= 2) {
 
             for ($j = 0; $j < count($favoritos); $j++) {

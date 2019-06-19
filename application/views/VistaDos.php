@@ -118,6 +118,9 @@
        <!--fin ventana modal-->
        <script>
          $("document").ready(function() {
+          $('.botonDescripcion').popover({
+          container: 'body'
+        })
 
            var direccion = '<?php echo base_url("assets/libros/"); ?>'
 
@@ -219,7 +222,10 @@
                <h5 class='card-title tituloTarjeta text-center'>$bus->titulo</h5>
                <a href='" . site_url("Buscador/Visor/$bus->id") . "'>
                  <h5 class='botonTarjeta text-center'>Ver libro</h5>
-               </a>";
+               </a>
+               <button type='button' class='botonDescripcion btn btn-secondary' data-container='body' data-toggle='popover' data-placement='right' data-content='$bus->descripcion'>
+               Descripción
+             </button>";
 
           if (($this->session->userdata('tipoUsuario') <= 2)&&(isset($this->session->loguedIn))) {
 

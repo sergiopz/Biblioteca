@@ -46,7 +46,7 @@
         public function UltimosLibros() {
            
             
-            $r = $this->db->query("SELECT id,titulo FROM libros ORDER BY id DESC limit 6"); 
+            $r = $this->db->query("SELECT id,titulo,descripcion FROM libros ORDER BY id DESC limit 6"); 
             
             $libros = array();
            foreach ($r -> result()as $li) {
@@ -92,7 +92,7 @@
             public function LibrosCategorias($LibrosCategorias) {
            
             
-            $r = $this->db->query("SELECT libros.id , libros.titulo FROM libros, librocategoria, categoria WHERE libros.id = libroCategoria.idLibro AND librocategoria.idCategoria = categoria.id AND categoria.id = '$LibrosCategorias'"); 
+            $r = $this->db->query("SELECT libros.id , libros.titulo, libros.descripcion FROM libros, librocategoria, categoria WHERE libros.id = libroCategoria.idLibro AND librocategoria.idCategoria = categoria.id AND categoria.id = '$LibrosCategorias'"); 
             
             $listaBusqueda = array();
            foreach ($r -> result()as $ca) {
