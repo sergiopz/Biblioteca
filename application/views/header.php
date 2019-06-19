@@ -65,6 +65,9 @@
                     <li class="nav-item">
                         <a class="nav-link"id='cerrarsesion'  href="<?php echo site_url("Libros/salir");?>">Cerrar sesión</a>
                     </li>
+                    <li>
+                    <a class="nav-link" id='salirInicio'  href="<?php echo site_url("Administrador/Index");?>">index</a>
+                    </li>
                 </ul>
             </div>
         </div>
