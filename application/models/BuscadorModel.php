@@ -5,19 +5,26 @@
            
            
           
-            $r=$this->db->query("SELECT libros.id, libros.titulo FROM libros, instituto WHERE libros.idInstituto = instituto.id AND instituto.nombre = '$valor'
+            $r=$this->db->query("SELECT libros.id, libros.titulo FROM libros, instituto WHERE libros.idInstituto = instituto.id AND instituto.nombre like '%$valor%'
 
                                 union
 
-                                SELECT libros.id, libros.titulo FROM libros, editorial WHERE libros.idInstituto = editorial.id AND editorial.nombre = '$valor'
+                                SELECT libros.id, libros.titulo FROM libros, editorial WHERE libros.idInstituto = editorial.id AND editorial.nombre like '%$valor%'
 
                                 union
 
-                                SELECT libros.id , libros.titulo FROM libros, librocategoria, categoria WHERE libros.id = libroCategoria.idLibro AND librocategoria.idCategoria = categoria.id AND categoria.nombre = '$valor'
+                                SELECT libros.id , libros.titulo FROM libros, librocategoria, categoria 
+                                WHERE libros.id = libroCategoria.idLibro AND librocategoria.idCategoria = categoria.id AND categoria.nombre like '%$valor%'
 
                                 union
 
-                                SELECT id, titulo FROM libros where titulo= '$valor'"); 
+                                SELECT libros.id , libros.titulo FROM libros, autoreslibros, autores
+                                 WHERE libros.id = autoreslibros.idLibro AND autoreslibros.idAutor = autores.id AND autores.nombre 
+                                 like '%$valor%'
+
+                                union
+
+                                SELECT id, titulo FROM libros where titulo like '%$valor%'"); 
                                             
             
        
